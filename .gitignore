@@ -1,0 +1,24 @@
+# Temp files
+tmpclaude*
+
+# Old demo structure (content moved to articles/)
+Demo/Article.md
+Demo/article_visuals/
+Demo/generate_article_visuals.py
+
+# Raw data (moved into article folders)
+data_raw/
+
+# Empty infrastructure dirs (not ready to publish)
+data_processed/
+dashboards/
+reconciliations/
+scripts/
+docs/
+pythonmuse_finance_workspace/
+
+# Internal planning doc
+demo.md
+
+# Windows artifacts
+nul

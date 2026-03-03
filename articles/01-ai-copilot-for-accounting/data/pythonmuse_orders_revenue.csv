@@ -1,0 +1,21 @@
+order_id,order_date,customer,region,product,quantity,unit_price,total_revenue,salesperson
+1001,2024-01-15,DataNova Inc,Northeast,PyPal,50,120,6000,Emma Chen
+1002,2024-02-20,QuantumEdge LLC,West,ByteBot,30,180,5400,Liam Carter
+1003,2024-03-18,InsightWorks,Central,PyPal,40,125,5000,Sophia Ramirez
+1004,2024-04-10,Vertex Analytics,Northeast,TensorTurtle,20,250,5000,Noah Patel
+1005,2024-05-22,AlphaMind Labs,West,PyPal,60,118,7080,Emma Chen
+1006,2024-07-05,Cortex Systems,Southeast,ByteBot,35,185,6475,Olivia Brooks
+1007,2024-08-19,BluePeak AI,Northeast,TensorTurtle,25,260,6500,Sophia Ramirez
+1008,2024-10-02,SignalBridge,West,ByteBot,28,178,4984,Liam Carter
+1009,2024-11-14,NeuralPath Co,Central,PyPal,70,115,8050,Emma Chen
+1010,2024-12-08,DeepLens Group,Southeast,TensorTurtle,22,255,5610,Noah Patel
+2001,2025-01-14,DataNova Inc,Northeast,ByteBot,45,190,8550,Emma Chen
+2002,2025-02-28,QuantumEdge LLC,West,TensorTurtle,22,270,5940,Liam Carter
+2003,2025-03-20,InsightWorks,Central,PyPal,55,130,7150,Sophia Ramirez
+2004,2025-05-16,Vertex Analytics,Northeast,TensorTurtle,30,255,7650,Noah Patel
+2005,2025-06-09,AlphaMind Labs,West,ByteBot,50,175,8750,Emma Chen
+2006,2025-07-21,Cortex Systems,Southeast,PyPal,65,120,7800,Olivia Brooks
+2007,2025-08-15,NeuralPath Co,Central,ByteBot,40,170,6800,Sophia Ramirez
+2008,2025-09-30,BluePeak AI,Northeast,TensorTurtle,35,240,8400,Liam Carter
+2009,2025-10-22,DeepLens Group,Southeast,PyPal,80,108,8640,Emma Chen
+2010,2025-11-15,SignalBridge,West,TensorTurtle,28,238,6664,Noah Patel
