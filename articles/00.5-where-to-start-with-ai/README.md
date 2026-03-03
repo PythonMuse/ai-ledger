@@ -188,6 +188,8 @@ Don't overthink it.
 
 **Just start.**
 
+For a more detailed, step-by-step version of this checklist -- including a 30-day commitment plan, reflection prompts, and common myths debunked -- check out the **[AI Getting Started Toolkit](ai-getting-started-toolkit.md)**.
+
 ---
 
 *By Svetlana Toohey*
