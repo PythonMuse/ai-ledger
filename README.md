@@ -10,6 +10,8 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 
 | # | Title | Topics |
 |---|-------|--------|
+| 00 | [True or False: AI Will Replace My Job?](articles/00-ai-will-not-replace-your-job/) | Career perspective, Python fundamentals, durable skills, why Python Muse exists |
+| 00.5 | [Where to Start If You're Ready to Work With AI](articles/00.5-where-to-start-with-ai/) | Getting started, VS Code, Python setup, Microsoft Copilot, mindset shift |
 | 01 | [Your AI Co-Pilot for Accounting](articles/01-ai-copilot-for-accounting/) | Margin analysis, vendor cost inflation, salesperson performance, revenue concentration |
 
 ---
