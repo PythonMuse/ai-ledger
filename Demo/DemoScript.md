@@ -35,7 +35,7 @@
 
 ## Part 1: Orientation (The "Wow, This Is My Workspace" Moment)
 
-> **Talking point:** "This is VS Code -- think of it as a smart notebook for your data. The left panel shows your files. The bottom panel is where we talk to Claude."
+> **Talking point:** "This is VS Code -- think of it as a smart notebook for your data. The left panel shows your files. The right side panel is where we talk to Claude."
 
 ### Prompt 1 -- Let Claude Introduce Itself to the Data
 
