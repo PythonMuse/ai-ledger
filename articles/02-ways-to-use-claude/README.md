@@ -5,6 +5,7 @@
 ---
 
 **By Svetlana Toohey**
+*Published March 2026*
 
 Many professionals hear about Claude and assume it's just another chatbot.
 
@@ -106,6 +107,8 @@ Claude can help generate Python scripts to:
 
 This is the approach at the heart of PythonMuse -- helping finance professionals move from AI user to AI collaborator.
 
+If your corporate environment requires IT approval before VS Code can be installed, [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) addresses how to approach that conversation.
+
 ---
 
 ## 3. Claude API (Embedding AI in Applications)
@@ -175,4 +178,4 @@ If you're curious how to take the next step, the [hands-on walkthrough in Articl
 
 *By Svetlana Toohey*
 
-*Related: [Where to Start If You're Ready to Work With AI](../00.5-where-to-start-with-ai/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/)*
+*Related: [Where to Start If You're Ready to Work With AI](../00.5-where-to-start-with-ai/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/)*

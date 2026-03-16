@@ -1,5 +1,6 @@
 # Temp files
 tmpclaude*
+_ul
 
 # Old demo structure (content moved to articles/)
 Demo/Article.md
@@ -23,6 +24,10 @@ demo.md
 # Internal brand guide (not for public)
 SKILL.md
 NOTES.md
+StatusUpdate.md
+
+# Claude Code local config
+.claude/
 
 # Windows artifacts
 nul

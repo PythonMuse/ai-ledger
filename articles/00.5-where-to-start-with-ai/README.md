@@ -93,6 +93,8 @@ I won't rewrite installation steps here -- there are great walkthroughs already:
 
 (These are easy, step-by-step, and very visual.)
 
+If you're in a corporate environment that requires IT approval before you can install new software, [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) walks through how to approach that conversation with IT.
+
 ---
 
 ## 3. Install Python and Connect It to VS Code
@@ -193,3 +195,6 @@ For a more detailed, step-by-step version of this checklist -- including a 30-da
 ---
 
 *By Svetlana Toohey*
+*Published March 2026*
+
+*Related: [True or False: AI Will Replace My Job?](../00-ai-will-not-replace-your-job/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/)*

@@ -14,6 +14,8 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 00.5 | [Where to Start If You're Ready to Work With AI](articles/00.5-where-to-start-with-ai/) | Getting started, VS Code, Python setup, Microsoft Copilot, mindset shift |
 | 01 | [Your AI Co-Pilot for Accounting](articles/01-ai-copilot-for-accounting/) | Margin analysis, vendor cost inflation, salesperson performance, revenue concentration |
 | 02 | [Ways to Use Claude: Choosing the Right Interface](articles/02-ways-to-use-claude/) | Claude.ai, API, Claude Code, interface comparison, getting started |
+| 03 | [Getting the Right Tools Installed: A Safe Starting Point for Accounting Teams](articles/03-getting-the-right-tools-installed/) | IT approvals, secure adoption, VS Code and Python setup framing, low-risk pilot use cases |
+
 ---
 
 ## Who This Is For

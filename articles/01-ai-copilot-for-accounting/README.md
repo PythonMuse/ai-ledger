@@ -5,6 +5,7 @@
 ---
 
 **By Svetlana Toohey**
+*Published March 2026*
 
 If someone told you a year ago that you could open two spreadsheets, type a question in plain English, and get a CFO-ready margin analysis in seconds -- you'd probably assume there was a catch.
 
@@ -50,7 +51,7 @@ Just raw data and structured questions.
 
 ## Getting Started
 
-If you haven't set up your environment yet, start with the previous article: **[Where to Start If You're Ready to Work With AI](../00.5-where-to-start-with-ai/)**. It walks through installing Visual Studio Code, Python, and connecting the core tools -- no developer experience required.
+If you haven't set up your environment yet, start with the previous article: **[Where to Start If You're Ready to Work With AI](../00.5-where-to-start-with-ai/)**. It walks through installing Visual Studio Code, Python, and connecting the core tools -- no developer experience required. If you're in a corporate environment that requires IT approval first, [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) covers how to frame that conversation.
 
 Once you have VS Code ready:
 
@@ -461,3 +462,9 @@ These five prompts work whether you're analyzing orders, projects, clients, depa
 *The sample data and scripts referenced in this article are available in this repository. The author used Claude via Copilot Chat in VS Code on Windows. All analysis was performed live -- no results were pre-calculated or staged.*
 
 *If you're experimenting and want to compare notes -- I'm here to help.*
+
+---
+
+*By Svetlana Toohey*
+
+*Related: [Where to Start If You're Ready to Work With AI](../00.5-where-to-start-with-ai/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [Ways to Use Claude: Choosing the Right Interface](../02-ways-to-use-claude/)*
