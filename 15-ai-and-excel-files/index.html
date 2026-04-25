@@ -1,0 +1,1430 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/15-ai-and-excel-files/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>"AI Can't Work With Our Excel Files"... or Can It? - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-cant-work-with-our-excel-files-or-can-it" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              "AI Can't Work With Our Excel Files"... or Can It?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Objection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-real-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Real Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-files-to-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Files to Instructions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-tier-data-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three-Tier Data Approach
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Three-Tier Data Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-best-direct-data-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 -- Best: Direct Data (SQL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-better-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 -- Better: CSV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-complex-excel-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 -- Complex: Excel + Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-skill-for-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is a "Skill" for Excel?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demo-see-the-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Demo: See the Difference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Demo: See the Difference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-the-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Without the Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-skill-applied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With the Skill Applied
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-unexpected-benefit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Unexpected Benefit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-real-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Real Transformation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-sounds-like-more-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "This Sounds Like More Work..."
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-safety-still-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Safety Still Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-bigger-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Bigger Picture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-this-start-with-one-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try This: Start With One File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thought
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ai-cant-work-with-our-excel-files-or-can-it">"AI Can't Work With Our Excel Files"... or Can It?</h1>
+<p><em>Why the problem is not Excel -- it is the missing instruction layer</em></p>
+<hr />
+<p><strong>By Svetlana Toohey</strong>
+<em>Published March 2026</em></p>
+<p><img alt="AI and Excel" src="visuals/15_visual_front.png" /></p>
+<hr />
+<h2 id="the-objection">The Objection</h2>
+<p>I recently heard something that made me pause.</p>
+<p>A company told their accounting team:</p>
+<blockquote>
+<p>"AI and agents won't work for us -- our Excel files are too complex."</p>
+</blockquote>
+<p>And to be fair, I get it.</p>
+<p>Their workbooks likely look like most accounting files:</p>
+<ul>
+<li>10+ tabs</li>
+<li>Pivot tables layered on pivot tables</li>
+<li>Hidden formulas</li>
+<li>Visual dashboards</li>
+<li>"Final_v3_UPDATED_use_this_one.xlsx"</li>
+</ul>
+<p>From the outside, it does look like something AI would not be able to work with.</p>
+<p>But here is the thing:</p>
+<p><strong>That is not a limitation of AI. That is a missing instruction layer.</strong></p>
+<hr />
+<h2 id="the-real-problem">The Real Problem</h2>
+<p>AI struggles with Excel for the same reason a newly hired staff accountant would: it has not been taught how the file works.</p>
+<p>If you handed a new hire a complex workbook and said "Go analyze this," they would struggle.</p>
+<p>But if you spent 30 minutes explaining:</p>
+<ul>
+<li>Which tab is the source of truth</li>
+<li>Which tabs are just visuals</li>
+<li>Which pivots can be ignored</li>
+<li>How calculations are derived</li>
+</ul>
+<p>They would figure it out quickly.</p>
+<p>AI is the same way. It does not need simpler files. It needs better instructions.</p>
+<hr />
+<h2 id="from-files-to-instructions">From Files to Instructions</h2>
+<p>Most teams are doing this:</p>
+<blockquote>
+<p>Upload Excel. "Analyze this."</p>
+</blockquote>
+<p>What actually works:</p>
+<blockquote>
+<p>Upload Excel + "Here is how this file works."</p>
+</blockquote>
+<p>That second piece is what changes everything. And in PythonMuse, we call it a <strong>Skill</strong>.</p>
+<p>If you have followed the series, you have already seen Skills in action. <a href="../11-one-time-to-repeatable-workflows/">From One-Time Analysis to Repeatable Workflows</a> introduced the Skill concept as documentation that makes AI workflows consistent and repeatable. <a href="../14-ai-team-for-accountants/">Article 14</a> showed how Skills fit into model orchestration. This article applies the same idea to the one file type everyone said AI could not handle.</p>
+<hr />
+<h2 id="the-three-tier-data-approach">The Three-Tier Data Approach</h2>
+<p>Not all data sources are equal. I recommend thinking about your data in three tiers:</p>
+<p><img alt="Three-Tier Data Approach" src="visuals/15_data_tiers.png" /></p>
+<p><em>Figure: The three tiers of data readiness for AI -- from SQL (best) to Excel with a Skill (complex but workable).</em></p>
+<h3 id="level-1-best-direct-data-sql">Level 1 -- Best: Direct Data (SQL)</h3>
+<ul>
+<li>Clean, structured, fully AI-ready</li>
+<li>No interpretation needed</li>
+<li>Best for recurring analysis and production workflows</li>
+</ul>
+<h3 id="level-2-better-csv">Level 2 -- Better: CSV</h3>
+<ul>
+<li>Flat and predictable</li>
+<li>Minimal noise</li>
+<li>Easy for AI to interpret without extra instructions</li>
+</ul>
+<h3 id="level-3-complex-excel-skill">Level 3 -- Complex: Excel + Skill</h3>
+<ul>
+<li>Multi-layered, visual-heavy, not self-explanatory</li>
+<li>Requires an instruction layer (a Skill) to guide AI</li>
+<li>Still fully workable once the Skill exists</li>
+</ul>
+<p>Excel is not bad. It just needs context that CSV and SQL do not.</p>
+<hr />
+<h2 id="what-is-a-skill-for-excel">What Is a "Skill" for Excel?</h2>
+<p>A Skill is documentation that teaches AI how your spreadsheet works.</p>
+<p>Think of it as a <strong>training manual for your Excel file</strong>.</p>
+<p>You create it once and reuse it every time that file (or its monthly refresh) needs analysis.</p>
+<p>Here is a simplified example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># SKILL: Monthly Financial Workbook</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gu">## File Structure</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">-</span><span class="w"> </span>Raw_Data tab: source of truth (transaction-level detail)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">-</span><span class="w"> </span>Pivot_Summary tab: validation reference only (do not rely on for analysis)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">-</span><span class="w"> </span>Dashboard tab: visuals only (ignore for data extraction)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gu">## Rules</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">-</span><span class="w"> </span>Always use the Raw_Data tab as the primary data source
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">-</span><span class="w"> </span>Recalculate totals from Raw_Data instead of trusting pivot summaries
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">-</span><span class="w"> </span>Ignore formatting, merged cells, and conditional highlighting
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">-</span><span class="w"> </span>Column A = Date, Column B = Department, Column D = Amount
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="gu">## Supported Analyses</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">-</span><span class="w"> </span>Monthly variance (current vs prior month)
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="k">-</span><span class="w"> </span>Department spend comparison
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">-</span><span class="w"> </span>Trend analysis (trailing 6 months)
+</code></pre></div>
+<p>A full, production-ready example is available in the examples folder: <a href="../../examples/skill-excel-interpretation/">Excel Interpretation Skill</a>.</p>
+<p>If you have already built a reconciliation or margin analysis Skill (see the <a href="../../examples/skill-bank-reconciliation/">bank reconciliation</a> and <a href="../../examples/skill-margin-analysis/">margin analysis</a> examples), this follows the exact same format. The only difference is that this Skill explains <em>the file itself</em>, not just the workflow.</p>
+<hr />
+<h2 id="demo-see-the-difference">Demo: See the Difference</h2>
+<p>To make this real, I created a sample workbook that mirrors what you would see in a typical accounting department -- multiple tabs, pivot summaries, a dashboard, and transaction-level data mixed together.</p>
+<p>Download the demo workbook: <a href="data/monthly_financial_workbook.xlsx">monthly_financial_workbook.xlsx</a></p>
+<h3 id="without-the-skill">Without the Skill</h3>
+<p>Prompt:</p>
+<blockquote>
+<p>"Analyze this file and explain the monthly variance."</p>
+</blockquote>
+<p>What you get:</p>
+<ul>
+<li>Surface-level summary of whatever tab opened first</li>
+<li>Misinterpretation of pivot data as raw data</li>
+<li>Totals pulled from the dashboard instead of recalculated</li>
+<li>No confidence in the results</li>
+</ul>
+<h3 id="with-the-skill-applied">With the Skill Applied</h3>
+<p>Prompt:</p>
+<blockquote>
+<p>"Use the Excel interpretation Skill to analyze this file. Focus on the Raw_Data tab and calculate monthly variance by department."</p>
+</blockquote>
+<p>What you get:</p>
+<ul>
+<li>AI reads the Skill first and understands the file layout</li>
+<li>Goes directly to Raw_Data, ignores the dashboard and pivots</li>
+<li>Recalculates totals from source data</li>
+<li>Structured output with department-level variance</li>
+</ul>
+<p><strong>Same file. Same AI. Completely different results.</strong></p>
+<p>The difference is the instruction layer.</p>
+<hr />
+<h2 id="the-unexpected-benefit">The Unexpected Benefit</h2>
+<p>This is something I did not expect when I started doing this.</p>
+<p>As I was documenting a spreadsheet for Claude, I found myself asking the same questions Claude would ask:</p>
+<ul>
+<li>Why did we structure it this way?</li>
+<li>Why are we using this pivot instead of raw data?</li>
+<li>Is this tab even necessary?</li>
+<li>Could this be done simpler?</li>
+</ul>
+<p>And then I realized: you can actually ask Claude those same questions.</p>
+<p>Once your Skill is written, try:</p>
+<blockquote>
+<p>"Given this spreadsheet structure, is there a simpler way to achieve the same outcome?"</p>
+<p>"Can this workflow be redesigned to eliminate this spreadsheet altogether?"</p>
+</blockquote>
+<p>You may be surprised. Redundant tabs get eliminated. Manual steps get automated. Entire workflows get redesigned.</p>
+<p>And in some cases, you may not need the spreadsheet at all anymore.</p>
+<hr />
+<h2 id="the-real-transformation">The Real Transformation</h2>
+<p>What starts as:</p>
+<blockquote>
+<p>"Let's help AI understand Excel."</p>
+</blockquote>
+<p>Turns into:</p>
+<blockquote>
+<p>"Why are we still doing this in Excel?"</p>
+</blockquote>
+<p>That is the real transformation. Not just using AI to read your files -- using the process of documenting them to discover that a better workflow exists.</p>
+<p>This connects directly to the idea behind <a href="../09-how-accountants-learn-ai/">How Accountants Learn AI</a>: the learning is not just about the tool, it is about rethinking the process.</p>
+<hr />
+<h2 id="this-sounds-like-more-work">"This Sounds Like More Work..."</h2>
+<p>You spend 1 to 2 hours documenting once.</p>
+<p>And you eliminate:</p>
+<ul>
+<li>Re-training every time a new person picks up the file</li>
+<li>Rework when someone misinterprets the workbook</li>
+<li>Manual analysis that could be automated</li>
+</ul>
+<p>Think of it like training an intern. You explain once. They learn. They repeat.</p>
+<p>Except this one:</p>
+<ul>
+<li>Never forgets</li>
+<li>Works instantly</li>
+<li>Does not leave for another role</li>
+</ul>
+<p>And the documentation itself becomes institutional knowledge -- something your team keeps even if you move on.</p>
+<hr />
+<h2 id="data-safety-still-matters">Data Safety Still Matters</h2>
+<p>Before using AI with any Excel file:</p>
+<ul>
+<li>Mask sensitive data (names, SSNs, account numbers)</li>
+<li>Avoid PII -- use <a href="../06-safe-ai-data-workflows/">safe data workflows</a> covered in Article 6</li>
+<li>Follow internal data handling policies</li>
+<li>Align with governance frameworks -- the <a href="../13-zero-trust-ai-accounting/">Zero Trust approach</a> from Article 13 applies here too</li>
+</ul>
+<p>The Skill documents the file structure, not the data itself. You can share a Skill file freely because it contains no sensitive information -- only instructions.</p>
+<hr />
+<h2 id="the-bigger-picture">The Bigger Picture</h2>
+<p>This is not the end state. It is a bridge.</p>
+<p><strong>Today:</strong> Excel + Skills. You take the complex workbooks you already have and make them AI-readable.</p>
+<p><strong>Tomorrow:</strong> CSV + Python workflows. New analysis starts with clean data exports, reproducible scripts, and <a href="../12-audit-ready-ai-workflows/">audit-ready outputs</a>.</p>
+<p><strong>Eventually:</strong> Excel becomes optional, not required. The Skills that document your workbooks become the migration path to something better.</p>
+<p>And as you saw in <a href="../10-ai-use-cases-and-structure/">AI Use Cases and How to Structure Them</a>, the progression from ad hoc to repeatable to audit-ready is the same pattern -- just applied to a different starting point.</p>
+<hr />
+<h2 id="try-this-start-with-one-file">Try This: Start With One File</h2>
+<ol>
+<li>Pick one complex Excel workbook your team uses regularly</li>
+<li>Open it and write down: which tab is source of truth, which can be ignored, what the key columns mean</li>
+<li>Save that as a <code>SKILL.md</code> file (use the <a href="../../examples/skill-excel-interpretation/">Excel interpretation Skill example</a> as a template)</li>
+<li>Upload the workbook to Claude along with the Skill</li>
+<li>Prompt: "Use this Skill to interpret the file and perform [your analysis]"</li>
+<li>Review, validate, iterate</li>
+</ol>
+<p>You are not starting from scratch. Claude does the work while you prompt, review, and validate. Not much different from working with a brand new staff accountant -- except you only have to train this one once.</p>
+<hr />
+<h2 id="final-thought">Final Thought</h2>
+<p>Excel is not the problem. Lack of structure is.</p>
+<p>And sometimes the process of teaching AI your workflow is what finally reveals a better one.</p>
+<hr />
+<p><em>Related: <a href="../17-skills-and-agents-for-accountants/">The Power of Skills and Agents</a> | <a href="../11-one-time-to-repeatable-workflows/">From One-Time Analysis to Repeatable Workflows</a> | <a href="../06-safe-ai-data-workflows/">How to Use AI Without Sending the Wrong Data</a> | <a href="../14-ai-team-for-accountants/">Stop Using One AI Like It Is Excel</a> | <a href="../10-ai-use-cases-and-structure/">AI Use Cases and How to Structure Them</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

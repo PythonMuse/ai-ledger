@@ -1,0 +1,1867 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/01-ai-copilot-for-accounting/">
+      
+      
+        <link rel="prev" href="../00.5-where-to-start-with-ai/">
+      
+      
+        <link rel="next" href="../02-ways-to-use-claude/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Your AI Co-Pilot for Accounting - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#your-ai-co-pilot-for-accounting-a-hands-on-guide-to-claude-in-vs-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Your AI Co-Pilot for Accounting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-were-working-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What We're Working With
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-first-question-orientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The First Question: Orientation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#margin-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Margin Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-trust-it-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Trust It: Validate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-number-that-should-worry-the-ceo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Number That Should Worry the CEO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sales-vendor-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sales &amp; Vendor Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asking-the-strategic-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asking the Strategic Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-stop-chatting-and-start-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Stop Chatting and Start Building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-excel-analogy-we-all-understand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Excel Analogy We All Understand
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-without-abandoning-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporting Without Abandoning Excel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-your-own-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Your Own Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-ai-changes-and-what-it-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What AI Changes -- and What It Doesn't
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-real-skill-being-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Real Skill Being Built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try It Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-prompts-every-accountant-should-try-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Five Prompts Every Accountant Should Try First
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-were-working-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What We're Working With
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-first-question-orientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The First Question: Orientation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#margin-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Margin Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-trust-it-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Trust It: Validate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-number-that-should-worry-the-ceo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Number That Should Worry the CEO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sales-vendor-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sales &amp; Vendor Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asking-the-strategic-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asking the Strategic Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-stop-chatting-and-start-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Stop Chatting and Start Building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-excel-analogy-we-all-understand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Excel Analogy We All Understand
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-without-abandoning-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporting Without Abandoning Excel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-your-own-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Your Own Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-ai-changes-and-what-it-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What AI Changes -- and What It Doesn't
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-real-skill-being-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Real Skill Being Built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try It Yourself
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-prompts-every-accountant-should-try-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Five Prompts Every Accountant Should Try First
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="your-ai-co-pilot-for-accounting-a-hands-on-guide-to-claude-in-vs-code">Your AI Co-Pilot for Accounting: A Hands-On Guide to Claude in VS Code</h1>
+<p><em>How two CSV files, plain English questions, and zero formulas revealed a margin crisis in under 10 minutes</em></p>
+<hr />
+<p><strong>By Svetlana Toohey</strong>
+<em>Published March 2026</em></p>
+<p>If someone told you a year ago that you could open two spreadsheets, type a question in plain English, and get a CFO-ready margin analysis in seconds -- you'd probably assume there was a catch.</p>
+<p>There isn't.</p>
+<p>AI coding assistants are changing how quickly we move from raw data to insight. And accountants are uniquely positioned to benefit.</p>
+<p>You don't need to know Python to start.
+You don't need to be a developer.</p>
+<p>You need to know what questions to ask.</p>
+<p>That's something accountants have always done well.</p>
+<p>This article walks through a real example step by step. By the end, you'll know how to try it yourself -- and how to grow beyond prompts into reusable systems.</p>
+<hr />
+<h2 id="what-were-working-with">What We're Working With</h2>
+<p><strong>Tool:</strong> Claude, accessed through Copilot Chat in Visual Studio Code (VS Code).
+<strong>Data:</strong> Two CSV files.
+That's it.</p>
+<p>A fictional company -- <strong>CodeCritters Inc.</strong> -- sells premium AI-themed desk fidgets. Three product lines:</p>
+<ul>
+<li><strong>PyPal</strong> -- a friendly snake-shaped fidget coil (<em>$108--$130</em>)</li>
+<li><strong>ByteBot</strong> -- an articulated robot desk companion (<em>$170--$190</em>)</li>
+<li><strong>TensorTurtle</strong> -- a premium kinetic desk sculpture (<em>$238--$270</em>)</li>
+</ul>
+<p>The data:</p>
+<ul>
+<li><code>pythonmuse_orders_revenue.csv</code> -- 20 orders across 2024--2025 with customer, product, quantity, price, and salesperson</li>
+<li><code>pythonmuse_orders_costs.csv</code> -- matching cost records with vendor, material cost, labor employee, hours, and rates</li>
+</ul>
+<p>No pivot tables.
+No VLOOKUP chains.
+No macros.</p>
+<p>Just raw data and structured questions.</p>
+<hr />
+<h2 id="getting-started">Getting Started</h2>
+<p>If you haven't set up your environment yet, start with the previous article: <strong><a href="../00.5-where-to-start-with-ai/">Where to Start If You're Ready to Work With AI</a></strong>. It walks through installing Visual Studio Code, Python, and connecting the core tools -- no developer experience required. If you're in a corporate environment that requires IT approval first, <a href="../03-getting-the-right-tools-installed/">Getting the Right Tools Installed</a> covers how to frame that conversation.</p>
+<p>Once you have VS Code ready:</p>
+<ol>
+<li><strong>Enable Claude in Copilot Chat</strong> -- open VS Code, go to the Copilot Chat panel, and select <strong>Claude</strong> from the model options at the bottom of the chat screen</li>
+<li><strong>Create a project folder</strong> with your CSV files inside a <code>data_raw/</code> subfolder</li>
+<li><strong>Open the folder</strong> in VS Code (File &gt; Open Folder)</li>
+</ol>
+<p>That's it. You're now talking to an AI that can read, analyze, and reason about your data -- right inside VS Code's chat panel.</p>
+<hr />
+<h2 id="the-first-question-orientation">The First Question: Orientation</h2>
+<p>You type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Read the two CSV files in the data_raw folder and summarize
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>what we&#39;re working with -- time period, products, salespeople.
+</code></pre></div>
+<p>Claude responds:</p>
+<p>20 orders. January 2024 through November 2025. Three products across three price tiers. Five salespeople. Five production employees. Three material vendors. Revenue and cost data linked by order ID.</p>
+<p>In seconds.</p>
+<p>Before you even open Excel, you understand the business structure.</p>
+<p>That alone saves time every month.</p>
+<hr />
+<h2 id="margin-analysis">Margin Analysis</h2>
+<p>Here's where accountants will sit up straight.</p>
+<p><strong>What you type:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Join the revenue and cost data on order_id.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Calculate gross profit and margin percentage.
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Sort by lowest margin first.
+</code></pre></div>
+<p><strong>What Claude finds:</strong></p>
+<p><img alt="Chart: Gross Margin by Order" src="visuals/01_margin_by_order.png" />
+<em>Figure 1: Gross margin percentage by order. Red bars indicate orders below 20% -- all are TensorTurtle products sourced from SiliconSerpent Supply Co.</em></p>
+<p>Three orders fall below 20% margin:</p>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Salesperson</th>
+<th>Product</th>
+<th style="text-align: right;">Revenue</th>
+<th style="text-align: right;">COGS</th>
+<th style="text-align: right;">Margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2010</td>
+<td>Noah Patel</td>
+<td>TensorTurtle</td>
+<td style="text-align: right;">$6,664</td>
+<td style="text-align: right;">$5,572</td>
+<td style="text-align: right;"><strong>16.4%</strong></td>
+</tr>
+<tr>
+<td>2008</td>
+<td>Liam Carter</td>
+<td>TensorTurtle</td>
+<td style="text-align: right;">$8,400</td>
+<td style="text-align: right;">$6,960</td>
+<td style="text-align: right;"><strong>17.1%</strong></td>
+</tr>
+<tr>
+<td>2004</td>
+<td>Noah Patel</td>
+<td>TensorTurtle</td>
+<td style="text-align: right;">$7,650</td>
+<td style="text-align: right;">$6,300</td>
+<td style="text-align: right;"><strong>17.6%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Same product.
+Same vendor.
+Same year.</p>
+<p>That's not noise.
+That's a pattern.</p>
+<p>Meanwhile, the healthiest margins (41--43%) belong to PyPal orders in 2024. The pattern is clear before we even ask the next question.</p>
+<hr />
+<h2 id="before-you-trust-it-validate">Before You Trust It: Validate</h2>
+<p>This is where accountants stay accountants.</p>
+<p>Immediately follow with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Show the exact formulas used for gross profit and margin.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Confirm totals tie back to the source files.
+</code></pre></div>
+<p>Then:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Export the full dataset with calculations to Excel
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>so I can review it manually.
+</code></pre></div>
+<p>Spot-check a few rows.
+Recalculate one margin.
+Confirm totals.</p>
+<p>AI accelerates analysis.</p>
+<p>You still control validation.</p>
+<p>That balance is what makes this professional -- not experimental.</p>
+<hr />
+<h2 id="the-number-that-should-worry-the-ceo">The Number That Should Worry the CEO</h2>
+<p><strong>What you type:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Compare 2024 vs 2025: total revenue, total COGS, gross profit, and
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>gross margin percentage. Is margin compressing?
+</code></pre></div>
+<p><strong>What Claude finds:</strong></p>
+<p><img alt="Chart: Year-over-Year Comparison" src="visuals/02_yoy_comparison.png" />
+<em>Figure 2: Revenue grew 27% while gross profit stayed flat -- the classic "growing into lower profitability" pattern.</em></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">2024</th>
+<th style="text-align: right;">2025</th>
+<th style="text-align: right;">Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revenue</td>
+<td style="text-align: right;">$60,099</td>
+<td style="text-align: right;">$76,344</td>
+<td style="text-align: right;"><strong>+27.0%</strong></td>
+</tr>
+<tr>
+<td>COGS</td>
+<td style="text-align: right;">$37,082</td>
+<td style="text-align: right;">$53,425</td>
+<td style="text-align: right;">+44.1%</td>
+</tr>
+<tr>
+<td>Gross Profit</td>
+<td style="text-align: right;">$23,017</td>
+<td style="text-align: right;">$22,919</td>
+<td style="text-align: right;"><strong>-0.4%</strong></td>
+</tr>
+<tr>
+<td>Gross Margin</td>
+<td style="text-align: right;">38.3%</td>
+<td style="text-align: right;">30.0%</td>
+<td style="text-align: right;"><strong>-8.3 pts</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Revenue: +27%.
+COGS: +44%.
+Gross profit: slightly down.
+Margin: down 8 points.</p>
+<p>Revenue growth is masking profitability erosion.</p>
+<p>That's advisory insight -- produced in under a minute.</p>
+<blockquote>
+<p><strong>The accounting insight:</strong> This is the difference between bookkeeping and advisory. The books show revenue is up. The analysis shows profitability is eroding. AI gets you to the analysis faster, so you spend your time on the advisory.</p>
+</blockquote>
+<hr />
+<h2 id="sales-vendor-patterns">Sales &amp; Vendor Patterns</h2>
+<p>You rank salespeople by gross profit:</p>
+<p><img alt="Chart: Salesperson Performance" src="visuals/03_salesperson_gp.png" />
+<em>Figure 3: Emma Chen dominates revenue and GP, but Olivia Brooks quietly posts the highest margin rate at 40.8%.</em></p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Salesperson</th>
+<th style="text-align: right;">Revenue</th>
+<th style="text-align: right;">Gross Profit</th>
+<th style="text-align: right;">Margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Emma Chen</td>
+<td style="text-align: right;">$47,070</td>
+<td style="text-align: right;">$18,145</td>
+<td style="text-align: right;">38.5%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sophia Ramirez</td>
+<td style="text-align: right;">$25,450</td>
+<td style="text-align: right;">$9,582</td>
+<td style="text-align: right;">37.6%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Liam Carter</td>
+<td style="text-align: right;">$24,724</td>
+<td style="text-align: right;">$7,212</td>
+<td style="text-align: right;">29.2%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Olivia Brooks</td>
+<td style="text-align: right;">$14,275</td>
+<td style="text-align: right;">$5,825</td>
+<td style="text-align: right;"><strong>40.8%</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Noah Patel</td>
+<td style="text-align: right;">$24,924</td>
+<td style="text-align: right;">$5,172</td>
+<td style="text-align: right;"><strong>20.8%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Noah Patel's volume is misleading.</strong> He generates nearly the same revenue as Liam Carter ($24.9K vs $24.7K) but produces $2,000 less gross profit. His 20.8% margin is nearly half the company average.</p>
+<p><strong>Olivia Brooks is the quiet star.</strong> Fewest orders on the team, but the highest margin rate at 40.8%.</p>
+<p><strong>The concentration risk is real.</strong> Emma Chen represents <strong>34.5% of total revenue</strong>. If she leaves, takes a medical leave, or her territory softens -- more than a third of the top line is at risk.</p>
+<p><img alt="Chart: Revenue Concentration" src="visuals/04_revenue_concentration.png" />
+<em>Figure 4: Revenue concentration by salesperson. Emma Chen at 34.5% represents material key-person risk.</em></p>
+<p>You compare vendor cost inflation:</p>
+<p><img alt="Chart: Vendor Cost Inflation" src="visuals/05_vendor_costs.png" />
+<em>Figure 5: All three vendors show cost inflation, but SiliconSerpent Supply Co. leads at nearly 48% year-over-year.</em></p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th style="text-align: right;">2024 Avg</th>
+<th style="text-align: right;">2025 Avg</th>
+<th style="text-align: right;">YoY Increase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SiliconSerpent Supply Co</td>
+<td style="text-align: right;">$2,725</td>
+<td style="text-align: right;">$4,020</td>
+<td style="text-align: right;"><strong>+47.5%</strong></td>
+</tr>
+<tr>
+<td>QuantumCoil Materials</td>
+<td style="text-align: right;">$2,400</td>
+<td style="text-align: right;">$3,267</td>
+<td style="text-align: right;">+36.1%</td>
+</tr>
+<tr>
+<td>NeuralNest Components</td>
+<td style="text-align: right;">$2,600</td>
+<td style="text-align: right;">$3,500</td>
+<td style="text-align: right;">+34.6%</td>
+</tr>
+</tbody>
+</table>
+<p>You ask about labor hours per unit. 2024 averaged 0.80 hours per unit. 2025 averages 0.99 -- a <strong>24% increase</strong> in production time.</p>
+<p>The story forms:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Vendor cost increases
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  --&gt; Product margin compression
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    --&gt; Flat gross profit
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>      --&gt; Revenue growth hiding underlying weakness
+</code></pre></div>
+<p>You didn't build a dashboard.</p>
+<p>You asked structured questions.</p>
+<hr />
+<h2 id="asking-the-strategic-question">Asking the Strategic Question</h2>
+<p><strong>What you type:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Based on everything you&#39;ve analyzed, give me a 5-point executive
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>summary with recommended actions for CodeCritters management.
+</code></pre></div>
+<p><strong>What Claude produces:</strong></p>
+<blockquote>
+<ol>
+<li>
+<p><strong>Margin compression is the headline, not revenue growth.</strong> Gross margin declined from 38.3% to 30.0% despite a 27% revenue increase. Costs are outpacing pricing power.</p>
+</li>
+<li>
+<p><strong>Renegotiate or replace SiliconSerpent Supply Co.</strong> Material costs from this vendor are up 48% YoY and they supply the most margin-impaired product line.</p>
+</li>
+<li>
+<p><strong>Reprice TensorTurtle immediately.</strong> Three orders fell below 20% margin in 2025. At current cost trajectories, this product line risks becoming unprofitable without a price adjustment to the $310+ range.</p>
+</li>
+<li>
+<p><strong>Address revenue concentration risk.</strong> Emma Chen represents 34.5% of revenue. Succession planning, territory balancing, or a second senior hire should be considered.</p>
+</li>
+<li>
+<p><strong>Audit production efficiency.</strong> Labor hours per unit increased 24%, adding to the cost pressure. Investigate whether this stems from new employee onboarding, product complexity, or process degradation.</p>
+</li>
+</ol>
+</blockquote>
+<p>That's a CFO-ready memo. Generated from two CSV files and a conversation.</p>
+<hr />
+<h2 id="when-to-stop-chatting-and-start-building">When to Stop Chatting and Start Building</h2>
+<p>The first time feels magical.</p>
+<p>The fifth time feels repetitive.</p>
+<p>Repetition is a signal.</p>
+<p>If each month you ask:</p>
+<ul>
+<li>Join files</li>
+<li>Calculate margin</li>
+<li>Compare year over year</li>
+</ul>
+<p>Ask instead:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Write a reusable Python script that performs this analysis
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>when new files are placed in the folder.
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Include detailed comments explaining each step.
+</code></pre></div>
+<p>The code may look intimidating at first.</p>
+<p>That's normal.</p>
+<p>Ask:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Explain this script line by line.
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Add more comments.
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Do not oversimplify.
+</code></pre></div>
+<p>And something shifts.</p>
+<p>You move from user to builder.</p>
+<hr />
+<h2 id="the-excel-analogy-we-all-understand">The Excel Analogy We All Understand</h2>
+<p>Think back to early in your career.</p>
+<p>No one taught you Excel properly.</p>
+<p>There wasn't a formal class that made you fluent.</p>
+<p>You learned by:</p>
+<ul>
+<li>Watching senior team members</li>
+<li>Asking peers how they built a formula</li>
+<li>Discovering keyboard shortcuts</li>
+<li>Seeing someone use INDEX/MATCH for the first time</li>
+</ul>
+<p>You picked up tricks.
+You practiced daily.
+You found your rhythm.</p>
+<p>This is the same.</p>
+<p>AI fluency doesn't come from a single course.</p>
+<p>It comes from:</p>
+<ul>
+<li>Using it daily</li>
+<li>Testing prompts</li>
+<li>Asking others how they use it</li>
+<li>Observing better workflows</li>
+<li>Refining your approach</li>
+</ul>
+<p>Just like Excel, the competitive edge isn't "taking a class."</p>
+<p>It's integrating it into your everyday work.</p>
+<p>That's how mastery forms.</p>
+<hr />
+<h2 id="exporting-without-abandoning-excel">Exporting Without Abandoning Excel</h2>
+<p>You don't need to replace Excel.</p>
+<p>Ask Claude:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Export all summaries into one Excel workbook
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>with separate tabs.
+</code></pre></div>
+<p>Review it like you always have.</p>
+<p>AI becomes your analysis engine.
+Excel remains your control surface.</p>
+<p>That hybrid model will define finance teams for years.</p>
+<hr />
+<h2 id="build-your-own-agent">Build Your Own Agent</h2>
+<p>Once you've scripted repeated analysis, go further:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Create a reusable function analyze_margin()
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>that returns:
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- Order margin
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>- YOY comparison
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>- Sales ranking
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>- Vendor inflation summary
+</code></pre></div>
+<p>Now you've built infrastructure.</p>
+<p>Next month?
+Drop files.
+Run one command.</p>
+<p>That's not dependence.</p>
+<p>That's leverage.</p>
+<hr />
+<h2 id="what-ai-changes-and-what-it-doesnt">What AI Changes -- and What It Doesn't</h2>
+<p><strong>It does not replace:</strong></p>
+<ul>
+<li>Professional judgment on materiality and risk</li>
+<li>Accounting standards knowledge (GAAP, IFRS, regulatory context)</li>
+<li>Client relationships and trust</li>
+<li>Accountability for the numbers</li>
+</ul>
+<p><strong>It accelerates:</strong></p>
+<ul>
+<li>Orientation -- getting from raw data to understanding</li>
+<li>Pattern detection across data sets</li>
+<li>Draft summaries and executive narratives</li>
+<li>Scenario exploration without building models from scratch</li>
+<li>Cross-referencing multiple data sources</li>
+</ul>
+<p>AI gets you to insight in minutes.</p>
+<p>You apply expertise for hours.</p>
+<p>Eventually, you encode recurring insight into systems that run without you.</p>
+<p>That's evolution -- not replacement.</p>
+<hr />
+<h2 id="the-real-skill-being-built">The Real Skill Being Built</h2>
+<p>The transformation isn't that AI answered your questions.</p>
+<p>It's that you:</p>
+<ul>
+<li>Structured financial questions clearly</li>
+<li>Validated output responsibly</li>
+<li>Recognized patterns faster</li>
+<li>Converted repetition into automation</li>
+</ul>
+<p>That's the progression.</p>
+<p>First: ask better questions.
+Next: encode them.</p>
+<p>The profession is moving from spreadsheet operator to automation architect.</p>
+<p>And just like Excel once did, those who practice daily will quietly build an edge.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Everything in this article is reproducible. Here's what you need:</p>
+<ol>
+<li><strong>VS Code with Claude enabled in Copilot Chat</strong> -- see the <a href="#getting-started">Getting Started</a> section above, or the full setup walkthrough in <strong><a href="../00.5-where-to-start-with-ai/">Where to Start If You're Ready to Work With AI</a></strong></li>
+<li><strong>The sample data</strong>: The CSV files used in this article are included in the <a href="data/"><code>data/</code></a> folder of this repository</li>
+</ol>
+<p>Start with the simplest prompt: <em>"Read this file and tell me what you see."</em> Then ask the questions you'd normally answer with a pivot table. You'll find that the tool meets you where you already are -- you just get there faster.</p>
+<hr />
+<h2 id="the-five-prompts-every-accountant-should-try-first">The Five Prompts Every Accountant Should Try First</h2>
+<p>If you only have 10 minutes, paste these into Claude one at a time with your own data:</p>
+<ol>
+<li><strong>"Read [file] and summarize the data structure, time period, and key fields."</strong></li>
+<li><strong>"Calculate gross margin per [transaction/order/project] and flag anything below [X]%."</strong></li>
+<li><strong>"Compare [metric] year over year. Is the trend improving or deteriorating?"</strong></li>
+<li><strong>"Rank [dimension] by [profitability measure]. Who's the top performer and who's underperforming?"</strong></li>
+<li><strong>"Based on this analysis, what are the top 3 risks or action items for management?"</strong></li>
+</ol>
+<p>These five prompts work whether you're analyzing orders, projects, clients, departments, or cost centers. The data changes; the analytical pattern stays the same.</p>
+<hr />
+<p><em>The sample data and scripts referenced in this article are available in this repository. The author used Claude via Copilot Chat in VS Code on Windows. All analysis was performed live -- no results were pre-calculated or staged.</em></p>
+<p><em>If you're experimenting and want to compare notes -- I'm here to help.</em></p>
+<hr />
+<p><em>Related: <a href="../03-getting-the-right-tools-installed/">Getting the Right Tools Installed</a> | <a href="../04-ai-governance-in-accounting/">AI in Accounting Is Not the Wild West Anymore</a> | <a href="../05-reproducible-accounting/">Reproducible Accounting</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

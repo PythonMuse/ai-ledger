@@ -1,0 +1,120 @@
+/* PythonMuse brand colors */
+:root {
+  --pm-teal:  #0F7B6C;
+  --pm-coral: #E05C4D;
+  --pm-slate: #3D4F5F;
+  --pm-gold:  #E8A838;
+  --pm-gray:  #7A8694;
+}
+
+/* Material theme custom palette overrides */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color:        var(--pm-teal);
+  --md-primary-fg-color--light: #1a9e8a;
+  --md-primary-fg-color--dark:  #0a5a50;
+  --md-primary-bg-color:        #ffffff;
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color:         var(--pm-coral);
+  --md-accent-fg-color--transparent: rgba(224, 92, 77, 0.1);
+}
+
+/* Navigation tabs */
+.md-tabs {
+  background-color: var(--pm-teal);
+}
+
+
+/* Headings */
+.md-content h1 {
+  color: var(--pm-slate);
+  border-bottom: 3px solid var(--pm-teal);
+  padding-bottom: 0.4rem;
+}
+
+.md-content h2 {
+  color: var(--pm-slate);
+  border-left: 4px solid var(--pm-teal);
+  padding-left: 0.75rem;
+}
+
+.md-content h3 {
+  color: var(--pm-teal);
+}
+
+/* Inline code */
+.md-content code {
+  background-color: rgba(15, 123, 108, 0.08);
+  color: var(--pm-slate);
+}
+
+/* Horizontal rules — used heavily as section dividers in articles */
+.md-content hr {
+  border-color: var(--pm-teal);
+  opacity: 0.3;
+  margin: 2rem 0;
+}
+
+/* Article byline (italics directly after h1) */
+.md-content h1 + p > em:only-child,
+.md-content h1 + p em {
+  color: var(--pm-gray);
+  font-size: 1.05rem;
+}
+
+/* Footer */
+.md-footer {
+  background-color: var(--pm-slate);
+}
+
+.md-footer-meta {
+  background-color: #2d3b47;
+}
+
+/* Search highlight */
+.md-search-result mark {
+  color: var(--pm-coral);
+  background-color: transparent;
+}
+
+/* Hide right TOC sidebar on all screens — not enough content to warrant it */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+/* Hide left nav sidebar on desktop only — tabs carry navigation there.
+   On mobile the left sidebar is the hamburger menu, so it must stay. */
+@media screen and (min-width: 60em) {
+  .md-sidebar--primary {
+    display: none;
+  }
+}
+
+/* Ensure mobile sidebar drawer appears above the overlay and slides in on toggle */
+@media screen and (max-width: 59.9375em) {
+  .md-sidebar--primary {
+    display: block !important;
+    z-index: 10 !important;
+  }
+
+  html:has([data-md-toggle="drawer"]:checked) .md-sidebar--primary {
+    left: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* Limit content width for readability without breaking left alignment */
+.md-content__inner {
+  max-width: 860px;
+}
+
+/* Tables */
+.md-content table th {
+  background-color: var(--pm-teal);
+  color: white;
+}
+
+.md-content table tr:nth-child(even) {
+  background-color: rgba(15, 123, 108, 0.05);
+}

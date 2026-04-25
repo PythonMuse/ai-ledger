@@ -1,0 +1,11 @@
+Transaction_ID,Date,Vendor,Account,Description,Amount
+1001,2025-01-01,ABC Construction,Repairs & Maintenance,Roof repair,12450
+1002,2025-01-03,Staples,Office Supplies,Printer paper,320
+1003,2025-01-04,Delta Airlines,Travel,Flight to conference,850
+1004,2025-01-05,ADP Payroll,Payroll Expense,Payroll processing,24500
+1005,2025-01-08,Office Depot,Office Supplies,Desk chair,475
+1006,2025-01-10,United Healthcare,Insurance,Monthly premium,8900
+1007,2025-01-12,FedEx,Shipping,Client deliverables,210
+1008,2025-01-15,ComEd,Utilities,Electric bill,1850
+1009,2025-01-18,ABC Construction,Repairs & Maintenance,HVAC service,6200
+1010,2025-01-20,ADP Payroll,Payroll Expense,Payroll processing,24500

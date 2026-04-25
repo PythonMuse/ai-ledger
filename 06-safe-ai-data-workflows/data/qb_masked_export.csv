@@ -1,0 +1,11 @@
+Transaction_ID,Date,Vendor,Account,Description,Amount
+1001,2025-01-01,Vendor_01,Repairs & Maintenance,Roof repair,5320.45
+1002,2025-01-03,Vendor_02,Office Supplies,Printer paper,410.20
+1003,2025-01-04,Vendor_03,Travel,Flight to conference,2890.00
+1004,2025-01-05,Vendor_04,Payroll Expense,Payroll processing,7150.30
+1005,2025-01-08,Vendor_02,Office Supplies,Desk chair,1240.75
+1006,2025-01-10,Vendor_05,Insurance,Monthly premium,3680.10
+1007,2025-01-12,Vendor_06,Shipping,Client deliverables,580.90
+1008,2025-01-15,Vendor_07,Utilities,Electric bill,2105.00
+1009,2025-01-18,Vendor_01,Repairs & Maintenance,HVAC service,4790.60
+1010,2025-01-20,Vendor_04,Payroll Expense,Payroll processing,6830.15

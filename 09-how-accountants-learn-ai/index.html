@@ -1,0 +1,1855 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/09-how-accountants-learn-ai/">
+      
+      
+        <link rel="prev" href="../08-why-claude-forgets/">
+      
+      
+        <link rel="next" href="../04-ai-governance-in-accounting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>How Accountants Learn AI - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-accountants-learn-ai-from-excel-shortcuts-to-ai-workflows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How Accountants Learn AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-training-landscape-a-reality-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Training Landscape: A Reality Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-gap-and-the-opportunity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Gap -- and the Opportunity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-how-do-we-learn-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        So How Do We Learn AI?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-learning-ai-actually-means-for-accountants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What "Learning AI" Actually Means for Accountants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What &#34;Learning AI&#34; Actually Means for Accountants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-working-with-ai-not-just-prompting-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Working With AI -- Not Just Prompting It
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-markdown-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why Markdown Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-why-python-without-the-intimidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Why Python -- Without the Intimidation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vs-code-your-ai-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. VS Code -- Your AI Workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-understanding-ai-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Understanding AI Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hooks-your-control-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Hooks -- Your Control Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-the-canary-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. The Canary Concept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-project-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Project Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-practical-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Practical Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Practical Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structuring-your-data-raw-vs-processed-vs-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structuring Your Data: Raw vs Processed vs Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excel-vs-csv-a-small-decision-with-big-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excel vs CSV: A Small Decision with Big Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-libraries-your-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Libraries: Your Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-your-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git -- Your Audit Trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-it-sql-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with IT: SQL Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-most-people-miss-skills-agents-and-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Most People Miss: Skills, Agents, and Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-personal-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Personal Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bringing-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bringing It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pythonmuse-mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The PythonMuse Mission
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help-build-this-with-me" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Help Build This With Me
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thought
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-training-landscape-a-reality-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Training Landscape: A Reality Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-gap-and-the-opportunity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Gap -- and the Opportunity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-how-do-we-learn-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        So How Do We Learn AI?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-learning-ai-actually-means-for-accountants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What "Learning AI" Actually Means for Accountants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What &#34;Learning AI&#34; Actually Means for Accountants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-working-with-ai-not-just-prompting-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Working With AI -- Not Just Prompting It
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-markdown-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why Markdown Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-why-python-without-the-intimidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Why Python -- Without the Intimidation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vs-code-your-ai-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. VS Code -- Your AI Workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-understanding-ai-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Understanding AI Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hooks-your-control-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Hooks -- Your Control Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-the-canary-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. The Canary Concept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-project-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Project Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-practical-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Practical Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Practical Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structuring-your-data-raw-vs-processed-vs-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structuring Your Data: Raw vs Processed vs Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excel-vs-csv-a-small-decision-with-big-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excel vs CSV: A Small Decision with Big Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-libraries-your-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Libraries: Your Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-your-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git -- Your Audit Trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-it-sql-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with IT: SQL Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-most-people-miss-skills-agents-and-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Most People Miss: Skills, Agents, and Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-personal-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Personal Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bringing-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bringing It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pythonmuse-mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The PythonMuse Mission
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help-build-this-with-me" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Help Build This With Me
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Thought
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="how-accountants-learn-ai-from-excel-shortcuts-to-ai-workflows">How Accountants Learn AI -- From Excel Shortcuts to AI Workflows</h1>
+<p><em>The same way we learned Excel: by experimenting, observing, building small workflows, and learning from each other.</em></p>
+<hr />
+<p><strong>By Svetlana Toohey</strong>
+<em>Published March 2026</em></p>
+<p><img alt="How Accountants Learn AI" src="visuals/09_visual_front.png" /></p>
+<p>There was a time -- not that long ago -- when Excel felt overwhelming.</p>
+<p>For some of us, that was 20+ years ago. For others, maybe 10. But we all remember it.</p>
+<p>No one sat us down and said: "Here is everything you need to know about Excel."</p>
+<p>That is not how we learned.</p>
+<p>We learned by watching someone faster than us and asking "How did you do that?" We learned by copying formulas, breaking things, and finding shortcuts that made us feel like magicians.</p>
+<p>And over time, Excel became second nature. Then it became expected. Then it became non-negotiable.</p>
+<p>AI is in that exact same moment right now.</p>
+<hr />
+<h2 id="the-training-landscape-a-reality-check">The Training Landscape: A Reality Check</h2>
+<p>Here is the reality in the U.S. market as of early 2026:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Estimated Courses Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Excel courses</td>
+<td>~3,500 -- 5,000</td>
+</tr>
+<tr>
+<td>AI courses (general)</td>
+<td>~2,000 -- 3,500</td>
+</tr>
+<tr>
+<td>AI for accounting</td>
+<td>Less than 150</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="AI Training Gap for Accountants" src="visuals/09_training_gap.png" />
+<em>Figure: AI training exists and is growing fast. But almost none of it is built for how accountants actually work.</em></p>
+<p>AI training exists. It is growing fast. But it is not designed for how we work in accounting.</p>
+<p>There is no structured path like Excel had. No progression tied to real workflows. No focus on auditability, controls, or reproducibility.</p>
+<hr />
+<h2 id="the-gap-and-the-opportunity">The Gap -- and the Opportunity</h2>
+<p>Excel evolved into something structured over time:</p>
+<ul>
+<li>Beginner: formulas and basic functions</li>
+<li>Intermediate: lookups, pivot tables, conditional logic</li>
+<li>Advanced: Power Query, dashboards, data models</li>
+<li>Expert: VBA, automation, integration</li>
+</ul>
+<p>Clear expectations. Clear growth. Everyone knew what "good" looked like at each level.</p>
+<p>AI training today looks more like:</p>
+<ul>
+<li>"What is ChatGPT?"</li>
+<li>"Write better prompts"</li>
+<li>"Build an app"</li>
+</ul>
+<p>Useful content -- but disconnected from bank reconciliations, variance analysis, audit support, and financial reporting. Disconnected from the real work we do every day.</p>
+<p>That disconnect is the gap. And it is also the opportunity.</p>
+<hr />
+<h2 id="so-how-do-we-learn-ai">So How Do We Learn AI?</h2>
+<p>The same way we learned Excel.</p>
+<p>Not by waiting for the perfect course. Not by sitting through a generic webinar.</p>
+<p>By experimenting. By observing. By building small workflows. By learning from each other.</p>
+<p>What follows is a practical map of what "learning AI" actually means for accountants -- each topic with a deeper companion resource you can explore.</p>
+<hr />
+<h2 id="what-learning-ai-actually-means-for-accountants">What "Learning AI" Actually Means for Accountants</h2>
+<h3 id="1-working-with-ai-not-just-prompting-it">1. Working With AI -- Not Just Prompting It</h3>
+<p>AI is not Google.</p>
+<p>When you use AI effectively, you give context, refine instructions, review outputs, and iterate. Think of it like reviewing a staff accountant's work. The first draft is rarely the final answer. Your job is to direct, verify, and refine.</p>
+<p>The difference between a useless AI response and an audit-ready one is not a better "prompt trick." It is the same thing that separates a vague email from a clear engagement letter: specificity.</p>
+<p>For a deep dive with practical prompt progression examples -- including bank reconciliation and variance analysis walkthroughs: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/01-working-with-ai">Working With AI</a></strong></p>
+<hr />
+<h3 id="2-why-markdown-matters">2. Why Markdown Matters</h3>
+<p>Markdown gives you structure, repeatability, and clarity. It replaces scattered notes with organized logic.</p>
+<p>My opinion: move as much as you can to Markdown. It is the best-documented way to interact with AI. Everything AI tools read and produce is more reliable in Markdown than in any other format.</p>
+<p>And here is a practical tip -- if you work with many PDFs, one of the first useful skills you should build is converting a specific PDF report to Markdown. That PDF becomes interactive with AI. More importantly, you may not need to convert all of it. Often you only need specific sections, which saves tokens and produces better results.</p>
+<p>For Markdown syntax, accounting-specific templates (workpapers, close checklists), and a cheatsheet: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/02-markdown-for-accountants">Markdown for Accountants</a></strong></p>
+<hr />
+<h3 id="3-why-python-without-the-intimidation">3. Why Python -- Without the Intimidation</h3>
+<p>You do not need to become a developer.</p>
+<p>Python is valuable because it is readable, transparent, and audit-friendly. You do not need to write it from scratch. You need to understand what it is doing.</p>
+<p>Compare to Excel -- you do not necessarily need to understand every nested formula, but you are able to follow the logic when you break it into chunks. The same applies to Python. Trust me -- I am not a developer, and I can follow the logic. That is all due to the amazing people who have contributed to open-source libraries that we will discuss further.</p>
+<p>For line-by-line annotated scripts, sample accounting data, and a library guide: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/03-python-without-intimidation">Python Without Intimidation</a></strong></p>
+<hr />
+<h3 id="4-vs-code-your-ai-workspace">4. VS Code -- Your AI Workspace</h3>
+<p>Think of VS Code as "Windows Explorer for your AI workflows."</p>
+<p>It is where files live, logic runs, and outputs are stored. It is free, maintained by Microsoft, and has become the standard environment for working with AI tools. For accountants, it is not about writing code -- it is about having a single organized workspace for your AI projects.</p>
+<p>For setup guidance, recommended extensions, and a first-15-minutes walkthrough: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/04-vscode-as-workspace">VS Code as Your Workspace</a></strong></p>
+<hr />
+<h3 id="5-understanding-ai-permissions">5. Understanding AI Permissions</h3>
+<p>AI tools may access files, execute code, and process data. You must understand what is happening and where your data goes.</p>
+<p>This is where accountants naturally excel (no pun intended). We already think about data access controls, segregation of duties, and information boundaries. The same framework applies to AI tools. You just need to apply it.</p>
+<p>For a local-vs-cloud checklist and an AI permission audit template: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/05-ai-permissions">AI Permissions</a></strong></p>
+<hr />
+<h3 id="6-hooks-your-control-layer">6. Hooks -- Your Control Layer</h3>
+<p>Hooks are simple checks that run automatically before or after an AI action. "Do not process unless data is masked." "Warn before modifying raw data." "Log every file change."</p>
+<p>This is how you integrate internal controls into AI workflows. The same maker-checker, approval-before-posting discipline you already use for journal entries and payments -- applied to AI.</p>
+<p>For hook examples, a configuration walkthrough, and a design worksheet: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/06-hooks-as-controls">Hooks as Controls</a></strong></p>
+<hr />
+<h3 id="7-the-canary-concept">7. The Canary Concept</h3>
+<p>A simple control -- a known-answer test embedded in your project files. At the start of every session, ask: "What is the canary?" Correct answer means the environment is working. Wrong answer means something is off.</p>
+<p>This one you can have a lot of fun with. Come up with the silliest question or the silliest answer and leave an easter egg in your workflow. It is your project -- make it yours.</p>
+<p>For setup instructions, test prompts, and troubleshooting guidance: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/07-canary-concept">Canary Concept</a></strong></p>
+<hr />
+<h3 id="8-project-hygiene">8. Project Hygiene</h3>
+<p>Structure your work: plan.md, status_update.md, backlog.md, organized folders. You manage AI like a team member -- with clear scope, tracked progress, and organized deliverables.</p>
+<p>This is what separates a chaotic AI experiment from a reliable AI workflow. Three Markdown files and a folder structure. That is it.</p>
+<p>For complete examples (a realistic bank reconciliation project in three sessions), ready-to-copy templates, and folder scaffolding: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/08-project-hygiene">Project Hygiene</a></strong></p>
+<hr />
+<h2 id="the-practical-skills">The Practical Skills</h2>
+<p>Beyond the mindset, there are specific practical skills that make AI work in accounting.</p>
+<h3 id="structuring-your-data-raw-vs-processed-vs-output">Structuring Your Data: Raw vs Processed vs Output</h3>
+<p>One of the first things we learned in accounting: never overwrite source data. Apply the same discipline here.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>data/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  raw/         Source of truth (never modify)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  processed/   Cleaned, transformed
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  outputs/     Final reports
+</code></pre></div>
+<p>This creates auditability, reproducibility, and traceability -- the same values we build into every financial process.</p>
+<p>For data pipeline walkthroughs and a project folder scaffold: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/09-data-structure">Data Structure</a></strong></p>
+<hr />
+<h3 id="excel-vs-csv-a-small-decision-with-big-impact">Excel vs CSV: A Small Decision with Big Impact</h3>
+<p>Before working with AI, ask: "Is this Excel or CSV?"</p>
+<p>CSV is simple, fast, and AI-friendly. Excel is complex, formatted, and requires more processing. The choice affects which Python libraries you need, how many errors you will encounter, and how much it costs in token usage.</p>
+<p>Clean CSV = lower cost + better results. Use CSV for processing, Excel for presentation.</p>
+<p>For a conversion script, formatting best practices, and sample data: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/10-excel-vs-csv">Excel vs CSV</a></strong></p>
+<hr />
+<h3 id="python-libraries-your-toolkit">Python Libraries: Your Toolkit</h3>
+<p>Start with the problem, not the library.</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pandas</td>
+<td>Data analysis -- your programmable spreadsheet</td>
+</tr>
+<tr>
+<td>pdfplumber</td>
+<td>Extract data from PDFs (enormous for accounting)</td>
+</tr>
+<tr>
+<td>matplotlib / plotly</td>
+<td>Charts and visualizations</td>
+</tr>
+<tr>
+<td>openpyxl</td>
+<td>Read and write Excel files</td>
+</tr>
+<tr>
+<td>sqlalchemy / pyodbc</td>
+<td>Database connections</td>
+</tr>
+</tbody>
+</table>
+<p>For detailed descriptions, install instructions, and quick examples: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/03-python-without-intimidation/libraries.md">Python Libraries</a></strong></p>
+<hr />
+<h3 id="git-your-audit-trail">Git -- Your Audit Trail</h3>
+<p>Git is not just for developers. It is the most powerful audit trail tool you have never used.</p>
+<table>
+<thead>
+<tr>
+<th>Git</th>
+<th>Accounting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Commit</td>
+<td>Journal entry</td>
+</tr>
+<tr>
+<td>History</td>
+<td>Audit trail</td>
+</tr>
+<tr>
+<td>Branch</td>
+<td>Scenario / what-if</td>
+</tr>
+<tr>
+<td>Pull request</td>
+<td>Review and approval</td>
+</tr>
+<tr>
+<td>Revert</td>
+<td>Correcting entry</td>
+</tr>
+</tbody>
+</table>
+<p>This directly supports COSO principles: change tracking, control, and accountability.</p>
+<p>For the full analogy, a first-repo walkthrough, and a .gitignore template: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/11-git-for-accountants">Git for Accountants</a></strong></p>
+<hr />
+<h3 id="working-with-it-sql-access">Working with IT: SQL Access</h3>
+<p>Instead of manual exports every month, ask for read-only SQL access. The data flow becomes: SQL to Python to DataFrame to output. No manual steps. Repeatable every time.</p>
+<p>A DataFrame is simply an Excel table, but programmable and repeatable.</p>
+<p>How to frame the request: "Read-only access for analysis. No system impact."</p>
+<p>For SQL query patterns, a sample IT request email, and a Python example: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/12-sql-access">SQL Access</a></strong></p>
+<hr />
+<h3 id="what-most-people-miss-skills-agents-and-models">What Most People Miss: Skills, Agents, and Models</h3>
+<p><strong>Skills</strong> are reusable logic -- like Excel macros for AI workflows. A bank reconciliation skill. A variance analysis skill. Define it once, use it every time.</p>
+<p><strong>Agents</strong> are AI interns that follow instructions. Give them clear scope, review their work, and expand their responsibilities as they prove reliable.</p>
+<p><strong>Models</strong> -- choose based on need. Reasoning models for complex analysis. Fast models for summaries and formatting. Secure models for sensitive data.</p>
+<p>For skill templates, a model selection guide, and agent best practices: <strong><a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/13-skills-agents-models">Skills, Agents, and Models</a></strong></p>
+<hr />
+<h2 id="a-personal-note">A Personal Note</h2>
+<p>I will be honest.</p>
+<p>I have never enjoyed doing accounting work more than I do right now.</p>
+<p>Not because the work changed. But because I can explore ideas faster. I can test workflows. I can build solutions. All the grunt work can be delegated, and all the fun strategic and analytical thinking stays with me.</p>
+<p>It brought back something we do not talk about enough in this profession: curiosity, creativity, and that "aha" moment we had when we first learned Excel.</p>
+<hr />
+<h2 id="bringing-it-all-together">Bringing It All Together</h2>
+<p>AI is not replacing Excel. It is the next layer.</p>
+<p>And just like Excel, it feels uncomfortable at first. It looks overwhelming. It seems like a lot.</p>
+<p>Until one day, you cannot imagine working without it.</p>
+<hr />
+<h2 id="the-pythonmuse-mission">The PythonMuse Mission</h2>
+<p>This is not about more AI tools.</p>
+<p>This is about structured workflows, controls, and audit-ready processes. The same values that define good accounting -- applied to the most powerful technology of our generation.</p>
+<hr />
+<h2 id="help-build-this-with-me">Help Build This With Me</h2>
+<p>We did not learn Excel alone. We will not learn AI alone either.</p>
+<p>If you are experimenting, contribute: use cases, workflows, ideas. The <a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework">PythonMuse AI Accounting Framework</a> is open to contributors of all experience levels. You do not need to be a developer. See the <a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/blob/main/CONTRIBUTING.md">Contributing Guide</a> to get started.</p>
+<p>This is how we shape the future of accounting.</p>
+<hr />
+<h2 id="final-thought">Final Thought</h2>
+<p>Excel made us efficient.</p>
+<p>AI -- when done right -- makes us system builders.</p>
+<hr />
+<p><em>Related: <a href="../08-why-claude-forgets/">Why Claude "Forgets"</a> | <a href="../06-safe-ai-data-workflows/">Safe AI Data Workflows</a> | <a href="../07-ai-governance-for-controllers/">AI Governance for Controllers</a> | <a href="../05-reproducible-accounting/">Reproducible Accounting</a></em></p>
+<p><em>Companion repository: <a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework">PythonMuse AI Accounting Framework</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
