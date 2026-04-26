@@ -29,6 +29,12 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 15 | ["AI Can't Work With Our Excel Files"... or Can It?](articles/15-ai-and-excel-files/) | Excel instruction layer, SKILL for spreadsheets, three-tier data approach, train once reuse forever |
 | 16 | [The PDF Token Trap](articles/16-pdf-token-trap/) | PDF-to-Markdown workflow, token efficiency, data masking, reusable Skills, convert once reuse forever |
 | 17 | [The Power of Skills and Agents: How Accountants Actually Use AI](articles/17-skills-and-agents-for-accountants/) | Skills, agents, workflow design, internal controls, living documentation |
+| 17b | [Your First CLAUDE.md: How Accountants Define the Agent](articles/17b-your-first-claude-md/) | CLAUDE.md structure, governance documentation, accounting-specific rules, workflow kit |
+| 18 | [Scheduled Workflows for Accounting Teams](articles/18-scheduled-workflows/) | Scheduled tasks, cron, automation, recurring workflows |
+| 19 | [Multi-Agent Orchestration for Accountants](articles/19-multi-agent-orchestration/) | Multi-agent, orchestration, parallel workflows, accounting automation |
+| 20 | [Version Control for Accountants](articles/20-version-control-for-accountants/) | Git, version control, audit trail, reproducibility |
+| 21 | [The 3 Mindsets of AI Adoption in Accounting](articles/21-three-mindsets-of-ai-adoption/) | Mindset, change management, Builder/Stabilizer/Protector, AI adoption |
+| 22 | [The Workings Layer: Fitting AI Into the Files You Can't Change](articles/22-workings-layer-method/) | Workings layer, folder structure, CLAUDE.md placement, legacy files, audit-ready |
 
 ---
 

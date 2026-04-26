@@ -1,0 +1,22 @@
+# Ignore raw data -- sensitive source files never committed
+data/raw/
+
+# Processed data (optional -- uncomment to exclude)
+# data/processed/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
