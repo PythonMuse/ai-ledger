@@ -1,0 +1,1522 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/23-schema-driven-sanitization/Readme/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Don't Trust the Model to Find What You Already Know Is There - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dont-trust-the-model-to-find-what-you-already-know-is-there" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Don't Trust the Model to Find What You Already Know Is There
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wait-why-cant-i-just-send-my-data-to-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wait — Why Can't I Just Send My Data to Claude?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-probabilistic-pii-detection-is-the-wrong-primary-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Probabilistic PII Detection Is the Wrong Primary Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-right-architecture-schema-driven-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Right Architecture: Schema-Driven Transformation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Right Architecture: Schema-Driven Transformation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-schema-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Schema Inventory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-synthetic-data-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Synthetic Data Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-transformation-script-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3: Transformation Script Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-4-deterministic-sanitization-of-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 4: Deterministic Sanitization of Real Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-5-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 5: Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-6-cloud-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 6: Cloud Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-7-result-re-identification-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 7: Result Re-identification (Local)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-privacy-filter-fits-the-verification-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where Privacy Filter Fits: The Verification Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-to-cia-and-coso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapping to CIA and COSO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapping to CIA and COSO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cia-triad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CIA Triad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coso-internal-control-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COSO Internal Control Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-recommendations-for-small-business-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Recommendations for Small Business Accounting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-we-can-go-deeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where We Can Go Deeper
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-broader-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Broader Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dont-trust-the-model-to-find-what-you-already-know-is-there">Don't Trust the Model to Find What You Already Know Is There</h1>
+<p><strong>Schema-Driven Data Sanitization for Small Business Accounting in the Age of AI</strong></p>
+<p><em>~27 min read</em></p>
+<hr />
+<p>OpenAI recently released something called <a href="https://huggingface.co/openai/privacy-filter">Privacy Filter</a>. If that name makes you picture a pair of reading glasses that blacks out your Social Security number — honestly, you're not far off.</p>
+<p>Privacy Filter is an AI model that scans text and identifies sensitive information: names, addresses, emails, phone numbers, account numbers, dates, URLs, and secrets. Think of it as a very fast, very literal intern who reads every document you hand it and highlights anything that looks personal. Unlike most AI tools you've probably encountered, this one doesn't live in the cloud. It runs on your laptop. Your data never leaves your desk.</p>
+<p>For the technically curious: it's a 1.5B-parameter bidirectional token classification model, open-weight under an Apache 2.0 license, that labels an entire document in a single forward pass. For everyone else: it's free, it's fast, and it works offline.</p>
+<p>It's also, by its own authors' admission, not enough.</p>
+<p>Its authors describe it through its <a href="https://cdn.openai.com/pdf/c66281ed-b638-456a-8ce1-97e9f5264a90/OpenAI-Privacy-Filter-Model-Card.pdf">system card</a>[^3] — a document that AI developers publish to explain what a model does, how it works, and where it falls short (think of it as the nutrition label for an AI model). The system card is refreshingly honest. The model is described as "a redaction and data minimization aid, not an anonymization, compliance, or a safety guarantee." It warns against over-reliance, flags failure modes around uncommon names and domain-specific identifiers, and explicitly cautions against deployment in financial workflows without additional safeguards. The recommendations section closes with a single, quiet imperative: use this as <em>part of</em> a holistic privacy-by-design approach.</p>
+<p>That raises a practical question. If you're running a small-to-medium accounting department — not publicly traded, not subject to SOX, but still handling real financial data with real confidentiality obligations — what does "holistic privacy-by-design" actually look like when you want to use AI tools for analysis?</p>
+<p>This post works through that question. The answer, I think, is simpler and more reliable than most people expect — though it depends on one important distinction. Sometimes the data you want to analyze comes from systems <em>you</em> operate (your accounting software, your payroll system, your CRM exports), and you already know — or can readily document — its schema (i.e., the column names and their meanings within your data). Other times it arrives as a third-party artifact (a vendor's PDF report, a scanned bank statement, a CSV from a tool you didn't design), and the schema is something you have to <em>construct</em> before you can sanitize. Both cases land in the same deterministic pipeline. They just enter it through different doors. We'll walk through both.</p>
+<blockquote>
+<p><strong>A note on how this post was made.</strong> This article was developed collaboratively with Claude Opus 4.6 (Anthropic), using extended thinking to reason through the architecture. I provided the research direction and editorial framing; Claude researched the Privacy Filter system card, synthesized the COSO and CIA triad mappings, and drafted the technical pipeline and code examples. The initial prompt produced a strong first draft — but the published version is the result of multiple rounds of collaborative revision, where I reviewed each section, challenged assumptions, expanded scope, and refined the argument with Claude iterating alongside me. That process matters: working with any AI system, agentic or otherwise, requires human judgment at every stage. The tool accelerates the work; it doesn't replace the editorial responsibility. The initial prompt that started this conversation is included as a footnote.[^1]</p>
+</blockquote>
+<h2 id="wait-why-cant-i-just-send-my-data-to-claude">Wait — Why Can't I Just Send My Data to Claude?</h2>
+<p>Before we get into the architecture, we need to address something that isn't obvious to everyone: <strong>why sending your accounting data to a cloud AI model is a concern in the first place.</strong></p>
+<p>This matters because a significant number of business users — including otherwise sharp, tech-literate professionals — don't fully register the implications. When you paste a spreadsheet into Claude, upload a CSV to a competitor's chatbot, or send a JSON payload to any AI API, you are transmitting that data to a server operated by a third party. It leaves your machine, traverses the internet, and arrives at infrastructure you don't control.</p>
+<p>For casual questions, this is fine. For business financial data, it introduces real risks — and those risks map directly to what information security professionals call the <strong>CIA triad</strong>[^2]: <em>Confidentiality</em> (is your data exposed to unauthorized parties?), <em>Integrity</em> (can you trust that your data hasn't been altered or misrepresented?), and <em>Availability</em> (do you maintain control and access to your own data independent of third parties?). We'll map the full architecture to CIA in detail later, but it's worth naming the framework now because every concern below is a CIA concern. For example:</p>
+<p><strong>Your data may be used for model training.</strong> Most major AI providers now offer opt-out mechanisms or enterprise tiers with contractual data protections, but the defaults vary, the policies change, and the specifics matter. If you're on a free tier or a consumer plan, your data may be fair game for training future models. That means your vendor payment history, your employee compensation data, your client billing records could become part of a model's learned patterns — diffused, anonymized in theory, but incorporated permanently. Read the terms of service. Then read them again. Better yet, paste those terms into a model and ask it to flag anything that concerns a small business handling financial data — AI is excellent at parsing dense legal language for red flags. But after your first, second, or third pass with AI, consult an actual professional. The model can surface the questions; a lawyer can answer them.</p>
+<p><strong>Even with no-training guarantees, data is processed on third-party infrastructure.</strong> The prompt and the response exist, however briefly, on servers you don't own. Staff at the provider may have access for debugging, safety review, or abuse monitoring. Subprocessors may be involved. I trust that Anthropic is protecting my data appropriately — but I'm also realistic enough to know that someone, somewhere, is attempting to penetrate those protection layers. That's not a criticism of any specific provider; it's the nature of cloud infrastructure.</p>
+<p>The practical decision heuristic is this: <strong>would you be comfortable if an adversary found this specific data?</strong> If the answer is no (e.g., if the data includes SSNs, bank routing numbers, employee compensation details, or client financial records whose exposure would cause real harm) then it should never go to the cloud in identifiable form. Full stop. Address this first. No risk/reward analysis, no "but the analytical benefit is substantial" — sanitize it before anything else. That's what the sanitization pipeline in this post is for, and it's a prerequisite to every decision that follows.</p>
+<p>What does "sanitize" mean in practice? We'll walk through a rigorous architecture later in this post, but even before you get there, the basics are accessible to anyone who can work a spreadsheet. Before sending any financial data to a cloud model, at minimum: delete columns that contain direct identifiers you don't need for the analysis (e.g., if you're analyzing expense trends, you probably don't need the vendor's EIN or bank routing number — drop them entirely). Replace names with generic labels (e.g., "Vendor A," "Vendor B") and keep a local-only key that maps the labels back to real names. Remove or redact free-text fields like memo and notes columns, which tend to accumulate sensitive details that don't follow any predictable format. Strip any row that contains data you wouldn't want read aloud in a room full of strangers. These steps are not sophisticated — they won't catch everything, and they don't scale well — but they're infinitely better than pasting raw data into a cloud prompt and hoping for the best. The full pipeline described later in this post formalizes and automates these instincts.</p>
+<p>Only <em>after</em> you've handled the non-negotiables does the risk/reward calculus enter the picture. If the analytical benefit is substantial (e.g., "help me understand what I need to do to accommodate the latest revenue forecasts," or "flag anomalies in our expense patterns before the board meeting") then it's worth engaging. Accommodate the CIA triad per your local legislation, understand the risk, understand the reward, and decide accordingly. Not every piece of financial data carries the same sensitivity, and treating everything as equally untouchable means you never get the benefit of the tools. The goal is <em>deliberate risk management</em>, not blanket avoidance.</p>
+<p><strong>Context creates sensitivity that individual fields don't carry.</strong> A vendor name alone isn't particularly sensitive. A dollar amount alone isn't sensitive. But "Vendor: Lakeside Family Counseling, Amount: $4,200/month, GL: Employee Benefits — Mental Health" tells a story about your employees' benefits structure that you probably don't want in a training dataset. Financial data is <em>relational</em> — the sensitivity lives in the connections between fields, not in any single field. PII (personally identifiable information) detection models don't evaluate relational sensitivity. They look at individual tokens and decide whether each one looks like a name, an address, or a number. The contextual meaning of the <em>combination</em> is invisible to them.</p>
+<p><strong>Breach notification obligations may apply.</strong> If you send identifiable financial data to a cloud service and that service experiences a data breach, you may have notification obligations to affected individuals — your employees, your vendors, your clients. These obligations vary significantly by region and local legislation; what triggers notification in California differs from what triggers it in Texas, the EU, or Canada. The fact that <em>you</em> didn't get breached, that a third party you voluntarily shared data with got breached, doesn't necessarily reduce your obligations. But here's the practical upside: if you sanitize your data before it ever leaves your environment, you don't need to parse the notification requirements for every jurisdiction. The cheapest breach to remediate is the one where sensitive data was never transmitted in the first place.</p>
+<p><strong>Your clients and vendors may not have consented.</strong> When a vendor sends you an invoice with their bank routing number and EIN, they consented to <em>you</em> processing that data for payment purposes. They did not consent to you uploading it to a cloud AI service for analysis. This may not create legal liability in every jurisdiction, but it can create trust and relationship problems that matter more than legal exposure for a small business.</p>
+<p>None of this means you can't use cloud AI for financial analysis. It means you need to think carefully about <em>what</em> you send, and you need to make that decision deliberately rather than by default. The architecture in this post is designed to let you get the analytical benefits of cloud AI while keeping the sensitive content local.</p>
+<h2 id="why-probabilistic-pii-detection-is-the-wrong-primary-control">Why Probabilistic PII Detection Is the Wrong Primary Control</h2>
+<p>So you've recognized that raw data shouldn't go to the cloud unexamined. The natural next step is to reach for a PII detection tool — like the Privacy Filter model — to scrub sensitive information before transmission.</p>
+<p>This is better than sending raw data. But it's the wrong <em>primary</em> control, and the system card itself explains why.</p>
+<p>The Privacy Filter model detects eight categories of sensitive spans:</p>
+<ul>
+<li>account numbers</li>
+<li>addresses</li>
+<li>emails</li>
+<li>names</li>
+<li>phone numbers</li>
+<li>URLs</li>
+<li>dates</li>
+<li>secrets</li>
+</ul>
+<p>The Privacy Filter model is tunable — you can adjust how aggressive it is. Set it cautious, and it will only flag things it's very confident about, which means it might miss some sensitive items but won't waste your time with false alarms. Set it aggressive, and it will catch more, but it might also flag your company name as a person or redact a street name that's actually a product line. That dial matters, and we'll revisit it when we discuss where Privacy Filter fits in the pipeline.</p>
+<p>But consider the system card's own failure modes:</p>
+<ul>
+<li><strong>Under-detection</strong> of uncommon personal names, regional naming conventions, and domain-specific identifiers</li>
+<li><strong>Over-redaction</strong> of public entities, organizations, and common nouns in ambiguous contexts</li>
+<li><strong>Missed secrets</strong> for novel credential formats and project-specific token patterns</li>
+<li><strong>Fragmented span boundaries</strong> in mixed-format text with heavy punctuation</li>
+</ul>
+<p>Now map those failure modes onto accounting data. An accounting dataset is <em>dense</em> with exactly the patterns this model struggles with:</p>
+<ul>
+<li>Vendor names that are also common words ("Summit", "Apex", "First Choice"). </li>
+<li>Account numbers in non-standard formats specific to your bank. </li>
+<li>Tax ID fragments embedded in memo fields. </li>
+<li>Dollar amounts that become sensitive in context even though they're not PII in isolation — knowing that your company paid exactly $47,250 to a specific vendor in a specific month can be a material business secret even after the vendor name is masked.</li>
+</ul>
+<p>The fundamental issue is this: <strong>a probabilistic model (i.e., one that makes educated guesses based on patterns it learned during training) is guessing about what's sensitive in your data. For the data you control, you already know — or can readily find out — what is sensitive.</strong> </p>
+<ul>
+<li>You designed the schema, or your accounting software did and you can inspect it. </li>
+<li>You chose the column names, or they're documented in the export specification. </li>
+<li>You know which fields contain customer names and which contain GL account descriptions. </li>
+<li>You know the format of your bank's account numbers. </li>
+<li>You know that the memo field in your AP ledger sometimes contains SSN fragments because someone entered them there in 2019 and you haven't cleaned it up yet.</li>
+</ul>
+<p>For data that <em>isn't</em> yours by design — a vendor's quarterly statement, a scanned report from your bank, a CSV from a third-party system you didn't build — you may not know the schema yet. That doesn't change the conclusion, but it changes the order of operations: you build the schema first (with help, including from probabilistic tools), then apply the same deterministic sanitization (i.e., a known input always produces the same sanitized output). We'll come back to this case shortly.</p>
+<p>You can make <strong>deterministic</strong> decisions about this data (i.e., decisions that follow concrete rules you define, removing any guesswork from the results). Using a probabilistic model as the <em>primary</em> gate between your raw data and a cloud API means trusting educated guesses to rediscover structural knowledge you already possess. That's architecturally backwards.</p>
+<p>The fair challenge here: do you <em>really</em> know your schema as well as you think? What about the third-party PDF a vendor emailed you that you converted to CSV and never audited? The comment field where an employee pasted a client's home address because it was faster than switching to the CRM? The bank feed description that embeds a counterparty's full name in a free-text string? Before you proceed with confidence, ask yourself:</p>
+<ul>
+<li><strong>Have you audited free-text and memo fields?</strong> These are the most common place for sensitive data to hide outside its designated column. People put whatever is convenient in a notes field — SSNs, phone numbers, medical context, personal addresses — because the field accepts anything.</li>
+<li><strong>Do you ingest third-party documents?</strong> Vendor invoices, bank statements, client-provided spreadsheets, and scanned PDFs all carry schemas you didn't design. If you're converting these into your data pipeline, you're inheriting their structure — and their surprises.</li>
+<li><strong>Are there legacy data entry patterns?</strong> In every accounting system that's been in use for more than a year, someone has entered data in a way the system wasn't designed for. Old workarounds become invisible. The "Customer Name" field that someone once used to store a spouse's contact number is now a quiet liability.</li>
+<li><strong>Do any fields concatenate information?</strong> Transaction descriptions from bank feeds often smash together merchant names, reference numbers, partial account numbers, and location data into a single string. These are quasi-structured at best.</li>
+<li><strong>Have you checked what your export actually includes?</strong> The CSV export from your accounting software may include fields you never see in the UI — internal IDs, audit timestamps, user login names — that carry more information than you'd expect.</li>
+</ul>
+<p>This isn't a reason to abandon the deterministic approach — it's a reason to take the schema inventory step seriously and to treat the ML verification layer (i.e., Privacy Filter) as a genuine safety net rather than a formality. You start from what you know, then you hunt for what you don't.</p>
+<p>And when the data isn't from a system you control at all — when it arrives as a vendor PDF or a scanned report — the "schema inventory" step becomes a <em>schema discovery</em> step, and the order of operations shifts. We'll address that case explicitly in Stage 1 of the pipeline below.</p>
+<h2 id="the-right-architecture-schema-driven-transformation">The Right Architecture: Schema-Driven Transformation</h2>
+<p>The better approach inverts the dependency. Instead of asking a model "what's sensitive here?", you start from what you know — or take the time to learn — about your data and build deterministic transformations.</p>
+<p>The pipeline looks like this:</p>
+<p><strong>1. Schema Inventory (or Discovery, for third-party documents) → 2. Synthetic Data Generation → 3. Transformation Script Development → 4. Deterministic Sanitization → 5. Verification → 6. Cloud Analysis → 7. Result Re-identification</strong></p>
+<p>Let's walk through each stage.</p>
+<h3 id="stage-1-schema-inventory">Stage 1: Schema Inventory</h3>
+<p>There are two ways data arrives in your pipeline, and the inventory step looks different in each. Most workflows will involve both.</p>
+<p><strong>1a. Sources you control.</strong> Document every data source that originates from a system you operate. For a typical small business accounting department, this includes:</p>
+<ul>
+<li><strong>Chart of accounts</strong> — GL account numbers, names, and hierarchies</li>
+<li><strong>Vendor master</strong> — names, addresses, tax IDs, bank details, contact info</li>
+<li><strong>Customer master</strong> — names, addresses, credit terms, payment history</li>
+<li><strong>Employee records</strong> — names, compensation, tax withholdings, bank routing for direct deposit</li>
+<li><strong>Transaction ledgers</strong> — AP, AR, GL, with memo/description fields</li>
+<li><strong>Bank feeds</strong> — transaction descriptions, reference numbers, counterparty identifiers</li>
+</ul>
+<p>For each source, classify every field into one of three categories:</p>
+<ul>
+<li><strong>Direct identifiers</strong>: Fields that name a specific person or entity (customer name, employee name, vendor contact)</li>
+<li><strong>Quasi-identifiers</strong>: Fields that become identifying in combination (date + amount + GL code might uniquely identify a transaction and its parties)</li>
+<li><strong>Analytical payload</strong>: The data the cloud model actually needs to do useful work (amounts, dates, account categories, period indicators)</li>
+</ul>
+<p>This classification is the critical step. It requires human judgment about your specific business context, and no ML model can do it for you.</p>
+<p><strong>1b. Sources you don't control (schema discovery).</strong> Vendor PDFs, scanned bank statements, third-party reports, and CSV exports from tools you didn't design all share a common feature: you didn't pick the schema, and it may not be documented anywhere. For these, the inventory step is preceded by <em>discovery</em> — you have to figure out what's in the document before you can classify it. A practical workflow:</p>
+<ul>
+<li><strong>Extract the content into structured text.</strong> Native PDFs can be parsed; scanned PDFs need OCR. The extracted text is usually messy by default — fragmented lines, inconsistent formatting — and that's normal.</li>
+<li><strong>Sample and inspect manually.</strong> Take a representative set of documents from the same source and read them. What fields appear, in what order, and how much does the layout vary across documents? A vendor's invoice format is usually consistent within a vendor and wildly different across vendors.</li>
+<li><strong>Run a probabilistic PII tool over the extracted text.</strong> This is the one stage in the pipeline where Privacy Filter (or a similar model) earns a <em>primary</em> role rather than a verification role. You don't have structural knowledge yet, so probabilistic detection is the best signal you've got. Treat its output as a starting hypothesis about what's sensitive in the document, then verify it against your manual inspection.</li>
+<li><strong>Construct a tentative schema and validate it.</strong> Write down what you found — fields, formats, free-text vs. structured, where sensitive content tends to land. Test the schema against more samples from the same source. If it holds, you've turned an unknown into a known.</li>
+<li><strong>Then proceed as in 1a.</strong> Once you have a schema, classify the fields and design transformations the same way you would for a controlled source.</li>
+</ul>
+<p>The important property is that schema discovery is a <em>one-time</em> (or once-per-source) cost — with one realistic caveat. Once you understand a vendor's invoice format, you don't have to re-discover it every month; you apply the same deterministic transformations to every new document from that vendor. Formats <em>can</em> change, though — most often when a vendor upgrades their reporting software, switches billing platforms, or redesigns their invoice template. It's not common, but it happens. Periodically spot-check incoming documents against your discovered schema, and treat any unexpected variance as a trigger to re-run discovery before the new format flows downstream.</p>
+<h3 id="stage-2-synthetic-data-generation">Stage 2: Synthetic Data Generation</h3>
+<p>Once you've inventoried your schema, generate synthetic datasets that mirror the <em>structure</em> of your real data without containing any real values. This serves two purposes:</p>
+<p>First, it gives you a safe development environment. You can hand synthetic data to a cloud model, iterate on prompts and analysis scripts, and refine your workflow without any risk of exposure. The model doesn't need real data to help you build the sanitization pipeline — it needs structurally accurate data.</p>
+<p>Second, it validates your schema inventory — and is especially valuable when the inventory came from discovery rather than design. If your synthetic data generator can't produce realistic-looking records for a particular table or document, that's a signal you haven't fully understood the structure of that data source. For schemas you discovered (rather than designed), this is often where gaps in the discovery step surface.</p>
+<p>Synthetic generation for accounting data is straightforward:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="sd">Synthetic data generator for accounting sanitization development.</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="sd">Produces structurally accurate fake data for pipeline testing.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">faker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Faker</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">()</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_vendor_master</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate synthetic vendor records matching real schema.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">vendors</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">vendors</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            <span class="s2">&quot;vendor_id&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;V-</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">04d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>            <span class="s2">&quot;vendor_name&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">company</span><span class="p">(),</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>            <span class="s2">&quot;tax_id&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">ssn</span><span class="p">(),</span>  <span class="c1"># EIN format</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">address</span><span class="p">(),</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>            <span class="s2">&quot;contact_name&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>            <span class="s2">&quot;contact_email&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">email</span><span class="p">(),</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>            <span class="s2">&quot;contact_phone&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">phone_number</span><span class="p">(),</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            <span class="s2">&quot;payment_terms&quot;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;Net 15&quot;</span><span class="p">,</span> <span class="s2">&quot;Net 30&quot;</span><span class="p">,</span> <span class="s2">&quot;Net 45&quot;</span><span class="p">,</span> <span class="s2">&quot;Net 60&quot;</span><span class="p">]),</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>            <span class="s2">&quot;bank_routing&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">aba</span><span class="p">(),</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>            <span class="s2">&quot;bank_account&quot;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">)))</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        <span class="p">})</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="k">return</span> <span class="n">vendors</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_ap_ledger</span><span class="p">(</span><span class="n">vendors</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate synthetic AP transactions referencing vendor master.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="n">ledger</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="n">gl_accounts</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        <span class="p">(</span><span class="s2">&quot;6010&quot;</span><span class="p">,</span> <span class="s2">&quot;Office Supplies&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;6020&quot;</span><span class="p">,</span> <span class="s2">&quot;Professional Services&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>        <span class="p">(</span><span class="s2">&quot;6030&quot;</span><span class="p">,</span> <span class="s2">&quot;Utilities&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;6040&quot;</span><span class="p">,</span> <span class="s2">&quot;Insurance&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>        <span class="p">(</span><span class="s2">&quot;6050&quot;</span><span class="p">,</span> <span class="s2">&quot;Rent&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;6060&quot;</span><span class="p">,</span> <span class="s2">&quot;Travel &amp; Entertainment&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>        <span class="p">(</span><span class="s2">&quot;6070&quot;</span><span class="p">,</span> <span class="s2">&quot;Software Subscriptions&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;6080&quot;</span><span class="p">,</span> <span class="s2">&quot;Equipment Maintenance&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    <span class="p">]</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    <span class="n">base_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>        <span class="n">vendor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">vendors</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>        <span class="n">gl</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">gl_accounts</span><span class="p">)</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>        <span class="n">amount</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25000</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        <span class="n">txn_date</span> <span class="o">=</span> <span class="n">base_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="p">))</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>        <span class="n">ledger</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>            <span class="s2">&quot;txn_id&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;AP-</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">06d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>            <span class="s2">&quot;txn_date&quot;</span><span class="p">:</span> <span class="n">txn_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>            <span class="s2">&quot;vendor_id&quot;</span><span class="p">:</span> <span class="n">vendor</span><span class="p">[</span><span class="s2">&quot;vendor_id&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>            <span class="s2">&quot;vendor_name&quot;</span><span class="p">:</span> <span class="n">vendor</span><span class="p">[</span><span class="s2">&quot;vendor_name&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>            <span class="s2">&quot;gl_account&quot;</span><span class="p">:</span> <span class="n">gl</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>            <span class="s2">&quot;gl_description&quot;</span><span class="p">:</span> <span class="n">gl</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>            <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="n">amount</span><span class="p">,</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>            <span class="s2">&quot;memo&quot;</span><span class="p">:</span> <span class="n">fake</span><span class="o">.</span><span class="n">sentence</span><span class="p">(</span><span class="n">nb_words</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>            <span class="s2">&quot;check_number&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">99999</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.3</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;Posted&quot;</span><span class="p">,</span> <span class="s2">&quot;Posted&quot;</span><span class="p">,</span> <span class="s2">&quot;Posted&quot;</span><span class="p">,</span> <span class="s2">&quot;Void&quot;</span><span class="p">]),</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>        <span class="p">})</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>    <span class="k">return</span> <span class="n">ledger</span>
+</code></pre></div>
+<p>The key insight: this synthetic data is <em>cheap to produce and structurally identical to real data</em>. You can iterate rapidly on transformation scripts using synthetic data, then apply the proven scripts to real data with high confidence.</p>
+<h3 id="stage-3-transformation-script-development">Stage 3: Transformation Script Development</h3>
+<p>With synthetic data in hand, develop deterministic transformation scripts. These are not ML models — they're straightforward data processing pipelines that you can read, audit, test, and version control.</p>
+<p>The transformations fall into a few patterns:</p>
+<p><strong>Pseudonymization via lookup tables</strong>: Replace direct identifiers with consistent synthetic values. Vendor "Acme Consulting" becomes "Vendor_0017" everywhere, preserving referential integrity across tables. Store the mapping in an encrypted lookup table that never leaves your local environment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="sd">Deterministic sanitizer: replaces known PII fields with</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sd">pseudonymized values using a stable, reproducible mapping.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">DeterministicSanitizer</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">salt</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">salt</span> <span class="o">=</span> <span class="n">salt</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pseudonymize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate a stable pseudonym for a given value.&quot;&quot;&quot;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>            <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">:</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>            <span class="n">hash_input</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">salt</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>            <span class="n">digest</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">hash_input</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">8</span><span class="p">]</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">category</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">digest</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sanitize_ap_record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Sanitize a single AP ledger record.&quot;&quot;&quot;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>        <span class="n">sanitized</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>        <span class="c1"># Direct identifiers: pseudonymize</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>        <span class="n">sanitized</span><span class="p">[</span><span class="s2">&quot;vendor_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pseudonymize</span><span class="p">(</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>            <span class="n">record</span><span class="p">[</span><span class="s2">&quot;vendor_name&quot;</span><span class="p">],</span> <span class="s2">&quot;vendor&quot;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>        <span class="p">)</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>        <span class="n">sanitized</span><span class="p">[</span><span class="s2">&quot;memo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scrub_memo</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;memo&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>        <span class="c1"># Remove fields that should never leave local environment</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;check_number&quot;</span><span class="p">]:</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>            <span class="n">sanitized</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>        <span class="c1"># Analytical payload passes through unchanged:</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>        <span class="c1"># txn_date, gl_account, gl_description, amount, status</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>        <span class="k">return</span> <span class="n">sanitized</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_scrub_memo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="sd">        Replace known patterns in free-text memo fields.</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="sd">        This is where a model like Privacy Filter adds value</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="sd">        as a secondary verification layer.</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>        <span class="k">if</span> <span class="n">memo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>            <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>        <span class="c1"># Apply regex patterns for known sensitive formats</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>        <span class="c1"># SSN, EIN, phone, email patterns, etc.</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>        <span class="n">memo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b\d</span><span class="si">{3}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{4}</span><span class="s1">\b&#39;</span><span class="p">,</span> <span class="s1">&#39;[SSN_REDACTED]&#39;</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>        <span class="n">memo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{7}</span><span class="s1">\b&#39;</span><span class="p">,</span> <span class="s1">&#39;[EIN_REDACTED]&#39;</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>        <span class="n">memo</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>            <span class="sa">r</span><span class="s1">&#39;\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>            <span class="s1">&#39;[EMAIL_REDACTED]&#39;</span><span class="p">,</span> <span class="n">memo</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>        <span class="p">)</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>        <span class="c1"># Names from vendor/customer master get pseudonymized</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>        <span class="c1"># using the same lookup table for consistency</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>        <span class="k">return</span> <span class="n">memo</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">export_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">encryption_key</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Export the pseudonym mapping for later re-identification.&quot;&quot;&quot;</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>        <span class="c1"># In production, encrypt this file at rest</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lookup</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Generalization</strong>: Replace precise values with ranges or categories where the cloud model doesn't need exact figures. Individual transaction amounts become buckets ($0–1K, $1K–5K, $5K–25K) if the analysis is about patterns rather than exact reconciliation.</p>
+<p><strong>Suppression</strong>: Remove fields entirely when they add no analytical value but carry risk. Check numbers, bank routing numbers, and employee SSN fragments get dropped, not masked.</p>
+<p><strong>Perturbation</strong>: Add calibrated noise to numerical fields when the analysis is statistical. If you're looking for seasonal expense trends, shifting every amount by ±3% preserves the pattern while preventing exact reconstruction.</p>
+<h3 id="stage-4-deterministic-sanitization-of-real-data">Stage 4: Deterministic Sanitization of Real Data</h3>
+<p>Once your transformation scripts are tested against synthetic data and verified to preserve the analytical properties you need, apply them to real data. This step is mechanical — the same scripts, the same transformations, applied to real inputs.</p>
+<p>The output is a sanitized dataset that:
+- Contains no direct identifiers
+- Preserves referential integrity through consistent pseudonymization
+- Retains the analytical payload the cloud model needs
+- Is produced by auditable, version-controlled, deterministic code
+- It requires no cloud interaction, all processing is done locally.</p>
+<h3 id="stage-5-verification">Stage 5: Verification</h3>
+<p>Before the sanitized output leaves your environment, run it through a probabilistic PII detector — Privacy Filter or a similar model — as a verification step. If the model flags residual sensitive data in something the deterministic sanitizer was supposed to have cleaned, treat each flag as a signal: a gap in the schema inventory, a transformation script that missed a case, or a free-text field with content you didn't anticipate. The flag rate should be low. When it isn't, the answer is to fix the deterministic layer, not to lean harder on the probabilistic one.</p>
+<p>This stage is the architectural complement to Stages 1–4: deterministic transformation handles the known structure, and probabilistic verification catches what the structural knowledge missed. The full architectural reasoning — including the role this layer plays during schema discovery for third-party documents, and the option to run the verification model entirely on your own hardware — is in the "Where Privacy Filter Fits" section below.</p>
+<h3 id="stage-6-cloud-analysis">Stage 6: Cloud Analysis</h3>
+<p>Send the sanitized, verified dataset to the cloud model. Because you've preserved the structural relationships in the data, the model can perform the analysis you need: anomaly detection, trend analysis, narrative generation, forecasting. It's working with real patterns from your real data, but it never sees the identities behind those patterns.</p>
+<h3 id="stage-7-result-re-identification-local">Stage 7: Result Re-identification (Local)</h3>
+<p>When the cloud model returns results that reference pseudonymized entities ("VENDOR_a3f2c1e8 shows a 340% increase in Q3 expenses"), you re-identify locally using your encrypted lookup table. The re-identification step happens entirely in your local environment. The cloud model never needs to know that VENDOR_a3f2c1e8 is Acme Consulting.</p>
+<h2 id="where-privacy-filter-fits-the-verification-layer">Where Privacy Filter Fits: The Verification Layer</h2>
+<p>Stage 5 above describes <em>what</em> the verification step does. This section explains <em>why</em> the architecture puts probabilistic detection there rather than at the front, and why the same model that's the wrong primary control is the right verification layer.</p>
+<p>This is exactly the role the system card envisions. The model becomes part of a "holistic privacy-by-design approach" rather than being asked to shoulder the entire burden alone. Its false negatives become less dangerous because the deterministic layer has already handled the known structure. Its false positives become useful signals rather than disruptive over-redaction, because you can investigate each flag against your schema inventory.</p>
+<p>There is one exception to this verification-layer framing: during <em>schema discovery</em> for third-party documents (Stage 1b above), Privacy Filter steps forward as a primary tool rather than a backstop. When you don't yet have a schema, you don't yet have deterministic rules — and probabilistic detection is the best initial signal about what's in the document. The role flips back to verification once discovery is complete and the deterministic transformations are in place. The same model serves both functions; it's the position in the pipeline that changes.</p>
+<p>For a small business, this is where a critical distinction enters the picture — one that many people aren't aware exists: <strong>you can run AI models on your own computer, without sending any data to the cloud.</strong></p>
+<p>When most people think of AI, they think of a website — Claude, ChatGPT, Gemini — where you type a prompt and get a response from a model running on someone else's servers. But there's a growing ecosystem of models designed to run entirely on hardware you own. The Privacy Filter is one of them. At 1.5B parameters with only 50M active, it runs comfortably on a standard office laptop or desktop. It works fine on a CPU alone — no graphics card required. If your machine does have a GPU with 4GB or more of memory, it'll run even faster, but it's not a requirement. (Not sure what any of that means? Ask your IT person whether your office machines can "run a 1.5B parameter model locally" — if they know, they'll tell you; if they don't, that's useful information too.) You install it once using Python's <code>transformers</code> library, and from that point forward, every document you process stays on your machine. Nothing is transmitted. No API calls. No cloud dependency. Your data never leaves your desk.</p>
+<p>This is the key reason Privacy Filter earns its place in this architecture. The <em>privacy-critical</em> step — verifying that your sanitization didn't miss anything — happens in an environment you fully control. Tools like <a href="https://ollama.com">Ollama</a> make running local models even more accessible, providing a simple interface to download and run a growing library of open-weight models without needing to write Python. If you're new to the concept of local AI, Ollama is a good place to start exploring what's possible on your own hardware.</p>
+<p>The broader point is this: "AI" doesn't have to mean "cloud." For tasks where data sensitivity is the primary concern, local models give you the analytical capability without the exposure. They're smaller, less capable than the cloud models you'd use for complex analysis — but for a focused task like PII detection, that's exactly the right tradeoff.</p>
+<h2 id="mapping-to-cia-and-coso">Mapping to CIA and COSO</h2>
+<p>For those coming from a controls and audit background, this architecture maps cleanly to both the CIA triad and the COSO framework[^4]. Even though COSO is most commonly associated with SOX compliance for public companies, its five-component structure provides useful scaffolding for any organization that wants to think systematically about controls — including private small businesses that will never file a 10-K.</p>
+<h3 id="cia-triad">CIA Triad</h3>
+<p><strong>Confidentiality</strong>: The deterministic sanitizer is the primary confidentiality control. It ensures that sensitive data never leaves the local environment in identifiable form. The encrypted pseudonym mapping is the critical asset — its compromise would allow re-identification, so it requires the same protections as the underlying data. The Privacy Filter model serves as a detective control, catching confidentiality failures before they reach the cloud.</p>
+<p><strong>Integrity</strong>: Schema-driven transformation preserves analytical integrity by design. Because you're transforming based on known structure rather than pattern-matching against content, you can verify that the relationships in the data that matter for analysis are preserved. Referential integrity (the same vendor gets the same pseudonym everywhere) is guaranteed by the lookup table, not hoped for by the model. A perturbation budget (the ±3% noise) is documented and bounded, so downstream consumers of the analysis know exactly how much precision was traded for privacy.</p>
+<p><strong>Availability</strong>: The architecture keeps the local environment as the authoritative data source and the cloud model as a processing resource, not a storage dependency. If the cloud API is unavailable, your data and your sanitization pipeline are unaffected. If you need to switch cloud providers, you re-run the sanitized data through a different API. The deterministic pipeline is portable — it's Python scripts and lookup tables, not a vendor-locked SaaS integration.</p>
+<h3 id="coso-internal-control-components">COSO Internal Control Components</h3>
+<p><strong>Control Environment</strong>: The schema inventory establishes organizational commitment to data classification. It doesn't need to be elaborate — for a small business, a spreadsheet that maps each data source to its fields and sensitivity classifications is sufficient. What matters is that someone has made deliberate decisions about what's sensitive and documented them.</p>
+<p><strong>Risk Assessment</strong>: The synthetic data generation step is an implicit risk assessment. Building synthetic data forces you to confront the actual structure of your data and ask "what could go wrong if this field leaked?" Fields you can't easily synthesize are often the ones with the most complex sensitivity profiles — and therefore the ones that need the most careful transformation design.</p>
+<p><strong>Control Activities</strong>: The deterministic sanitization scripts <em>are</em> the control activities. They're specific, testable, and auditable. Unlike a probabilistic model whose behavior changes with input distribution, a deterministic script does the same thing every time. You can write unit tests for it. You can diff its output across versions. You can show it to an auditor and they can read it.</p>
+<p><strong>Information and Communication</strong>: The pseudonym mapping table and transformation documentation serve the communication function. Anyone in the organization who needs to understand what was done to the data before it was sent to the cloud can read the transformation scripts and the mapping table. This is radically more transparent than "we ran it through a PII detection model."</p>
+<p><strong>Monitoring</strong>: The Privacy Filter model, run as a post-sanitization audit, is the monitoring function. Regular execution against sanitized outputs provides ongoing assurance that the deterministic controls are working as intended. Flagged items become investigation triggers — and because the flag rate should be very low (the deterministic layer handles the known structure), each flag gets meaningful attention rather than being lost in a flood of false positives.</p>
+<h2 id="practical-recommendations-for-small-business-accounting">Practical Recommendations for Small Business Accounting</h2>
+<p>If you're an accounting manager or controller at a small business considering AI-assisted analysis, here's the implementation path:</p>
+<p><strong>Start with the schema inventory — including for recurring third-party documents.</strong> For data from systems you control, this is a one-time effort that pays dividends beyond the AI use case. For recurring third-party documents (a vendor's monthly invoice, a bank's standard statement format), invest the time once to <em>discover</em> the schema and write it down. From that point forward, every new document from that source slots into the same deterministic pipeline. Schemas don't usually change once a vendor settles on a format, but they can — most often when a vendor upgrades their reporting software or switches billing platforms — so spot-check periodically and re-run discovery if you see unexpected variance. Understanding exactly what sensitive data you hold, where it lives, and what format it takes is foundational to any data governance posture. You probably have a rough sense of this already — formalize it.</p>
+<p><strong>Generate synthetic data early.</strong> Use libraries like Python's Faker[^5] to produce structurally accurate test data. Share the synthetic data freely with cloud models while developing your analysis workflows. This lets you iterate on the analytical approach without any privacy risk, and it builds the muscle memory for thinking about data structure separately from data content.</p>
+<p><strong>Build deterministic sanitizers for structured fields.</strong> For the vast majority of accounting data, you either know the schema or can document it once and reuse the documentation. Write transformation scripts that handle that known structure. Keep them simple, readable, and version-controlled. Don't over-engineer — a Python script with clear comments is better than a complex framework.</p>
+<p><strong>Use ML-based PII detection for free-text fields, as a verification layer, and during schema discovery.</strong> Memo fields, notes, and description columns are where unstructured PII lurks within otherwise structured data — and for third-party documents you're seeing for the first time, probabilistic detection plays a bigger role still, because it's the best initial signal you have before you've built a schema. In all of these cases, a model like Privacy Filter adds genuine value — not as the primary gate for known-schema data, but as a net for the things your inventory didn't anticipate and as a starting point when there is no inventory yet. Run it locally if you can; the model is small enough.</p>
+<p><strong>Document everything.</strong> The transformation scripts, the schema inventory, the pseudonym mapping (encrypted), the Privacy Filter audit results. This documentation is your evidence that you've taken reasonable care with data confidentiality — which matters for client relationships, insurance, and potential regulatory interactions even if you're not subject to SOX.</p>
+<p><strong>Test with real data in a controlled setting before going to production.</strong> Run your sanitization pipeline against a sample of real data, then manually review the output. Are there fields you missed? Patterns in memo fields you didn't anticipate? Names leaking through in unexpected places? This is where you discover the gaps that synthetic data couldn't reveal.</p>
+<h2 id="where-we-can-go-deeper">Where We Can Go Deeper</h2>
+<p>The architecture above is the <em>what</em>. Several topics that would round out a production deployment are out of scope for this post — each warrants its own treatment. A short tour of the open questions, with where I'd start:</p>
+<ul>
+<li>
+<p><strong>How do you test sanitization scripts and catch regressions when input formats drift?</strong> The transformations are production code, and silent drift in an upstream format (a renamed column, a new field, a re-templated PDF) can quietly bypass them. A reasonable starting point: unit tests against synthetic fixtures (you already have the generator from Stage 2), golden-output tests that fail loudly when transformation behavior changes, and a small regression suite that runs whenever a schema is re-discovered. The harder open question is the <em>trigger</em> — how do you know an input format has actually drifted enough to warrant a re-run, before a sanitization gap goes live?</p>
+</li>
+<li>
+<p><strong>Who owns the schema inventory, and how do changes to transformation scripts get reviewed?</strong> These are organizational questions, not technical ones, and the answers vary by company size. For a small team, a single person who owns the inventory document and signs off on transformation changes is probably enough. For a larger team, treating the inventory and the scripts as version-controlled code with normal code review applies cleanly. The encryption key for the pseudonym lookup table needs its own answer — who holds it, where it's stored, how it's rotated, and what happens when the holder leaves.</p>
+</li>
+<li>
+<p><strong>What evidence do you keep, and how would you respond to an auditor or insurer asking to see it?</strong> The COSO mapping above gestures at this, but a full treatment would cover concrete artifacts: pinned versions of the transformation scripts, run logs, the Privacy Filter flags and how each was investigated, and a retention period for all of the above. A reasonable default is to keep everything tied to a sanitization run for at least as long as you'd retain the underlying source data, and to treat the script repository itself as a piece of audit evidence.</p>
+</li>
+</ul>
+<p>Each of these warrants its own post. Naming them here rather than treating them lightly is deliberate — sanitization-script testing in particular needs a careful walkthrough, given how easily a regression in your transformation layer can defeat the rest of the architecture.</p>
+<h2 id="the-broader-point">The Broader Point</h2>
+<p>The OpenAI Privacy Filter model is a genuinely useful tool, and its system card is a model of responsible disclosure about limitations. But the most important thing in the system card isn't the model architecture or the performance metrics — it's the framing. The repeated insistence that this is "one of multiple layers" points to a deeper truth about data privacy in the AI era.</p>
+<p>For most business data, the problem isn't that we don't know what's sensitive. It's that we reach for probabilistic detection when we should be applying the structural knowledge we already have — or could readily acquire. The exciting ML model feels like the sophisticated solution. The boring Python script that pseudonymizes column 3 and drops column 7 feels like it can't possibly be enough. But for structured data with known schemas — which is what accounting data overwhelmingly is, once you've taken the time to inventory it — the boring script is the <em>correct</em> primary control, and the ML model is the <em>correct</em> verification layer. Even when the schema isn't yours to begin with — when the data arrives as a vendor PDF or an opaque third-party export — the right move is to <em>build</em> a schema once and then proceed deterministically, not to outsource the question to a probabilistic guess every time.</p>
+<p>Get the architecture right, and you can use cloud AI tools for financial analysis with confidence — not because you trust the model to find every sensitive field, but because you <em>know</em> what you transformed, and you can prove it.</p>
+<hr />
+<p>[^1]: The prompt that initiated this collaboration: <em>"I was reviewing the system card for the openai privacy-filter model. We are interested in getting a better understanding of how to appropriately mask data to ensure confidentiality, integrity, and availability of systems (CIA). Particularly in local accounting settings where cloud models may interact with data. The COSO framework touches on these topics. In reading the system card, the authors warn that it is not an all in one solution, but more simply, a piece of a bigger pipeline. In the context of a small-to-medium accounting department for a small business (i.e., not publicly traded), what appropriate safeguards should be recommended and demonstrated to better understand the scope and concerns in this area. I was envisioning local model as a preferred facility for this task, but I think it may be easier to model the datasets and produce fake data to help models (i.e., local or cloud) to develop the scripts necessary to sanitize data that then allows cloud models to assist in further analysis of properly transformed datasets. Can we think through this? This sounds like a good blog post for us."</em></p>
+<p>[^2]: The CIA triad (Confidentiality, Integrity, Availability) is formally defined in NIST Special Publication 800-12 Rev 1, <em>An Introduction to Information Security</em> (National Institute of Standards and Technology). Available at: https://csrc.nist.gov/publications/detail/sp/800-12/rev-1/final</p>
+<p>[^3]: The OpenAI Privacy Filter System Card is available as a detailed PDF at: https://cdn.openai.com/pdf/c66281ed-b638-456a-8ce1-97e9f5264a90/OpenAI-Privacy-Filter-Model-Card.pdf — the model repository, including weights and source code, is hosted at: https://huggingface.co/openai/privacy-filter</p>
+<p>[^4]: Committee of Sponsoring Organizations of the Treadway Commission (COSO), <em>Internal Control — Integrated Framework</em> (originally issued 1992, updated 2013). COSO is jointly sponsored by the AICPA, IMA, AAA, IIA, and FEI. Framework guidance and supplemental publications are available at: https://www.coso.org/guidance-on-ic</p>
+<p>[^5]: Faker is an open-source Python library for generating realistic synthetic data. Documentation and installation instructions are available at: https://faker.readthedocs.io/en/master/</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
