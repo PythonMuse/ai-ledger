@@ -35,6 +35,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 20 | [Version Control for Accountants](articles/20-version-control-for-accountants/) | Git, version control, audit trail, reproducibility |
 | 21 | [The 3 Mindsets of AI Adoption in Accounting](articles/21-three-mindsets-of-ai-adoption/) | Mindset, change management, Builder/Stabilizer/Protector, AI adoption |
 | 22 | [The Workings Layer: Fitting AI Into the Files You Can't Change](articles/22-workings-layer-method/) | Workings layer, folder structure, CLAUDE.md placement, legacy files, audit-ready |
+| 23 | [Don't Trust the Model to Find What You Already Know Is There](articles/23-schema-driven-sanitization/) | Schema-driven sanitization, PII detection, data privacy, accounting data workflows, Privacy Filter |
 
 ---
 
