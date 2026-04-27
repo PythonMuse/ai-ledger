@@ -34,18 +34,34 @@ nav:
   - Getting Started:
     - AI Will Not Replace Your Job: 00-ai-will-not-replace-your-job/README.md
     - Where to Start with AI: 00.5-where-to-start-with-ai/README.md
+    - The 3 Mindsets of AI Adoption: 21-three-mindsets-of-ai-adoption/README.md
   - Working with AI:
     - Your AI Co-Pilot for Accounting: 01-ai-copilot-for-accounting/README.md
     - Ways to Use Claude: 02-ways-to-use-claude/README.md
     - Getting the Right Tools Installed: 03-getting-the-right-tools-installed/README.md
     - Why Claude Forgets: 08-why-claude-forgets/README.md
     - How Accountants Learn AI: 09-how-accountants-learn-ai/README.md
+    - Stop Using One AI Like It Is Excel: 14-ai-team-for-accountants/README.md
+    - AI and Excel Files: 15-ai-and-excel-files/README.md
+    - The PDF Token Trap: 16-pdf-token-trap/README.md
   - Governance & Controls:
     - AI in Accounting Is Not the Wild West: 04-ai-governance-in-accounting/README.md
     - AI Governance for Controllers: 07-ai-governance-for-controllers/README.md
+    - Audit-Ready AI Workflows: 12-audit-ready-ai-workflows/README.md
+    - Zero Trust for AI: 13-zero-trust-ai-accounting/README.md
+    - Version Control for Accountants: 20-version-control-for-accountants/README.md
   - Workflows & Safety:
     - Reproducible Accounting: 05-reproducible-accounting/README.md
     - Safe AI Data Workflows: 06-safe-ai-data-workflows/README.md
+    - AI Use Cases and Structure: 10-ai-use-cases-and-structure/README.md
+    - One-Time to Repeatable Workflows: 11-one-time-to-repeatable-workflows/README.md
+    - The Workings Layer: 22-workings-layer-method/README.md
+    - Schema-Driven Sanitization: 23-schema-driven-sanitization/Readme.md
+  - Skills & Automation:
+    - Skills and Agents for Accountants: 17-skills-and-agents-for-accountants/README.md
+    - Your First CLAUDE.md: 17b-your-first-claude-md/README.md
+    - Scheduled Workflows: 18-scheduled-workflows/README.md
+    - Multi-Agent Orchestration: 19-multi-agent-orchestration/README.md
 
 markdown_extensions:
   - admonition
