@@ -39,3 +39,6 @@ nul
 email-output/
 subscribers.json
 .env
+
+# Scripts directory (internal use only — not for public repo)
+scripts/

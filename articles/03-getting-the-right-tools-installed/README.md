@@ -100,6 +100,44 @@ It is important to understand that AI features may involve sending prompts or fi
 
 If you are evaluating assistant options by interface (browser, VS Code, API), see [Ways to Use Claude: Choosing the Right Interface](../02-ways-to-use-claude/).
 
+### Git (Version Control)
+
+Git is a free version control system that tracks every change you make to your scripts and automation files.
+
+If you have been in accounting for more than a week, you have seen a folder that looks like this:
+
+```
+reconciliation_v1.xlsx
+reconciliation_v2.xlsx
+reconciliation_v2_FINAL.xlsx
+reconciliation_v2_FINAL_reviewed.xlsx
+reconciliation_v2_FINAL_reviewed_USE_THIS_ONE.xlsx
+```
+
+And somewhere in one of those files, there are cells highlighted in yellow — the informal signal for "this is what changed." But yellow highlighting only tells you what someone *thought* changed. It does not tell you whether anything else shifted quietly in column C. It does not tell you who made the change, when, or why.
+
+For accounting automation scripts, this matters in a direct and auditable way. When an auditor reviews and signs off on the script that runs your reconciliation, you need to be able to show them — precisely — that the version currently running is exactly what they reviewed. Not "mostly the same." Not "I think nothing else changed." Exactly.
+
+Git does this. It records every change to every line of every file, who made it, and when. If an auditor reviewed version 3 of your reconciliation script, Git can show them the exact difference between that version and the one you are running today. No yellow highlighting. No guessing. A complete, timestamped record.
+
+For accounting and finance teams, Git matters because:
+
+- it creates a verifiable audit trail for automation scripts and workflow changes
+- it lets you compare any two versions of a file with line-by-line precision
+- it makes it safe to experiment without fear of losing working code
+- it supports team collaboration without overwriting each other's work
+
+Official website:
+https://git-scm.com/
+
+Git is often pre-installed on developer workstations. For corporate environments, IT may route it through GitHub, Azure DevOps, or a similar internal platform — worth confirming before installing.
+
+> **Once you have version control, something changes.** You can improve, experiment, and iterate freely — knowing that any version that worked is still one step away. It is not just Ctrl+Z. It is Ctrl+Z that is tracked, named, and retrievable six months later. That confidence changes how you work.
+
+This becomes especially relevant when your scripts are handling sensitive data. See [Don't Trust the Model to Find What You Already Know Is There](../23-schema-driven-sanitization/) for a deeper look at how version-controlled transformation scripts function as audit evidence in an AI data pipeline.
+
+For a deeper understanding of version control and how to build a practical Git workflow for accounting automation, see [Version Control for Accountants](../20-version-control-for-accountants/) *(coming soon)*.
+
 ![Industries Using Python and AI Developer Tools](./visuals/03_industry_adoption.png)
 *Figure 1: Python and AI developer tools are not experimental. They are widely used across engineering, data science, finance, and academia — and trusted by organizations including Google, Netflix, JPMorgan, and NASA.*
 
@@ -164,8 +202,9 @@ I'm exploring ways to automate several finance workflows (such as reconciliation
 
 - Visual Studio Code
 - Python
+- Git (version control for scripts and automation files)
 
-Both are widely used tools for data analysis and automation.
+These are widely used tools for data analysis and automation.
 
 The initial goal is to experiment with small workflow improvements using sample or non-sensitive datasets.
 
@@ -219,10 +258,14 @@ Understanding when AI tools process information locally and when cloud models ar
 
 Designing automation that is documented, reviewable, and easier to support during internal review or audit.
 
+### Tracking script changes with version control
+
+Once your automation scripts start doing real work, you need a way to prove what ran, when, and what changed since the last review. A coming article will walk through Git and version control basics specifically for accounting and finance professionals.
+
 My goal with PythonMuse is not just to encourage adoption of new tools, but to help finance teams adopt them responsibly, one step at a time.
 
 If you want to go from setup to execution, [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) shows a full example analysis workflow using CSV files in VS Code.
 
 ---
 
-*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [Version Control for Accountants](../20-version-control-for-accountants/) | [Schema-Driven Data Sanitization](../23-schema-driven-sanitization/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
