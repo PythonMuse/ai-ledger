@@ -23,7 +23,13 @@ That's something accountants have always done well.
 This article walks through a real example step by step. By the end, you'll know how to try it yourself -- and how to grow beyond prompts into reusable systems.
 
 ---
+## 🎥 Video Walkthrough
 
+Prefer to watch instead of read? Full walkthrough below:
+
+https://youtu.be/O1E1mMKWp2s
+
+---
 ## What We're Working With
 
 **Tool:** Claude, accessed through Copilot Chat in Visual Studio Code (VS Code).
