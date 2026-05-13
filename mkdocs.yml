@@ -40,6 +40,7 @@ nav:
     - Ways to Use Claude: 02-ways-to-use-claude/README.md
     - Getting the Right Tools Installed: 03-getting-the-right-tools-installed/README.md
     - Why Claude Forgets: 08-why-claude-forgets/README.md
+    - When Your AI Enters Month-End Close Mode: 26-when-your-ai-enters-month-end-close-mode/README.md
     - How Accountants Learn AI: 09-how-accountants-learn-ai/README.md
     - Stop Using One AI Like It Is Excel: 14-ai-team-for-accountants/README.md
     - AI and Excel Files: 15-ai-and-excel-files/README.md
@@ -63,6 +64,7 @@ nav:
     - Your First CLAUDE.md: 17b-your-first-claude-md/README.md
     - Scheduled Workflows: 18-scheduled-workflows/README.md
     - Multi-Agent Orchestration: 19-multi-agent-orchestration/README.md
+    - What the Heck Is a Script?: 25-what-the-heck-is-a-script/README.md
 
 markdown_extensions:
   - admonition

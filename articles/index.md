@@ -35,6 +35,8 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 21 | [The 3 Mindsets of AI Adoption in Accounting](21-three-mindsets-of-ai-adoption/README.md) | AI adoption, mindset, organizational change |
 | 23 | [Don't Trust the Model to Find What You Already Know Is There](23-schema-driven-sanitization/README.md) | Schema-Driven Data Sanitization for Small Business Accounting in the Age of AI |
 | 24 | [AI Didn't Break Your Numbers. Excel Did.](24-excel-number-trap/README.md) | Excel formatting, accounting number normalization, data discipline, Top 10 AI Traps #1 |
+| 25 | [What the Heck Is a Script?](25-what-the-heck-is-a-script/README.md) | Scripts explained for accountants, Excel vs Python readability, SOPs for computers, audit-friendly logic |
+| 26 | [When Your AI Enters Month-End Close Mode](26-when-your-ai-enters-month-end-close-mode/README.md) | Context drift, session management, context window, accounting analogies, SKILL files, checkpoints |
 
 ---
 

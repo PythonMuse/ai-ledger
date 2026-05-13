@@ -37,6 +37,8 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 22 | [The Workings Layer: Fitting AI Into the Files You Can't Change](articles/22-workings-layer-method/) | Workings layer, folder structure, CLAUDE.md placement, legacy files, audit-ready |
 | 23 | [Don't Trust the Model to Find What You Already Know Is There](articles/23-schema-driven-sanitization/) | Schema-driven sanitization, PII detection, data privacy, accounting data workflows, Privacy Filter |
 | 24 | [AI Didn't Break Your Numbers. Excel Did.](articles/24-excel-number-trap/README.md) | Excel formatting, accounting number normalization, data discipline, Top 10 AI Traps #1 |
+| 25 | [What the Heck Is a Script?](articles/25-what-the-heck-is-a-script/README.md) | Scripts explained for accountants, Excel vs Python readability, SOPs for computers, audit-friendly logic |
+| 26 | [When Your AI Enters Month-End Close Mode](articles/26-when-your-ai-enters-month-end-close-mode/) | Context drift, session management, context window, accounting analogies, SKILL files, checkpoints |
 
 
 ---

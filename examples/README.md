@@ -25,6 +25,7 @@ examples/
 | [skill-bank-reconciliation](skill-bank-reconciliation/) | Reusable SKILL.md for bank reconciliation -- matching bank to GL, classifying exceptions, audit-ready output |
 | [skill-margin-analysis](skill-margin-analysis/) | Reusable SKILL.md for margin analysis -- gross margin by segment, period comparison, concentration risk |
 | [skill-excel-interpretation](skill-excel-interpretation/) | Reusable SKILL.md for interpreting complex multi-tab Excel workbooks -- tab roles, column maps, analysis rules |
+| [skill-script-review](skill-script-review/) | Reusable SKILL.md for reviewing Python scripts in plain English -- translate logic for audit documentation and sign-off |
 | [legacy-data-import](legacy-data-import/) | Script to copy files from legacy folder structures into workings/data/raw/ -- placeholder paths, run log, never modifies source files |
 | [workings-template](workings-template/) | Full starter kit for a version-controlled workings folder -- CLAUDE.md, .gitignore, plan.md, status log, copy script, and folder structure. Clone each year. |
 

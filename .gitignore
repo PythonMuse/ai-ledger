@@ -31,6 +31,10 @@ articles/20-version-control-for-accountants/
 
 # Visuals not ready to publish
 articles/21-three-mindsets-of-ai-adoption/visuals/21_mindset_overview.png
+articles/23-schema-driven-sanitization/visuals/
+
+# Examples not ready to publish
+examples/skill-update-index/
 
 # Windows artifacts
 nul
