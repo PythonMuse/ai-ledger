@@ -1,0 +1,11 @@
+invoice_number,customer,invoice_date,amount
+INV-1001,Lakeside Manufacturing,2026-01-15,4250.00
+INV-1002,River City Supplies,2026-02-10,1875.50
+INV-1003,Summit Consulting,2026-03-05,6100.00
+INV-1004,Lakeside Manufacturing,2026-03-20,3300.00
+INV-1005,Northgate Partners,2026-04-02,950.00
+INV-1006,River City Supplies,2026-04-15,2400.00
+INV-1007,Summit Consulting,2026-04-28,5750.00
+INV-1008,Northgate Partners,2026-05-05,1200.00
+INV-1009,Lakeside Manufacturing,2026-05-12,7800.00
+INV-1010,River City Supplies,2026-05-22,3100.00
