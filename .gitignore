@@ -46,3 +46,7 @@ subscribers.json
 
 # Scripts directory (internal use only — not for public repo)
 scripts/
+
+# Pre-Read PDF package (generated output + build script — internal only)
+preread/
+/generate_preread_pdf.py

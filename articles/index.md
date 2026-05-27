@@ -37,6 +37,10 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 24 | [AI Didn't Break Your Numbers. Excel Did.](24-excel-number-trap/README.md) | Excel formatting, accounting number normalization, data discipline, Top 10 AI Traps #1 |
 | 25 | [What the Heck Is a Script?](25-what-the-heck-is-a-script/README.md) | Scripts explained for accountants, Excel vs Python readability, SOPs for computers, audit-friendly logic |
 | 26 | [When Your AI Enters Month-End Close Mode](26-when-your-ai-enters-month-end-close-mode/README.md) | Context drift, session management, context window, accounting analogies, SKILL files, checkpoints |
+| 29 | [The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run](29-loops-the-automation-that-feels-magical/README.md) | Workflow automation, YAML configuration, loop governance, review before run, abstraction layers |
+| 30 | [AI Routines for Accountants: When Your Guidance Starts Checking Itself](30-ai-routines-for-accountants/README.md) | AI routines, monitoring workflows, YAML configuration, proposed change packages, human review gates, audit evidence |
+| 31 | [Metadata Is the Label Maker Your AI Workflow Needs](31-metadata-is-the-label-maker/README.md) | Metadata governance, SKILL.md, file manifests, scripts vs. controls, hooks, audit trail |
+| 32 | [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](32-from-ai-answers-to-audit-trails/README.md) | AI output validation, chat vs. harness, tie-out reports, evidence trails, reviewer checklists |
 
 ---
 

@@ -65,6 +65,10 @@ nav:
     - Scheduled Workflows: 18-scheduled-workflows/README.md
     - Multi-Agent Orchestration: 19-multi-agent-orchestration/README.md
     - What the Heck Is a Script?: 25-what-the-heck-is-a-script/README.md
+    - The Magic Loop: 29-loops-the-automation-that-feels-magical/README.md
+    - AI Routines for Accountants: 30-ai-routines-for-accountants/README.md
+    - Metadata Is the Label Maker: 31-metadata-is-the-label-maker/README.md
+    - From AI Answers to Audit Trails: 32-from-ai-answers-to-audit-trails/README.md
 
 markdown_extensions:
   - admonition

@@ -268,4 +268,4 @@ If you want to go from setup to execution, [Your AI Co-Pilot for Accounting](../
 
 ---
 
-*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [Version Control for Accountants](../20-version-control-for-accountants/) | [Schema-Driven Data Sanitization](../23-schema-driven-sanitization/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) | [VS Code Extensions for Accountants](../27-vscode-extensions-for-accountants/) | [Python Libraries for Accountants](../28-python-libraries-for-accountants/) | [Version Control for Accountants](../20-version-control-for-accountants/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
