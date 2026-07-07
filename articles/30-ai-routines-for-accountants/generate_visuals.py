@@ -227,10 +227,10 @@ def make_routine_pattern():
         (SOFT_SAGE,     "COMMIT",           "Approved change\nenters version control",          "Evidence\npreserved."),
     ]
 
-    box_w = 1.85
+    box_w = 1.9
     box_h = 2.9
-    gap = 0.1
-    start_x = 0.2
+    gap = 0.05
+    start_x = 0.15
     y_box = 0.4
 
     for i, (color, title, body, question) in enumerate(steps):
@@ -243,21 +243,22 @@ def make_routine_pattern():
         q_color     = MIDNIGHT_TEAL if color in (GOLDEN_YELLOW, BRIGHT_TEAL, SOFT_SAGE) else WARM_GLOW
 
         ax.text(x + box_w / 2, y_box + box_h - 0.35, title,
-                ha="center", va="center", fontsize=12.5,
+                ha="center", va="center", fontsize=14,
                 color=title_color, fontweight="bold", linespacing=1.3)
 
-        for j, line in enumerate(body.split("\n")):
-            ax.text(x + box_w / 2, y_box + box_h - 0.95 - j * 0.42, line,
-                    ha="center", va="center", fontsize=10, color=body_color)
+        # Single multi-line text block with tight linespacing so the two
+        # lines read as one flowing sentence, not a bulleted list.
+        ax.text(x + box_w / 2, y_box + box_h - 1.15, body,
+                ha="center", va="center", fontsize=11.5, color=body_color,
+                linespacing=1.15)
 
-        for j, line in enumerate(question.split("\n")):
-            ax.text(x + box_w / 2, y_box + 0.55 - j * 0.32, line,
-                    ha="center", va="center", fontsize=9.5,
-                    color=q_color, style="italic")
+        ax.text(x + box_w / 2, y_box + 0.42, question,
+                ha="center", va="center", fontsize=10.5,
+                color=q_color, style="italic", linespacing=1.15)
 
         if i < len(steps) - 1:
-            ax_x = x + box_w + 0.01
-            ax.annotate("", xy=(ax_x + 0.08, y_box + box_h / 2),
+            ax_x = x + box_w + 0.005
+            ax.annotate("", xy=(ax_x + 0.04, y_box + box_h / 2),
                         xytext=(ax_x, y_box + box_h / 2),
                         arrowprops=dict(arrowstyle="->", color=DEEP_NAVY, lw=2.0))
 
