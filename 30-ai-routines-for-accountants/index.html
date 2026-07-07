@@ -1,0 +1,2129 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/30-ai-routines-for-accountants/">
+      
+      
+        <link rel="prev" href="../25-what-the-heck-is-a-script/">
+      
+      
+        <link rel="next" href="../32-from-ai-answers-to-audit-trails/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>AI Routines for Accountants - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-routines-for-accountants-when-your-guidance-starts-checking-itself" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI Routines for Accountants
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../17-skills-and-agents-for-accountants/" class="md-tabs__link">
+          
+  
+  
+  Skills & Automation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-three-mindsets-of-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The 3 Mindsets of AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-when-your-ai-enters-month-end-close-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Your AI Enters Month-End Close Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-ai-team-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stop Using One AI Like It Is Excel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ai-and-excel-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI and Excel Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-pdf-token-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PDF Token Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-excel-number-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Number Format Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-audit-ready-ai-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit-Ready AI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-zero-trust-ai-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-version-control-for-accountants/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-ai-use-cases-and-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Use Cases and Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-one-time-to-repeatable-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Time to Repeatable Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-workings-layer-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Workings Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-schema-driven-sanitization/Readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema-Driven Sanitization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Automation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills & Automation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-skills-and-agents-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills and Agents for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17b-your-first-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-scheduled-workflows/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduled Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-multi-agent-orchestration/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Orchestration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-what-the-heck-is-a-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What the Heck Is a Script?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-loops-the-automation-that-feels-magical/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Magic Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Routines for Accountants
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Routines for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#most-accountants-are-still-thinking-about-ai-as-a-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Accountants Are Still Thinking About AI as a Prompt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tax-department-builds-local-guidance-from-external-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Tax Department Builds Local Guidance from External Regulations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-metadata-is-the-label-maker/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Is the Label Maker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-from-ai-answers-to-audit-trails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From AI Answers to Audit Trails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#most-accountants-are-still-thinking-about-ai-as-a-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Accountants Are Still Thinking About AI as a Prompt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tax-department-builds-local-guidance-from-external-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Tax Department Builds Local Guidance from External Regulations
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ai-routines-for-accountants-when-your-guidance-starts-checking-itself">AI Routines for Accountants: When Your Guidance Starts Checking Itself</h1>
+<p><em>~10 min read</em></p>
+<hr />
+<p><strong>PythonMuse LLC</strong>
+<em>Published July 2026</em></p>
+<p><img alt="AI Routines Hero" src="visuals/30_hero.png" /></p>
+<hr />
+<h2 id="most-accountants-are-still-thinking-about-ai-as-a-prompt">Most Accountants Are Still Thinking About AI as a Prompt</h2>
+<p>When you first start using AI, it often begins as a chat window. Naturally, the first use case is simple: open chat, ask a question, get a response, review it, adjust it, and once satisfied, copy the answer into a workpaper, email, or memo.</p>
+<p>That is useful, but somewhere around the third time you ask the same question about the same guidance document, you start to wonder: should this be running as a repeatable process instead? If you are not wondering this, you should be. In all circumstances, be sure to comply with any copyright or data-protection requirements related to the standards you use; sharing certain documents with AI may be restricted by the author or local policies.</p>
+<p>The real shift in efficiency and futuristic work starts when AI becomes part of a scheduled routine. You should review that guidance periodically, AI can do that for you. But not a "set it once and forget it" routine. AI can review the online guidance, and provide intelligent feedback regarding any revisions. Please do not let your tax guidance wander the internet unsupervised.</p>
+<p>A controlled, scheduled workflow where AI helps your team:</p>
+<ul>
+<li>Check an official source,</li>
+<li>Compare it to your internal guidance,</li>
+<li>Identify possible changes,</li>
+<li>Recommend updates,</li>
+<li>Wait for human review,</li>
+<li>And then preserve the evidence trail.</li>
+</ul>
+<p>That is where AI starts to become genuinely useful for accounting and tax teams.</p>
+<hr />
+<h2 id="a-tax-department-builds-local-guidance-from-external-regulations">A Tax Department Builds Local Guidance from External Regulations</h2>
+<p>Imagine a tax department that works with rules of origin guidance.</p>
+<p>The team uses ROSA, the EU Rules of Origin Self-Assessment tool, to understand whether certain goods qualify for preferential tariff treatment under a trade agreement. ROSA provides guidance, legal text links, documentation requirements, explanations, and self-assessment support.</p>
+<p><em>Note: this is a framework example. It is not rules of origin advice, a compliance recommendation, or an endorsement of any specific treatment. If your goods are crossing borders, please involve a qualified tax professional. AI is not that.</em></p>
+<p>At first, the team does what most teams would do. They go to the official website and read the guidance. They interpret how it applies to their company, and then they create internal instructions for the business.</p>
+<p>But instead of leaving that interpretation scattered across emails, saved PDFs, Teams messages, and someone's famous "FINAL guidance version 7" document, they ask AI to help convert the external guidance into structured markdown files. </p>
+<blockquote>
+<p><strong>New to markdown?</strong> <a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/02-markdown-for-accountants">Read a quick primer here</a> before diving into the structured files below.</p>
+</blockquote>
+<p>The first prompt may look something like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Go to the official ROSA guidance page and summarize the applicable
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>guidance into markdown files.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Create:
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>1. source_summary.md — plain-English summary of the official guidance
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>2. company_application.md — how this applies to our company&#39;s import process
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>3. documentation_checklist.md — required documents and evidence
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>4. review_questions.md — questions a tax reviewer should answer
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Do not invent requirements.
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Separate official guidance from company interpretation.
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Include source links and retrieval date.
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>Flag anything that requires tax professional judgment.
+</code></pre></div>
+<p>Now the team has a local knowledge base. Not just a random AI answer or a chat transcript. But a controlled folder of files that can be reviewed, versioned, improved, and reused.</p>
+<hr />
+<h1 id="the-folder-structure-that-makes-the-routine-possible">The Folder Structure That Makes the Routine Possible</h1>
+<p><img alt="Folder Structure" src="visuals/30_folder_structure.png" /></p>
+<p>The next step is to ask AI to create the folder structure that may look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tax-guidance/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── sources/
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   └── rosa-source-summary.md
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── company-guidance/
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   └── rules-of-origin-company-application.md
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>├── skills/
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   └── rules-of-origin-review-skill.md
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├── routines/
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│   └── monitor-rosa-guidance.yaml
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>├── evidence/
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│   └── change-review-log.md
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>└── README.md
+</code></pre></div>
+<p>This is where the concept of scheduled routines gets powerful. Because once your guidance is structured in a manner AI can read and maintain, your job becomes design, review and monitor deliverables. </p>
+<blockquote>
+<p><strong>Not sure how to get AI can interact with folders on your computer?</strong> A web chat window can only listen and respond — it cannot create files or folders on your machine. For that, AI needs a local harness: a tool that gives it access to a project folder under rules you control. <a href="../02-ways-to-use-claude/">Ways to Use Claude</a> walks through that shift in detail, using VS Code with GitHub Copilot as the example. The same idea works with other harnesses too — Codex, Cursor, Windsurf, Antigravity, and Claude Code are common alternatives — so use whichever your organization has approved or you prefer.</p>
+</blockquote>
+<hr />
+<h2 id="from-one-time-prompt-to-routine">From One-Time Prompt to Routine</h2>
+<p>A prompts are often something you only ask once. A routine is something that runs on a schedule or trigger indefinitely. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Every Friday morning:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>1. Visit the official ROSA guidance page.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2. Compare the current website content to our saved markdown version.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>3. Identify any meaningful changes.
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>4. Prepare a recommended update.
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>5. Do not edit the official skill directly.
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>6. Create a proposed change file for human review.
+</code></pre></div>
+<p>That is a routine. It is not magic, although feels like one. It is a repeatable workflow. And for tax and accounting teams, that repeatability matters. Because our world is full of recurring processes:</p>
+<ul>
+<li>Month-end close</li>
+<li>Tax updates</li>
+<li>Bank reconciliations</li>
+<li>Invoice reviews</li>
+<li>Policy updates</li>
+<li>Management reporting</li>
+<li>Audit requests</li>
+<li>Lease schedules</li>
+<li>Sales tax rules</li>
+<li>Client billing exceptions</li>
+</ul>
+<p>A routine is how AI starts paying off on the investment as it will be showing up for you before you even remember to ask it. It is like an eager intern who shows up early with coffee, an open laptop, and a checklist — ready to help, but still needing supervision.</p>
+<hr />
+<h2 id="start-with-skills-ie-what-the-routine-actually-does">Start with Skills (i.e., What the Routine Actually Does)</h2>
+<p>Once folder structure is created, the tax department moves it's original prompt to an internal skill by prompting AI to create it and then review and accept changes. </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>skills/rules-of-origin-review-skill.md
+</code></pre></div>
+<p>That skill explains how AI should assist the team when reviewing rules of origin questions. An example would include instructions like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gh"># Rules of Origin Review Skill</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Use this skill to assist with preliminary rules of origin review.
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gu">## Rules</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">-</span><span class="w"> </span>Always separate official guidance from company interpretation.
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">-</span><span class="w"> </span>Never make a final tax determination.
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">-</span><span class="w"> </span>Flag items requiring tax manager review.
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">-</span><span class="w"> </span>Use the company documentation checklist before recommending eligibility.
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">-</span><span class="w"> </span>If source guidance has changed, stop and request review before applying it.
+</code></pre></div>
+<blockquote>
+<p><strong>New to skills?</strong> A skill is a reusable instruction file that keeps AI's behavior consistent every time it works on a topic. <a href="../17-skills-and-agents-for-accountants/">The Power of Skills and Agents</a> covers what a skill is, how to write one, and why it matters before you build the routine below.</p>
+</blockquote>
+<p>Now that AI has instructions, the team can create a routine to monitor if any changes in the source guidance.</p>
+<p><img alt="Routine YAML Anatomy" src="visuals/30_yaml_anatomy.png" /></p>
+<p>Here is what that routine configuration might look like — and how to read it as a tax or an accountant professional. </p>
+<p>Note: This is a conceptual structure, not literal syntax.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">routine_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitor_rosa_guidance</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tax_department</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weekly</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nt">source_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;official</span><span class="nv"> </span><span class="s">ROSA</span><span class="nv"> </span><span class="s">guidance</span><span class="nv"> </span><span class="s">page&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nt">local_reference</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sources/rosa-source-summary.md&quot;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nt">affected_skill</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;skills/rules-of-origin-review-skill.md&quot;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nt">output_folder</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;evidence/rosa-change-reviews&quot;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fetch_current_source</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compare_to_local_markdown</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">identify_meaningful_changes</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assess_impact_on_company_guidance</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">draft_recommended_updates</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create_review_package</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nt">approval_required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="nt">do_not</span><span class="p">:</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">overwrite_approved_guidance</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update_skills_without_human_review</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">make_final_tax_conclusions</span>
+</code></pre></div>
+<p><em>A real GitHub Actions scheduled workflow, for example, uses a different schema (<code>on.schedule.cron</code>, <code>jobs</code>, <code>steps</code>). Claude Code's own "Routines" feature is configured through a UI or <code>/schedule</code>, not a hand-written YAML file. See "A Note on Tools and Frameworks" below.</em></p>
+<p>The YAML file is not the "AI brain." It is more like the checklist taped to the monitor. It tells the workflow what to do, when to do it, what files matter, and where the human approval point belongs.</p>
+<hr />
+<h2 id="the-output-a-proposed-change-not-an-automatic-change">The Output: A Proposed Change, Not an Automatic Change</h2>
+<p>This is the part accountants should care about. The routine should not quietly update your tax guidance in the background. That would be terrifying. Instead, the routine creates a review package.</p>
+<p><img alt="Proposed Change Package" src="visuals/30_review_package.png" /></p>
+<p>It could look something like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>evidence/rosa-change-reviews/
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>└── 2026-05-21-proposed-update.md
+</code></pre></div>
+<p>Inside that file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gh"># Proposed ROSA Guidance Update</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="gu">## Date checked</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>May 21, 2026
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="gu">## Source reviewed</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Official ROSA guidance page
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="gu">## Summary of detected change</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>The source guidance appears to include updated language regarding
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>documentation requirements.
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="gu">## Potential impact</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>This may affect the company&#39;s documentation checklist for
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>preferential tariff treatment.
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="gu">## Files potentially impacted</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="k">-</span><span class="w"> </span>company-guidance/rules-of-origin-company-application.md
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="k">-</span><span class="w"> </span>skills/rules-of-origin-review-skill.md
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="k">-</span><span class="w"> </span>documentation_checklist.md
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="gu">## Recommended update</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>Add a new review step requiring confirmation of updated supplier
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>declaration documentation.
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="gu">## Human review required</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>Yes.
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="gu">## Reviewer notes</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>[Tax manager to complete.]
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="gu">## Decision</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>[ ] Approved
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>[ ] Rejected
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>[ ] Needs more research
+</code></pre></div>
+<p>Now we have a controlled process where AI identifies, AI recommends, human reviews and approves. And only then the change can be committed.</p>
+<p>In a Git-based workflow, the tax manager or reviewer could approve the proposed update in the checklist, commit that change to source control, and push it to the repository. That gives the team a history: who changed it, when it changed, why it changed, what source triggered the change, and what internal guidance was updated.</p>
+<blockquote>
+<p><strong>New to Git?</strong> Git is the version-control system that keeps this history — every change, who made it, and when — without a "FINAL_v7" file in sight. <a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/11-git-for-accountants">Git for Accountants</a> explains the concept in accounting terms before you rely on it here.</p>
+</blockquote>
+<p>That is the accounting-friendly version of AI automation as opposed to just "trust me." Show me the evidence is a better way. </p>
+<hr />
+<h2 id="why-this-matters-for-accounting-and-tax-teams">Why This Matters for Accounting and Tax Teams</h2>
+<p>Accounting and tax teams already live in routines. We just usually call them something else:</p>
+<ul>
+<li>Checklists</li>
+<li>Month-end procedures</li>
+<li>Recurring tasks</li>
+<li>Review controls</li>
+<li>SOPs</li>
+<li>Reconciliation steps</li>
+<li>Audit evidence.</li>
+</ul>
+<p>AI routines are not foreign to accounting. They are just a new way to structure recurring work.</p>
+<p>The difference is that instead of relying on someone to remember, "Hey, did anyone check if that guidance changed?" — the routine performs the first pass.</p>
+<p>It says:</p>
+<blockquote>
+<p>I checked the source. I found a potential change. Here is the impact. Here is the recommended update. Please review before anything changes.</p>
+</blockquote>
+<p>That is useful, controlled, and is much better than discovering six months later that your internal policy was based on outdated guidance and the person who knew about it has since moved to a different department, a different company, or a cruise with no Wi-Fi.</p>
+<hr />
+<h2 id="where-the-human-still-belongs">Where the Human Still Belongs</h2>
+<p>What is important to remember that the routine does not replace the tax department. The routine does not issue tax advice. The routine does not decide how regulations apply to your company.</p>
+<p>The routine supports the humans who are responsible for that judgment. The human still decides:</p>
+<ul>
+<li>Is this change meaningful?</li>
+<li>Does this apply to our company?</li>
+<li>Do we need outside advisor input?</li>
+<li>Should the internal skill be updated?</li>
+<li>Should the business process change?</li>
+<li>Do we need to document a control?</li>
+<li>Do we need to notify operations, procurement, or finance?</li>
+</ul>
+<p>AI can help monitor the moving pieces. But judgment stays with the professionals. That is not a weakness. It is the design. As noted earlier, your role becomes designer, reviewer, and approver.</p>
+<hr />
+<h2 id="a-simple-routine-pattern-for-accountants">A Simple Routine Pattern for Accountants</h2>
+<p>Here is the pattern:</p>
+<p><img alt="Routine Pattern Flow" src="visuals/30_routine_pattern.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Source → Local Knowledge Base → Routine → Proposed Update → Human Review → Commit
+</code></pre></div>
+<p>Or in plain English:</p>
+<ul>
+<li>Where does the truth live externally?</li>
+<li>Where did we document our current interpretation?</li>
+<li>How often should we check for change?</li>
+<li>What should AI do if it finds something?</li>
+<li>Who reviews it?</li>
+<li>How do we preserve the evidence?</li>
+</ul>
+<p>That pattern can be used far beyond tax.</p>
+<hr />
+<h2 id="six-places-ai-routines-could-help-your-team">Six Places AI Routines Could Help Your Team</h2>
+<p><img alt="Six Use Cases" src="visuals/30_six_examples.png" /></p>
+<p><strong>1. Sales Tax Nexus Monitoring</strong></p>
+<p>Monthly, check selected state tax websites for threshold or filing requirement updates. Compare to internal sales tax guidance. Flag changes for the tax manager.</p>
+<p><strong>2. Payroll Tax Guidance</strong></p>
+<p>Quarterly, check official payroll guidance for selected jurisdictions. Compare to internal payroll setup documentation. Flag possible rate, threshold, or filing changes.</p>
+<p><strong>3. Lease Accounting Policy Updates</strong></p>
+<p>Quarterly, check selected accounting standard setter or firm guidance pages. Compare to internal lease accounting policy. Flag new interpretations or disclosure considerations.</p>
+<p><strong>4. Bank Reconciliation Exception Rules</strong></p>
+<p>After each month-end, review recurring reconciling items. Compare against current reconciliation skill. Recommend whether new exception rules should be added.</p>
+<p><strong>5. Client Billing Exceptions</strong></p>
+<p>When operations sends the monthly billing completion email, trigger a billing review workflow. Compare current billing exceptions to the approved client billing matrix. Flag unusual manual adjustments.</p>
+<p><strong>6. Internal Policy Monitoring</strong></p>
+<p>Monthly, check whether any approved policy files changed. Identify related skills, scripts, or workflows that may need updates. Create a change impact summary for the process owner.</p>
+<hr />
+<h2 id="the-big-idea">The Big Idea</h2>
+<p>The future of AI in tax and accounting is not just better prompts. It is better systems.</p>
+<p><img alt="The Evolution" src="visuals/30_evolution.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Prompts are where many of us start.
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Skills make the instructions reusable.
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Routines make the work repeatable.
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Controls make it safe.
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Evidence makes it audit-friendly.
+</code></pre></div>
+<p>That is the bridge. My hope is that we move beyond the fear of AI replacing professionals and move toward a mindset of AI helping us build workflows that are structured, monitored, reviewable, and ready for the real world.</p>
+<p>Because in accounting, the goal is not just to get an answer. The goal is to know where the answer came from, whether it is still current, who reviewed it, and what changed.</p>
+<hr />
+<h2 id="a-note-on-tools-and-frameworks">A Note on Tools and Frameworks</h2>
+<p>The examples in this article use AI inside a project folder, but the framework is not tied to one specific tool.</p>
+<p>You could build this type of routine with different approved tools, depending on what your organization allows. Some teams may use GitHub Copilot in VS Code. Others may use Claude Code, ChatGPT with actions, Microsoft Copilot with Power Automate, Gemini with workflow integrations, or another internal platform.</p>
+<p>The tool will change the setup. The governance pattern should not. No matter which platform you use, the important questions stay the same:</p>
+<ul>
+<li>What source is being monitored?</li>
+<li>What internal guidance or skill could be affected?</li>
+<li>What is AI allowed to do?</li>
+<li>What is AI not allowed to do?</li>
+<li>Where does the proposed change go?</li>
+<li>Who reviews it before anything is accepted?</li>
+<li>How is the evidence preserved?</li>
+</ul>
+<p>That distinction matters because a scheduled workflow can check for changes, a skill can guide how AI reviews the change, and a repository can preserve the history. But the approval gate still has to be designed by the team. In other words, 
+<strong>The tooling is a harness. The governance is yours.</strong></p>
+<p>This series teaches the framework, not the software. When the software changes — and it will — the thinking should still hold.</p>
+<hr />
+<h2 id="try-it-the-tax-guidance-template">Try It: The Tax Guidance Template</h2>
+<p>The <a href="https://github.com/PythonMuse/ai-ledger">ai-ledger repo</a> includes a ready-to-use <code>tax-guidance-template/</code> in the <code>templates/</code> folder.</p>
+<p>It contains blank versions of every file referenced in this article:</p>
+<ul>
+<li><code>sources/source-summary.md</code></li>
+<li><code>company-guidance/company-application.md</code></li>
+<li><code>skills/review-skill.md</code></li>
+<li><code>routines/monitor-guidance.yaml</code></li>
+<li><code>evidence/change-review-log.md</code></li>
+<li><code>README.md</code> with setup instructions</li>
+</ul>
+<p>Clone the repo. Copy the template to your own project folder. Fill in the blanks with your actual guidance topic.</p>
+<p>That is the exercise.</p>
+<hr />
+<h2 id="related-articles">Related Articles</h2>
+<ul>
+<li><a href="../17-skills-and-agents-for-accountants/">The Power of Skills and Agents</a> — Skills are the building block; routines monitor and maintain them</li>
+<li><a href="../11-one-time-to-repeatable-workflows/">From One-Time Analysis to Repeatable Workflows</a> — The foundation for everything a routine is built on</li>
+<li><a href="../29-loops-the-automation-that-feels-magical/README.md">The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run</a> — YAML structure, loop governance, and the review-before-run mindset</li>
+<li><a href="../05-reproducible-accounting/">Reproducible Accounting</a> — Git commit history as the evidence trail behind every approved change</li>
+<li><a href="../12-audit-ready-ai-workflows/">When to Trust AI to Run Your Accounting Workflows</a> — Controls, approval gates, and what audit-ready automation actually looks like</li>
+<li><a href="../31-metadata-is-the-label-maker/README.md">Metadata Is the Label Maker Your AI Workflow Needs</a> — Label your files before your routines run on them; this article shows you how</li>
+<li><a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails</a> — When the routine produces output, this article covers how to validate it is actually supported</li>
+</ul>
+<hr />
+<p><em>#AIRoutines #WorkflowGovernance #AccountingAutomation</em></p>
+<hr />
+<p><strong>A note on how this article was made.</strong> This article started with me. The experience, the problem, and the pattern are mine — I shared what a real AI-assisted workflow looks like when it is designed for accounting and finance professionals. GitHub Copilot (Claude Sonnet 4.6) then built the final article, the companion template, and all visual assets — working from my direction and feedback at each step. I reviewed every output, pushed back on things I did not like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
+<hr />
+<p><strong>PythonMuse LLC</strong>
+<em>Practical AI for accounting and finance professionals.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
