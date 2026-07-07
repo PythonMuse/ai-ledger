@@ -52,30 +52,41 @@ MONO_FONT = {"fontfamily": "monospace"}
 
 def save(fig, name):
     path = os.path.join(OUT_DIR, name)
-    fig.savefig(path, dpi=180, bbox_inches="tight", facecolor=fig.get_facecolor())
+    fig.savefig(path, dpi=180, facecolor=fig.get_facecolor())
     plt.close(fig)
     print(f"  saved -> {path}")
 
 
 def add_footer(fig):
     """Deep Navy footer bar with white brand text."""
-    bar = fig.add_axes([0.0, 0.0, 1.0, 0.07], facecolor=DEEP_NAVY)
+    bar = fig.add_axes([0.0, 0.0, 1.0, 0.07])
+    bar.set_xlim(0, 1); bar.set_ylim(0, 1)
     bar.set_axis_off()
-    fig.text(0.5, 0.038, FOOTER,
+    bar.add_patch(FancyBboxPatch((0, 0), 1, 1, boxstyle="square,pad=0",
+                                 facecolor=DEEP_NAVY, edgecolor="none",
+                                 transform=bar.transAxes))
+    bar.text(0.5, 0.55, FOOTER,
              ha="center", va="center",
-             fontsize=11, color=WHITE, fontweight="bold")
-    fig.text(0.5, 0.013, FOOTER_URL,
+             fontsize=11, color=WHITE, fontweight="bold",
+             transform=bar.transAxes)
+    bar.text(0.5, 0.18, FOOTER_URL,
              ha="center", va="center",
-             fontsize=9, color=BRIGHT_TEAL)
+             fontsize=9, color=BRIGHT_TEAL,
+             transform=bar.transAxes)
 
 
 def add_header_bar(fig, label, trap_num="Trap #1"):
     """Deep Navy header bar across top of figure."""
-    bar = fig.add_axes([0.0, 0.93, 1.0, 0.07], facecolor=DEEP_NAVY)
+    bar = fig.add_axes([0.0, 0.93, 1.0, 0.07])
+    bar.set_xlim(0, 1); bar.set_ylim(0, 1)
     bar.set_axis_off()
-    fig.text(0.5, 0.965, f"{label}  |  {trap_num}",
+    bar.add_patch(FancyBboxPatch((0, 0), 1, 1, boxstyle="square,pad=0",
+                                 facecolor=DEEP_NAVY, edgecolor="none",
+                                 transform=bar.transAxes))
+    bar.text(0.5, 0.5, f"{label}  |  {trap_num}",
              ha="center", va="center",
-             fontsize=12, color=GOLDEN_YELLOW, fontweight="bold")
+             fontsize=12, color=GOLDEN_YELLOW, fontweight="bold",
+             transform=bar.transAxes)
 
 
 # ════════════════════════════════════════════════════════════════
