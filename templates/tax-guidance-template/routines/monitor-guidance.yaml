@@ -1,0 +1,43 @@
+# Illustrative config — not literal GitHub Actions or Claude Code Routines syntax. See Article 30.
+routine_name: monitor-[topic]-guidance
+owner: [team_name]
+frequency: [weekly / monthly / quarterly]
+
+# The official source to check
+source_url: "[Replace with the official guidance URL]"
+
+# The local file to compare against
+local_reference: "sources/source-summary.md"
+
+# The skill file that may need updating if the source changes
+affected_skill: "skills/review-skill.md"
+
+# Where to save the proposed change packages
+output_folder: "evidence/proposed-changes"
+
+steps:
+  - fetch_current_source
+  - compare_to_local_markdown
+  - identify_meaningful_changes
+  - assess_impact_on_company_guidance
+  - draft_recommended_updates
+  - create_review_package
+
+# Nothing changes without a human approving it
+approval_required: true
+
+do_not:
+  - overwrite_approved_guidance
+  - update_skills_without_human_review
+  - make_final_tax_or_compliance_conclusions
+  - apply_proposed_changes_automatically
+
+# Who receives the proposed change package for review
+notify:
+  - role: "[tax_manager / process_owner / controller]"
+
+# Notes
+# - This routine creates a proposed change file only.
+# - The reviewer checks the file, adds notes, and marks a decision.
+# - Only after human approval should any guidance files be updated.
+# - Commit the approved change with a descriptive message.
