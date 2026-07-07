@@ -1,0 +1,6 @@
+file_name,folder,period,status,approved_for_ai,data_classification,purpose
+gl_cash_activity_april.csv,inputs,2026-04,needs_review,needs_review,needs_review,GL cash activity export
+bank_activity_april.csv,inputs,2026-04,needs_review,needs_review,needs_review,Bank statement export
+draft_bank_recon.xlsx,working,2026-04,needs_review,needs_review,needs_review,Draft reconciliation workpaper
+approved_recon_summary.xlsx,outputs,2026-04,needs_review,needs_review,needs_review,Approved reconciliation summary
+controller_review.md,evidence,2026-04,needs_review,needs_review,needs_review,Controller review notes

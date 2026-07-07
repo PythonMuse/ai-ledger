@@ -245,7 +245,11 @@ Think about what that means for accounting:
 - Monthly reports → prepared before you log in
 - Exception reports → flagged proactively
 
-These capabilities exist today in tools like Claude Code. I have not yet applied them to an accounting workflow in a way I would consider production-ready — but once I do and have something practical to share, I will document it here with a real example.
+These capabilities exist today. We now have a full working example:
+
+**[Article 18 — AI That Runs Before You Log In →](../18-ai-runs-before-you-log-in/README.md)**
+
+It walks through a complete scheduled daily dashboard — sample data, Python scripts, scheduling options, and governance checklist included.
 
 If you have already used scheduled or recurring AI routines in your accounting work, I would love to hear what you built and how it is working. Drop a comment or reach out — this space is moving fast and the community's experience is genuinely valuable here.
 
@@ -269,4 +273,4 @@ And the great news: you do not need to be a developer to do this. You need to be
 
 ---
 
-*Related: [Stop Using One AI Like It Is Excel](../14-ai-team-for-accountants/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [The PDF Token Trap](../16-pdf-token-trap/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/)*
+*Related: [Stop Using One AI Like It Is Excel](../14-ai-team-for-accountants/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [The PDF Token Trap](../16-pdf-token-trap/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run](../29-loops-the-automation-that-feels-magical/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/) | [Metadata Is the Label Maker Your AI Workflow Needs](../31-metadata-is-the-label-maker/README.md)*

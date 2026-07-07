@@ -48,27 +48,38 @@ FOOTER_URL  = "github.com/PythonMuse/ai-ledger"
 
 def save(fig, name):
     path = os.path.join(OUT_DIR, name)
-    fig.savefig(path, dpi=180, bbox_inches="tight", facecolor=fig.get_facecolor())
+    fig.savefig(path, dpi=180, facecolor=fig.get_facecolor())
     plt.close(fig)
     print(f"  saved -> {path}")
 
 
 def add_footer(fig, y_bar=0.0, bar_h=0.065):
     """Deep Navy footer bar with PythonMuse branding."""
-    bar = fig.add_axes([0.0, y_bar, 1.0, bar_h], facecolor=DEEP_NAVY)
+    bar = fig.add_axes([0.0, y_bar, 1.0, bar_h])
+    bar.set_xlim(0, 1); bar.set_ylim(0, 1)
     bar.set_axis_off()
-    fig.text(0.5, y_bar + bar_h * 0.55, FOOTER_TEXT,
-             ha="center", va="center", fontsize=10, color=WHITE, fontweight="bold")
-    fig.text(0.5, y_bar + bar_h * 0.18, FOOTER_URL,
-             ha="center", va="center", fontsize=9, color=BRIGHT_TEAL)
+    bar.add_patch(FancyBboxPatch((0, 0), 1, 1, boxstyle="square,pad=0",
+                                 facecolor=DEEP_NAVY, edgecolor="none",
+                                 transform=bar.transAxes))
+    bar.text(0.5, 0.55, FOOTER_TEXT,
+             ha="center", va="center", fontsize=10, color=WHITE, fontweight="bold",
+             transform=bar.transAxes)
+    bar.text(0.5, 0.18, FOOTER_URL,
+             ha="center", va="center", fontsize=9, color=BRIGHT_TEAL,
+             transform=bar.transAxes)
 
 
 def add_header_bar(fig, label, y_bar=0.935, bar_h=0.065):
     """Deep Navy header bar with label."""
-    bar = fig.add_axes([0.0, y_bar, 1.0, bar_h], facecolor=DEEP_NAVY)
+    bar = fig.add_axes([0.0, y_bar, 1.0, bar_h])
+    bar.set_xlim(0, 1); bar.set_ylim(0, 1)
     bar.set_axis_off()
-    fig.text(0.5, y_bar + bar_h * 0.55, label,
-             ha="center", va="center", fontsize=12, color=GOLDEN_YELLOW, fontweight="bold")
+    bar.add_patch(FancyBboxPatch((0, 0), 1, 1, boxstyle="square,pad=0",
+                                 facecolor=DEEP_NAVY, edgecolor="none",
+                                 transform=bar.transAxes))
+    bar.text(0.5, 0.5, label,
+             ha="center", va="center", fontsize=12, color=GOLDEN_YELLOW, fontweight="bold",
+             transform=bar.transAxes)
 
 
 def card(ax, x, y, w, h, facecolor, edgecolor=None, alpha=1.0, radius=0.03):

@@ -367,4 +367,4 @@ Not a developer. Not a data scientist. An accountant who understands control —
 
 ---
 
-*Related: [Why Claude "Forgets"](../08-why-claude-forgets/) | [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [What the Heck Is a Script?](../25-what-the-heck-is-a-script/)*
+*Related: [Why Claude "Forgets"](../08-why-claude-forgets/) | [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [What the Heck Is a Script?](../25-what-the-heck-is-a-script/) | [Metadata Is the Label Maker Your AI Workflow Needs](../31-metadata-is-the-label-maker/README.md)*

@@ -308,9 +308,13 @@ And suddenly the entire room understands.
 If scripts are new territory, these articles build the foundation:
 
 - [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/README.md) — the nine-step pattern for turning a one-off task into a script
+- [Python Libraries for Accountants](../28-python-libraries-for-accountants/) — the libraries (pandas, openpyxl, matplotlib) that give your scripts their capabilities
 - [Reproducible Accounting](../05-reproducible-accounting/README.md) — why readable, repeatable logic matters for audit evidence
 - [AI Can't Work With Our Excel Files... or Can It?](../15-ai-and-excel-files/README.md) — how to add an instruction layer when your data lives in Excel
 - [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) — controls and governance once your scripts are in production
+- [AI That Runs Before You Log In](../18-ai-runs-before-you-log-in/README.md) — the next step: schedule your script to run automatically before you arrive
+- [The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run](../29-loops-the-automation-that-feels-magical/README.md) — now that you know what a script is, see how AI strings them into full automated workflows — and why reviewing what it built matters
+- [Metadata Is the Label Maker Your AI Workflow Needs](../31-metadata-is-the-label-maker/README.md) — the script that reads a manifest and blocks draft files is the script from this article doing real governance work
 
 ---
 
