@@ -2035,6 +2035,10 @@
 <p>At first I thought: "It is just a PDF... how expensive could it be?"</p>
 <p>Turns out, raw PDFs are not expensive because the files are large. They are expensive because of the extra text, layout noise, and <strong>interpretation</strong> they require. Every time you upload a raw PDF, AI has to spend tokens figuring out what the document is before it can do the task you actually asked for.</p>
 <hr />
+<blockquote>
+<p><strong>A note on tools:</strong> I did this work in Claude inside VS Code, because that's my daily setup. The problem — an AI model burning tokens re-reading a bloated PDF — is not Claude-specific, and the fix — extracting structured text instead of raw pages — works the same way in ChatGPT with Codex or Gemini with Antigravity. Swap in your own model and harness; the logic doesn't change.</p>
+</blockquote>
+<hr />
 <h2 id="what-ai-actually-sees-when-you-send-a-pdf">What AI Actually Sees When You Send a PDF</h2>
 <p>That "nice clean bank statement" you see on screen? That is for humans. AI sees something very different:</p>
 <ul>
