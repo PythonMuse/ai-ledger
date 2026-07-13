@@ -9,6 +9,8 @@
 
 ![AI Governance for Controllers](./visuals/07_visual_front.png)
 
+> **A note on tools:** This article is written from the standpoint of using Claude and VS Code, since that's the environment these governance controls were built and tested in. The framework — written rules that constrain how AI operates on your data, reviewed and owned by the controller — applies to any AI model and harness your organization approves, whether that's ChatGPT with Codex, Gemini with Antigravity, or Claude in VS Code. Claude and VS Code are the example here; the governance structure is the point.
+
 In previous PythonMuse articles, we covered AI governance frameworks, reproducible accounting workflows, and how to use AI without sending the wrong data. Those articles addressed important questions: What are the rules? How should workflows be structured? What data stays local?
 
 But if you are a controller trying to actually implement those ideas, a very practical question appears almost immediately:

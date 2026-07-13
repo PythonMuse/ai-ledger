@@ -389,6 +389,7 @@ The accountants who learn to build workflows like this — even imperfect, even 
 
 - [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/README.md) — the nine-step pattern for turning a one-off task into a script that runs reliably
 - [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/README.md) — how to build reusable AI workflows beyond one-time prompts
+- [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) — take the scheduled-script idea further with skills, routines, and a human-approval evidence trail
 - [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) — how to give your AI a standing set of rules for your accounting environment
 - [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) — if the code in this article felt unfamiliar, start here
 - [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/README.md) — before connecting to real data, read this

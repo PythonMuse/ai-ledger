@@ -136,6 +136,8 @@ A full, production-ready example is available in the examples folder: [Excel Int
 
 If you have already built a reconciliation or margin analysis Skill (see the [bank reconciliation](../../examples/skill-bank-reconciliation/) and [margin analysis](../../examples/skill-margin-analysis/) examples), this follows the exact same format. The only difference is that this Skill explains *the file itself*, not just the workflow.
 
+> **A note on tools:** The walkthrough below uses Claude to build and run the Skill. The Skill concept — a written, reusable set of instructions your AI model follows every time — is not unique to Claude. ChatGPT with Codex and Gemini with Antigravity support the same pattern under different names. Use whichever your organization has approved.
+
 ---
 
 ## Demo: See the Difference

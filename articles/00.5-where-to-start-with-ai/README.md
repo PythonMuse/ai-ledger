@@ -97,6 +97,10 @@ If you're in a corporate environment that requires IT approval before you can in
 
 ---
 
+> **A note on tools:** This article recommends Visual Studio Code because it's free, widely adopted, and where I do my own work. The same idea works with any AI coding harness — ChatGPT paired with Codex, or Gemini paired with Antigravity, for example. What matters is having one home for your files and your AI tools, not which one has the logo.
+
+---
+
 ## 3. Install Python and Connect It to VS Code
 
 Next step: install Python.

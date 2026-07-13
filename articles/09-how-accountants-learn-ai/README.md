@@ -125,6 +125,8 @@ It is where files live, logic runs, and outputs are stored. It is free, maintain
 
 For setup guidance, recommended extensions, and a first-15-minutes walkthrough: **[VS Code as Your Workspace](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/04-vscode-as-workspace)**
 
+> **A note on tools:** VS Code is used here because it's the free, widely adopted standard — but the "one workspace for files and AI" concept applies to any AI coding harness your organization has approved, such as ChatGPT with Codex or Gemini with Antigravity. Pick the one your IT team supports and apply the same thinking.
+
 ---
 
 ### 5. Understanding AI Permissions

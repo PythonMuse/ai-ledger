@@ -29,6 +29,8 @@ Account,Description,Debit,Credit,Period,Entity,Department
 
 Every column runs together. The commas are barely visible. By column 5 you have already lost track of which value belongs to which field. Scale this to 10,000 rows and you are squinting at a wall of undifferentiated text.
 
+> **A note on tools:** This article uses VS Code and its Marketplace as the example, since that's the editor most of this series is built in. The governance lesson — vet the publisher, check install counts, don't assume open-source means safe, install only what you need — applies to any harness's extension or plugin system, including Codex and Gemini's Antigravity.
+
 Now install one extension — **Rainbow CSV** — and reopen the same file.
 
 Every column gets its own distinct color. Headers are immediately recognizable. You can scan the full file at a glance without losing your place.

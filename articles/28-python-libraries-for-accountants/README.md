@@ -275,6 +275,8 @@ That is it. Python then has access to pandas.
 
 You run this in the terminal — the command line inside VS Code. Not in a script. Not in a cell. In the terminal.
 
+> **A note on tools:** This is written from inside VS Code, since that's the free editor most of this series uses. If you're working in a different harness — Codex or Antigravity, for instance — look for its integrated terminal; the concept (installing a package once via command line, not inside a script) is identical.
+
 ---
 
 ## What Is a Python Environment?

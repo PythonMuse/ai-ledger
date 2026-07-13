@@ -67,6 +67,8 @@ Once you have VS Code ready:
 
 That's it. You're now talking to an AI that can read, analyze, and reason about your data -- right inside VS Code's chat panel.
 
+> **A note on tools:** This guide is written from the standpoint of using Claude in VS Code, which is my daily setup. The framework — asking your AI model structured questions about your data, then validating every answer against the source — works the same whether you're using ChatGPT with Codex or Gemini with Antigravity. The model and the harness are interchangeable; the discipline of validation is not.
+
 ---
 
 ## The First Question: Orientation

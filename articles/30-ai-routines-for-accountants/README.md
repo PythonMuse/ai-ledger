@@ -422,6 +422,7 @@ That is the exercise.
 
 - [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/README.md) — Skills are the building block; routines monitor and maintain them
 - [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/README.md) — The foundation for everything a routine is built on
+- [AI That Runs Before You Log In](../18-ai-runs-before-you-log-in/README.md) — The simpler starting point: a single scheduled script, before you add skills, YAML routines, and an approval gate
 - [The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run](../29-loops-the-automation-that-feels-magical/README.md) — YAML structure, loop governance, and the review-before-run mindset
 - [Reproducible Accounting](../05-reproducible-accounting/README.md) — Git commit history as the evidence trail behind every approved change
 - [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) — Controls, approval gates, and what audit-ready automation actually looks like

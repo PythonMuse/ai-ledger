@@ -301,11 +301,13 @@ But they absolutely need to understand what the `/loop` command just created bef
 
 The examples in this article use Claude inside VS Code through GitHub Copilot — specifically the `/loop` command in the Claude Code extension.
 
+> **A note on tools:** `/loop` is Claude Code's own slash-command syntax for running something on a schedule. Other harnesses do this differently — Codex and Antigravity each have their own way of scheduling or resuming work — but the underlying idea, telling your AI tool to check back on its own schedule, is the same.
+
 But the framework applies everywhere.
 
-If you are using ChatGPT with a custom GPT or action, the generated output will have a different format — but the same five review questions still apply.
+If you are using ChatGPT with Codex, the generated output will have a different format — but the same five review questions still apply.
 
-If you are using Google Gemini with workflow integrations, the trigger configuration looks different — but you still need to know what starts the process and what it can touch.
+If you are using Gemini with Antigravity, the trigger configuration looks different — but you still need to know what starts the process and what it can touch.
 
 If you are using Microsoft Copilot with Power Automate connectors, the visual is friendlier — but the underlying logic is the same and deserves the same scrutiny.
 

@@ -27,6 +27,8 @@ Think of these as levels of capability rather than complexity.
 
 Most professionals start at Level 1 -- a browser chat -- and quickly hit a ceiling. The real shift comes at Level 2, where Claude works inside your workspace instead of inside a chat window.
 
+> **A note on tools:** Everything in this article is based on how I work personally — Claude as my AI model, VS Code and GitHub Copilot as my harness. The three ways of using AI (chat, workspace, API) are not Claude-specific — you will find the same three tiers whether you use ChatGPT with Codex or Gemini with Antigravity. Pick whatever your organization has approved and apply the same thinking.
+
 ---
 
 ## 1. Claude Web Chat -- The On-Ramp

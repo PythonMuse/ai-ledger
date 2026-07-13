@@ -93,6 +93,8 @@ Copilot is not just another chat tool. It lives inside [Visual Studio Code](http
 
 If you have already set up VS Code using the guidance in [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/), adding Copilot is the next step.
 
+> **A note on tools:** The tiering here (fast/cheap models vs. larger reasoning models) is the pattern to remember, not the specific names — Claude, ChatGPT, and Copilot are the three most common in accounting teams as of this writing, but the same tiers show up in Gemini and Codex too, and model names and versions will keep changing. Match the task to the tier, whatever you call it.
+
 ---
 
 ## How Copilot Actually Thinks

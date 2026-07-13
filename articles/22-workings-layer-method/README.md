@@ -54,6 +54,8 @@ Two steps.
 
 ### Step 1: Place Your AI Brain at the Right Level
 
+> **A note on tools:** This example uses Claude Code and its CLAUDE.md instruction file. Any AI harness with project-level configuration works the same way — Codex reads AGENTS.md, for instance, and Gemini's Antigravity has its own equivalent. The rule that matters is the same regardless of tool: put the instructions at the boundary you want the AI to respect, not just in your head.
+
 Before Claude Code (or any AI tool with project-level configuration) runs in your project, it reads an instruction file. In Claude Code, that file is called `CLAUDE.md`. It tells the AI what it can do, what it cannot touch, and where things live.
 
 The placement of that file defines scope. But there is a subtlety worth getting right: **CLAUDE.md belongs inside `workings/`, not above it.**
