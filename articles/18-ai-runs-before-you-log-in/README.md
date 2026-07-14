@@ -5,7 +5,7 @@
 ---
 
 **PythonMuse LLC**
-*Published May 2026*
+*Published July 2026*
 
 ![AI That Runs Before You Log In](./visuals/18_hero.png)
 
@@ -53,7 +53,7 @@ Meaning:
 - every morning,
 - every Monday,
 - every month-end,
-- or whenever a trigger fires —
+- or whenever a trigger (e.g., a new file lands in a shared folder) fires —
 
 ...the workflow wakes up and does the work automatically.
 
@@ -97,7 +97,7 @@ Now imagine this instead.
 2. Pulls yesterday's sales and service data
 3. Cleans and validates it
 4. Flags unusual transactions
-5. Builds an interactive HTML dashboard
+5. Builds an interactive dashboard with sorting and filtering
 6. Generates commentary
 7. Saves the dashboard to a shared folder
 8. Optionally emails the team a link
@@ -106,7 +106,7 @@ Before accounting even logs in. That is not science fiction. That is literally a
 
 And the AI can help you build it — with prompts you could write today.
 
-> **New to scripts?** A script is just a written set of instructions a computer follows automatically — the same idea as an SOP, but for a machine. [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) explains the concept in plain accounting language before you go further.
+> **New to scripts or Python?** A script is just a written set of instructions a computer follows automatically — the same idea as an SOP, but for a machine — and Python is the plain, readable language most of these scripts are written in. [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) and [Python Without Intimidation](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/03-python-without-intimidation) cover both concepts in plain accounting language before you go further.
 
 ---
 
@@ -125,7 +125,7 @@ This is one of the biggest mindset shifts accountants are about to experience. F
 
 To be clear: Excel isn't the problem, and it isn't going anywhere. It's still great for quick analysis, pivot tables, and one-off numbers. The problem is asking it to *also* be your database, your dashboard, and your scheduler — jobs it was never built for.
 
-But modern dashboards can be generated directly into **HTML**.
+But modern dashboards can be auto-generated as interactive web pages, with your live data ready for analysis. This uses **HTML** — which, like Python, AI can help generate to your specifications.
 
 Meaning: filters, dropdowns, slicers, charts, commentary, and interactive visuals — all inside a browser window.
 
@@ -152,6 +152,8 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 sales_df = pd.read_csv(DATA_DIR / "daily_sales.csv", parse_dates=["date"])
 service_df = pd.read_csv(DATA_DIR / "service_calls.csv", parse_dates=["date"])
 ```
+
+> **Using real data?** Swap in masked or anonymized data before connecting this to your ERP — never load real client data into a script (or an AI tool) without checking your organization's data governance policy first. More on this in the Governance section below.
 
 The CSVs are the training wheels. Here is what the SQL upgrade looks like when you are ready:
 
@@ -222,8 +224,6 @@ commentary = (
 
 Five years ago that sentence alone would have sounded like a product demo. Now it is just a few lines of Python code.
 
-> **New to Python?** Python is a programming language — a way of giving a computer step-by-step instructions using plain, readable syntax instead of clicking through menus. See [Python Without Intimidation](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/03-python-without-intimidation) in the AI Accounting Framework for a plain-language introduction built for accounting and finance professionals.
-
 ### Step 4 — Schedule the Workflow
 
 This is where the magic happens.
@@ -235,39 +235,17 @@ This is where the magic happens.
 3. Action: Start a program → `python`
 4. Arguments: `C:\path\to\run_scheduled_dashboard.py`
 
+**Mac (cron)** (no IT ticket required — built into every Mac):
+
+1. Open Terminal → run `crontab -e`
+2. Add a line: `0 7 * * 1-5 /usr/bin/python3 /path/to/run_scheduled_dashboard.py`
+3. Save and exit (`:wq` if using vim)
+
 Done. The workflow now runs before coffee.
 
 ![Scheduling Timeline](./visuals/18_schedule_timeline.png)
 
 > 📋 **For IT and governance teams:** See the [scheduling setup guide in the Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit) for Windows Task Scheduler, GitHub Actions, and Linux cron configuration with logging and audit trail requirements.
-
----
-
-## How This Looks in Other AI Tools
-
-> 🌐 **Framework reminder.** We built this workflow using Claude inside VS Code via GitHub Copilot or Claude extension by Antropic. But every major AI tool can help you build the same thing. The prompts are nearly identical — the output varies slightly by tool, but the logic is the same.
-
-Here is the starting prompt we used:
-
-> *"I want to build a Python script that loads a CSV of daily sales data, calculates revenue vs. target by branch, flags exceptions, and saves an interactive HTML dashboard using Plotly. Use pandas and include comments showing where I could replace the CSV load with a SQL query later."*
-
-**In GitHub Copilot (VS Code):** Paste the prompt into the Copilot Chat panel. It will read your workspace context, follow your `CLAUDE.md` rules, and generate code directly in your project.
-
-**In ChatGPT:** Paste the same prompt at chatgpt.com. Attach your CSV file for context. It will generate the script — copy it into your project folder.
-
-**In Google Gemini:** Same prompt at gemini.google.com. Gemini handles Python and Plotly well. Download the generated script to your project.
-
-**In Microsoft Copilot (M365):** Available in some enterprise plans. Prompt behavior is similar — check your organization's approved use policy first.
-
-The framework is the same everywhere:
-
-1. Describe your workflow clearly
-2. Provide sample data for context
-3. Ask for code broken into clear steps, with notes explaining each one
-4. Review before running
-5. Iterate with follow-up prompts
-
-The tool is just the interface. **The thinking is yours.**
 
 ---
 
@@ -340,7 +318,7 @@ Here is your starting point.
 **This week:**
 - Download the [PythonMuse Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit)
 - Run `build_daily_dashboard.py` against the sample data in `/data/`
-- Open `outputs/daily_dashboard/dashboard.html` in your browser
+- Open `outputs/daily_dashboard/dashboard.html` in your browser (double-click the file — it opens like any web page, no server or install required)
 - Show someone what an AI-generated dashboard looks like
 
 **Next week:**
@@ -358,6 +336,34 @@ You don't need to code and write this from scratch. You knew how to describe the
 That is the skill.
 
 The accountants who learn to build workflows like this — even imperfect, even small ones — will feel very different from those still manually refreshing spreadsheets every morning hoping Excel behaves itself.
+
+---
+
+## How This Looks in Other AI Tools
+
+> 🌐 **Framework reminder.** We built this workflow using Claude inside VS Code via GitHub Copilot or Claude extension by Antropic. But every major AI tool can help you build the same thing. The prompts are nearly identical — the output varies slightly by tool, but the logic is the same.
+
+Here is the starting prompt we used:
+
+> *"I want to build a Python script that loads a CSV of daily sales data, cleans and validates it (handles missing values, duplicate rows, and type conversions), calculates revenue vs. target by branch, flags exceptions, and saves an interactive HTML dashboard using Plotly. Use pandas and include comments showing where I could replace the CSV load with a SQL query later."*
+
+**In GitHub Copilot (VS Code):** Paste the prompt into the Copilot Chat panel. It will read your workspace context, follow your `CLAUDE.md` rules, and generate code directly in your project.
+
+**In ChatGPT:** Paste the same prompt at chatgpt.com. Attach your CSV file for context. It will generate the script — copy it into your project folder.
+
+**In Google Gemini:** Same prompt at gemini.google.com. Gemini handles Python and Plotly well. Download the generated script to your project.
+
+**In Microsoft Copilot (M365):** Available in some enterprise plans. Prompt behavior is similar — check your organization's approved use policy first.
+
+The framework is the same everywhere:
+
+1. Describe your workflow clearly
+2. Provide sample data for context
+3. Ask for code broken into clear steps, with notes explaining each one
+4. Review before running
+5. Iterate with follow-up prompts
+
+The tool is just the interface. **The thinking is yours.**
 
 ---
 
