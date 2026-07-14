@@ -245,7 +245,7 @@ Done. The workflow now runs before coffee.
 
 ![Scheduling Timeline](./visuals/18_schedule_timeline.png)
 
-> 📋 **For IT and governance teams:** See the [scheduling setup guide in the Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit) for Windows Task Scheduler, GitHub Actions, and Linux cron configuration with logging and audit trail requirements.
+> 📋 **For IT and governance teams:** [`run_scheduled_dashboard.py`](https://github.com/PythonMuse/pythonmuse-workflow-kit/blob/main/src/run_scheduled_dashboard.py) in the Workflow Kit includes ready-to-adapt examples for Windows Task Scheduler, GitHub Actions, and Linux/Mac cron, with logging built in. See the [scheduled-dashboard skill](https://github.com/PythonMuse/pythonmuse-workflow-kit/blob/main/skills/scheduled-dashboard/SKILL.md) for the governance checklist.
 
 ---
 
