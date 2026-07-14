@@ -1778,10 +1778,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ready-to-wow-your-new-boss" class="md-nav__link">
+  <a href="#ready-to-wow-your-boss" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ready to Wow Your New Boss?
+        Ready to Wow Your Boss?
       
     </span>
   </a>
@@ -1835,10 +1835,10 @@
 <hr />
 <p><strong>PythonMuse LLC</strong>
 <em>Published May 2026</em></p>
-<p><img alt="AI That Runs Before You Log In" src="./visuals/18_hero.png" /></p>
+<p><img alt="AI That Runs Before You Log In" src="visuals/18_hero.png" /></p>
 <hr />
 <blockquote>
-<p>🧰 <strong>A quick note on tools and framework.</strong> Everything in this article demonstrates the PythonMuse methodology — we are using Claude as the AI model, inside Visual Studio Code, through GitHub Copilot. But the concepts here — scheduled scripts, automated dashboards, trigger-based workflows — apply to whatever AI model and environment your organization has approved. Further down, we show how the same prompts look in ChatGPT and Google Gemini. The framework travels. The interface is just a detail.</p>
+<p>🧰 <strong>A quick note on tools and framework.</strong> Everything in this article demonstrates the PythonMuse methodology — we are using Claude as the AI model, inside Visual Studio Code, through GitHub Copilot or Claude extension (by Anthropic). But the concepts here — scheduled scripts, automated dashboards, trigger-based workflows — apply to whatever AI model and environment your organization has approved. Further down, we show how the same prompts look in ChatGPT and Google Gemini. The framework travels. The interface is just a detail.</p>
 </blockquote>
 <hr />
 <h2 id="the-old-morning-routine">The Old Morning Routine</h2>
@@ -1856,20 +1856,16 @@
 <li>or a mysterious tab named <code>FINAL_v2_USE_THIS_ONE_REAL.xlsx</code></li>
 </ul>
 <p>...that was already considered operational excellence.</p>
-<p>But something quietly changed.</p>
-<p>AI is no longer just helping accountants while we work.</p>
-<p>Now it can work before we log in.</p>
-<p>And honestly? That is where things start getting interesting.</p>
+<p>But something quietly changed. AI is no longer just helping accountants while we work. Now it can work before we log in. And honestly? That is where things start getting interesting.</p>
 <hr />
 <h2 id="the-shift-nobody-is-talking-about">The Shift Nobody Is Talking About</h2>
-<p>Most AI discussions in accounting still focus on prompting.</p>
+<p>Most AI discussions in accounting still focus on prompt engineering.</p>
 <blockquote>
 <p>"Ask AI to summarize this."
 "Ask AI to explain a variance."
 "Ask AI to build a formula."</p>
 </blockquote>
-<p>Useful? Absolutely.</p>
-<p>But the real leap happens when accountants realize:</p>
+<p>Useful? Absolutely. But the real leap happens when accountants realize:</p>
 <p><strong>AI workflows can run on schedules.</strong></p>
 <p>Meaning:</p>
 <ul>
@@ -1881,7 +1877,6 @@
 <p>...the workflow wakes up and does the work automatically.</p>
 <p>No one opening Excel. No one copying tabs. No one manually rebuilding dashboards for the 47th time this quarter.</p>
 <p>Your accounting workflow becomes something closer to a night-shift analyst that never sleeps, never asks for PTO, and never accidentally overwrites the master tab.</p>
-<p><em>(Still review the outputs though. We are not giving the intern your ERP credentials unsupervised.)</em></p>
 <hr />
 <h2 id="the-old-dashboard-life">The Old Dashboard Life</h2>
 <p>Let's be honest about what daily reporting often looks like today.</p>
@@ -1895,10 +1890,9 @@
 <li>Add commentary</li>
 <li>Save PDF</li>
 <li>Email leadership</li>
-<li>Repeat tomorrow forever until retirement</li>
+<li>Repeat tomorrow and forever until retirement</li>
 </ol>
-<p>Half the process is not even analysis. It is surviving the process itself.</p>
-<p>And if someone asks:</p>
+<p>Half the process is not even analysis. It is surviving the process itself. And if someone asks:</p>
 <blockquote>
 <p>"Can we add a filter by region?"</p>
 </blockquote>
@@ -1917,14 +1911,15 @@
 <li>Saves the dashboard to a shared folder</li>
 <li>Optionally emails the team a link</li>
 </ol>
-<p>Before accounting even logs in.</p>
-<p>That is not science fiction. That is literally a scheduled script.</p>
-<p>And the AI helped build it — with prompts you could write today.</p>
+<p>Before accounting even logs in. That is not science fiction. That is literally a scheduled script.</p>
+<p>And the AI can help you build it — with prompts you could write today.</p>
+<blockquote>
+<p><strong>New to scripts?</strong> A script is just a written set of instructions a computer follows automatically — the same idea as an SOP, but for a machine. <a href="../25-what-the-heck-is-a-script/">What the Heck Is a Script?</a> explains the concept in plain accounting language before you go further.</p>
+</blockquote>
 <hr />
 <h2 id="wait-dashboards-can-leave-excel">"Wait… Dashboards Can Leave Excel?"</h2>
-<p>Yes.</p>
-<p>This is one of the biggest mindset shifts accountants are about to experience.</p>
-<p>For years we treated Excel as:</p>
+<p>Yes!</p>
+<p>This is one of the biggest mindset shifts accountants are about to experience. For years we treated Excel as:</p>
 <ul>
 <li>the database,</li>
 <li>the dashboard,</li>
@@ -1933,13 +1928,14 @@
 <li>the reconciliation layer,</li>
 <li>and emotional support system.</li>
 </ul>
+<p>To be clear: Excel isn't the problem, and it isn't going anywhere. It's still great for quick analysis, pivot tables, and one-off numbers. The problem is asking it to <em>also</em> be your database, your dashboard, and your scheduler — jobs it was never built for.</p>
 <p>But modern dashboards can be generated directly into <strong>HTML</strong>.</p>
 <p>Meaning: filters, dropdowns, slicers, charts, commentary, and interactive visuals — all inside a browser window.</p>
 <p>No broken formulas. No hidden columns. No "don't touch the yellow cells."</p>
-<p><img alt="Old vs. New Workflow" src="./visuals/18_old_vs_new.png" /></p>
+<p><img alt="Old vs. New Workflow" src="visuals/18_old_vs_new.png" /></p>
 <hr />
 <h2 id="the-demo-daily-sales-service-dashboard">The Demo: Daily Sales &amp; Service Dashboard</h2>
-<p>Inside the <a href="https://github.com/PythonMuse/pythonmuse-workflow-kit">PythonMuse Workflow Kit</a>, we built a practical example.</p>
+<p>Inside the <a href="https://github.com/PythonMuse/pythonmuse-workflow-kit">PythonMuse Workflow Kit</a>, we built a practical example to demonstrate.</p>
 <h3 id="step-1-load-the-data">Step 1 — Load the Data</h3>
 <p>The workflow starts by loading sample CSV files:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -2002,26 +1998,28 @@
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="sa">f</span><span class="s2">&quot;led by the </span><span class="si">{</span><span class="n">top_branch</span><span class="si">}</span><span class="s2"> branch.&quot;</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">)</span>
 </code></pre></div>
-<p>Five years ago that sentence alone would have sounded like a product demo.</p>
-<p>Now it is about 12 lines of Python.</p>
+<p>Five years ago that sentence alone would have sounded like a product demo. Now it is just a few lines of Python code.</p>
+<blockquote>
+<p><strong>New to Python?</strong> Python is a programming language — a way of giving a computer step-by-step instructions using plain, readable syntax instead of clicking through menus. See <a href="https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/03-python-without-intimidation">Python Without Intimidation</a> in the AI Accounting Framework for a plain-language introduction built for accounting and finance professionals.</p>
+</blockquote>
 <h3 id="step-4-schedule-the-workflow">Step 4 — Schedule the Workflow</h3>
 <p>This is where the magic happens.</p>
 <p><strong>Windows Task Scheduler</strong> (most accountants already have this and never knew it):</p>
 <ol>
-<li>Open Task Scheduler → Create Basic Task</li>
+<li>Open Task Scheduler (Start menu → search "Task Scheduler") → Create Basic Task</li>
 <li>Set trigger: Daily, 7:00 AM, weekdays only</li>
 <li>Action: Start a program → <code>python</code></li>
 <li>Arguments: <code>C:\path\to\run_scheduled_dashboard.py</code></li>
 </ol>
 <p>Done. The workflow now runs before coffee.</p>
-<p><img alt="Scheduling Timeline" src="./visuals/18_schedule_timeline.png" /></p>
+<p><img alt="Scheduling Timeline" src="visuals/18_schedule_timeline.png" /></p>
 <blockquote>
 <p>📋 <strong>For IT and governance teams:</strong> See the <a href="https://github.com/PythonMuse/pythonmuse-workflow-kit">scheduling setup guide in the Workflow Kit</a> for Windows Task Scheduler, GitHub Actions, and Linux cron configuration with logging and audit trail requirements.</p>
 </blockquote>
 <hr />
 <h2 id="how-this-looks-in-other-ai-tools">How This Looks in Other AI Tools</h2>
 <blockquote>
-<p>🌐 <strong>Framework reminder.</strong> We built this workflow using Claude inside VS Code via GitHub Copilot. But every major AI tool can help you build the same thing. The prompts are nearly identical — the output varies slightly by tool, but the logic is the same.</p>
+<p>🌐 <strong>Framework reminder.</strong> We built this workflow using Claude inside VS Code via GitHub Copilot or Claude extension by Antropic. But every major AI tool can help you build the same thing. The prompts are nearly identical — the output varies slightly by tool, but the logic is the same.</p>
 </blockquote>
 <p>Here is the starting prompt we used:</p>
 <blockquote>
@@ -2035,7 +2033,7 @@
 <ol>
 <li>Describe your workflow clearly</li>
 <li>Provide sample data for context</li>
-<li>Ask for modular, commented code</li>
+<li>Ask for code broken into clear steps, with notes explaining each one</li>
 <li>Review before running</li>
 <li>Iterate with follow-up prompts</li>
 </ol>
@@ -2043,14 +2041,13 @@
 <hr />
 <h2 id="but-isnt-this-it-stuff">"But Isn't This IT Stuff?"</h2>
 <p>A little.</p>
-<p>But so was Excel once.</p>
-<p>There was also a time when:</p>
+<p>But so was Excel once. There was also a time when:</p>
 <ul>
 <li>pivot tables looked terrifying,</li>
 <li>VLOOKUP users were considered sorcerers,</li>
 <li>and macros were whispered about like forbidden magic.</li>
 </ul>
-<p>Accounting professionals adapt faster than they realize.</p>
+<p>Accounting professionals adapt faster than we realize.</p>
 <p>The difference now: <strong>AI dramatically lowers the technical barrier.</strong></p>
 <p>You no longer need to know how to build everything from scratch. You need to know:</p>
 <ul>
@@ -2100,17 +2097,14 @@
 </tr>
 </tbody>
 </table>
-<p>The accountant does not disappear.</p>
-<p>The repetitive manual process does.</p>
+<p>The accountant does not disappear. The repetitive manual process does.</p>
 <p>And honestly? Most accountants would happily trade "copying tabs into PowerPoint at 10 PM" for higher-value review and analysis work.</p>
 <blockquote>
 <p>🔒 <strong>Data safety reminder.</strong> This demo uses sample data. Before connecting a scheduled workflow to real company data, review your organization's AI and data governance policies. See: <strong><a href="../06-safe-ai-data-workflows/">How to Use AI Without Sending the Wrong Data →</a></strong></p>
 </blockquote>
 <hr />
 <h2 id="the-bigger-shift">The Bigger Shift</h2>
-<p>This article is not really about dashboards.</p>
-<p>It is about a change in mindset.</p>
-<p>Most accountants still think:</p>
+<p>This article is not really about dashboards. It is about a change in mindset. Most accountants still think:</p>
 <blockquote>
 <p>"How can AI help me do this task?"</p>
 </blockquote>
@@ -2118,11 +2112,10 @@
 <blockquote>
 <p>"How can this workflow run without me manually starting it?"</p>
 </blockquote>
-<p>That is a completely different way of thinking.</p>
-<p>And once you see it happen once — dashboard waiting in your folder at 7:01 AM — it becomes very hard to go back to manually refreshing spreadsheets and hoping Excel behaves.</p>
+<p>That is a completely different way of thinking. And once you see it happen once — dashboard waiting in your folder at 7:01 AM — it becomes very hard to go back to manually refreshing spreadsheets and hoping Excel behaves.</p>
 <hr />
-<h2 id="ready-to-wow-your-new-boss">Ready to Wow Your New Boss?</h2>
-<p>Here is your starting point. No IT department required (yet).</p>
+<h2 id="ready-to-wow-your-boss">Ready to Wow Your Boss?</h2>
+<p>Here is your starting point. </p>
 <p><strong>This week:</strong>
 - Download the <a href="https://github.com/PythonMuse/pythonmuse-workflow-kit">PythonMuse Workflow Kit</a>
 - Run <code>build_daily_dashboard.py</code> against the sample data in <code>/data/</code>
@@ -2135,9 +2128,8 @@
 <p><strong>The week after:</strong>
 - Your dashboard is waiting for you when you arrive
 - Your colleagues are asking how you did it
-- Your new boss thinks you are a wizard</p>
-<p>You did not write this from scratch.</p>
-<p>You knew how to describe the problem clearly, how to review the output responsibly, and how to connect the workflow to something that runs itself.</p>
+- Your boss thinks you are a wizard</p>
+<p>You don't need to code and write this from scratch. You knew how to describe the problem clearly, how to review the output responsibly, and how to connect the workflow to something that runs itself.</p>
 <p>That is the skill.</p>
 <p>The accountants who learn to build workflows like this — even imperfect, even small ones — will feel very different from those still manually refreshing spreadsheets every morning hoping Excel behaves itself.</p>
 <hr />
@@ -2147,8 +2139,6 @@
 <li><a href="../17-skills-and-agents-for-accountants/">The Power of Skills and Agents</a> — how to build reusable AI workflows beyond one-time prompts</li>
 <li><a href="../30-ai-routines-for-accountants/">AI Routines for Accountants</a> — take the scheduled-script idea further with skills, routines, and a human-approval evidence trail</li>
 <li><a href="../17b-your-first-claude-md/">Your First CLAUDE.md</a> — how to give your AI a standing set of rules for your accounting environment</li>
-<li><a href="../25-what-the-heck-is-a-script/">What the Heck Is a Script?</a> — if the code in this article felt unfamiliar, start here</li>
-<li><a href="../06-safe-ai-data-workflows/">How to Use AI Without Sending the Wrong Data</a> — before connecting to real data, read this</li>
 </ul>
 <hr />
 <h2 id="pythonmuse-workflow-kit">PythonMuse Workflow Kit</h2>
