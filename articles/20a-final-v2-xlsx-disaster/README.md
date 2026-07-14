@@ -9,31 +9,23 @@
 
 ![The FINAL_v2.xlsx Disaster](./visuals/20a_hero.png)
 
-🎬 *Companion video coming soon — "The FINAL_v2.xlsx Disaster" on the PythonMuse YouTube channel.*
-
 ---
 
 ## A Folder You've Definitely Seen Before
 
-Open any accounting team's shared drive and somewhere in there lives a folder that looks like this:
+Plenty of accounting teams' shared drives have a folder that looks something like this:
 
 ```
 📁 2026 Budget
    📄 Budget_FINAL.xlsx
    📄 Budget_FINAL_v2.xlsx
    📄 Budget_FINAL_v2_REAL.xlsx
-   📄 Budget_FINAL_v2_REAL_USE_THIS_ONE.xlsx
-   📄 Budget_FINAL_v2_REAL_USE_THIS_ONE_NEW.xlsx
-   📄 Budget_FINAL_v2_REAL_USE_THIS_ONE_NEW_(2).xlsx
-   📄 Copy of Budget_FINAL_v2_REAL_USE_THIS_ONE_NEW.xlsx
-   📄 Budget_DO_NOT_USE.xlsx   ← (the one everyone keeps using)
+   📄 Budget_FINAL_v2_REAL_USE_THIS_ONE.xlsx   ← (the one everyone keeps using)
 ```
 
-If that hurts to look at, congratulations — **you already have a version control problem.** You've had it for years.
+If that looks familiar, you've got a version control problem — you just never called it that.
 
-You just didn't call it that.
-
-You called it Tuesday.
+If it doesn't look familiar, good for you; not every team names files this way. But the underlying pattern — nobody quite sure which copy is the real one — shows up eventually in some form. AI is about to make it a lot harder to ignore.
 
 ---
 
@@ -140,21 +132,18 @@ In **[Article 20b — Git Explained Using Accounting Terms](../20b-git-in-accoun
 
 ---
 
-<!--
-VISUAL IDEAS (do not generate yet — pending review)
-1. Hero: messy desktop folder with the FINAL_v2_REAL filenames stack
-2. Side-by-side: "Shared drive timeline" (just files) vs. "Git timeline" (commits with who/what/why)
-3. Callout card: "We already had a version control problem. AI just exposed it."
-4. CFO Question diagram: question → no history (panic) vs. question → one click (answer)
-5. Framework comparison table visual (GitHub / Azure DevOps / AWS CodeCommit)
--->
-
 ## Related Reading
 
 - [Reproducible Accounting](../05-reproducible-accounting/README.md)
 - [Audit-Ready AI Workflows](../12-audit-ready-ai-workflows/README.md)
 - [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md)
 - [When Your AI Enters Month-End Close Mode](../26-when-your-ai-enters-month-end-close-mode/README.md)
+
+---
+
+## Next in the Series
+
+→ [Article 20b — Git Explained Using Accounting Terms](../20b-git-in-accounting-terms/README.md)
 
 ---
 

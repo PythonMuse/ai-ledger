@@ -9,8 +9,6 @@
 
 ![Pull Requests Are Internal Controls](./visuals/20e_hero.png)
 
-🎬 *Companion video coming soon — "Pull Requests Explained Like Accounting Controls."*
-
 ---
 
 ## The Most Misunderstood Word in This Series
@@ -161,21 +159,18 @@ History plus approvals gives you defensible change. The final article puts it al
 
 ---
 
-<!--
-VISUAL IDEAS (do not generate yet — pending review)
-1. Hero: GitHub PR review screen with accounting-style approval annotations overlaid
-2. COSO ↔ PR mechanics mapping diagram
-3. "Preparer / Reviewer / Approver" lane diagram on a Git branch
-4. Timeline of the Monday 9:14 AM example
-5. Branch protection visual — "Self-approval blocked" stamp
--->
-
 ## Related Reading
 
 - [AI in Accounting Is Not the Wild West](../04-ai-governance-in-accounting/README.md)
 - [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md)
 - [When to Trust AI to Run Your Accounting Workflows (Audit-Ready)](../12-audit-ready-ai-workflows/README.md)
 - [Zero Trust AI Accounting](../13-zero-trust-ai-accounting/README.md)
+
+---
+
+## Next in the Series
+
+→ [Article 20f — Reproducible Financial Reporting](../20f-reproducible-financial-reporting/README.md)
 
 ---
 

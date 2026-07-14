@@ -95,41 +95,73 @@ def old_vs_new():
         "Done. Before you log in.",
     ]
 
+    n = len(old_steps)
     fig = go.Figure()
 
-    # Old workflow bars (red, long to show pain)
-    fig.add_trace(go.Bar(
-        y=old_steps,
-        x=[8, 5, 6, 7, 6, 5, 3, 3, 9],
-        name="Old Way (Manual)",
-        orientation="h",
-        marker_color=BRAND_RED,
-        opacity=0.85,
-    ))
+    columns = [
+        (0.04, 0.48, old_steps, "THE OLD WAY (MANUAL)", BRAND_RED),
+        (0.52, 0.96, new_steps, "THE NEW WAY (SCHEDULED SCRIPT)", BRAND_BLUE),
+    ]
 
-    # New workflow bars (blue, short to show efficiency)
-    fig.add_trace(go.Bar(
-        y=new_steps,
-        x=[1, 1, 1, 1, 1, 1, 1, 1, 1],
-        name="New Way (Scheduled Script)",
-        orientation="h",
-        marker_color=BRAND_BLUE,
-        opacity=0.85,
-    ))
+    header_y0, header_y1 = 0.93, 0.99
+    top_y, bottom_y = 0.84, 0.04
+    box_h = 0.065
+    step_y = [top_y - i * (top_y - bottom_y - box_h) / (n - 1) for i in range(n)]
+
+    for x0, x1, steps, header_text, color in columns:
+        # Header
+        fig.add_shape(
+            type="rect", xref="x", yref="y",
+            x0=x0, x1=x1, y0=header_y0, y1=header_y1,
+            fillcolor=color, line=dict(width=0),
+        )
+        fig.add_annotation(
+            x=(x0 + x1) / 2, y=(header_y0 + header_y1) / 2,
+            xref="x", yref="y",
+            text=f"<b>{header_text}</b>",
+            showarrow=False,
+            font=dict(size=13, color="white", family="Inter, Arial, sans-serif"),
+        )
+
+        # Step boxes, connected top to bottom
+        for i, (step, y_top) in enumerate(zip(steps, step_y)):
+            y_bottom = y_top - box_h
+            fig.add_shape(
+                type="rect", xref="x", yref="y",
+                x0=x0, x1=x1, y0=y_bottom, y1=y_top,
+                fillcolor="white",
+                line=dict(color=color, width=1.5),
+            )
+            fig.add_annotation(
+                x=(x0 + x1) / 2, y=(y_top + y_bottom) / 2,
+                xref="x", yref="y",
+                text=step,
+                showarrow=False,
+                font=dict(size=11.5, color=BRAND_DARK, family="Inter, Arial, sans-serif"),
+            )
+            if i < n - 1:
+                next_y_top = step_y[i + 1]
+                fig.add_annotation(
+                    x=(x0 + x1) / 2, y=next_y_top,
+                    ax=(x0 + x1) / 2, ay=y_bottom,
+                    xref="x", yref="y",
+                    axref="x", ayref="y",
+                    showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=1.5,
+                    arrowcolor=BRAND_GREY,
+                )
 
     fig.update_layout(
         title=dict(
             text="The Old Way vs. The New Way",
             font=dict(size=20, color=BRAND_DARK),
         ),
-        barmode="overlay",
-        width=900, height=520,
+        width=900, height=760,
         plot_bgcolor="white",
         paper_bgcolor="white",
-        xaxis=dict(visible=False),
-        yaxis=dict(tickfont=dict(size=12)),
-        legend=dict(orientation="h", y=1.08),
-        margin=dict(l=200, r=40, t=80, b=40),
+        xaxis=dict(visible=False, range=[0, 1]),
+        yaxis=dict(visible=False, range=[0, 1]),
+        margin=dict(l=20, r=20, t=70, b=20),
+        showlegend=False,
     )
     out = VISUALS_DIR / "18_old_vs_new.png"
     fig.write_image(str(out))

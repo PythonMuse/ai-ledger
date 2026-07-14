@@ -9,8 +9,6 @@
 
 ![How Finance Teams Should Structure AI Repositories](./visuals/20c_hero.png)
 
-🎬 *Companion video coming soon — a VS Code walkthrough of the finance repo.*
-
 ---
 
 ## A Repository Is Just a Better Binder
@@ -135,15 +133,6 @@ Now that the binder has shape, we need to compare it head-to-head with the tool 
 
 ---
 
-<!--
-VISUAL IDEAS (do not generate yet — pending review)
-1. Hero: VS Code file explorer showing the finance-close repo skeleton
-2. "Audit binder ↔ repo folder" overlay visual
-3. Four-principle diagram (raw=sacred, outputs=regenerated, prompts=assets, scripts=workpapers)
-4. Bank reconciliation walk-through: data/raw → scripts → outputs → evidence
-5. Reproducibility loop animation: delete outputs → rerun → identical result
--->
-
 ## Related Reading
 
 - [Reproducible Accounting](../05-reproducible-accounting/README.md)
@@ -152,6 +141,12 @@ VISUAL IDEAS (do not generate yet — pending review)
 - [Your First CLAUDE.md](../17b-your-first-claude-md/README.md)
 - [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md)
 - [One-Time to Repeatable Workflows](../11-one-time-to-repeatable-workflows/README.md)
+
+---
+
+## Next in the Series
+
+→ [Article 20d — GitHub vs. The Shared Drive](../20d-github-vs-shared-drives/README.md)
 
 ---
 

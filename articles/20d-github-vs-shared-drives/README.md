@@ -9,8 +9,6 @@
 
 ![GitHub vs. The Shared Drive](./visuals/20d_hero.png)
 
-🎬 *Companion video coming soon — split-screen "Shared Drive vs. GitHub" demo.*
-
 ---
 
 ## A Tale of Two Tools
@@ -132,21 +130,18 @@ History is good. But for finance, history alone isn't enough — we also need **
 
 ---
 
-<!--
-VISUAL IDEAS (do not generate yet — pending review)
-1. Hero: split-screen — left=cluttered shared drive, right=clean Git history panel
-2. The "8-second" diff visual: question → commit history → answer highlighted
-3. Versioning vs. memory diagram: snapshot list (OneDrive) vs. linked history graph (Git)
-4. "Buttons, not terminal" visual showing VS Code/GitHub Desktop UI with arrows to Commit / History / Revert
-5. Timeline visual: AI workflow velocity overlaid on shared drive vs. Git capacity
--->
-
 ## Related Reading
 
 - [Reproducible Accounting](../05-reproducible-accounting/README.md)
 - [Audit-Ready AI Workflows](../12-audit-ready-ai-workflows/README.md)
 - [Zero Trust AI Accounting](../13-zero-trust-ai-accounting/README.md)
 - [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/README.md)
+
+---
+
+## Next in the Series
+
+→ [Article 20e — Pull Requests Are Internal Controls](../20e-pull-requests-are-controls/README.md)
 
 ---
 

@@ -9,8 +9,6 @@
 
 ![Reproducible Financial Reporting](./visuals/20f_hero.png)
 
-🎬 *Companion video coming soon — "Delete the outputs. Rerun the workflow. Get the same numbers."*
-
 ---
 
 ## The One Idea That Ties This Whole Series Together
@@ -166,15 +164,6 @@ But start.
 
 ---
 
-<!--
-VISUAL IDEAS (do not generate yet — pending review)
-1. Hero: a frozen "v2026-04-close" tag visualized as a sealed audit binder
-2. Reproducibility loop: clone → checkout tag → delete outputs → rerun → identical numbers
-3. "Trust me" vs. "Rerun the workflow" side-by-side
-4. Accounting-as-Code stack diagram (data / scripts / prompts / outputs / evidence / tags)
-5. Future-state finance team visual: human + AI + version control + audit
--->
-
 ## Related Reading
 
 - [Reproducible Accounting](../05-reproducible-accounting/README.md)
@@ -183,6 +172,12 @@ VISUAL IDEAS (do not generate yet — pending review)
 - [The Workings Layer Method](../22-workings-layer-method/README.md)
 - [When Your AI Enters Month-End Close Mode](../26-when-your-ai-enters-month-end-close-mode/README.md)
 - [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md)
+
+---
+
+## Next in the Series
+
+You've completed the series. ← Back to [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)
 
 ---
 

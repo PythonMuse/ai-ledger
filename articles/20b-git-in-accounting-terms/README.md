@@ -9,8 +9,6 @@
 
 ![Git Explained Using Accounting Terms](./visuals/20b_hero.png)
 
-🎬 *Companion video coming soon — "Git for Accountants in Plain English."*
-
 ---
 
 ## You Already Understand Git. You Just Don't Know It Yet.
@@ -133,20 +131,17 @@ You now have the vocabulary. In **[Article 20c — How Finance Teams Should Stru
 
 ---
 
-<!--
-VISUAL IDEAS (do not generate yet — pending review)
-1. Hero: Two-column "Rosetta Stone" — Accounting term ↔ Git term
-2. Animated commit card (author / date / message / files) styled like a JE voucher
-3. Workpaper binder ↔ Repository visual metaphor
-4. "Primitive version control" gallery: FINAL_v2 / DO_NOT_EDIT / Copy of Copy
-5. Branch tree visualized as budget scenarios (Base / Optimistic / Bear)
--->
-
 ## Related Reading
 
 - [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md)
 - [Reproducible Accounting](../05-reproducible-accounting/README.md)
 - [Your First CLAUDE.md](../17b-your-first-claude-md/README.md)
+
+---
+
+## Next in the Series
+
+→ [Article 20c — How Finance Teams Should Structure AI Repositories](../20c-finance-repo-structure/README.md)
 
 ---
 
