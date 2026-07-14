@@ -52,19 +52,27 @@ nav:
     - Audit-Ready AI Workflows: 12-audit-ready-ai-workflows/README.md
     - Zero Trust for AI: 13-zero-trust-ai-accounting/README.md
     - Version Control for Accountants: 20-version-control-for-accountants/README.md
+    - "20a. The FINAL_v2.xlsx Disaster": 20a-final-v2-xlsx-disaster/README.md
+    - "20b. Git Explained Using Accounting Terms": 20b-git-in-accounting-terms/README.md
+    - "20c. How Finance Teams Should Structure AI Repositories": 20c-finance-repo-structure/README.md
+    - "20d. GitHub vs. The Shared Drive": 20d-github-vs-shared-drives/README.md
+    - "20e. Pull Requests Are Internal Controls": 20e-pull-requests-are-controls/README.md
+    - "20f. Reproducible Financial Reporting": 20f-reproducible-financial-reporting/README.md
   - Workflows & Safety:
     - Reproducible Accounting: 05-reproducible-accounting/README.md
     - Safe AI Data Workflows: 06-safe-ai-data-workflows/README.md
     - AI Use Cases and Structure: 10-ai-use-cases-and-structure/README.md
     - One-Time to Repeatable Workflows: 11-one-time-to-repeatable-workflows/README.md
     - The Workings Layer: 22-workings-layer-method/README.md
-    - Schema-Driven Sanitization: 23-schema-driven-sanitization/Readme.md
+    - Schema-Driven Sanitization: 23-schema-driven-sanitization/README.md
   - Skills & Automation:
     - Skills and Agents for Accountants: 17-skills-and-agents-for-accountants/README.md
     - Your First CLAUDE.md: 17b-your-first-claude-md/README.md
-    - Scheduled Workflows: 18-scheduled-workflows/README.md
+    - AI That Runs Before You Log In: 18-ai-runs-before-you-log-in/README.md
     - Multi-Agent Orchestration: 19-multi-agent-orchestration/README.md
     - What the Heck Is a Script?: 25-what-the-heck-is-a-script/README.md
+    - VS Code Extensions for Accountants: 27-vscode-extensions-for-accountants/README.md
+    - Python Libraries for Accountants: 28-python-libraries-for-accountants/README.md
     - The Magic Loop: 29-loops-the-automation-that-feels-magical/README.md
     - AI Routines for Accountants: 30-ai-routines-for-accountants/README.md
     - Metadata Is the Label Maker: 31-metadata-is-the-label-maker/README.md

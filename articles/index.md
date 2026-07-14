@@ -32,11 +32,23 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 16 | [The PDF Token Trap](16-pdf-token-trap/README.md) | PDF processing, token management, workflow optimization |
 | 17 | [The Power of Skills and Agents: How Accountants Actually Use AI](17-skills-and-agents-for-accountants/README.md) | Skills, agents, AI systems, workflow automation |
 | 17b | [Your First CLAUDE.md: How Accountants Define the Agent](17b-your-first-claude-md/README.md) | CLAUDE.md, agent configuration, accounting AI setup |
+| 18 | [AI That Runs Before You Log In](18-ai-runs-before-you-log-in/README.md) | Scheduled AI workflows, automation, daily sales dashboard, unattended processing |
+| 19 | [When One Agent Is Not Enough](19-multi-agent-orchestration/README.md) | Multi-agent orchestration, AI workflow coordination, specialized agents, task delegation |
+| 20 | [Version Control for Accountants in the AI Era](20-version-control-for-accountants/README.md) | Version control series, Git for accountants, AI in finance, series overview |
+| 20a | [The FINAL_v2.xlsx Disaster](20a-final-v2-xlsx-disaster/README.md) | File naming chaos, spreadsheet versioning, version control motivation, AI risk |
+| 20b | [Git Explained Using Accounting Terms](20b-git-in-accounting-terms/README.md) | Git basics, accounting analogies, commits and ledgers, version control fundamentals |
+| 20c | [How Finance Teams Should Structure AI Repositories](20c-finance-repo-structure/README.md) | Repository structure, folder organization, finance repos, AI project layout |
+| 20d | [GitHub vs. The Shared Drive](20d-github-vs-shared-drives/README.md) | GitHub vs shared drives, file storage comparison, collaboration tools, cloud storage limitations |
+| 20e | [Pull Requests Are Internal Controls](20e-pull-requests-are-controls/README.md) | Pull requests, internal controls, review workflows, approval process |
+| 20f | [Reproducible Financial Reporting](20f-reproducible-financial-reporting/README.md) | Reproducible reporting, financial reporting future, auditability, automation trends |
 | 21 | [The 3 Mindsets of AI Adoption in Accounting](21-three-mindsets-of-ai-adoption/README.md) | AI adoption, mindset, organizational change |
+| 22 | [The Workings Layer: Fitting AI Into the Files You Can't Change](22-workings-layer-method/README.md) | Workings layer method, legacy file constraints, controlled AI process, non-invasive automation |
 | 23 | [Don't Trust the Model to Find What You Already Know Is There](23-schema-driven-sanitization/README.md) | Schema-Driven Data Sanitization for Small Business Accounting in the Age of AI |
 | 24 | [AI Didn't Break Your Numbers. Excel Did.](24-excel-number-trap/README.md) | Excel formatting, accounting number normalization, data discipline, Top 10 AI Traps #1 |
 | 25 | [What the Heck Is a Script?](25-what-the-heck-is-a-script/README.md) | Scripts explained for accountants, Excel vs Python readability, SOPs for computers, audit-friendly logic |
 | 26 | [When Your AI Enters Month-End Close Mode](26-when-your-ai-enters-month-end-close-mode/README.md) | Context drift, session management, context window, accounting analogies, SKILL files, checkpoints |
+| 27 | [Visual Studio Code Extensions for Accountants](27-vscode-extensions-for-accountants/README.md) | VS Code extensions, workspace customization, security and governance, developer tools for accountants |
+| 28 | [Python Libraries for Accountants: Skills You Teach Your Code](28-python-libraries-for-accountants/README.md) | Python libraries, accounting workflows, safe library adoption, code skills |
 | 29 | [The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run](29-loops-the-automation-that-feels-magical/README.md) | Workflow automation, YAML configuration, loop governance, review before run, abstraction layers |
 | 30 | [AI Routines for Accountants: When Your Guidance Starts Checking Itself](30-ai-routines-for-accountants/README.md) | AI routines, monitoring workflows, YAML configuration, proposed change packages, human review gates, audit evidence |
 | 31 | [Metadata Is the Label Maker Your AI Workflow Needs](31-metadata-is-the-label-maker/README.md) | Metadata governance, SKILL.md, file manifests, scripts vs. controls, hooks, audit trail |

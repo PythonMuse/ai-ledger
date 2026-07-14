@@ -30,9 +30,15 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 16 | [The PDF Token Trap](articles/16-pdf-token-trap/) | PDF-to-Markdown workflow, token efficiency, data masking, reusable Skills, convert once reuse forever |
 | 17 | [The Power of Skills and Agents: How Accountants Actually Use AI](articles/17-skills-and-agents-for-accountants/) | Skills, agents, workflow design, internal controls, living documentation |
 | 17b | [Your First CLAUDE.md: How Accountants Define the Agent](articles/17b-your-first-claude-md/) | CLAUDE.md structure, governance documentation, accounting-specific rules, workflow kit |
-| 18 | [Scheduled Workflows for Accounting Teams](articles/18-scheduled-workflows/) | Scheduled tasks, cron, automation, recurring workflows |
-| 19 | [Multi-Agent Orchestration for Accountants](articles/19-multi-agent-orchestration/) | Multi-agent, orchestration, parallel workflows, accounting automation |
-| 20 | [Version Control for Accountants](articles/20-version-control-for-accountants/) | Git, version control, audit trail, reproducibility |
+| 18 | [AI That Runs Before You Log In](articles/18-ai-runs-before-you-log-in/) | Scheduled workflows, automation, daily sales dashboard, unattended processing |
+| 19 | [When One Agent Is Not Enough](articles/19-multi-agent-orchestration/) | Multi-agent orchestration, AI workflow coordination, specialized agents, task delegation |
+| 20 | [Version Control for Accountants in the AI Era](articles/20-version-control-for-accountants/) | Git, version control, audit trail, reproducibility, series overview |
+| 20a | [The FINAL_v2.xlsx Disaster](articles/20a-final-v2-xlsx-disaster/) | File naming chaos, spreadsheet versioning, version control motivation, AI risk |
+| 20b | [Git Explained Using Accounting Terms](articles/20b-git-in-accounting-terms/) | Git basics, accounting analogies, commits and ledgers, version control fundamentals |
+| 20c | [How Finance Teams Should Structure AI Repositories](articles/20c-finance-repo-structure/) | Repository structure, folder organization, finance repos, AI project layout |
+| 20d | [GitHub vs. The Shared Drive](articles/20d-github-vs-shared-drives/) | GitHub vs shared drives, file storage comparison, collaboration tools, cloud storage limitations |
+| 20e | [Pull Requests Are Internal Controls](articles/20e-pull-requests-are-controls/) | Pull requests, internal controls, review workflows, approval process |
+| 20f | [Reproducible Financial Reporting](articles/20f-reproducible-financial-reporting/) | Reproducible reporting, financial reporting future, auditability, automation trends |
 | 21 | [The 3 Mindsets of AI Adoption in Accounting](articles/21-three-mindsets-of-ai-adoption/) | Mindset, change management, Builder/Stabilizer/Protector, AI adoption |
 | 22 | [The Workings Layer: Fitting AI Into the Files You Can't Change](articles/22-workings-layer-method/) | Workings layer, folder structure, CLAUDE.md placement, legacy files, audit-ready |
 | 23 | [Don't Trust the Model to Find What You Already Know Is There](articles/23-schema-driven-sanitization/) | Schema-driven sanitization, PII detection, data privacy, accounting data workflows, Privacy Filter |
