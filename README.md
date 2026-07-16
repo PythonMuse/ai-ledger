@@ -51,6 +51,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 30 | [AI Routines for Accountants: When Your Guidance Starts Checking Itself](articles/30-ai-routines-for-accountants/) | AI routines, monitoring workflows, proposed change packages, human review gates, audit evidence, tax guidance example |
 | 31 | [Metadata Is the Label Maker Your AI Workflow Needs](articles/31-metadata-is-the-label-maker/) | Metadata governance, SKILL.md, file manifests, scripts vs. controls, hooks, audit trail |
 | 32 | [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](articles/32-from-ai-answers-to-audit-trails/) | AI output validation, chat vs. harness, tie-out reports, evidence trails, reviewer checklists |
+| 33 | [When Copilot Is the Only Approved AI Tool](articles/33-copilot-only-approved-ai-tool/) | Microsoft Copilot, AI harness comparison, IT-approved tools, validation, governance |
 
 
 ---

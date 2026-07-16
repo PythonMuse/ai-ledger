@@ -77,6 +77,7 @@ nav:
     - AI Routines for Accountants: 30-ai-routines-for-accountants/README.md
     - Metadata Is the Label Maker: 31-metadata-is-the-label-maker/README.md
     - From AI Answers to Audit Trails: 32-from-ai-answers-to-audit-trails/README.md
+    - When Copilot Is the Only Approved AI Tool: 33-copilot-only-approved-ai-tool/README.md
 
 markdown_extensions:
   - admonition

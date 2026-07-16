@@ -171,4 +171,4 @@ And that is where responsible AI adoption in finance truly begins.
 
 ---
 
-*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [Reproducible Accounting](../05-reproducible-accounting/) | [How to Use AI in Accounting Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [Why Claude "Forgets"](../08-why-claude-forgets/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [Reproducible Accounting](../05-reproducible-accounting/) | [How to Use AI in Accounting Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [Why Claude "Forgets"](../08-why-claude-forgets/) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
