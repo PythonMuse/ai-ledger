@@ -1,0 +1,3144 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/33-copilot-only-approved-ai-tool/">
+      
+      
+        <link rel="prev" href="../32-from-ai-answers-to-audit-trails/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>When Copilot Is the Only Approved AI Tool - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#when-copilot-is-the-only-approved-ai-tool" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              When Copilot Is the Only Approved AI Tool
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../17-skills-and-agents-for-accountants/" class="md-tabs__link">
+          
+  
+  
+  Skills & Automation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-three-mindsets-of-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The 3 Mindsets of AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-when-your-ai-enters-month-end-close-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Your AI Enters Month-End Close Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-ai-team-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stop Using One AI Like It Is Excel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ai-and-excel-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI and Excel Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-pdf-token-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PDF Token Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-excel-number-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Number Format Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-audit-ready-ai-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit-Ready AI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-zero-trust-ai-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-version-control-for-accountants/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20a-final-v2-xlsx-disaster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20a. The FINAL_v2.xlsx Disaster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20b-git-in-accounting-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20b. Git Explained Using Accounting Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20c-finance-repo-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20c. How Finance Teams Should Structure AI Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20d-github-vs-shared-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20d. GitHub vs. The Shared Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20e-pull-requests-are-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20e. Pull Requests Are Internal Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20f-reproducible-financial-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20f. Reproducible Financial Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-ai-use-cases-and-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Use Cases and Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-one-time-to-repeatable-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Time to Repeatable Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-workings-layer-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Workings Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-schema-driven-sanitization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema-Driven Sanitization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Automation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills & Automation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-skills-and-agents-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills and Agents for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17b-your-first-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-ai-runs-before-you-log-in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI That Runs Before You Log In
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-multi-agent-orchestration/README.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Orchestration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-what-the-heck-is-a-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What the Heck Is a Script?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-vscode-extensions-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VS Code Extensions for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-python-libraries-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-loops-the-automation-that-feels-magical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Magic Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-ai-routines-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Routines for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-metadata-is-the-label-maker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Is the Label Maker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-from-ai-answers-to-audit-trails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From AI Answers to Audit Trails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Copilot Is the Only Approved AI Tool
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Copilot Is the Only Approved AI Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-accounting-task-monthly-variance-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The accounting task: monthly variance review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-accounting-variance-review-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Accounting Variance Review Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-accounting-logic-remained-the-same" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The accounting logic remained the same
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-controlled-kitchen-a-framework-driven-harness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The controlled kitchen: a framework-driven harness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-model-and-the-workflow-are-separate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The model and the workflow are separate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-corporate-cafeteria-microsoft-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The corporate cafeteria: Microsoft Copilot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-ai-is-behind-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What AI is behind Copilot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-copilot-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My Copilot experience
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="My Copilot experience">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-attachment-limits-changed-the-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Attachment limits changed the design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-connected-knowledge-depended-on-my-copilot-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Connected knowledge depended on my Copilot tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-agent-instructions-had-their-own-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Agent instructions had their own limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-the-analysis-remained-in-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The analysis remained in chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-repetitive-formatting-required-repeated-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Repetitive formatting required repeated guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-drafting-an-email-is-different-from-creating-an-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Drafting an email is different from creating an action
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-the-most-important-difference-for-accountants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation: the most important difference for accountants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlled-kitchen-versus-corporate-cafeteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlled kitchen versus corporate cafeteria
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-biggest-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My biggest takeaway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#same-destination-different-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Same destination, different cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accountants-can-lead-this-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accountants can lead this work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-tools-and-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note on tools and frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-along-or-reperform-the-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Follow Along or Reperform the Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final thought
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-accounting-task-monthly-variance-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The accounting task: monthly variance review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-accounting-variance-review-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Accounting Variance Review Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-accounting-logic-remained-the-same" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The accounting logic remained the same
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-controlled-kitchen-a-framework-driven-harness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The controlled kitchen: a framework-driven harness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-model-and-the-workflow-are-separate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The model and the workflow are separate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-corporate-cafeteria-microsoft-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The corporate cafeteria: Microsoft Copilot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-ai-is-behind-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What AI is behind Copilot?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-copilot-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My Copilot experience
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="My Copilot experience">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-attachment-limits-changed-the-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Attachment limits changed the design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-connected-knowledge-depended-on-my-copilot-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Connected knowledge depended on my Copilot tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-agent-instructions-had-their-own-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Agent instructions had their own limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-the-analysis-remained-in-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. The analysis remained in chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-repetitive-formatting-required-repeated-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Repetitive formatting required repeated guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-drafting-an-email-is-different-from-creating-an-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Drafting an email is different from creating an action
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-the-most-important-difference-for-accountants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation: the most important difference for accountants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlled-kitchen-versus-corporate-cafeteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlled kitchen versus corporate cafeteria
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-biggest-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My biggest takeaway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#same-destination-different-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Same destination, different cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accountants-can-lead-this-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accountants can lead this work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-tools-and-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note on tools and frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-along-or-reperform-the-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Follow Along or Reperform the Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final thought
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="when-copilot-is-the-only-approved-ai-tool">When Copilot Is the Only Approved AI Tool</h1>
+<p><em>The corporate cafeteria, the controlled kitchen, and what accountants should learn from both</em></p>
+<hr />
+<p><strong>PythonMuse LLC</strong>
+<em>Published July 2026</em></p>
+<p><img alt="Cafeteria vs Kitchen Hero" src="visuals/33_hero.png" /></p>
+<hr />
+<p>When I explain how I use AI in accounting work, many accounting professionals immediately think of Microsoft Copilot.</p>
+<p>Some say it very directly:</p>
+<blockquote>
+<p>"Copilot is the only approved AI tool at our company."</p>
+</blockquote>
+<p>For a while, I tried to persuade them that Copilot was not the only way to build controlled AI-assisted workflows. I talked about harnesses, structured project folders, reusable skills, validation routines, version history, and the ability to choose the model that best fits the task.</p>
+<p>A few people leaned in. Many others politely returned to the same response:</p>
+<blockquote>
+<p>"That sounds interesting, but we are only allowed to use Copilot."</p>
+</blockquote>
+<p>So I decided to stop arguing with the cafeteria line. If Microsoft Copilot is the corporate cafeteria many organizations have already approved, then a harness built on PythonMuse's framework practices is the controlled kitchen where accountants can see how the meal is prepared.</p>
+<p>The cafeteria is familiar, convenient, and governed by the company. The kitchen requires more preparation and responsibility, but it offers greater control over the ingredients, recipe, validation, and final presentation.</p>
+<p>Both environments can produce a useful result. The more important question is what it takes to get there — and who carries the burden along the way.</p>
+<p>To explore that question, I performed the same accounting task in both environments: an Accounting Variance Review Agent that analyzes a monthly P&amp;L variance report, applies materiality rules, separates facts from assumptions, prepares CFO-ready commentary, creates a reviewer checklist, and drafts follow-up questions for account owners.</p>
+<p>The goal was not to declare a winner. The goal was to understand what is the same, what is different, and what those differences mean for accountants.</p>
+<hr />
+<h2 id="the-accounting-task-monthly-variance-review">The accounting task: monthly variance review</h2>
+<p>Variance review is a familiar accounting workflow.</p>
+<p>Every month, accountants compare actual results with budget, prior month, or prior year. They identify material changes, ask account owners for explanations, determine whether variances are timing-related or recurring, and prepare commentary management can rely upon.</p>
+<p>The process sounds simple, but it requires judgment. A good variance review should answer:</p>
+<ul>
+<li>What changed?</li>
+<li>Is the variance material?</li>
+<li>Is the explanation supported or assumed?</li>
+<li>Is the change temporary, recurring, or unusual?</li>
+<li>Could it indicate a missing accrual, cutoff problem, coding error, reclassification, or business change?</li>
+<li>Does it affect EBITDA, gross margin, cash flow, or another management metric?</li>
+<li>What still needs to be confirmed before the analysis is finalized?</li>
+</ul>
+<p>This makes variance review a useful AI test case.</p>
+<p>It includes numbers, but it is not only a calculation exercise. It includes writing, but it is not only a drafting exercise. It requires source validation, professional skepticism, and a clear distinction between known facts and plausible explanations.</p>
+<p>That is exactly where accountants need to be careful with AI.</p>
+<hr />
+<h2 id="the-accounting-variance-review-agent">The Accounting Variance Review Agent</h2>
+<p>I designed the agent to perform the following workflow:</p>
+<ol>
+<li>Review the monthly P&amp;L variance report.</li>
+<li>Apply defined materiality thresholds.</li>
+<li>Identify material and high-risk variances.</li>
+<li>Separate facts from assumptions.</li>
+<li>Draft questions for account owners.</li>
+<li>Prepare concise, CFO-ready commentary.</li>
+<li>Identify items requiring additional support.</li>
+<li>Create a reviewer checklist.</li>
+<li>Support follow-up outputs in Excel, PowerPoint, and email format.</li>
+</ol>
+<p>The supporting information included:</p>
+<ul>
+<li>Variance Review SOP</li>
+<li>Materiality Thresholds</li>
+<li>CFO Commentary Style Guide</li>
+<li>Reviewer Checklist</li>
+<li>Sample P&amp;L Variance Report</li>
+</ul>
+<p>The expected output included:</p>
+<ol>
+<li>Executive Summary</li>
+<li>Material Variances Identified</li>
+<li>Known Facts</li>
+<li>Assumptions and Open Questions</li>
+<li>Questions for Account Owners</li>
+<li>Draft CFO-Ready Commentary</li>
+<li>Items Requiring Support</li>
+<li>Reviewer Checklist</li>
+</ol>
+<p>The agent was not designed to replace the accountant.</p>
+<p>It was designed to follow a repeatable accounting review process and prepare the work for professional review.</p>
+<blockquote>
+<p><strong>Follow along:</strong> The SOP, materiality thresholds, CFO commentary style guide, reviewer checklist, and sample P&amp;L variance report used throughout this case study are all available in the GitHub repository linked at the end of this article, so you can review them or recreate the exercise yourself.</p>
+</blockquote>
+<hr />
+<h2 id="the-accounting-logic-remained-the-same">The accounting logic remained the same</h2>
+<p>The same core workflow could be performed in both Microsoft Copilot and a harness.</p>
+<p>Both environments needed:</p>
+<ul>
+<li>Clear instructions</li>
+<li>Defined source files</li>
+<li>Materiality rules</li>
+<li>A required output structure</li>
+<li>A prohibition against inventing explanations</li>
+<li>A distinction between facts and assumptions</li>
+<li>A validation process</li>
+<li>A reviewer checklist</li>
+<li>Human approval before reliance</li>
+</ul>
+<p>That is an important point.</p>
+<blockquote>
+<p>The AI environment changes. The accounting control logic does not.</p>
+</blockquote>
+<p>The differences appeared in how the workflow was configured, how much the user had to remember, how validation was performed, and how the final evidence was preserved.</p>
+<hr />
+<h2 id="the-controlled-kitchen-a-framework-driven-harness">The controlled kitchen: a framework-driven harness</h2>
+<p>A harness is a structured workspace where the AI-assisted workflow lives.</p>
+<p>It may contain source data, instructions, knowledge files, scripts, reusable skills, outputs, validation reports, and documentation. Instead of working only through a conversation, the accountant works inside a controlled project environment.</p>
+<blockquote>
+<p><strong>🛠️ Reminder — this is a framework.</strong> For this comparison, I built the harness side using Claude in VS Code, through Claude Extension by Anthropic — that is my daily setup, and it is what the examples and screenshots below reflect. But the harness itself is not a PythonMuse product, and it is not tied to that one setup. The same folder structure, skill files, and validation habits work identically in Cursor, Windsurf, the Claude Code CLI, ChatGPT with Projects, or Gemini with workspace integrations. PythonMuse teaches the framework — the folder discipline, the skill file, the validation habit — not a proprietary tool. Swap the model or the editor, and the recipe still works.</p>
+</blockquote>
+<p>A simplified variance review harness look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>accounting-variance-review/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── AGENTS.md
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── README.md
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── data/
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   └── current_pnl_variance_report.xlsx
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── knowledge/
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── variance_review_sop.md
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   ├── materiality_thresholds.md
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   ├── cfo_commentary_style.md
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   └── reviewer_checklist.md
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── skills/
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── variance_analysis_skill.md
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   ├── validation_skill.md
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│   ├── excel_formatting_skill.md
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│   └── presentation_formatting_skill.md
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>├── scripts/
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│   └── calculate_variances.py
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>├── outputs/
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│   ├── variance_review.xlsx
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│   ├── cfo_summary.pptx
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│   └── owner_email_drafts.md
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>└── validation/
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    └── validation_report.md
+</code></pre></div>
+<p>The folders are not the important part by themselves.</p>
+<p>The important part is that every component has a defined place:</p>
+<ul>
+<li>Data belongs in the data folder.</li>
+<li>Policies and thresholds belong in the knowledge folder.</li>
+<li>Reusable formatting and validation instructions belong in skills.</li>
+<li>Deterministic calculations belong in scripts.</li>
+<li>Final deliverables belong in outputs.</li>
+<li>Review evidence belongs in validation.</li>
+</ul>
+<p>The <code>AGENTS.md</code> file provides the boundaries. It explains what the agent should do, what sources it may use, what rules it must follow, which skills should be called, and where results should be saved.</p>
+<p>The harness requires more upfront design. But that design is done with AI as your collaborator, and it doesn't take long — it's more of a conversation with the model about what you are trying to achieve, followed by your review of what it produces. I don't want to oversimplify this: there are a few basic concepts you need to know to effectively review AI-produced work, and that is what this series is about.</p>
+<blockquote>
+<p><strong>Related read:</strong> The specific habits that turn a plausible AI answer into a reviewable one — separating facts from assumptions, tying output back to source, building an evidence trail — are covered in depth in <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails: How Accountants Can Validate AI Output</a>.</p>
+</blockquote>
+<p>But once the design is complete, the accountant does not need to repeatedly decide what to attach, what to paste into a prompt, what formatting rules to restate, or where to save the result.</p>
+<p>The workflow already knows — because the same <code>AGENTS.md</code> file, the same skills, and the same documented output structure run again every single time.</p>
+<hr />
+<h2 id="the-model-and-the-workflow-are-separate">The model and the workflow are separate</h2>
+<p>Another important feature of a harness is that the workflow does not need to be tied permanently to one AI model.</p>
+<p>The same workflow may be used with:</p>
+<ul>
+<li>Claude</li>
+<li>OpenAI models</li>
+<li>Gemini</li>
+<li>Azure-hosted models</li>
+<li>Local models</li>
+<li>Another company-approved model</li>
+</ul>
+<p>The model is one component of the workflow rather than the entire workflow.</p>
+<p>Using the kitchen metaphor:</p>
+<ul>
+<li>The harness is the kitchen.</li>
+<li>The accounting instructions are the recipe.</li>
+<li>The model is the chef.</li>
+</ul>
+<p>A different chef can follow the same recipe in the same kitchen.</p>
+<p>This separation gives the organization the ability to compare models, test performance, manage cost, or change providers without redesigning the entire accounting process.</p>
+<p>For accounting work, the harness also allows deterministic calculations to be separated from narrative analysis.</p>
+<p>I do not want the language model guessing whether a variance is material. I want a formula or script to calculate the variance and apply the threshold. The model can then explain the validated result, draft follow-up questions, and prepare commentary.</p>
+<p>The PythonMuse principle remains:</p>
+<blockquote>
+<p>Let the code calculate.
+Let the model explain.
+Let the accountant review.</p>
+</blockquote>
+<hr />
+<h2 id="the-corporate-cafeteria-microsoft-copilot">The corporate cafeteria: Microsoft Copilot</h2>
+<p>Microsoft Copilot is attractive to companies because it fits inside an environment they already know and govern.</p>
+<p>Accountants already spend their day in:</p>
+<ul>
+<li>Excel</li>
+<li>Outlook</li>
+<li>Teams</li>
+<li>Word</li>
+<li>PowerPoint</li>
+<li>SharePoint</li>
+<li>OneDrive</li>
+</ul>
+<p>IT already understands Microsoft identities, permissions, licenses, security settings, and procurement. Leadership may also feel more comfortable approving one enterprise platform than allowing individual departments to introduce multiple AI tools.</p>
+<p>This is why many companies prefer Copilot even when it may be more expensive or less flexible for a particular workflow.</p>
+<p>They are not purchasing only model access. They are purchasing an enterprise platform and control environment.</p>
+<p>Copilot also lowers the barrier to starting. A user can create an agent, provide instructions, attach a report, and begin asking questions without learning a project structure, repository, command line, or scripting language.</p>
+<p>That is a real advantage. The cafeteria is already in the building. But the user must work with the menu, operating hours, access level, and rules established for that cafeteria.</p>
+<p>That became very clear during my experiment.</p>
+<hr />
+<h2 id="what-ai-is-behind-copilot">What AI is behind Copilot?</h2>
+<p>Copilot should not be understood as a single model placed inside Microsoft Office.</p>
+<p>It is an enterprise AI layer combining language models with Microsoft identity, permissions, documents, communications, applications, administrative controls, and other Microsoft services.</p>
+<p>Microsoft manages the model layer, routing, upgrades, and integration with the broader platform.</p>
+<p>For most accountants, that means model selection is not the primary decision. The organization chooses the Microsoft platform, and Microsoft manages much of what happens behind the interface.</p>
+<p>This is both a limitation and a benefit. It reduces the choices accountants and IT must make, but it also reduces direct control over which model performs a task and how the workflow is orchestrated.</p>
+<p>In a harness, the organization must govern the model choice. In Copilot, the organization largely delegates that model layer to Microsoft.</p>
+<hr />
+<h2 id="my-copilot-experience">My Copilot experience</h2>
+<p>The Copilot agent produced useful work. It reviewed the sample report, identified variances, prepared commentary, created an Excel export, generated a PowerPoint presentation, and drafted follow-up messages for account owners.</p>
+<p>The final outcomes were broadly achievable. However, I felt much more involved in managing each small step than I did in the harness. Several practical issues shaped the experience.</p>
+<hr />
+<h3 id="1-attachment-limits-changed-the-design">1. Attachment limits changed the design</h3>
+<p>My initial plan was simple: attach the SOP, materiality thresholds, commentary guide, reviewer checklist, and P&amp;L report.</p>
+<p>In the Copilot experience I tested, I encountered a three-attachment limit.</p>
+<p>The exact limit may depend on the Copilot product, tier, license, or tenant configuration. The more important workflow lesson was that attaching every supporting document individually was not a scalable approach.</p>
+<p>In the harness, I placed each file in its appropriate folder.</p>
+<p>In Copilot, I needed to decide which files were most important, which information could be combined, and what I would need to remember to attach each time I needed o perform variance analysis.</p>
+<hr />
+<h3 id="2-connected-knowledge-depended-on-my-copilot-tier">2. Connected knowledge depended on my Copilot tier</h3>
+<p>My next workaround was to move the stable knowledge files into OneDrive and point the agent to that location.</p>
+<p>A pasted folder link did not make the content available to the Co-pilot agent as expected.</p>
+<p>I then explored connecting a OneDrive or SharePoint knowledge source directly, but the Copilot tier I was testing did not provide the connector capability I needed.</p>
+<p>This was a useful finding.</p>
+<p>When someone says, "Our company has Copilot," that does not necessarily mean every Copilot agent, connector, knowledge, or workflow capability is available.</p>
+<p>The actual experience may depend on:</p>
+<ul>
+<li>Copilot license</li>
+<li>Microsoft 365 plan</li>
+<li>Administrative settings</li>
+<li>Enabled connectors</li>
+<li>Permissions</li>
+<li>Copilot Studio access</li>
+<li>The specific Copilot application being used</li>
+</ul>
+<p>The accounting workflow may be valid, but the available platform path can still determine what is practical. The lesson: know what you actually have before you start designing around it.</p>
+<hr />
+<h3 id="3-agent-instructions-had-their-own-limit">3. Agent instructions had their own limit</h3>
+<p>Without connected knowledge sources, I tried copying the SOP, materiality thresholds, commentary guide, reviewer checklist, and workflow rules directly into the agent instructions.</p>
+<p>I then reached the agent's 8,000-character instruction limit.</p>
+<p>This created a new design question:</p>
+<blockquote>
+<p>What belongs permanently inside the agent instructions, and what must be attached during each run?</p>
+</blockquote>
+<p>The core behavior could fit inside the instructions:</p>
+<ul>
+<li>The agent's role</li>
+<li>The workflow steps</li>
+<li>The output structure</li>
+<li>The requirement to separate facts from assumptions</li>
+<li>The prohibition against inventing explanations</li>
+<li>The requirement for human review</li>
+</ul>
+<p>But the detailed SOP, materiality guidance, formatting rules, and reviewer checklist could not all fit comfortably.</p>
+<p>The workaround was to compress the stable guidance into a knowledge pack and attach it along with the current P&amp;L report.</p>
+<p>That was manageable, but it placed another responsibility on the user: remember which files the agent needs every time it runs.</p>
+<p>In the harness, the agent knows where the files belong.</p>
+<p>In Copilot, I had to keep deciding what to include.</p>
+<hr />
+<h3 id="4-the-analysis-remained-in-chat">4. The analysis remained in chat</h3>
+<p>Copilot produced useful variance analysis, but the results initially remained inside the chat.</p>
+<p>For an accountant, chat is not the final workpaper.</p>
+<p>I needed a way to:</p>
+<ul>
+<li>Mark what had been reviewed</li>
+<li>Identify open items</li>
+<li>Record reviewer comments</li>
+<li>Confirm support</li>
+<li>Preserve the analysis</li>
+<li>Save the final work in an approved location</li>
+</ul>
+<p>I asked Copilot to export the results into Excel.</p>
+<p>It created the workbook, but the formatting did not initially match the style I would expect from a polished accounting workpaper.</p>
+<p>I then coached Copilot through improvements in the conversation. The output became better, but those improvements applied to that conversation and that export.</p>
+<p>They did not automatically become a reusable standard. This highlighted an important difference:</p>
+<blockquote>
+<p>Copilot let me coach the current output.
+The harness lets me encode the output standard.</p>
+</blockquote>
+<hr />
+<h3 id="5-repetitive-formatting-required-repeated-guidance">5. Repetitive formatting required repeated guidance</h3>
+<p>In the harness, I can define a universal Excel formatting skill once.</p>
+<p>That skill may specify:</p>
+<ul>
+<li>Fonts</li>
+<li>Number formats</li>
+<li>Header styles</li>
+<li>Column widths</li>
+<li>Frozen panes</li>
+<li>Review columns</li>
+<li>Sign-off fields</li>
+<li>Worksheet names</li>
+<li>File-naming conventions</li>
+<li>Where the file should be saved</li>
+</ul>
+<p>The variance review workflow can use that skill. So can a bank reconciliation, close checklist, PBC tracker, or another accounting process.</p>
+<p>The user does not need to restate the formatting rules every time.</p>
+<p>In my Copilot test, I could improve formatting by:</p>
+<ul>
+<li>Adding styling instructions to the agent, if space allowed</li>
+<li>Attaching a separate Excel style guide</li>
+<li>Combining formatting rules into the knowledge pack</li>
+<li>Iterating within the chat</li>
+<li>Moving to a more advanced Microsoft workflow</li>
+<li>Deciding whether the formatting job was big enough to justify a separate agent, built specifically to take a draft and apply the style guide to it</li>
+</ul>
+<p>Each option required the user to remember another element.</p>
+<p>The same challenge appeared when I asked Copilot to turn the CFO commentary into a PowerPoint presentation.</p>
+<p>Copilot created the deck and added visuals. That was impressive.</p>
+<p>However, if I wanted consistent company branding, fonts, slide layouts, chart standards, and executive-reporting structure every month, I would need to provide those standards again or configure a more advanced Microsoft solution.</p>
+<p>Copilot created the first deck.</p>
+<p>A harness skill could encode the deck standard.</p>
+<hr />
+<h3 id="6-drafting-an-email-is-different-from-creating-an-action">6. Drafting an email is different from creating an action</h3>
+<p>The agent also drafted follow-up emails for the owners of the affected G/L accounts.</p>
+<p>The wording was useful. But creating email text and creating actual saved Outlook drafts are different tasks.</p>
+<p>Drafting the language is a content-generation activity.</p>
+<p>Creating draft messages inside a mailbox is an action that may require additional permissions, integrations, Copilot Studio, Power Automate, Microsoft Graph, or another approved workflow.</p>
+<p>The same distinction exists in a harness.</p>
+<p>A harness can generate the email drafts as files. With an approved connector, it may also create Outlook or Gmail drafts. But that connection introduces credential, permission, and governance requirements.</p>
+<p>For accounting work, I would maintain a clear boundary:</p>
+<blockquote>
+<p>The agent may draft.
+A human should review before sending.</p>
+</blockquote>
+<hr />
+<h2 id="validation-the-most-important-difference-for-accountants">Validation: the most important difference for accountants</h2>
+<p>The most important comparison is not which environment writes better commentary. It is how the accounting work is validated. A fluent response is not a validated workpaper.</p>
+<p>In Copilot, validation was primarily review-driven. I needed to check the results against the source report, confirm the materiality thresholds, review the calculations by re-calculating myself, identify unsupported explanations, and preserve the evidence somewhere outside the chat.</p>
+<p>The agent could create a reviewer checklist, but I still needed to ask for it, include it in the instructions, or attach the standard each time.</p>
+<p>In the harness, validation can be built into the workflow.</p>
+<p>The process can:</p>
+<ul>
+<li>Recalculate dollar variances</li>
+<li>Recalculate percentage variances</li>
+<li>Apply materiality thresholds</li>
+<li>Tie totals to the source report</li>
+<li>Flag missing data</li>
+<li>Identify unsupported explanations</li>
+<li>Generate a validation report</li>
+<li>Create a reviewer checklist</li>
+<li>Save everything in the designated output and validation folders</li>
+</ul>
+<p>The difference can be summarized simply:</p>
+<blockquote>
+<p>Copilot can help create the reviewer checklist.
+Inside a harness, the scripts can actually execute parts of it.</p>
+</blockquote>
+<p><img alt="Validation Comparison" src="visuals/33_validation_comparison.png" /></p>
+<h2 id="validation-comparison">Validation comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Validation step</th>
+<th>Harness (PythonMuse framework)</th>
+<th>Microsoft Copilot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recalculate dollar variances</td>
+<td>Deterministic script or formula</td>
+<td>Copilot calculation or separate manual check</td>
+</tr>
+<tr>
+<td>Recalculate percentage variances</td>
+<td>Deterministic script or formula</td>
+<td>Copilot calculation reviewed against the source</td>
+</tr>
+<tr>
+<td>Apply materiality rules</td>
+<td>Automated threshold logic</td>
+<td>Applied through instructions but independently verified</td>
+</tr>
+<tr>
+<td>Tie output to source data</td>
+<td>Scripted tie-out can be built into the workflow</td>
+<td>Manual or Copilot-assisted comparison</td>
+</tr>
+<tr>
+<td>Separate facts from assumptions</td>
+<td>Instruction plus automated or structured validation</td>
+<td>Agent instruction plus human review</td>
+</tr>
+<tr>
+<td>Generate reviewer checklist</td>
+<td>Automatically included in the workflow</td>
+<td>Must be requested or included in available instructions</td>
+</tr>
+<tr>
+<td>Preserve validation evidence</td>
+<td>Saved with source files, outputs, logs, and reports</td>
+<td>Must be deliberately exported, downloaded, copied, or saved</td>
+</tr>
+<tr>
+<td>Reperform the work</td>
+<td>Rerun the same workflow and compare versions</td>
+<td>Rerun the chat or agent, with potentially variable output</td>
+</tr>
+<tr>
+<td>Mark reviewed items</td>
+<td>Built into the output workbook or validation report</td>
+<td>Usually requires export and manual markup</td>
+</tr>
+<tr>
+<td>Save the final result</td>
+<td>Automatically saved to a predefined folder</td>
+<td>User must download and save it to an appropriate location</td>
+</tr>
+</tbody>
+</table>
+<p>For accountants, the right question is not:</p>
+<blockquote>
+<p>"Did AI give me a good answer?"</p>
+</blockquote>
+<p>The better question is:</p>
+<blockquote>
+<p>"What evidence demonstrates that the answer is complete, accurate, supported, and reviewed?"</p>
+</blockquote>
+<hr />
+<h2 id="controlled-kitchen-versus-corporate-cafeteria">Controlled kitchen versus corporate cafeteria</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Harness (PythonMuse framework): controlled kitchen</th>
+<th>Microsoft Copilot: corporate cafeteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model choice</td>
+<td>Organization can select or compare approved models</td>
+<td>Microsoft manages the model experience</td>
+</tr>
+<tr>
+<td>Workflow location</td>
+<td>Controlled project folder or repository</td>
+<td>Microsoft 365 and Copilot environment</td>
+</tr>
+<tr>
+<td>Knowledge sources</td>
+<td>Files are intentionally organized within the project</td>
+<td>Files may be attached or connected, depending on tier and configuration</td>
+</tr>
+<tr>
+<td>Instruction capacity</td>
+<td>Instructions, SOPs, skills, and policies can be separate files</td>
+<td>Agent instructions may have character limits</td>
+</tr>
+<tr>
+<td>Attachment dependency</td>
+<td>No need to attach every file to a conversation</td>
+<td>Current and supporting files may need to be attached during each run</td>
+</tr>
+<tr>
+<td>Connector dependency</td>
+<td>Local project files do not require Microsoft connectors</td>
+<td>Knowledge and actions may depend on licensing, permissions, and connectors</td>
+</tr>
+<tr>
+<td>Calculation control</td>
+<td>Deterministic code or formulas can be built into the workflow</td>
+<td>Calculations require independent verification unless another controlled tool is used</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Can be built into the workflow and automatically documented</td>
+<td>Primarily review-driven unless a more advanced workflow is configured</td>
+</tr>
+<tr>
+<td>Output location</td>
+<td>Automatically saved to a defined output folder</td>
+<td>Results often begin in chat and must be exported or saved</td>
+</tr>
+<tr>
+<td>Excel formatting</td>
+<td>Reusable skills can apply standards automatically</td>
+<td>Styling may require repeated instructions, attached guidance, or higher-level automation</td>
+</tr>
+<tr>
+<td>PowerPoint branding</td>
+<td>Reusable presentation skill can apply consistent standards</td>
+<td>Branding may require templates, repeated guidance, or additional Microsoft configuration</td>
+</tr>
+<tr>
+<td>Review evidence</td>
+<td>Inputs, outputs, validation, and review notes can remain together</td>
+<td>Evidence may be spread across chat, downloads, SharePoint, email, and other locations</td>
+</tr>
+<tr>
+<td>Email follow-up</td>
+<td>Can draft files or create mailbox drafts through approved connectors</td>
+<td>Can draft language; mailbox actions may require additional Microsoft capabilities</td>
+</tr>
+<tr>
+<td>Ease of initial use</td>
+<td>Requires more setup and technical comfort</td>
+<td>Easier for users already working in Microsoft 365</td>
+</tr>
+<tr>
+<td>Ongoing user involvement</td>
+<td>Lower after the workflow and skills are designed</td>
+<td>Higher when users must remember attachments, instructions, exports, and formatting</td>
+</tr>
+<tr>
+<td>Main strength</td>
+<td>Flexibility, repeatability, transparency, and control</td>
+<td>Enterprise acceptance, accessibility, and familiar governance</td>
+</tr>
+<tr>
+<td>Main risk</td>
+<td>Poor design or weak governance can create an uncontrolled environment</td>
+<td>Users may mistake platform approval and fluent output for validated accounting work</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="my-biggest-takeaway">My biggest takeaway</h2>
+<p>The Copilot agent worked!</p>
+<p>It reviewed the report. It drafted commentary. It created an Excel export. It generated a PowerPoint deck. It prepared account-owner emails.</p>
+<p>Similar end results could be achieved in both environments. But the effort felt different.</p>
+<p>In Copilot, I felt more involved in managing the conversation:</p>
+<ul>
+<li>What should I attach?</li>
+<li>What is already in the agent instructions?</li>
+<li>What no longer fits?</li>
+<li>Do I need to attach a knowledge pack?</li>
+<li>Did I ask for the reviewer checklist?</li>
+<li>Did I request an Excel export?</li>
+<li>Did I explain the formatting?</li>
+<li>Did I request a PowerPoint?</li>
+<li>Where did I save the output?</li>
+<li>How will I show what I reviewed?</li>
+</ul>
+<p>The process was manageable and useful, but it required repeated decisions.</p>
+<p>The harness required more effort at the beginning.</p>
+<p>I had to design the folder structure, define <code>AGENTS.md</code>, create the skills, establish validation routines, specify output formats, and determine where files should be saved.</p>
+<p>But after that investment, the workflow had a system.</p>
+<p>I did not have to decide every month where the SOP belonged. I did not have to attach the formatting guide again. I did not need to remind the model where to save the workbook. The workflow already knew which skill to use and where the result belonged.</p>
+<p>This changed the nature of the work.</p>
+<blockquote>
+<p>In Copilot, I was managing the conversation.
+In the harness, I was managing the system.</p>
+</blockquote>
+<p><img alt="Managing the Conversation vs Managing the System" src="visuals/33_quote_card.png" /></p>
+<hr />
+<h2 id="same-destination-different-cost">Same destination, different cost</h2>
+<p>Both approaches can reach a similar destination.</p>
+<p><img alt="Effort Over Time: Copilot vs Harness" src="visuals/33_effort_over_time.png" /></p>
+<p>Copilot shifts much of the platform, security, and model responsibility to Microsoft and the organization's IT function. That makes the environment easier for companies to approve and control.</p>
+<p>The tradeoff is that accountants work within the boundaries selected for them. Depending on the license and configuration, those boundaries may affect attachments, connected knowledge, instruction length, actions, formatting, exports, and how review evidence is retained.</p>
+<p>The harness shifts more responsibility to the organization.</p>
+<p>IT, security, and leadership must become comfortable with a flexible AI working environment. They need to understand:</p>
+<ul>
+<li>Which models are approved</li>
+<li>Where data is stored</li>
+<li>How access is controlled</li>
+<li>How instructions are governed</li>
+<li>How outputs are validated</li>
+<li>How actions are authorized</li>
+<li>How evidence is retained</li>
+</ul>
+<p>That is a real responsibility.</p>
+<p>But the harness offers accountants more flexibility, visibility, ownership, and — frankly — more enjoyment in designing how the work should be performed.</p>
+<p>It feels less like requesting each item from the cafeteria and more like building a professional kitchen around the accounting process.</p>
+<hr />
+<h2 id="accountants-can-lead-this-work">Accountants can lead this work</h2>
+<p>I do not believe accountants should remain only the users of AI tools chosen for us.</p>
+<p>Our profession already understands:</p>
+<ul>
+<li>Controls</li>
+<li>Reconciliations</li>
+<li>Evidence</li>
+<li>Documentation</li>
+<li>Materiality</li>
+<li>Review</li>
+<li>Segregation of duties</li>
+<li>Audit trails</li>
+<li>Exception handling</li>
+<li>Professional judgment</li>
+</ul>
+<p>These are precisely the capabilities organizations need when adopting AI.</p>
+<p>A harness does not have to mean uncontrolled experimentation.</p>
+<p>A properly governed harness can include clear boundaries, approved models, restricted source data, deterministic calculations, validation routines, reviewer sign-offs, version history, and retained evidence.</p>
+<p>Accountants can demonstrate this.</p>
+<p>We can show IT and leadership that greater flexibility does not require abandoning control. It requires better-designed control.</p>
+<p>If Copilot is the only approved tool in your organization, start there.</p>
+<p>Build an agent. Learn what it can do. Document what must be attached. Define what belongs in the instructions. Establish how outputs will be reviewed and saved. Do not allow convenience to become blind trust.</p>
+<p>But do not assume Copilot must be the final destination.</p>
+<p>The next era of accounting will require more than chat inside familiar applications. It will require professionals who understand how to design, validate, govern, and improve AI-assisted workflows.</p>
+<p>Accountants can be those professionals.</p>
+<p>We can help our organizations move from fear-based restrictions to trust-based governance.</p>
+<p>Not by avoiding controls.</p>
+<p>By leading with them.</p>
+<hr />
+<h2 id="a-note-on-tools-and-frameworks">A note on tools and frameworks</h2>
+<p>The harness side of this comparison was built using Claude in VS Code, through Claude extension by Anthropic — that is the environment I work in daily, and the folder structure and skill files described above reflect it directly. But the harness pattern is not tied to that setup, and it does not belong to PythonMuse. It is a way of organizing the work, and it travels:</p>
+<ul>
+<li><strong>ChatGPT with Projects or a custom GPT</strong>: The same folder discipline applies — source files, a written skill or custom instructions, and a place for outputs — even though the interface looks different.</li>
+<li><strong>Claude Code (CLI) or Cursor/Windsurf</strong>: Closer to the raw harness experience — a real project folder, a real <code>AGENTS.md</code> or equivalent, scripts that run and are reviewed like any other code.</li>
+<li><strong>Google Gemini with workspace integrations</strong>: Same underlying questions apply — what did the model see, what did it calculate, what evidence did it produce?</li>
+</ul>
+<p>This series teaches the framework, not the software. When the software changes — and it always does — the folder discipline, the skill file, and the validation habit are what carry over.</p>
+<hr />
+<h2 id="follow-along-or-reperform-the-exercise">Follow Along or Reperform the Exercise</h2>
+<p>I made the sample materials used in this case study available in the PythonMuse GitHub repository so you can follow along, recreate the Accounting Variance Review Agent, or test the same workflow using another approved AI environment.</p>
+<p>The repository includes the sample P&amp;L variance report, variance review SOP, materiality thresholds, CFO commentary style guide, workflow instructions, and AI-assisted reviewer checklist.</p>
+<p><strong>Explore the case-study materials:</strong>
+https://github.com/PythonMuse/PythonMuse_Accounting_Variance_Review_Agent/tree/main/docs</p>
+<p>You do not need to reproduce my exact setup. The purpose of sharing the materials is to let accountants experiment with the same underlying workflow, compare the results in different environments, and evaluate the validation and review process for themselves.</p>
+<p>Try the exercise in Copilot, a harness, or another approved environment and compare not only the answer, but also the effort required to validate, format, preserve, and repeat the work.</p>
+<hr />
+<h2 id="final-thought">Final thought</h2>
+<p>The Copilot agent can draft the commentary. A harness can validate the calculation. Either one can hand you something that looks like a finished workpaper. But the accountant still owns the conclusion. That means our workflows need to answer one simple question:</p>
+<p><strong>What evidence supports this output?</strong></p>
+<p>Copilot or harness, cafeteria or kitchen — the tool your organization approves does not decide whether the work is controlled. You do. The real choice in front of every accountant right now is not which AI to use. It is whether you are willing to design, document, and own the environment it works in. The cafeteria will always be there. Not everyone will build the kitchen. The ones who do will be the ones leading the profession through this — not just riding along with it.</p>
+<hr />
+<p><strong>A note on how this article was made.</strong> This article started with me. The experience, the problem, and the comparison are mine — I ran the same Accounting Variance Review Agent through Microsoft Copilot and through a harness, and documented what actually happened in each. ChatGPT (5.5 and 5.4) helped me shape my raw notes and comparison into a structured draft. GitHub Copilot (Claude Sonnet 4.6) then built the final article, the companion visuals, and the cross-references — working from my direction and feedback at each step. I reviewed every output, pushed back on things I did not like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
+<hr />
+<p><em>Related: <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails: How Accountants Can Validate AI Output</a> | <a href="../17-skills-and-agents-for-accountants/">The Power of Skills and Agents: How Accountants Actually Use AI</a> | <a href="../14-ai-team-for-accountants/">Stop Using One AI Like It Is Excel</a> | <a href="../07-ai-governance-for-controllers/">AI Governance for Controllers</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
