@@ -282,7 +282,7 @@ The exact limit may depend on the Copilot product, tier, license, or tenant conf
 
 In the harness, I placed each file in its appropriate folder.
 
-In Copilot, I needed to decide which files were most important, which information could be combined, and what I would need to remember to attach each time I needed o perform variance analysis.
+In Copilot, I needed to decide which files were most important, which information could be combined, and what I would need to remember to attach each time I needed to perform variance analysis.
 
 ---
 
@@ -341,11 +341,15 @@ In the harness, the agent knows where the files belong.
 
 In Copilot, I had to keep deciding what to include.
 
+![Copilot Agent Builder Instructions Character Limit](./visuals/33_copilot_instructions_limit.png)
+
 ---
 
 ### 4. The analysis remained in chat
 
 Copilot produced useful variance analysis, but the results initially remained inside the chat.
+
+![Copilot Variance Review Results Remaining in Chat](./visuals/33_copilot_chat_results.png)
 
 For an accountant, chat is not the final workpaper.
 
@@ -361,6 +365,10 @@ I needed a way to:
 I asked Copilot to export the results into Excel.
 
 It created the workbook, but the formatting did not initially match the style I would expect from a polished accounting workpaper.
+
+![Copilot Prompt Requesting Excel Workpaper Export](./visuals/33_copilot_excel_export_prompt.png)
+
+![Copilot Excel Export Output Before Formatting](./visuals/33_copilot_excel_export_output.png)
 
 I then coached Copilot through improvements in the conversation. The output became better, but those improvements applied to that conversation and that export.
 
@@ -400,12 +408,16 @@ In my Copilot test, I could improve formatting by:
 * Iterating within the chat
 * Moving to a more advanced Microsoft workflow
 * Deciding whether the formatting job was big enough to justify a separate agent, built specifically to take a draft and apply the style guide to it
+* Attaching an already-formatted Excel template and asking the agent to populate it — though that consumes one of the three attachment slots
+* Asking the agent to return plain CSV data, then importing that into a separately maintained, pre-formatted workbook outside the chat
 
-Each option required the user to remember another element.
+Each option required the user to remember another element, and each one came with its own tradeoff. None of them were difficult on their own — but choosing among them meant the workflow's design needed more upfront thinking than I expected before I ran it even once.
 
 The same challenge appeared when I asked Copilot to turn the CFO commentary into a PowerPoint presentation.
 
 Copilot created the deck and added visuals. That was impressive.
+
+![Copilot PowerPoint Export Download](./visuals/33_copilot_ppt_download.png)
 
 However, if I wanted consistent company branding, fonts, slide layouts, chart standards, and executive-reporting structure every month, I would need to provide those standards again or configure a more advanced Microsoft solution.
 
