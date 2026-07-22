@@ -1200,10 +1200,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-framework-not-a-tool" class="md-nav__link">
+  <a href="#a-note-on-file-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Framework, Not a Tool
+        A Note on File Types
       
     </span>
   </a>
@@ -1211,10 +1211,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demo-repo-from-chaos-to-structure" class="md-nav__link">
+  <a href="#a-framework-not-a-tool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Demo Repo: From Chaos to Structure
+        A Framework, Not a Tool
       
     </span>
   </a>
@@ -2082,10 +2082,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-framework-not-a-tool" class="md-nav__link">
+  <a href="#a-note-on-file-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Framework, Not a Tool
+        A Note on File Types
       
     </span>
   </a>
@@ -2093,10 +2093,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demo-repo-from-chaos-to-structure" class="md-nav__link">
+  <a href="#a-framework-not-a-tool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Demo Repo: From Chaos to Structure
+        A Framework, Not a Tool
       
     </span>
   </a>
@@ -2168,7 +2168,7 @@
 
 
 <h1 id="20b-git-explained-using-accounting-terms">20b — Git Explained Using Accounting Terms</h1>
-<p><em>~6 min read · Part 2 of 6 in <a href="../20-version-control-for-accountants/README.md">Version Control for Accountants in the AI Era</a></em></p>
+<p><em>~4 min read · Part 2 of 6 in <a href="../20-version-control-for-accountants/README.md">Version Control for Accountants in the AI Era</a></em></p>
 <hr />
 <p><strong>PythonMuse LLC</strong>
 <em>Series launch · 2026</em></p>
@@ -2180,10 +2180,10 @@
 <li>Black terminal windows.</li>
 <li>A 22-year-old in a hoodie.</li>
 <li>Some scary command starting with <code>git push --force</code>.</li>
-<li>The feeling you're about to break production at a company you don't even work for.</li>
+<li>A coworker's screen full of green and red text you're too embarrassed to ask about.</li>
 </ul>
 <p>Take a breath.</p>
-<p>Git is not engineering.</p>
+<p>Git is not software engineering.</p>
 <p>Git is <strong>structured change tracking</strong> — and accountants invented structured change tracking. We just call it different things.</p>
 <hr />
 <h2 id="the-translation-table">The Translation Table</h2>
@@ -2197,7 +2197,7 @@
 <tbody>
 <tr>
 <td><strong>Repository</strong></td>
-<td>A workpaper binder</td>
+<td>A workpaper folder</td>
 </tr>
 <tr>
 <td><strong>Commit</strong></td>
@@ -2233,7 +2233,7 @@
 </tr>
 <tr>
 <td><strong><code>.gitignore</code></strong></td>
-<td>Files you intentionally leave out of the binder</td>
+<td>Files you intentionally leave out of the folder</td>
 </tr>
 <tr>
 <td><strong>Diff</strong></td>
@@ -2266,7 +2266,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>👤  Author:  Svetlana Toohey
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>🕓  Date:    2026-04-30 16:12
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>📝  Message: &quot;Updated depreciation formula to reflect ASC 842 transition adjustment&quot;
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>📂  Files changed:  depreciation_schedule.xlsx, journal_entries.csv
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>📂  Files changed:  depreciation_formula.py, journal_entries.csv
 </code></pre></div>
 <p>Now translate it into accounting language:</p>
 <blockquote>
@@ -2276,16 +2276,18 @@
 <p>Same shape. Same level of evidence. Same audit-friendly format.</p>
 <p>The only difference: <strong>you didn't have to remember to write it down.</strong></p>
 <hr />
+<h2 id="a-note-on-file-types">A Note on File Types</h2>
+<blockquote>
+<p><strong>📎 Why the example above uses <code>.py</code>, not <code>.xlsx</code>.</strong></p>
+<p>Git can technically track an Excel file or a PDF — it just can't tell you <em>what changed inside</em> them. Those are binary formats, so Git only sees "this file is different now," not a line-by-line diff.</p>
+<p>That's why this series is really about version-controlling <strong>the scripts and logic that produce the spreadsheet</strong> — not the spreadsheet itself. The <code>.xlsx</code> your CFO opens, or the PDF you send to the auditor, is an <em>output</em>. The formula, script, or query that built it is the thing you actually want a diff, a history, and a review trail for.</p>
+</blockquote>
+<hr />
 <h2 id="a-framework-not-a-tool">A Framework, Not a Tool</h2>
 <blockquote>
 <p><strong>🛠️ Reminder — this is a framework.</strong></p>
 <p>Every concept above (commit, branch, PR, tag) exists in <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, and <strong>AWS CodeCommit</strong> with nearly identical names. Pick the one your company already pays for. We use GitHub in this series because the UI is the friendliest for non-engineers.</p>
 </blockquote>
-<hr />
-<h2 id="demo-repo-from-chaos-to-structure">Demo Repo: From Chaos to Structure</h2>
-<p>Pop over to the demo repo: <strong><a href="https://github.com/PythonMuse/git-demo">github.com/PythonMuse/git-demo</a></strong></p>
-<p>In Part 20a it looked like a shared drive disaster.</p>
-<p>In <strong>Part 20b</strong> the same files exist — but now every change is a commit with a memo, every save is timestamped, and every prior version is recoverable. <em>Same files. Different memory.</em></p>
 <hr />
 <h2 id="the-fear-drop">The Fear Drop</h2>
 <p>Most accountants who get scared off Git get scared by the <strong>terminal</strong>.</p>
@@ -2299,7 +2301,7 @@
 <p>The terminal is optional. The mindset is not.</p>
 <hr />
 <h2 id="whats-next">What's Next</h2>
-<p>You now have the vocabulary. In <strong><a href="../20c-finance-repo-structure/">Article 20c — How Finance Teams Should Structure AI Repositories</a></strong>, we turn the binder analogy into an actual folder structure your team can adopt next Monday.</p>
+<p>You now have the vocabulary. In <strong><a href="../20c-finance-repo-structure/">Article 20c — How Finance Teams Should Structure AI Repositories</a></strong>, we turn that analogy into an actual folder structure your team can adopt next Monday.</p>
 <hr />
 <h2 id="related-reading">Related Reading</h2>
 <ul>
@@ -2311,7 +2313,7 @@
 <h2 id="next-in-the-series">Next in the Series</h2>
 <p>→ <a href="../20c-finance-repo-structure/">Article 20c — How Finance Teams Should Structure AI Repositories</a></p>
 <hr />
-<p><strong>A note on how this article was made.</strong> This article started with me. The accounting/Git analogies came out of years of explaining to colleagues why "save-as-with-a-date" was almost-but-not-quite version control. GitHub Copilot (Claude Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
+<p><strong>A note on how this article was made.</strong> This article started with me. The accounting/Git analogies came out of years of explaining to colleagues why "save-as-with-a-date" was almost-but-not-quite version control. GitHub Copilot (Claude Sonnet 5.5 and Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
 <hr />
 <p><em>By Svetlana Toohey</em></p>
 

@@ -93,7 +93,7 @@ def make_hero():
     ax.set_facecolor(WHITE)
 
     rows = [
-        ("A workpaper binder",              "Repository"),
+        ("A workpaper folder",              "Repository"),
         ("A journal entry",                 "Commit"),
         ("The JE explanation / memo",        "Commit message"),
         ("The audit trail",                 "Git log / history"),

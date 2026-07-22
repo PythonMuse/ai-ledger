@@ -1184,10 +1184,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-repository-is-just-a-better-binder" class="md-nav__link">
+  <a href="#a-repository-is-just-a-better-folder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Repository Is Just a Better Binder
+        A Repository Is Just a Better Folder
       
     </span>
   </a>
@@ -1282,17 +1282,6 @@
     <span class="md-ellipsis">
       
         A Framework, Not a Tool
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demo-repo-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Demo Repo Snapshot
       
     </span>
   </a>
@@ -2088,10 +2077,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-repository-is-just-a-better-binder" class="md-nav__link">
+  <a href="#a-repository-is-just-a-better-folder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Repository Is Just a Better Binder
+        A Repository Is Just a Better Folder
       
     </span>
   </a>
@@ -2193,17 +2182,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demo-repo-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Demo Repo Snapshot
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#but-what-about-sensitive-data" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2268,14 +2246,14 @@
 
 
 <h1 id="20c-how-finance-teams-should-structure-ai-repositories">20c — How Finance Teams Should Structure AI Repositories</h1>
-<p><em>~7 min read · Part 3 of 6 in <a href="../20-version-control-for-accountants/README.md">Version Control for Accountants in the AI Era</a></em></p>
+<p><em>~5 min read · Part 3 of 6 in <a href="../20-version-control-for-accountants/README.md">Version Control for Accountants in the AI Era</a></em></p>
 <hr />
 <p><strong>PythonMuse LLC</strong>
 <em>Series launch · 2026</em></p>
 <p><img alt="How Finance Teams Should Structure AI Repositories" src="visuals/20c_hero.png" /></p>
 <hr />
-<h2 id="a-repository-is-just-a-better-binder">A Repository Is Just a Better Binder</h2>
-<p>Accountants already know how to organize evidence. Every audit binder, every close package, every reconciliation folder follows the same instinct:</p>
+<h2 id="a-repository-is-just-a-better-folder">A Repository Is Just a Better Folder</h2>
+<p>Accountants already know how to organize evidence. Every audit folder, every close package, every reconciliation folder follows the same instinct:</p>
 <blockquote>
 <p><em>Raw stuff over here. Working stuff over here. Final stuff over here. Supporting evidence over there.</em></p>
 </blockquote>
@@ -2288,7 +2266,7 @@
 </ol>
 <hr />
 <h2 id="the-recommended-layout">The Recommended Layout</h2>
-<p>Here is the layout we use in the demo repo and recommend for finance teams adopting AI workflows:</p>
+<p>Here is the layout we recommend for finance teams adopting AI workflows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>finance-close/
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── data/
@@ -2304,7 +2282,7 @@
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── docs/                 ← Plain-English documentation, SOPs, decision logs.
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── .gitignore            ← What to deliberately exclude (PII, temp, secrets).
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└── README.md             ← The &quot;front page&quot; of the binder.
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└── README.md             ← The &quot;front page&quot; of the folder.
 </code></pre></div>
 <p>That's it. Eight folders and two files. Most finance repos do not need more.</p>
 <hr />
@@ -2375,9 +2353,6 @@
 <p>One caveat for AWS CodeCommit users: enforce branch protections and review approvals via IAM + approval rule templates (CodeCommit's equivalent of GitHub's branch protection rules).</p>
 </blockquote>
 <hr />
-<h2 id="demo-repo-snapshot">Demo Repo Snapshot</h2>
-<p>By the end of Article 20c, <strong><a href="https://github.com/PythonMuse/git-demo">github.com/PythonMuse/git-demo</a></strong> has the full skeleton above, with one realistic example workflow loaded into each folder. Clone it. Steal it. Adapt it.</p>
-<hr />
 <h2 id="but-what-about-sensitive-data">"But What About Sensitive Data?"</h2>
 <p>The <code>.gitignore</code> file is your friend. Common things finance teams exclude:</p>
 <ul>
@@ -2386,10 +2361,10 @@
 <li>Anything large enough that GitHub will refuse it (over 100 MB)</li>
 <li>Local working files (<code>~$*.xlsx</code>, <code>.DS_Store</code>, etc.)</li>
 </ul>
-<p>If you wouldn't put it in the audit binder you hand to PwC, <strong>don't put it in the repo.</strong> The structure forces you to be deliberate about evidence, not careless.</p>
+<p>If you wouldn't put it in the audit folder you hand to PwC, <strong>don't put it in the repo.</strong> The structure forces you to be deliberate about evidence, not careless.</p>
 <hr />
 <h2 id="whats-next">What's Next</h2>
-<p>Now that the binder has shape, we need to compare it head-to-head with the tool everyone is currently using: the shared drive. In <strong><a href="../20d-github-vs-shared-drives/">Article 20d — GitHub vs. The Shared Drive</a></strong>, we put them side-by-side and let the differences speak for themselves.</p>
+<p>Now that the folder has shape, we need to compare it head-to-head with the tool everyone is currently using: the shared drive. In <strong><a href="../20d-github-vs-shared-drives/">Article 20d — GitHub vs. The Shared Drive</a></strong>, we put them side-by-side and let the differences speak for themselves.</p>
 <hr />
 <h2 id="related-reading">Related Reading</h2>
 <ul>

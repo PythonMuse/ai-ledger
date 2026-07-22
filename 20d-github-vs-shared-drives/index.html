@@ -1278,17 +1278,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demo-repo-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Demo Repo Snapshot
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2104,17 +2093,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#demo-repo-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Demo Repo Snapshot
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2168,7 +2146,7 @@
 
 
 <h1 id="20d-github-vs-the-shared-drive">20d — GitHub vs. The Shared Drive</h1>
-<p><em>~6 min read · Part 4 of 6 in <a href="../20-version-control-for-accountants/README.md">Version Control for Accountants in the AI Era</a></em></p>
+<p><em>~5 min read · Part 4 of 6 in <a href="../20-version-control-for-accountants/README.md">Version Control for Accountants in the AI Era</a></em></p>
 <hr />
 <p><strong>PythonMuse LLC</strong>
 <em>Series launch · 2026</em></p>
@@ -2231,6 +2209,9 @@
 </tbody>
 </table>
 <p>Read that table. Then ask: which of those two tools belongs in an AI-driven close?</p>
+<blockquote>
+<p><strong>📎 One assumption behind this table.</strong> The "line-by-line diff" and "exact commit" advantages assume the depreciation <em>logic</em> lives in a script, formula file, or other text-based artifact — not a raw <code>.xlsx</code>. Git tracks Excel and PDF files fine, but can't diff <em>inside</em> them. See <a href="../20b-git-in-accounting-terms/#a-note-on-file-types">20b's note on file types</a> for why that distinction matters.</p>
+</blockquote>
 <hr />
 <h2 id="the-shared-drive-was-never-designed-for-ai">The Shared Drive Was Never Designed For AI</h2>
 <p>The shared drive was built for <strong>static documents</strong> that change occasionally — a policy, a procedure, a finalized report.</p>
@@ -2244,7 +2225,7 @@
 <hr />
 <h2 id="but-we-have-onedrive-sharepoint-versioning">"But We Have OneDrive / SharePoint Versioning!"</h2>
 <p>Yes — and that's better than nothing.</p>
-<p>But "versioning" in OneDrive/SharePoint gives you:</p>
+<p>And "versioning" in OneDrive/SharePoint gives you:</p>
 <ul>
 <li>A list of timestamps.</li>
 <li>A list of usernames.</li>
@@ -2282,17 +2263,13 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>2026-04-09   S. Toohey   &quot;Reran Q1 commentary with new threshold&quot;
 </code></pre></div>
 <p>Total elapsed time: <strong>eight seconds.</strong></p>
-<p>That is the entire argument.</p>
+<p>Eight seconds, versus never.</p>
 <hr />
 <h2 id="a-framework-not-a-tool">A Framework, Not a Tool</h2>
 <blockquote>
 <p><strong>🛠️ Reminder — this is a framework.</strong></p>
 <p>The "GitHub" column above is identical in <strong>Azure DevOps Repos</strong> and <strong>AWS CodeCommit</strong>. The shared-drive column is identical no matter whose shared drive it is. The decision isn't about brand — it's about whether your workflow tooling has a <em>memory layer</em> or not.</p>
 </blockquote>
-<hr />
-<h2 id="demo-repo-snapshot">Demo Repo Snapshot</h2>
-<p>By Article 20d, <strong><a href="https://github.com/PythonMuse/git-demo">github.com/PythonMuse/git-demo</a></strong> is hosted publicly. You can browse the history, see the diffs from earlier articles, and follow exactly how the binder evolved.</p>
-<p>Compare that against the chaos we started with in Article 20a. <em>Same files. Different fate.</em></p>
 <hr />
 <h2 id="whats-next">What's Next</h2>
 <p>History is good. But for finance, history alone isn't enough — we also need <strong>approval before things change</strong>. That's the next article: <strong><a href="../20e-pull-requests-are-controls/">Article 20e — Pull Requests Are Internal Controls</a></strong>.</p>
@@ -2308,7 +2285,7 @@
 <h2 id="next-in-the-series">Next in the Series</h2>
 <p>→ <a href="../20e-pull-requests-are-controls/">Article 20e — Pull Requests Are Internal Controls</a></p>
 <hr />
-<p><strong>A note on how this article was made.</strong> This article started with me. The "$2.3M to $2.1M" story is a composite of real audits I've watched go sideways for want of a commit history. GitHub Copilot (Claude Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
+<p><strong>A note on how this article was made.</strong> This article started with me. The "$2.3M to $2.1M" story is a composite of real audits I've watched go sideways because nobody could show what changed, when, or why. GitHub Copilot (Claude Sonnet 5 and Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
 <hr />
 <p><em>By Svetlana Toohey</em></p>
 
