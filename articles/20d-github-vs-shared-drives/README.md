@@ -1,6 +1,6 @@
 # 20d — GitHub vs. The Shared Drive
 
-*~6 min read · Part 4 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
+*~5 min read · Part 4 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
 
 ---
 
@@ -34,6 +34,8 @@ Here is what happens, side-by-side, when one person on the team adjusts a deprec
 
 Read that table. Then ask: which of those two tools belongs in an AI-driven close?
 
+> **📎 One assumption behind this table.** The "line-by-line diff" and "exact commit" advantages assume the depreciation *logic* lives in a script, formula file, or other text-based artifact — not a raw `.xlsx`. Git tracks Excel and PDF files fine, but can't diff *inside* them. See [20b's note on file types](../20b-git-in-accounting-terms/README.md#a-note-on-file-types) for why that distinction matters.
+
 ---
 
 ## The Shared Drive Was Never Designed For AI
@@ -54,7 +56,7 @@ Putting an AI workflow on a shared drive is like running a high-frequency tradin
 
 Yes — and that's better than nothing.
 
-But "versioning" in OneDrive/SharePoint gives you:
+And "versioning" in OneDrive/SharePoint gives you:
 
 - A list of timestamps.
 - A list of usernames.
@@ -104,7 +106,7 @@ The single best argument for moving off the shared drive is this scenario, which
 
 Total elapsed time: **eight seconds.**
 
-That is the entire argument.
+Eight seconds, versus never.
 
 ---
 
@@ -113,14 +115,6 @@ That is the entire argument.
 > **🛠️ Reminder — this is a framework.**
 >
 > The "GitHub" column above is identical in **Azure DevOps Repos** and **AWS CodeCommit**. The shared-drive column is identical no matter whose shared drive it is. The decision isn't about brand — it's about whether your workflow tooling has a *memory layer* or not.
-
----
-
-## Demo Repo Snapshot
-
-By Article 20d, **[github.com/PythonMuse/git-demo](https://github.com/PythonMuse/git-demo)** is hosted publicly. You can browse the history, see the diffs from earlier articles, and follow exactly how the binder evolved.
-
-Compare that against the chaos we started with in Article 20a. *Same files. Different fate.*
 
 ---
 
@@ -145,7 +139,7 @@ History is good. But for finance, history alone isn't enough — we also need **
 
 ---
 
-**A note on how this article was made.** This article started with me. The "$2.3M to $2.1M" story is a composite of real audits I've watched go sideways for want of a commit history. GitHub Copilot (Claude Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**A note on how this article was made.** This article started with me. The "$2.3M to $2.1M" story is a composite of real audits I've watched go sideways because nobody could show what changed, when, or why. GitHub Copilot (Claude Sonnet 5 and Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 

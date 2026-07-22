@@ -1,6 +1,6 @@
 # 20e — Pull Requests Are Internal Controls
 
-*~7 min read · Part 5 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
+*~5 min read · Part 5 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
 
 ---
 
@@ -25,7 +25,7 @@ Now translate that into accounting:
 
 > *"I'd like to post this JE. Please review the supporting documentation before it hits the GL."*
 
-You already know how this works. You've been doing it for decades. Software just gave it a weird name.
+You already know how this works. You've been doing it for decades. Software designers just gave it an odd name.
 
 ---
 
@@ -41,7 +41,7 @@ You already know how this works. You've been doing it for decades. Software just
 | Audit trail | The merge commit, linked to author + reviewer |
 | Reversal / correction | A new commit on a new PR (history preserved) |
 
-If you've ever signed off on a recon, you've already done the human work of a pull request. The PR is the same workflow with the **paperwork built in**.
+If you've ever signed off on a recon, you've already done the human work of a pull request ("PR") The PR is the same workflow with the **paperwork built in**.
 
 ---
 
@@ -147,12 +147,6 @@ That is what AI-era internal controls look like.
 
 ---
 
-## Demo Repo Snapshot
-
-By Article 20e, **[github.com/PythonMuse/git-demo](https://github.com/PythonMuse/git-demo)** has branch protection enabled and at least one closed PR you can click into. You'll see the diff, the review comments, and the approval. It is short, real, and exactly what your team would do.
-
----
-
 ## What's Next
 
 History plus approvals gives you defensible change. The final article puts it all together into the vision: **[Article 20f — Reproducible Financial Reporting](../20f-reproducible-financial-reporting/README.md).**
@@ -174,7 +168,7 @@ History plus approvals gives you defensible change. The final article puts it al
 
 ---
 
-**A note on how this article was made.** This article started with me. The PR-as-control framing came out of conversations with controllers who wanted AI but couldn't see how it would survive an audit. GitHub Copilot (Claude Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**A note on how this article was made.** This article started with me. The PR-as-control framing came out of conversations with controllers who wanted AI but couldn't see how it would survive an audit. GitHub Copilot (Claude Sonnet 5 and Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 

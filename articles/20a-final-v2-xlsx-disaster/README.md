@@ -1,6 +1,6 @@
 # 20a — The FINAL_v2.xlsx Disaster: Why AI Makes Version Control Mandatory for Accountants
 
-*~7 min read · Part 1 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
+*~4 min read · Part 1 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
 
 ---
 
@@ -25,7 +25,7 @@ Plenty of accounting teams' shared drives have a folder that looks something lik
 
 If that looks familiar, you've got a version control problem — you just never called it that.
 
-If it doesn't look familiar, good for you; not every team names files this way. But the underlying pattern — nobody quite sure which copy is the real one — shows up eventually in some form. AI is about to make it a lot harder to ignore.
+If it doesn't look familiar, good for you; not every team names files this way. But the underlying pattern — nobody quite sure which copy is the real one — shows up eventually in some form. AI is making it a lot harder to ignore.
 
 ---
 
@@ -100,18 +100,6 @@ Same idea. Different layer of the company.
 
 ---
 
-## The Demo Repo
-
-This series is anchored to one continuously evolving public repo:
-
-**👉 [github.com/PythonMuse/git-demo](https://github.com/PythonMuse/git-demo)**
-
-In this first article, the repo is intentionally ugly. It looks exactly like the shared drive folder above — a pile of `FINAL_v2_REAL` files. No history, no structure, no traceability.
-
-In Article 20b we'll start cleaning it up. By Article 20f, the same data will run end-to-end, reproducibly, with a full audit trail.
-
----
-
 ## What I Want You to Take Away
 
 You don't need to learn Git today. You need to accept one thing:
@@ -147,7 +135,7 @@ In **[Article 20b — Git Explained Using Accounting Terms](../20b-git-in-accoun
 
 ---
 
-**A note on how this article was made.** This article started with me. The pain of `FINAL_v2_REAL_USE_THIS_ONE.xlsx` is mine — I've lived it, watched colleagues live it, and watched AI make it ten times faster. I sketched the hook, the analogies, and the framework callout. GitHub Copilot (Claude Opus 4.7) then built the final article, the companion Skill direction, and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**A note on how this article was made.** This article started with me. The pain of `FINAL_v2_REAL_USE_THIS_ONE.xlsx` is mine — I've lived it, watched colleagues live it, and watched AI make it ten times faster. I sketched the hook, the analogies, and the framework callout. GitHub Copilot (Claude Sonnet 5.5 and Opus 4.7) then built the final article, the companion Skill direction, and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 

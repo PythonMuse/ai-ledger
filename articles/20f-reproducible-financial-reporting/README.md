@@ -1,6 +1,6 @@
 # 20f — Reproducible Financial Reporting: Where Finance Is Heading
 
-*~7 min read · Part 6 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
+*~6 min read · Part 6 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
 
 ---
 
@@ -93,7 +93,7 @@ The benefits compound:
 - **Reproducibility.** Same inputs always produce same outputs.
 - **Auditability.** Every transformation has a recorded actor and rationale.
 - **AI governance.** Prompts and agent behavior are versioned alongside the logic.
-- **Knowledge retention.** When someone leaves, the binder doesn't leave with them.
+- **Knowledge retention.** When someone leaves, the folder doesn't leave with them.
 - **Speed.** New analyses start from a known-good baseline, not from a blank workbook.
 
 Each is valuable alone. Together they redefine what a finance function can promise.
@@ -136,17 +136,16 @@ If you take one thing away, take this: **AI will not eliminate the need for acco
 
 ---
 
-## Demo Repo: The Reproducibility Demo
+## The Reproducibility Test
 
-The final state of **[github.com/PythonMuse/git-demo](https://github.com/PythonMuse/git-demo)** shows the full loop:
+Here is the test to run against your own repo, once it's set up the way this series describes:
 
-1. Clone the repo.
-2. Check out the `v2026-04-close` tag.
-3. Delete everything in `outputs/`.
-4. Run one script.
-5. Watch the outputs regenerate identically.
+1. Check out a prior tagged close (e.g., `v2026-04-close`).
+2. Delete everything in `outputs/`.
+3. Run one script.
+4. Watch the outputs regenerate identically.
 
-That five-step demo is the visual heart of this entire series. It is what version control unlocks once accountants take it seriously.
+That five-step test is the visual heart of this entire series. It is what version control unlocks once accountants take it seriously.
 
 ---
 

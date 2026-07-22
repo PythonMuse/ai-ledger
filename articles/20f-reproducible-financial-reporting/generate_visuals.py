@@ -2,7 +2,7 @@
 Generate article visuals for Article 20f — Reproducible Financial Reporting
 
 Produces the following PNG saved to visuals/:
-  20f_hero.png — the v2026-04-close tag as a sealed audit binder, fed by the repo's inputs
+  20f_hero.png — the v2026-04-close tag as a sealed audit folder, fed by the repo's inputs
 
 Branding: white background, Deep Navy text, Bright Teal / Golden Yellow accents.
 Per SKILL.md — Matplotlib Visuals (Article Charts).

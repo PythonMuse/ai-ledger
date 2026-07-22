@@ -1,6 +1,6 @@
 # 20c — How Finance Teams Should Structure AI Repositories
 
-*~7 min read · Part 3 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
+*~5 min read · Part 3 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
 
 ---
 
@@ -11,9 +11,9 @@
 
 ---
 
-## A Repository Is Just a Better Binder
+## A Repository Is Just a Better Folder
 
-Accountants already know how to organize evidence. Every audit binder, every close package, every reconciliation folder follows the same instinct:
+Accountants already know how to organize evidence. Every audit folder, every close package, every reconciliation folder follows the same instinct:
 
 > *Raw stuff over here. Working stuff over here. Final stuff over here. Supporting evidence over there.*
 
@@ -29,7 +29,7 @@ When the structure is good, three magical things happen:
 
 ## The Recommended Layout
 
-Here is the layout we use in the demo repo and recommend for finance teams adopting AI workflows:
+Here is the layout we recommend for finance teams adopting AI workflows:
 
 ```
 finance-close/
@@ -47,7 +47,7 @@ finance-close/
 ├── docs/                 ← Plain-English documentation, SOPs, decision logs.
 │
 ├── .gitignore            ← What to deliberately exclude (PII, temp, secrets).
-└── README.md             ← The "front page" of the binder.
+└── README.md             ← The "front page" of the folder.
 ```
 
 That's it. Eight folders and two files. Most finance repos do not need more.
@@ -108,12 +108,6 @@ Same skeleton. Different content.
 
 ---
 
-## Demo Repo Snapshot
-
-By the end of Article 20c, **[github.com/PythonMuse/git-demo](https://github.com/PythonMuse/git-demo)** has the full skeleton above, with one realistic example workflow loaded into each folder. Clone it. Steal it. Adapt it.
-
----
-
 ## "But What About Sensitive Data?"
 
 The `.gitignore` file is your friend. Common things finance teams exclude:
@@ -123,13 +117,13 @@ The `.gitignore` file is your friend. Common things finance teams exclude:
 - Anything large enough that GitHub will refuse it (over 100 MB)
 - Local working files (`~$*.xlsx`, `.DS_Store`, etc.)
 
-If you wouldn't put it in the audit binder you hand to PwC, **don't put it in the repo.** The structure forces you to be deliberate about evidence, not careless.
+If you wouldn't put it in the audit folder you hand to PwC, **don't put it in the repo.** The structure forces you to be deliberate about evidence, not careless.
 
 ---
 
 ## What's Next
 
-Now that the binder has shape, we need to compare it head-to-head with the tool everyone is currently using: the shared drive. In **[Article 20d — GitHub vs. The Shared Drive](../20d-github-vs-shared-drives/README.md)**, we put them side-by-side and let the differences speak for themselves.
+Now that the folder has shape, we need to compare it head-to-head with the tool everyone is currently using: the shared drive. In **[Article 20d — GitHub vs. The Shared Drive](../20d-github-vs-shared-drives/README.md)**, we put them side-by-side and let the differences speak for themselves.
 
 ---
 

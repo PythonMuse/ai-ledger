@@ -1,6 +1,6 @@
 # 20b — Git Explained Using Accounting Terms
 
-*~6 min read · Part 2 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
+*~4 min read · Part 2 of 6 in [Version Control for Accountants in the AI Era](../20-version-control-for-accountants/README.md)*
 
 ---
 
@@ -18,11 +18,11 @@ Accountants hear the word "Git" and the brain immediately serves up:
 - Black terminal windows.
 - A 22-year-old in a hoodie.
 - Some scary command starting with `git push --force`.
-- The feeling you're about to break production at a company you don't even work for.
+- A coworker's screen full of green and red text you're too embarrassed to ask about.
 
 Take a breath.
 
-Git is not engineering.
+Git is not software engineering.
 
 Git is **structured change tracking** — and accountants invented structured change tracking. We just call it different things.
 
@@ -32,7 +32,7 @@ Git is **structured change tracking** — and accountants invented structured ch
 
 | Git Concept | What Accountants Already Call It |
 |---|---|
-| **Repository** | A workpaper binder |
+| **Repository** | A workpaper folder |
 | **Commit** | A journal entry |
 | **Commit message** | The JE explanation / memo |
 | **Git log / history** | The audit trail |
@@ -41,7 +41,7 @@ Git is **structured change tracking** — and accountants invented structured ch
 | **Pull request** | The review-and-approval workflow |
 | **Revert** | A correcting entry (without erasing history) |
 | **Tag** | A closed reporting period |
-| **`.gitignore`** | Files you intentionally leave out of the binder |
+| **`.gitignore`** | Files you intentionally leave out of the folder |
 | **Diff** | The "track changes" view between two workpapers |
 
 Read that table twice. **Every Git concept is already part of how you work.**
@@ -78,7 +78,7 @@ Here's what a commit looks like *conceptually* (no terminal needed):
 👤  Author:  Svetlana Toohey
 🕓  Date:    2026-04-30 16:12
 📝  Message: "Updated depreciation formula to reflect ASC 842 transition adjustment"
-📂  Files changed:  depreciation_schedule.xlsx, journal_entries.csv
+📂  Files changed:  depreciation_formula.py, journal_entries.csv
 ```
 
 Now translate it into accounting language:
@@ -92,21 +92,21 @@ The only difference: **you didn't have to remember to write it down.**
 
 ---
 
+## A Note on File Types
+
+> **📎 Why the example above uses `.py`, not `.xlsx`.**
+>
+> Git can technically track an Excel file or a PDF — it just can't tell you *what changed inside* them. Those are binary formats, so Git only sees "this file is different now," not a line-by-line diff.
+>
+> That's why this series is really about version-controlling **the scripts and logic that produce the spreadsheet** — not the spreadsheet itself. The `.xlsx` your CFO opens, or the PDF you send to the auditor, is an *output*. The formula, script, or query that built it is the thing you actually want a diff, a history, and a review trail for.
+
+---
+
 ## A Framework, Not a Tool
 
 > **🛠️ Reminder — this is a framework.**
 >
 > Every concept above (commit, branch, PR, tag) exists in **GitHub**, **Azure DevOps Repos**, and **AWS CodeCommit** with nearly identical names. Pick the one your company already pays for. We use GitHub in this series because the UI is the friendliest for non-engineers.
-
----
-
-## Demo Repo: From Chaos to Structure
-
-Pop over to the demo repo: **[github.com/PythonMuse/git-demo](https://github.com/PythonMuse/git-demo)**
-
-In Part 20a it looked like a shared drive disaster.
-
-In **Part 20b** the same files exist — but now every change is a commit with a memo, every save is timestamped, and every prior version is recoverable. *Same files. Different memory.*
 
 ---
 
@@ -127,7 +127,7 @@ The terminal is optional. The mindset is not.
 
 ## What's Next
 
-You now have the vocabulary. In **[Article 20c — How Finance Teams Should Structure AI Repositories](../20c-finance-repo-structure/README.md)**, we turn the binder analogy into an actual folder structure your team can adopt next Monday.
+You now have the vocabulary. In **[Article 20c — How Finance Teams Should Structure AI Repositories](../20c-finance-repo-structure/README.md)**, we turn that analogy into an actual folder structure your team can adopt next Monday.
 
 ---
 
@@ -145,7 +145,7 @@ You now have the vocabulary. In **[Article 20c — How Finance Teams Should Stru
 
 ---
 
-**A note on how this article was made.** This article started with me. The accounting/Git analogies came out of years of explaining to colleagues why "save-as-with-a-date" was almost-but-not-quite version control. GitHub Copilot (Claude Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**A note on how this article was made.** This article started with me. The accounting/Git analogies came out of years of explaining to colleagues why "save-as-with-a-date" was almost-but-not-quite version control. GitHub Copilot (Claude Sonnet 5.5 and Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 
