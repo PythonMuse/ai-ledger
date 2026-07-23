@@ -86,17 +86,25 @@ Same idea. Different layer of the company.
 
 ## A Framework, Not a Tool
 
-> **🛠️ Reminder — this is a framework, not a product pitch.**
->
-> Throughout this series we'll use **Git + GitHub** because they're free, popular, and have the friendliest UI. But the *concepts* — versioned history, reviews, approvals, rollback — show up in every enterprise stack:
->
-> | Concept | GitHub | Azure DevOps | AWS |
-> |---|---|---|---|
-> | Hosted repo | github.com | Azure Repos | AWS CodeCommit |
-> | Review & approve | Pull Request | Pull Request | Pull Request |
-> | Automation hooks | GitHub Actions | Pipelines | CodePipeline |
->
-> Pick what your IT team already uses. The framework doesn't change.
+Same reminder as always → see the hub's [A Framework, Not a Tool](../20-version-control-for-accountants/README.md#a-framework-not-a-tool). The *concepts* below — versioned history, reviews, approvals, rollback — show up in every enterprise stack. We use **Git + GitHub** in this series because they're free, popular, and have the friendliest UI:
+
+| Concept | GitHub |
+|---|---|
+| Hosted repo | github.com |
+| Review & approve | Pull Request* |
+| Automation hooks | GitHub Actions |
+
+*Pull request (PR): a proposed change that needs a reviewer's approval before it becomes part of the official record — more in [Article 20e](../20e-pull-requests-are-controls/README.md).*
+
+On another platform? Same concepts, different names:
+
+| Concept | Azure DevOps | AWS |
+|---|---|---|
+| Hosted repo | Azure Repos | AWS CodeCommit |
+| Review & approve | Pull Request | Pull Request |
+| Automation hooks | Pipelines | CodePipeline |
+
+Pick what your IT team already uses. The framework doesn't change.
 
 ---
 

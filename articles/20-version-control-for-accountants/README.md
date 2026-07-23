@@ -29,7 +29,7 @@ This series walks accounting and finance professionals from "what is Git?" to **
 | **20b** | [Git Explained Using Accounting Terms](../20b-git-in-accounting-terms/README.md) | The Rosetta Stone — every Git word in accounting language. |
 | **20c** | [How Finance Teams Should Structure AI Repositories](../20c-finance-repo-structure/README.md) | A folder layout you can adopt next Monday. |
 | **20d** | [GitHub vs. The Shared Drive](../20d-github-vs-shared-drives/README.md) | Side-by-side. The eight-second audit answer. |
-| **20e** | [Pull Requests Are Internal Controls](../20e-pull-requests-are-controls/README.md) | The governance article. Map PRs to COSO. |
+| **20e** | [Pull Requests Are Internal Controls](../20e-pull-requests-are-controls/README.md) | The governance article. Map pull requests (PRs) to COSO. |
 | **20f** | [Reproducible Financial Reporting: Where Finance Is Heading](../20f-reproducible-financial-reporting/README.md) | The vision close. "Rerun the workflow." |
 
 Each article is short (~4–6 min read), light in tone, and paired with a planned companion video.
@@ -42,7 +42,9 @@ Every article carries the same reminder:
 
 > **🛠️ This is a framework, not a product pitch.**
 >
-> We use **Git + GitHub** in this series because they're free, popular, and have the friendliest UI for non-engineers. But every concept — repos, commits, branches, PRs, tags — has a direct equivalent in **Azure DevOps Repos** and **AWS CodeCommit**. Pick what your IT team already uses. The framework doesn't change.
+> We use **Git + GitHub** in this series because they're free, popular, and have the friendliest UI for non-engineers. But every concept — repos, commits, branches, PRs, tags — has a direct equivalent in **Azure DevOps Repos**, **AWS CodeCommit**, **GitLab**, and **Bitbucket**. Pick what your IT team already uses. The framework doesn't change. Every article in this series repeats this reminder briefly and links back here — this is the one place it's spelled out in full.
+
+> **📎 Quick definition: repository ("repo").** A repository is a project's whole folder, plus a complete, permanent record of every change ever made inside it. Every Git term used across this series — repo, commit, branch, PR, tag — gets its own plain-English, accounting-flavored translation in [Article 20b](../20b-git-in-accounting-terms/README.md#the-translation-table).
 
 ---
 
@@ -56,7 +58,7 @@ Every article carries the same reminder:
 You will **not** need to:
 
 - Install anything before you read.
-- Use a terminal.
+- Use a terminal (also called the "command line") — if you don't know what that is, don't worry, you won't need one for anything in this series.
 - Become a developer.
 
 You **will** leave with:

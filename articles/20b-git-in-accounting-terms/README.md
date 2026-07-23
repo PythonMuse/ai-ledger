@@ -37,9 +37,10 @@ Git is **structured change tracking** — and accountants invented structured ch
 | **Commit message** | The JE explanation / memo |
 | **Git log / history** | The audit trail |
 | **Branch** | A scenario / draft version of the budget |
-| **Merge** | Posting the approved entry to the final ledger |
+| **Main (or master) branch** | The official ledger everyone trusts — the version that's "live" |
+| **Merge** | Posting the approved entry to the final ledger (the **main** branch) |
 | **Pull request** | The review-and-approval workflow |
-| **Revert** | A correcting entry (without erasing history) |
+| **Revert** | A correcting entry, made as a new commit that preserves history — and like any other change, it typically goes through its own review and approval before it's accepted |
 | **Tag** | A closed reporting period |
 | **`.gitignore`** | Files you intentionally leave out of the folder |
 | **Diff** | The "track changes" view between two workpapers |
@@ -47,6 +48,30 @@ Git is **structured change tracking** — and accountants invented structured ch
 Read that table twice. **Every Git concept is already part of how you work.**
 
 The only thing Git adds is *consistency* — it stops humans from forgetting to write the memo.
+
+---
+
+## Push, Pull, and Main
+
+*Three words worth knowing on their own — the accounting analogy gets looser here.*
+
+`Main` and `merge` already showed up in the table above with a fairly clean accounting parallel. `Push` and `pull` are looser — but the analogy still holds well enough to be useful, and the mechanics matter enough that they're worth spelling out directly rather than only through analogy:
+
+| Git Word | What It Actually Means | Closest Accounting Parallel |
+|---|---|---|
+| **`main`** (or `master`) | The official, current version everyone treats as live. | The final ledger, as above. |
+| **Push** | Sending your committed changes up to the shared repository. | Submitting your completed workpaper for review. |
+| **Pull** | Bringing someone else's changes into yours, or into `main`. | A reviewer incorporating an approved submission into the official file. |
+
+A bit more on the mechanics: a push can be one commit at a time, or a batch of several commits sent up together once you're ready. And pull is literally what happens when a reviewer accepts a pull request — they're **pulling** your branch's changes into `main`.
+
+Here's what that looks like when more than one person is working at once:
+
+![Branches merging into main](./visuals/20b_branch_diagram.png)
+
+`main` runs down the middle as the official version. Two people can branch off it at the same time — Susan drafting a scenario, you drafting another — and neither blocks the other. When a branch is ready, its pull request asks the approver to pull those changes into `main`. The approver can see every branch waiting for review, and can merge each one independently as long as they don't conflict with each other.
+
+Compare that to editing the same file together in Excel Online or SharePoint: multiple people *can* edit at once, but there's no automatic record of who changed what and why — only what someone happens to type into a comment or a version note. [Article 20d](../20d-github-vs-shared-drives/README.md#but-we-have-onedrive--sharepoint-versioning) covers that comparison in full.
 
 ---
 
@@ -104,9 +129,7 @@ The only difference: **you didn't have to remember to write it down.**
 
 ## A Framework, Not a Tool
 
-> **🛠️ Reminder — this is a framework.**
->
-> Every concept above (commit, branch, PR, tag) exists in **GitHub**, **Azure DevOps Repos**, and **AWS CodeCommit** with nearly identical names. Pick the one your company already pays for. We use GitHub in this series because the UI is the friendliest for non-engineers.
+Same reminder as always → see the hub's [A Framework, Not a Tool](../20-version-control-for-accountants/README.md#a-framework-not-a-tool). Every concept above (commit, branch, PR, tag) exists in **GitHub**, **Azure DevOps Repos**, and **AWS CodeCommit** with nearly identical names. Pick the one your company already pays for. We use GitHub in this series because the UI is the friendliest for non-engineers.
 
 ---
 

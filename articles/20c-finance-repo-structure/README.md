@@ -19,6 +19,8 @@ Accountants already know how to organize evidence. Every audit folder, every clo
 
 A finance AI repository is the same idea — just **enforced by structure** instead of by hope.
 
+**Why this is actually a Git article, not just a folder-organization article:** Git gives you a genuinely useful line-by-line diff and full history on text-based files (`.py`, `.csv`, `.md`, `.sql`) — but only a blunt "this file changed" on binary files (`.xlsx`, `.pdf`). ([Article 20b covers why.](../20b-git-in-accounting-terms/README.md#a-note-on-file-types)) The layout below exists specifically to keep the things Git can meaningfully track separate from the things it can only babysit.
+
 When the structure is good, three magical things happen:
 
 1. AI can find what it needs without asking.
@@ -86,13 +88,23 @@ This is the heart of **Accounting as Code**: financial logic stops living in cel
 
 The same layout serves wildly different use cases:
 
-| Use case | What lives in `data/raw/` | What lives in `scripts/` | What lives in `outputs/` |
-|---|---|---|---|
-| Bank reconciliation | Bank exports, GL extract | `reconcile_bank.py` | Reconciliation report, exception list |
-| Variance analysis | Budget, actuals | `variance_engine.py` | Variance schedule, commentary draft |
-| Accrual support | Vendor invoices, contracts | `accrual_calc.py` | Accrual schedule, JE backup |
-| Payroll validation | Payroll register, headcount | `payroll_check.py` | Validation report, exception flags |
-| Vendor analysis | AP transactions | `vendor_clustering.py` | Top-N vendor report, anomalies |
+| Use case | What lives in `data/raw/` | What lives in `scripts/` |
+|---|---|---|
+| Bank reconciliation | Bank exports, GL extract | `reconcile_bank.py` |
+| Variance analysis | Budget, actuals | `variance_engine.py` |
+| Accrual support | Vendor invoices, contracts | `accrual_calc.py` |
+| Payroll validation | Payroll register, headcount | `payroll_check.py` |
+| Vendor analysis | AP transactions | `vendor_clustering.py` |
+
+...and what comes out the other end, in `outputs/`:
+
+| Use case | What lives in `outputs/` |
+|---|---|
+| Bank reconciliation | Reconciliation report, exception list |
+| Variance analysis | Variance schedule, commentary draft |
+| Accrual support | Accrual schedule, JE backup |
+| Payroll validation | Validation report, exception flags |
+| Vendor analysis | Top-N vendor report, anomalies |
 
 Same skeleton. Different content.
 
@@ -100,11 +112,9 @@ Same skeleton. Different content.
 
 ## A Framework, Not a Tool
 
-> **🛠️ Reminder — this layout is the framework.**
->
-> Whether the repo lives on **GitHub**, **Azure DevOps Repos**, or **AWS CodeCommit**, the folder structure above is identical. The hosting platform is interchangeable; the discipline is not.
->
-> One caveat for AWS CodeCommit users: enforce branch protections and review approvals via IAM + approval rule templates (CodeCommit's equivalent of GitHub's branch protection rules).
+Same reminder as always → see the hub's [A Framework, Not a Tool](../20-version-control-for-accountants/README.md#a-framework-not-a-tool). Whether the repo lives on **GitHub**, **Azure DevOps Repos**, or **AWS CodeCommit**, the folder structure above is identical. The hosting platform is interchangeable; the discipline is not.
+
+One caveat for AWS CodeCommit users: enforce branch protections and review approvals via IAM + approval rule templates (CodeCommit's equivalent of GitHub's branch protection rules).
 
 ---
 
@@ -118,6 +128,16 @@ The `.gitignore` file is your friend. Common things finance teams exclude:
 - Local working files (`~$*.xlsx`, `.DS_Store`, etc.)
 
 If you wouldn't put it in the audit folder you hand to PwC, **don't put it in the repo.** The structure forces you to be deliberate about evidence, not careless.
+
+---
+
+## A Design Question Worth Sitting With
+
+Here's a debate we're deliberately not settling in this article: **should you track raw data in git at all — and if so, in what format?**
+
+Git can hold an Excel export or a PDF, but as noted above, it can only tell you "this file changed," not what changed inside it. If you want raw data in version control to actually be diffable and reviewable — not just backed up — that argues for landing it in text-based formats (CSV, Markdown, `.txt`) rather than `.xlsx` exports or PDFs.
+
+That's a bigger decision than it looks: it touches how source systems export data, what your team is used to opening, and how much re-tooling a "no Excel in the repo" rule would require. It probably deserves its own article. For now, the point is just to name the question — don't let "we put files in a repo" quietly become "we put Excel files in a repo" without deciding that on purpose.
 
 ---
 
@@ -144,7 +164,7 @@ Now that the folder has shape, we need to compare it head-to-head with the tool 
 
 ---
 
-**A note on how this article was made.** This article started with me. The folder layout came out of real engagements where I kept seeing teams build AI workflows on top of shared-drive chaos and wondering why nothing was reproducible. GitHub Copilot (Claude Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**A note on how this article was made.** This article started with me. The folder layout came out of real engagements where I kept seeing teams build AI workflows on top of shared-drive chaos and wondering why nothing was reproducible. GitHub Copilot (Claude Sonnet 5 and Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 

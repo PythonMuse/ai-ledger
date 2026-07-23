@@ -66,7 +66,9 @@ When you close April 2026, you don't just save the file. You **tag the repo**:
 git tag v2026-04-close
 ```
 
-That tag is a frozen snapshot of:
+(Every button-based tool mentioned earlier — GitHub.com, GitHub Desktop, VS Code — has a "Create tag" button that does exactly this; the one-line command is just the fastest way to show it here.)
+
+A tag is a **labeled pointer** to a specific commit — not a vault, more like a colored sticky note that is popping out in the audit binder that says "this is April's close." Flip to that tab six months from now, and you land on exactly that moment in the workflow's history:
 
 - The exact data that was in `raw/`.
 - The exact scripts that ran.
@@ -74,7 +76,13 @@ That tag is a frozen snapshot of:
 - The exact outputs that were delivered.
 - The exact commit history that led to them.
 
-Six months later, when an auditor asks *"can you show me exactly what produced the April close?"* — you check out the tag. The entire workflow comes back, exactly as it was. **You can re-run April from scratch and get April back.**
+Worth being precise about what a tag actually guarantees: on its own, a tag can be deleted and recreated pointing somewhere else by anyone with push access — it's a reference, not a tamper-proof seal. The part of Git that's genuinely audit-proof is the **commit history itself** — each commit's hash chains back through everything before it, and rewriting that chain leaves evidence. If you want tags themselves to be reliably audit-grade — untouchable once a close is final — turn on tag-protection rules (the same idea as branch protection, applied to tags).
+
+![What commit history actually looks like: hash-linked commits, with a movable tag pointing at one of them](./visuals/20f_commit_chain.png)
+
+That's the distinction in one picture: the commits themselves are chained together by hash — tamper with `i7j8k9l` and every commit after it changes too, which is exactly what makes the chain trustworthy. The tag is the yellow flag sitting on top, pointing at one commit for convenience. It's not part of that chain, which is why it can be repointed without leaving the same kind of evidence.
+
+Six months later, when an auditor asks *"can you show me exactly what produced the April close?"* — you check out the tag. The entire workflow comes back, exactly as it was. **You can re-run April from scratch and get April results back.**
 
 That is not theory. That is just git.
 
@@ -130,9 +138,7 @@ If you take one thing away, take this: **AI will not eliminate the need for acco
 
 ## A Framework, Not a Tool
 
-> **🛠️ Reminder — this is a framework.**
->
-> Reproducible reporting is not a GitHub feature. It is a discipline that any platform — **GitHub**, **Azure DevOps Repos**, **AWS CodeCommit**, GitLab, Bitbucket — can support. The platform is the easy choice. The discipline is the real work.
+Same reminder as always → see the hub's [A Framework, Not a Tool](../20-version-control-for-accountants/README.md#a-framework-not-a-tool). Reproducible reporting is not a GitHub feature — it's a discipline any of those platforms can support. The platform is the easy choice. The discipline is the real work.
 
 ---
 

@@ -36,6 +36,12 @@ Read that table. Then ask: which of those two tools belongs in an AI-driven clos
 
 > **📎 One assumption behind this table.** The "line-by-line diff" and "exact commit" advantages assume the depreciation *logic* lives in a script, formula file, or other text-based artifact — not a raw `.xlsx`. Git tracks Excel and PDF files fine, but can't diff *inside* them. See [20b's note on file types](../20b-git-in-accounting-terms/README.md#a-note-on-file-types) for why that distinction matters.
 
+Here's what that difference actually looks like, side by side:
+
+![Excel formula change vs. a source-control diff of the same change](./visuals/20d_diff_comparison.png)
+
+On the left, the formula changed inside the cell — nothing on the sheet tells you that happened, or what it used to say. On the right, the same logical change made in a tracked script or CSV shows up as an explicit line removed (red) and a line added (green), with no guessing required.
+
 ---
 
 ## The Shared Drive Was Never Designed For AI
@@ -112,9 +118,7 @@ Eight seconds, versus never.
 
 ## A Framework, Not a Tool
 
-> **🛠️ Reminder — this is a framework.**
->
-> The "GitHub" column above is identical in **Azure DevOps Repos** and **AWS CodeCommit**. The shared-drive column is identical no matter whose shared drive it is. The decision isn't about brand — it's about whether your workflow tooling has a *memory layer* or not.
+Same reminder as always → see the hub's [A Framework, Not a Tool](../20-version-control-for-accountants/README.md#a-framework-not-a-tool). The "GitHub" column above is identical in **Azure DevOps Repos** and **AWS CodeCommit**. The shared-drive column is identical no matter whose shared drive it is. The decision isn't about brand — it's about whether your workflow tooling has a *memory layer* or not.
 
 ---
 

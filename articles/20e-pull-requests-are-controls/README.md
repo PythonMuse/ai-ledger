@@ -13,19 +13,21 @@
 
 ## The Most Misunderstood Word in This Series
 
-"Pull request" is the worst-named good idea in software.
+"Pull request" sounds backwards the first time you hear it — but the name actually does make sense once you see whose point of view it's named from. (If `push`, `pull`, and `main` are new words, [Article 20b](../20b-git-in-accounting-terms/README.md#push-pull-and-main) covers them.)
 
-It is not a request to pull anything. Nobody pulls anything. It's a **review-and-approval workflow** with a confusing name.
+Here's the mechanic: you make your change on a branch and **push** it — send your committed changes up to the shared repository. That can happen one commit at a time, or as a batch of several commits pushed together once you're ready. Then you open a pull request — which is your explicit ask for the reviewer to **pull** those changes from your branch into `main`. The request is named from the *reviewer's* side of the action, not yours: you're asking them to pull your work in.
+
+And critically: a pull request has to be **accepted**. Opening one doesn't change anything by itself — nothing moves into `main` until a reviewer approves and merges it.
 
 Here is the entire concept in one sentence:
 
-> A pull request says: *"I'd like to make this change. Please review it before it becomes part of the official record."*
+> A pull request says: *"I'd like to make this change. Please pull it into the official record — after you've reviewed it."*
 
 Now translate that into accounting:
 
 > *"I'd like to post this JE. Please review the supporting documentation before it hits the GL."*
 
-You already know how this works. You've been doing it for decades. Software designers just gave it an odd name.
+You already know how this works. You've been doing it for decades. Software designers just gave it a name that describes the reviewer's action, not the author's.
 
 ---
 
@@ -41,7 +43,7 @@ You already know how this works. You've been doing it for decades. Software desi
 | Audit trail | The merge commit, linked to author + reviewer |
 | Reversal / correction | A new commit on a new PR (history preserved) |
 
-If you've ever signed off on a recon, you've already done the human work of a pull request ("PR") The PR is the same workflow with the **paperwork built in**.
+If you've ever signed off on a recon, you've already done the human work of a pull request ("PR"). The PR is the same workflow with the **paperwork built in**.
 
 ---
 
@@ -108,23 +110,23 @@ The five COSO components map cleanly to PR mechanics:
 
 | COSO Component | Pull Request Mechanic |
 |---|---|
-| Control Environment | Branch protection rules, written PR template |
-| Risk Assessment | "What does this change affect?" section of the PR |
-| Control Activities | Required approvals, required test results |
-| Information & Communication | PR comments, linked tickets, linked prompts |
-| Monitoring | Audit report of every merged PR over a period |
+| Control Environment | Branch protection rules and a written PR template set the tone: no one — not even the CFO or the AI agent — merges without a second reviewer. |
+| Risk Assessment | The "what does this change affect?" section of the PR is where the preparer documents what could go wrong if this change is bad, not just what changed. |
+| Control Activities | Required approvals and required test results are enforced by the platform before merge is even possible — the control can't be skipped under deadline pressure. |
+| Information & Communication | PR comments, linked tickets, and linked prompts create a searchable record of *why* a decision was made, available to anyone who needs it later — including an auditor. |
+| Monitoring | An audit report of every merged PR over a period gives management an ongoing view of whether the control is actually operating, not just designed. |
+
+![The five COSO components mapped to pull request mechanics](./visuals/20e_coso_mapping.png)
 
 If your auditor has never asked about Git, they will. AI governance frameworks (the AICPA AI assurance guidance, the EU AI Act, NIST AI RMF) all eventually point to the same thing: **show me the change log, the reviewer, and the approval evidence.**
 
-The PR is the cleanest way to produce that evidence on demand.
+The PR is the cleanest way to produce that evidence on demand. For the fuller AI-governance picture this control sits inside, see [Article 07 — AI Governance for Controllers](../07-ai-governance-for-controllers/README.md), which covers the COSO generative-AI guidance this table draws from.
 
 ---
 
 ## A Framework, Not a Tool
 
-> **🛠️ Reminder — this is a framework.**
->
-> Pull requests work identically in **GitHub**, **Azure DevOps Repos**, and **AWS CodeCommit** (which calls its review workflow "approval rule templates" but the user experience is the same). Pick the one your enterprise already governs. The control is the control.
+Same reminder as always → see the hub's [A Framework, Not a Tool](../20-version-control-for-accountants/README.md#a-framework-not-a-tool). Pull requests work identically in **GitHub**, **Azure DevOps Repos**, and **AWS CodeCommit** (which calls its review workflow "approval rule templates" but the user experience is the same). Pick the one your enterprise already governs. The control is the control.
 
 ---
 
