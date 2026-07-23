@@ -2235,7 +2235,8 @@
 <p>When you close April 2026, you don't just save the file. You <strong>tag the repo</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git tag v2026-04-close
 </code></pre></div>
-<p>That tag is a frozen snapshot of:</p>
+<p>(Every button-based tool mentioned earlier — GitHub.com, GitHub Desktop, VS Code — has a "Create tag" button that does exactly this; the one-line command is just the fastest way to show it here.)</p>
+<p>A tag is a <strong>labeled pointer</strong> to a specific commit — not a vault, more like a colored sticky note that is popping out in the audit binder that says "this is April's close." Flip to that tab six months from now, and you land on exactly that moment in the workflow's history:</p>
 <ul>
 <li>The exact data that was in <code>raw/</code>.</li>
 <li>The exact scripts that ran.</li>
@@ -2243,7 +2244,10 @@
 <li>The exact outputs that were delivered.</li>
 <li>The exact commit history that led to them.</li>
 </ul>
-<p>Six months later, when an auditor asks <em>"can you show me exactly what produced the April close?"</em> — you check out the tag. The entire workflow comes back, exactly as it was. <strong>You can re-run April from scratch and get April back.</strong></p>
+<p>Worth being precise about what a tag actually guarantees: on its own, a tag can be deleted and recreated pointing somewhere else by anyone with push access — it's a reference, not a tamper-proof seal. The part of Git that's genuinely audit-proof is the <strong>commit history itself</strong> — each commit's hash chains back through everything before it, and rewriting that chain leaves evidence. If you want tags themselves to be reliably audit-grade — untouchable once a close is final — turn on tag-protection rules (the same idea as branch protection, applied to tags).</p>
+<p><img alt="What commit history actually looks like: hash-linked commits, with a movable tag pointing at one of them" src="visuals/20f_commit_chain.png" /></p>
+<p>That's the distinction in one picture: the commits themselves are chained together by hash — tamper with <code>i7j8k9l</code> and every commit after it changes too, which is exactly what makes the chain trustworthy. The tag is the yellow flag sitting on top, pointing at one commit for convenience. It's not part of that chain, which is why it can be repointed without leaving the same kind of evidence.</p>
+<p>Six months later, when an auditor asks <em>"can you show me exactly what produced the April close?"</em> — you check out the tag. The entire workflow comes back, exactly as it was. <strong>You can re-run April from scratch and get April results back.</strong></p>
 <p>That is not theory. That is just git.</p>
 <hr />
 <h2 id="accounting-as-code-the-quiet-revolution">Accounting As Code: The Quiet Revolution</h2>
@@ -2283,10 +2287,7 @@
 <p>If you take one thing away, take this: <strong>AI will not eliminate the need for accounting controls. It will increase the importance of them.</strong> Version control is one of the first places that increased importance shows up.</p>
 <hr />
 <h2 id="a-framework-not-a-tool">A Framework, Not a Tool</h2>
-<blockquote>
-<p><strong>🛠️ Reminder — this is a framework.</strong></p>
-<p>Reproducible reporting is not a GitHub feature. It is a discipline that any platform — <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, <strong>AWS CodeCommit</strong>, GitLab, Bitbucket — can support. The platform is the easy choice. The discipline is the real work.</p>
-</blockquote>
+<p>Same reminder as always → see the hub's <a href="../20-version-control-for-accountants/#a-framework-not-a-tool">A Framework, Not a Tool</a>. Reproducible reporting is not a GitHub feature — it's a discipline any of those platforms can support. The platform is the easy choice. The discipline is the real work.</p>
 <hr />
 <h2 id="the-reproducibility-test">The Reproducibility Test</h2>
 <p>Here is the test to run against your own repo, once it's set up the way this series describes:</p>

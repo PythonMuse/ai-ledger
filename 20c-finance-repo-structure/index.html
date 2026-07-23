@@ -1300,6 +1300,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-design-question-worth-sitting-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Design Question Worth Sitting With
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2193,6 +2204,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-design-question-worth-sitting-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Design Question Worth Sitting With
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2258,6 +2280,7 @@
 <p><em>Raw stuff over here. Working stuff over here. Final stuff over here. Supporting evidence over there.</em></p>
 </blockquote>
 <p>A finance AI repository is the same idea — just <strong>enforced by structure</strong> instead of by hope.</p>
+<p><strong>Why this is actually a Git article, not just a folder-organization article:</strong> Git gives you a genuinely useful line-by-line diff and full history on text-based files (<code>.py</code>, <code>.csv</code>, <code>.md</code>, <code>.sql</code>) — but only a blunt "this file changed" on binary files (<code>.xlsx</code>, <code>.pdf</code>). (<a href="../20b-git-in-accounting-terms/#a-note-on-file-types">Article 20b covers why.</a>) The layout below exists specifically to keep the things Git can meaningfully track separate from the things it can only babysit.</p>
 <p>When the structure is good, three magical things happen:</p>
 <ol>
 <li>AI can find what it needs without asking.</li>
@@ -2308,7 +2331,6 @@
 <th>Use case</th>
 <th>What lives in <code>data/raw/</code></th>
 <th>What lives in <code>scripts/</code></th>
-<th>What lives in <code>outputs/</code></th>
 </tr>
 </thead>
 <tbody>
@@ -2316,30 +2338,56 @@
 <td>Bank reconciliation</td>
 <td>Bank exports, GL extract</td>
 <td><code>reconcile_bank.py</code></td>
-<td>Reconciliation report, exception list</td>
 </tr>
 <tr>
 <td>Variance analysis</td>
 <td>Budget, actuals</td>
 <td><code>variance_engine.py</code></td>
-<td>Variance schedule, commentary draft</td>
 </tr>
 <tr>
 <td>Accrual support</td>
 <td>Vendor invoices, contracts</td>
 <td><code>accrual_calc.py</code></td>
-<td>Accrual schedule, JE backup</td>
 </tr>
 <tr>
 <td>Payroll validation</td>
 <td>Payroll register, headcount</td>
 <td><code>payroll_check.py</code></td>
-<td>Validation report, exception flags</td>
 </tr>
 <tr>
 <td>Vendor analysis</td>
 <td>AP transactions</td>
 <td><code>vendor_clustering.py</code></td>
+</tr>
+</tbody>
+</table>
+<p>...and what comes out the other end, in <code>outputs/</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>What lives in <code>outputs/</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bank reconciliation</td>
+<td>Reconciliation report, exception list</td>
+</tr>
+<tr>
+<td>Variance analysis</td>
+<td>Variance schedule, commentary draft</td>
+</tr>
+<tr>
+<td>Accrual support</td>
+<td>Accrual schedule, JE backup</td>
+</tr>
+<tr>
+<td>Payroll validation</td>
+<td>Validation report, exception flags</td>
+</tr>
+<tr>
+<td>Vendor analysis</td>
 <td>Top-N vendor report, anomalies</td>
 </tr>
 </tbody>
@@ -2347,11 +2395,8 @@
 <p>Same skeleton. Different content.</p>
 <hr />
 <h2 id="a-framework-not-a-tool">A Framework, Not a Tool</h2>
-<blockquote>
-<p><strong>🛠️ Reminder — this layout is the framework.</strong></p>
-<p>Whether the repo lives on <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, or <strong>AWS CodeCommit</strong>, the folder structure above is identical. The hosting platform is interchangeable; the discipline is not.</p>
+<p>Same reminder as always → see the hub's <a href="../20-version-control-for-accountants/#a-framework-not-a-tool">A Framework, Not a Tool</a>. Whether the repo lives on <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, or <strong>AWS CodeCommit</strong>, the folder structure above is identical. The hosting platform is interchangeable; the discipline is not.</p>
 <p>One caveat for AWS CodeCommit users: enforce branch protections and review approvals via IAM + approval rule templates (CodeCommit's equivalent of GitHub's branch protection rules).</p>
-</blockquote>
 <hr />
 <h2 id="but-what-about-sensitive-data">"But What About Sensitive Data?"</h2>
 <p>The <code>.gitignore</code> file is your friend. Common things finance teams exclude:</p>
@@ -2362,6 +2407,11 @@
 <li>Local working files (<code>~$*.xlsx</code>, <code>.DS_Store</code>, etc.)</li>
 </ul>
 <p>If you wouldn't put it in the audit folder you hand to PwC, <strong>don't put it in the repo.</strong> The structure forces you to be deliberate about evidence, not careless.</p>
+<hr />
+<h2 id="a-design-question-worth-sitting-with">A Design Question Worth Sitting With</h2>
+<p>Here's a debate we're deliberately not settling in this article: <strong>should you track raw data in git at all — and if so, in what format?</strong></p>
+<p>Git can hold an Excel export or a PDF, but as noted above, it can only tell you "this file changed," not what changed inside it. If you want raw data in version control to actually be diffable and reviewable — not just backed up — that argues for landing it in text-based formats (CSV, Markdown, <code>.txt</code>) rather than <code>.xlsx</code> exports or PDFs.</p>
+<p>That's a bigger decision than it looks: it touches how source systems export data, what your team is used to opening, and how much re-tooling a "no Excel in the repo" rule would require. It probably deserves its own article. For now, the point is just to name the question — don't let "we put files in a repo" quietly become "we put Excel files in a repo" without deciding that on purpose.</p>
 <hr />
 <h2 id="whats-next">What's Next</h2>
 <p>Now that the folder has shape, we need to compare it head-to-head with the tool everyone is currently using: the shared drive. In <strong><a href="../20d-github-vs-shared-drives/">Article 20d — GitHub vs. The Shared Drive</a></strong>, we put them side-by-side and let the differences speak for themselves.</p>
@@ -2379,7 +2429,7 @@
 <h2 id="next-in-the-series">Next in the Series</h2>
 <p>→ <a href="../20d-github-vs-shared-drives/">Article 20d — GitHub vs. The Shared Drive</a></p>
 <hr />
-<p><strong>A note on how this article was made.</strong> This article started with me. The folder layout came out of real engagements where I kept seeing teams build AI workflows on top of shared-drive chaos and wondering why nothing was reproducible. GitHub Copilot (Claude Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
+<p><strong>A note on how this article was made.</strong> This article started with me. The folder layout came out of real engagements where I kept seeing teams build AI workflows on top of shared-drive chaos and wondering why nothing was reproducible. GitHub Copilot (Claude Sonnet 5 and Opus 4.7) then built the final article and all visual concepts — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
 <hr />
 <p><em>By Svetlana Toohey</em></p>
 

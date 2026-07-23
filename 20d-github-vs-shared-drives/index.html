@@ -2212,6 +2212,9 @@
 <blockquote>
 <p><strong>📎 One assumption behind this table.</strong> The "line-by-line diff" and "exact commit" advantages assume the depreciation <em>logic</em> lives in a script, formula file, or other text-based artifact — not a raw <code>.xlsx</code>. Git tracks Excel and PDF files fine, but can't diff <em>inside</em> them. See <a href="../20b-git-in-accounting-terms/#a-note-on-file-types">20b's note on file types</a> for why that distinction matters.</p>
 </blockquote>
+<p>Here's what that difference actually looks like, side by side:</p>
+<p><img alt="Excel formula change vs. a source-control diff of the same change" src="visuals/20d_diff_comparison.png" /></p>
+<p>On the left, the formula changed inside the cell — nothing on the sheet tells you that happened, or what it used to say. On the right, the same logical change made in a tracked script or CSV shows up as an explicit line removed (red) and a line added (green), with no guessing required.</p>
 <hr />
 <h2 id="the-shared-drive-was-never-designed-for-ai">The Shared Drive Was Never Designed For AI</h2>
 <p>The shared drive was built for <strong>static documents</strong> that change occasionally — a policy, a procedure, a finalized report.</p>
@@ -2266,10 +2269,7 @@
 <p>Eight seconds, versus never.</p>
 <hr />
 <h2 id="a-framework-not-a-tool">A Framework, Not a Tool</h2>
-<blockquote>
-<p><strong>🛠️ Reminder — this is a framework.</strong></p>
-<p>The "GitHub" column above is identical in <strong>Azure DevOps Repos</strong> and <strong>AWS CodeCommit</strong>. The shared-drive column is identical no matter whose shared drive it is. The decision isn't about brand — it's about whether your workflow tooling has a <em>memory layer</em> or not.</p>
-</blockquote>
+<p>Same reminder as always → see the hub's <a href="../20-version-control-for-accountants/#a-framework-not-a-tool">A Framework, Not a Tool</a>. The "GitHub" column above is identical in <strong>Azure DevOps Repos</strong> and <strong>AWS CodeCommit</strong>. The shared-drive column is identical no matter whose shared drive it is. The decision isn't about brand — it's about whether your workflow tooling has a <em>memory layer</em> or not.</p>
 <hr />
 <h2 id="whats-next">What's Next</h2>
 <p>History is good. But for finance, history alone isn't enough — we also need <strong>approval before things change</strong>. That's the next article: <strong><a href="../20e-pull-requests-are-controls/">Article 20e — Pull Requests Are Internal Controls</a></strong>.</p>

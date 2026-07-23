@@ -1,8 +1,9 @@
 """
 Generate article visuals for Article 20e — Pull Requests Are Internal Controls
 
-Produces the following PNG saved to visuals/:
-  20e_hero.png — a PR review card annotated with the accounting controls it maps to
+Produces the following PNGs saved to visuals/:
+  20e_hero.png         — a PR review card annotated with the accounting controls it maps to
+  20e_coso_mapping.png — the five COSO components mapped to pull request mechanics
 
 Branding: white background, Deep Navy text, Bright Teal / Golden Yellow accents.
 Per SKILL.md — Matplotlib Visuals (Article Charts).
@@ -133,7 +134,56 @@ def make_hero():
     save(fig, "20e_hero.png")
 
 
+# ─────────────────────────────────────────────────────────────
+# 20e_coso_mapping.png — COSO components <-> pull request mechanics
+# ─────────────────────────────────────────────────────────────
+def make_coso_mapping():
+    fig = plt.figure(figsize=(13, 8), facecolor=WHITE)
+    add_header_bar(fig, "COSO Meets the Pull Request  |  Article 20e  |  PythonMuse LLC")
+    add_footer(fig)
+
+    ax = fig.add_axes([0.03, 0.08, 0.94, 0.84])
+    ax.set_xlim(0, 12)
+    ax.set_ylim(0, 7.4)
+    ax.axis("off")
+    ax.set_facecolor(WHITE)
+
+    rows = [
+        ("Control Environment", "Branch protection rules + written PR template"),
+        ("Risk Assessment", "\"What does this change affect?\" section of the PR"),
+        ("Control Activities", "Required approvals, required test results"),
+        ("Information &\nCommunication", "PR comments, linked tickets, linked prompts"),
+        ("Monitoring", "Audit report of every merged PR over a period"),
+    ]
+
+    # Column headers
+    card(ax, 0.2, 6.6, 5.4, 0.6, facecolor=DEEP_NAVY, radius=0.06)
+    card(ax, 6.4, 6.6, 5.4, 0.6, facecolor=BRIGHT_TEAL, radius=0.06)
+    ax.text(2.9, 6.9, "COSO Component", ha="center", va="center",
+            fontsize=12.5, color=WHITE, fontweight="bold")
+    ax.text(9.1, 6.9, "Pull Request Mechanic", ha="center", va="center",
+            fontsize=12.5, color=DEEP_NAVY, fontweight="bold")
+
+    row_h = 1.18
+    top_y = 6.45
+    for i, (coso, pr) in enumerate(rows):
+        y_pos = top_y - i * row_h
+        fill = LIGHT_GRAY if i % 2 == 0 else WHITE
+        card(ax, 0.2, y_pos - row_h + 0.1, 5.4, row_h - 0.12, facecolor=fill, edgecolor=LIGHT_GRAY, radius=0.03)
+        card(ax, 6.4, y_pos - row_h + 0.1, 5.4, row_h - 0.12, facecolor=fill, edgecolor=LIGHT_GRAY, radius=0.03)
+        mid_y = y_pos - row_h / 2 + 0.04
+        ax.text(0.5, mid_y, coso, ha="left", va="center",
+                fontsize=11.5, color=DEEP_NAVY, fontweight="bold", linespacing=1.3)
+        ax.text(6.7, mid_y, pr, ha="left", va="center",
+                fontsize=11, color=OCEAN_TEAL, linespacing=1.3, wrap=True)
+        ax.text(6.0, mid_y, "→", ha="center", va="center",
+                fontsize=15, color=OCEAN_TEAL, fontweight="bold")
+
+    save(fig, "20e_coso_mapping.png")
+
+
 if __name__ == "__main__":
     print("Generating Article 20e visuals...")
     make_hero()
+    make_coso_mapping()
     print("Done.")

@@ -1178,6 +1178,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#push-pull-and-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push, Pull, and Main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#but-accountants-already-use-primitive-version-control" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2060,6 +2071,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#push-pull-and-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push, Pull, and Main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#but-accountants-already-use-primitive-version-control" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2216,8 +2238,12 @@
 <td>A scenario / draft version of the budget</td>
 </tr>
 <tr>
+<td><strong>Main (or master) branch</strong></td>
+<td>The official ledger everyone trusts — the version that's "live"</td>
+</tr>
+<tr>
 <td><strong>Merge</strong></td>
-<td>Posting the approved entry to the final ledger</td>
+<td>Posting the approved entry to the final ledger (the <strong>main</strong> branch)</td>
 </tr>
 <tr>
 <td><strong>Pull request</strong></td>
@@ -2225,7 +2251,7 @@
 </tr>
 <tr>
 <td><strong>Revert</strong></td>
-<td>A correcting entry (without erasing history)</td>
+<td>A correcting entry, made as a new commit that preserves history — and like any other change, it typically goes through its own review and approval before it's accepted</td>
 </tr>
 <tr>
 <td><strong>Tag</strong></td>
@@ -2243,6 +2269,41 @@
 </table>
 <p>Read that table twice. <strong>Every Git concept is already part of how you work.</strong></p>
 <p>The only thing Git adds is <em>consistency</em> — it stops humans from forgetting to write the memo.</p>
+<hr />
+<h2 id="push-pull-and-main">Push, Pull, and Main</h2>
+<p><em>Three words worth knowing on their own — the accounting analogy gets looser here.</em></p>
+<p><code>Main</code> and <code>merge</code> already showed up in the table above with a fairly clean accounting parallel. <code>Push</code> and <code>pull</code> are looser — but the analogy still holds well enough to be useful, and the mechanics matter enough that they're worth spelling out directly rather than only through analogy:</p>
+<table>
+<thead>
+<tr>
+<th>Git Word</th>
+<th>What It Actually Means</th>
+<th>Closest Accounting Parallel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>main</code></strong> (or <code>master</code>)</td>
+<td>The official, current version everyone treats as live.</td>
+<td>The final ledger, as above.</td>
+</tr>
+<tr>
+<td><strong>Push</strong></td>
+<td>Sending your committed changes up to the shared repository.</td>
+<td>Submitting your completed workpaper for review.</td>
+</tr>
+<tr>
+<td><strong>Pull</strong></td>
+<td>Bringing someone else's changes into yours, or into <code>main</code>.</td>
+<td>A reviewer incorporating an approved submission into the official file.</td>
+</tr>
+</tbody>
+</table>
+<p>A bit more on the mechanics: a push can be one commit at a time, or a batch of several commits sent up together once you're ready. And pull is literally what happens when a reviewer accepts a pull request — they're <strong>pulling</strong> your branch's changes into <code>main</code>.</p>
+<p>Here's what that looks like when more than one person is working at once:</p>
+<p><img alt="Branches merging into main" src="visuals/20b_branch_diagram.png" /></p>
+<p><code>main</code> runs down the middle as the official version. Two people can branch off it at the same time — Susan drafting a scenario, you drafting another — and neither blocks the other. When a branch is ready, its pull request asks the approver to pull those changes into <code>main</code>. The approver can see every branch waiting for review, and can merge each one independently as long as they don't conflict with each other.</p>
+<p>Compare that to editing the same file together in Excel Online or SharePoint: multiple people <em>can</em> edit at once, but there's no automatic record of who changed what and why — only what someone happens to type into a comment or a version note. <a href="../20d-github-vs-shared-drives/#but-we-have-onedrive--sharepoint-versioning">Article 20d</a> covers that comparison in full.</p>
 <hr />
 <h2 id="but-accountants-already-use-primitive-version-control">"But Accountants Already Use Primitive Version Control"</h2>
 <p>Of course we do. Look at how we name files when we're trying to be careful:</p>
@@ -2284,10 +2345,7 @@
 </blockquote>
 <hr />
 <h2 id="a-framework-not-a-tool">A Framework, Not a Tool</h2>
-<blockquote>
-<p><strong>🛠️ Reminder — this is a framework.</strong></p>
-<p>Every concept above (commit, branch, PR, tag) exists in <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, and <strong>AWS CodeCommit</strong> with nearly identical names. Pick the one your company already pays for. We use GitHub in this series because the UI is the friendliest for non-engineers.</p>
-</blockquote>
+<p>Same reminder as always → see the hub's <a href="../20-version-control-for-accountants/#a-framework-not-a-tool">A Framework, Not a Tool</a>. Every concept above (commit, branch, PR, tag) exists in <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, and <strong>AWS CodeCommit</strong> with nearly identical names. Pick the one your company already pays for. We use GitHub in this series because the UI is the friendliest for non-engineers.</p>
 <hr />
 <h2 id="the-fear-drop">The Fear Drop</h2>
 <p>Most accountants who get scared off Git get scared by the <strong>terminal</strong>.</p>

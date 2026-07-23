@@ -2197,17 +2197,18 @@
 <p><img alt="Pull Requests Are Internal Controls" src="visuals/20e_hero.png" /></p>
 <hr />
 <h2 id="the-most-misunderstood-word-in-this-series">The Most Misunderstood Word in This Series</h2>
-<p>"Pull request" is the worst-named good idea in software.</p>
-<p>It is not a request to pull anything. Nobody pulls anything. It's a <strong>review-and-approval workflow</strong> with a confusing name.</p>
+<p>"Pull request" sounds backwards the first time you hear it — but the name actually does make sense once you see whose point of view it's named from. (If <code>push</code>, <code>pull</code>, and <code>main</code> are new words, <a href="../20b-git-in-accounting-terms/#push-pull-and-main">Article 20b</a> covers them.)</p>
+<p>Here's the mechanic: you make your change on a branch and <strong>push</strong> it — send your committed changes up to the shared repository. That can happen one commit at a time, or as a batch of several commits pushed together once you're ready. Then you open a pull request — which is your explicit ask for the reviewer to <strong>pull</strong> those changes from your branch into <code>main</code>. The request is named from the <em>reviewer's</em> side of the action, not yours: you're asking them to pull your work in.</p>
+<p>And critically: a pull request has to be <strong>accepted</strong>. Opening one doesn't change anything by itself — nothing moves into <code>main</code> until a reviewer approves and merges it.</p>
 <p>Here is the entire concept in one sentence:</p>
 <blockquote>
-<p>A pull request says: <em>"I'd like to make this change. Please review it before it becomes part of the official record."</em></p>
+<p>A pull request says: <em>"I'd like to make this change. Please pull it into the official record — after you've reviewed it."</em></p>
 </blockquote>
 <p>Now translate that into accounting:</p>
 <blockquote>
 <p><em>"I'd like to post this JE. Please review the supporting documentation before it hits the GL."</em></p>
 </blockquote>
-<p>You already know how this works. You've been doing it for decades. Software designers just gave it an odd name.</p>
+<p>You already know how this works. You've been doing it for decades. Software designers just gave it a name that describes the reviewer's action, not the author's.</p>
 <hr />
 <h2 id="the-accounting-control-that-was-always-there">The Accounting Control That Was Always There</h2>
 <table>
@@ -2248,7 +2249,7 @@
 </tr>
 </tbody>
 </table>
-<p>If you've ever signed off on a recon, you've already done the human work of a pull request ("PR") The PR is the same workflow with the <strong>paperwork built in</strong>.</p>
+<p>If you've ever signed off on a recon, you've already done the human work of a pull request ("PR"). The PR is the same workflow with the <strong>paperwork built in</strong>.</p>
 <hr />
 <h2 id="why-this-matters-for-ai">Why This Matters For AI</h2>
 <p>Here is the new risk:</p>
@@ -2305,34 +2306,32 @@
 <tbody>
 <tr>
 <td>Control Environment</td>
-<td>Branch protection rules, written PR template</td>
+<td>Branch protection rules and a written PR template set the tone: no one — not even the CFO or the AI agent — merges without a second reviewer.</td>
 </tr>
 <tr>
 <td>Risk Assessment</td>
-<td>"What does this change affect?" section of the PR</td>
+<td>The "what does this change affect?" section of the PR is where the preparer documents what could go wrong if this change is bad, not just what changed.</td>
 </tr>
 <tr>
 <td>Control Activities</td>
-<td>Required approvals, required test results</td>
+<td>Required approvals and required test results are enforced by the platform before merge is even possible — the control can't be skipped under deadline pressure.</td>
 </tr>
 <tr>
 <td>Information &amp; Communication</td>
-<td>PR comments, linked tickets, linked prompts</td>
+<td>PR comments, linked tickets, and linked prompts create a searchable record of <em>why</em> a decision was made, available to anyone who needs it later — including an auditor.</td>
 </tr>
 <tr>
 <td>Monitoring</td>
-<td>Audit report of every merged PR over a period</td>
+<td>An audit report of every merged PR over a period gives management an ongoing view of whether the control is actually operating, not just designed.</td>
 </tr>
 </tbody>
 </table>
+<p><img alt="The five COSO components mapped to pull request mechanics" src="visuals/20e_coso_mapping.png" /></p>
 <p>If your auditor has never asked about Git, they will. AI governance frameworks (the AICPA AI assurance guidance, the EU AI Act, NIST AI RMF) all eventually point to the same thing: <strong>show me the change log, the reviewer, and the approval evidence.</strong></p>
-<p>The PR is the cleanest way to produce that evidence on demand.</p>
+<p>The PR is the cleanest way to produce that evidence on demand. For the fuller AI-governance picture this control sits inside, see <a href="../07-ai-governance-for-controllers/">Article 07 — AI Governance for Controllers</a>, which covers the COSO generative-AI guidance this table draws from.</p>
 <hr />
 <h2 id="a-framework-not-a-tool">A Framework, Not a Tool</h2>
-<blockquote>
-<p><strong>🛠️ Reminder — this is a framework.</strong></p>
-<p>Pull requests work identically in <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, and <strong>AWS CodeCommit</strong> (which calls its review workflow "approval rule templates" but the user experience is the same). Pick the one your enterprise already governs. The control is the control.</p>
-</blockquote>
+<p>Same reminder as always → see the hub's <a href="../20-version-control-for-accountants/#a-framework-not-a-tool">A Framework, Not a Tool</a>. Pull requests work identically in <strong>GitHub</strong>, <strong>Azure DevOps Repos</strong>, and <strong>AWS CodeCommit</strong> (which calls its review workflow "approval rule templates" but the user experience is the same). Pick the one your enterprise already governs. The control is the control.</p>
 <hr />
 <h2 id="real-example-end-to-end">Real Example, End To End</h2>
 <blockquote>
