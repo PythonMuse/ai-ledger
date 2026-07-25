@@ -204,7 +204,7 @@ def make_diff_comparison():
         ("-", "    return df['B'][1:10].sum()", ALERT_RED),
         ("+", "    return df['B'][1:12].sum()", SOFT_SAGE),
         (" ", "", WHITE),
-        (" ", "# 2 lines changed, 1 file", WARM_GLOW),
+        (" ", "# 1 line changed, 1 file", WARM_GLOW),
     ]
     for i, (marker, text, color) in enumerate(diff_lines):
         y_pos = 4.55 - i * 0.55

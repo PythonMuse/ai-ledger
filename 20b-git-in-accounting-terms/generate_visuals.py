@@ -13,7 +13,7 @@ DPI: 180. Font sizes follow SKILL.md minimums.
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch
+from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 import os
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -156,12 +156,18 @@ def make_branch_diagram():
     # branch A: fork from top of main, run in parallel, merge back in
     ax.plot([main_x, a_x], [main_ys[0], a_ys[0]], color=BRIGHT_TEAL, linewidth=2.5, zorder=1)
     ax.plot([a_x, a_x], [a_ys[0], a_ys[-1]], color=BRIGHT_TEAL, linewidth=2.5, zorder=1)
-    ax.plot([a_x, main_x], [a_ys[-1], main_ys[1]], color=BRIGHT_TEAL, linewidth=2.5, zorder=1)
+    ax.add_patch(FancyArrowPatch((a_x, a_ys[-1]), (main_x, main_ys[1]),
+                                  arrowstyle="-|>", mutation_scale=18,
+                                  color=BRIGHT_TEAL, linewidth=2.5,
+                                  shrinkA=6, shrinkB=10, zorder=1))
 
     # branch B: fork from top of main, run in parallel, merge back in lower down
     ax.plot([main_x, b_x], [main_ys[0], b_ys[0]], color=SOFT_SAGE, linewidth=2.5, zorder=1)
     ax.plot([b_x, b_x], [b_ys[0], b_ys[-1]], color=SOFT_SAGE, linewidth=2.5, zorder=1)
-    ax.plot([b_x, main_x], [b_ys[-1], main_ys[2]], color=SOFT_SAGE, linewidth=2.5, zorder=1)
+    ax.add_patch(FancyArrowPatch((b_x, b_ys[-1]), (main_x, main_ys[2]),
+                                  arrowstyle="-|>", mutation_scale=18,
+                                  color=SOFT_SAGE, linewidth=2.5,
+                                  shrinkA=6, shrinkB=10, zorder=1))
 
     # commit dots
     for y in main_ys:
@@ -179,12 +185,13 @@ def make_branch_diagram():
     ax.text(main_x + 0.9, main_ys[0] + 0.15, "main", ha="left", va="center",
             fontsize=13, color=DEEP_NAVY, fontweight="bold")
 
-    # merge annotations
-    ax.text(main_x + 0.35, (a_ys[-1] + main_ys[1]) / 2 + 0.05,
-            "PR approved\n→ merge", ha="left", va="center",
+    # merge annotations — placed on the side each arrow approaches main from, so the
+    # label reads in the same direction as the arrow; top one nudged up clear of the arrow line
+    ax.text(main_x - 0.4, a_ys[-1] + 0.2,
+            "PR approved\n→ merge", ha="right", va="center",
             fontsize=10.5, color=BRIGHT_TEAL, fontweight="bold", linespacing=1.3)
-    ax.text(main_x + 0.35, (b_ys[-1] + main_ys[2]) / 2 - 0.05,
-            "PR approved\n→ merge", ha="left", va="center",
+    ax.text(main_x - 0.4, main_ys[2],
+            "PR approved\n→ merge", ha="right", va="center",
             fontsize=10.5, color=SEA_GREEN, fontweight="bold", linespacing=1.3)
 
     ax.text(main_x, main_ys[0] + 0.5, "Everyone starts here", ha="center", va="center",
