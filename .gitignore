@@ -29,8 +29,9 @@ my_ideas.md
 .claude/
 
 # Articles not yet ready to publish
-articles/18-scheduled-workflows/
-articles/19-multi-agent-orchestration/
+# (none currently — add a folder here to hold an article back. If you do,
+# also keep it out of mkdocs.yml nav, README.md, and articles/index.md, or
+# the site will show a menu entry pointing at a 404.)
 
 # Visuals not ready to publish
 articles/21-three-mindsets-of-ai-adoption/visuals/21_mindset_overview.png

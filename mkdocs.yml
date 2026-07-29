@@ -70,6 +70,7 @@ nav:
     - Your First CLAUDE.md: 17b-your-first-claude-md/README.md
     - AI That Runs Before You Log In: 18-ai-runs-before-you-log-in/README.md
     - Multi-Agent Orchestration: 19-multi-agent-orchestration/README.md
+    - From Reports to Requests (MCP): 34-model-context-protocol-for-accounting/README.md
     - What the Heck Is a Script?: 25-what-the-heck-is-a-script/README.md
     - VS Code Extensions for Accountants: 27-vscode-extensions-for-accountants/README.md
     - Python Libraries for Accountants: 28-python-libraries-for-accountants/README.md
