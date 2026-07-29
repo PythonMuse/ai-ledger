@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://pythonmuse.com/34-model-context-protocol-for-accounting/">
       
       
+        <link rel="prev" href="../19-multi-agent-orchestration/">
+      
+      
+        <link rel="next" href="../25-what-the-heck-is-a-script/">
       
       
         
@@ -25,7 +29,7 @@
     
     
       
-        <title>From Clicking Reports to Talking with the ERP - PythonMuse</title>
+        <title>From Reports to Requests (MCP) - PythonMuse</title>
       
     
     
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              From Clicking Reports to Talking with the ERP
+              From Reports to Requests (MCP)
             
           </span>
         </div>
@@ -288,10 +292,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../17-skills-and-agents-for-accountants/" class="md-tabs__link">
           
   
@@ -1454,24 +1460,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1489,7 +1500,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1591,7 +1602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../19-multi-agent-orchestration/README.md" class="md-nav__link">
+      <a href="../19-multi-agent-orchestration/" class="md-nav__link">
         
   
   
@@ -1607,6 +1618,374 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Reports to Requests (MCP)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Reports to Requests (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-system-navigation-to-business-intent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From System Navigation to Business Intent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-mcp-isand-what-it-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What MCP Is—and What It Is Not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-fictional-multi-erp-consolidation-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Fictional Multi-ERP Consolidation Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-direct-erp-access-does-not-automatically-create-accounting-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Direct ERP Access Does Not Automatically Create Accounting Intelligence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself-a-companion-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try It Yourself: A Companion Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opportunities-beyond-financial-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opportunities Beyond Financial Reporting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opportunities Beyond Financial Reporting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accounts-receivable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts receivable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounts-payable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts payable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#close-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Close management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlled-transaction-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlled transaction preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits-risks-and-suggested-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits, Risks, and Suggested Controls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-emerging-ai-erp-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Emerging AI ERP Ecosystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Emerging AI ERP Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rillet-ai-built-into-the-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rillet: AI Built Into the Ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10x-erp-ask-act-and-automate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10X ERP: Ask, Act, and Automate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle-netsuite-extending-an-existing-erp-through-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oracle NetSuite: Extending an Existing ERP Through MCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-dynamics-365-connecting-agents-to-data-and-business-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft Dynamics 365: Connecting Agents to Data and Business Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-implementation-and-enablement-layer-not-every-vendor-wants-to-replace-your-erp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Implementation and Enablement Layer: Not Every Vendor Wants to Replace Your ERP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-future-accounting-technology-stack-may-look-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Future Accounting Technology Stack May Look Like
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What the Future Accounting Technology Stack May Look Like">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-one-conversational-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage One: Conversational Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-two-governed-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage Two: Governed Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-three-controlled-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage Three: Controlled Action
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-accountants-role-in-an-mcp-enabled-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Accountant's Role in an MCP-Enabled Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2643,7 +3022,7 @@
 <p>Some workflows may remain read-only. Others may permit preparation but not posting. A smaller number may eventually support controlled autonomous execution.</p>
 <p>The appropriate level should depend on risk, materiality, data quality, system maturity, and the organization's ability to monitor the results.</p>
 <blockquote>
-<p><strong>Related read:</strong> For a closer look at how orchestrating several specialized agents — rather than one long chat — keeps a workflow like multi-ERP consolidation reviewable, see <a href="../19-multi-agent-orchestration/README.md">When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting</a>.</p>
+<p><strong>Related read:</strong> For a closer look at how orchestrating several specialized agents — rather than one long chat — keeps a workflow like multi-ERP consolidation reviewable, see <a href="../19-multi-agent-orchestration/">When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting</a>.</p>
 </blockquote>
 <h2 id="the-accountants-role-in-an-mcp-enabled-environment">The Accountant's Role in an MCP-Enabled Environment</h2>
 <p>As the technology becomes more capable, the accountant's responsibility does not disappear. It becomes more explicit.</p>
@@ -2679,7 +3058,7 @@
 <hr />
 <p><strong>A note on how this article was made.</strong> This article started with me. The question — what MCP could mean for accountants who have spent careers learning where every report lives — and the fictional consolidation walkthrough are mine. ChatGPT (5.5, "Sol") helped me shape my notes and research into a structured first draft. Claude Sonnet and Claude Opus then reviewed that draft for accuracy — catching a few claims that needed real sourcing before publication — and helped co-build the companion demo repository so you can run this instead of just reading about it. GitHub Copilot (Claude Sonnet 5) built the final article, the companion visuals, and the remaining repo scaffolding — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
 <hr />
-<p><em>Related: <a href="../19-multi-agent-orchestration/README.md">When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting</a> | <a href="../13-zero-trust-ai-accounting/">AI in Accounting Isn't Just About Efficiency — It's About Control</a> | <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails: How Accountants Can Validate AI Output</a> | <a href="../07-ai-governance-for-controllers/">AI Governance for Controllers</a></em></p>
+<p><em>Related: <a href="../19-multi-agent-orchestration/">When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting</a> | <a href="../13-zero-trust-ai-accounting/">AI in Accounting Isn't Just About Efficiency — It's About Control</a> | <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails: How Accountants Can Validate AI Output</a> | <a href="../07-ai-governance-for-controllers/">AI Governance for Controllers</a></em></p>
 
 
 
