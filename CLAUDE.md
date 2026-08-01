@@ -44,6 +44,7 @@ We are not here to shame people for being behind on AI — we are here to help t
 
 ## Working conventions
 
+- New articles are drafted on a dedicated `article/NN-slug` branch created from `main` — never committed straight to `main`. Once the draft is ready, Claude pushes that branch to `origin` (with explicit confirmation, per Operating boundaries below) and stops there: opening the pull request on GitHub.com, contributor review, and merging into `main` are done by the user. This is separate from the external-contributor fork+PR flow described in `CONTRIBUTING.md`.
 - New articles follow the numbered folder pattern above; update the article index table in root `README.md` when adding one.
 - Run `/publish-article` against a new or edited article before treating it as ready — it enforces the standard title/byline/date/related-links format.
 - Byline is `PythonMuse LLC` for all new articles (articles 01–15 use `Svetlana Toohey` — leave those as-is).
