@@ -47,11 +47,12 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 26 | [When Your AI Enters Month-End Close Mode](articles/26-when-your-ai-enters-month-end-close-mode/) | Context drift, session management, context window, accounting analogies, SKILL files, checkpoints |
 | 27 | [Visual Studio Code Extensions for Accountants](articles/27-vscode-extensions-for-accountants/) | VS Code extensions, governance, security, minimalism, extensions vs libraries, starter stack |
 | 28 | [Python Libraries for Accountants: Skills You Teach Your Code](articles/28-python-libraries-for-accountants/) | Python libraries, pandas, openpyxl, matplotlib, pip install, environments, extensions vs libraries |
-| 29 | [The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run](articles/29-loops-the-automation-that-feels-magical/) | Workflow automation, YAML configuration, loop governance, review before run, abstraction layers |
 | 30 | [AI Routines for Accountants: When Your Guidance Starts Checking Itself](articles/30-ai-routines-for-accountants/) | AI routines, monitoring workflows, proposed change packages, human review gates, audit evidence, tax guidance example |
 | 31 | [Metadata Is the Label Maker Your AI Workflow Needs](articles/31-metadata-is-the-label-maker/) | Metadata governance, SKILL.md, file manifests, scripts vs. controls, hooks, audit trail |
 | 32 | [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](articles/32-from-ai-answers-to-audit-trails/) | AI output validation, chat vs. harness, tie-out reports, evidence trails, reviewer checklists |
 | 33 | [When Copilot Is the Only Approved AI Tool](articles/33-copilot-only-approved-ai-tool/) | Microsoft Copilot, AI harness comparison, IT-approved tools, validation, governance |
+| 34 | [From Reports to Requests](articles/34-model-context-protocol-for-accounting/) | Model Context Protocol, MCP, APIs vs. MCP, AI builders, workflow design, accounting team roles |
+| 35 | [Don't Just Prompt AI. ONBOARD It.](articles/35-onboard-ai-workflows/) | ONBOARD checklist, AGENTS.md, controlled workflow onboarding, variance review example, review and documentation |
 
 
 ---

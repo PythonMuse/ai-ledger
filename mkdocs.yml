@@ -74,11 +74,11 @@ nav:
     - What the Heck Is a Script?: 25-what-the-heck-is-a-script/README.md
     - VS Code Extensions for Accountants: 27-vscode-extensions-for-accountants/README.md
     - Python Libraries for Accountants: 28-python-libraries-for-accountants/README.md
-    - The Magic Loop: 29-loops-the-automation-that-feels-magical/README.md
     - AI Routines for Accountants: 30-ai-routines-for-accountants/README.md
     - Metadata Is the Label Maker: 31-metadata-is-the-label-maker/README.md
     - From AI Answers to Audit Trails: 32-from-ai-answers-to-audit-trails/README.md
     - When Copilot Is the Only Approved AI Tool: 33-copilot-only-approved-ai-tool/README.md
+    - "Don't Just Prompt AI. ONBOARD It.": 35-onboard-ai-workflows/README.md
 
 markdown_extensions:
   - admonition

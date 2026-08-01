@@ -289,4 +289,4 @@ And now, the rest of the world is starting to catch up.
 
 ---
 
-*Related: [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/)*
+*Related: [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [From Reports to Requests](../34-model-context-protocol-for-accounting/)*
