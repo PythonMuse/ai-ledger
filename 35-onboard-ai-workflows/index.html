@@ -1,0 +1,2948 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/35-onboard-ai-workflows/">
+      
+      
+        <link rel="prev" href="../33-copilot-only-approved-ai-tool/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Don't Just Prompt AI. ONBOARD It. - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dont-just-prompt-ai-onboard-it" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Don't Just Prompt AI. ONBOARD It.
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../17-skills-and-agents-for-accountants/" class="md-tabs__link">
+          
+  
+  
+  Skills & Automation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-three-mindsets-of-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The 3 Mindsets of AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-when-your-ai-enters-month-end-close-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Your AI Enters Month-End Close Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-ai-team-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stop Using One AI Like It Is Excel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ai-and-excel-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI and Excel Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-pdf-token-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PDF Token Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-excel-number-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Number Format Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-audit-ready-ai-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit-Ready AI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-zero-trust-ai-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-version-control-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20a-final-v2-xlsx-disaster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20a. The FINAL_v2.xlsx Disaster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20b-git-in-accounting-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20b. Git Explained Using Accounting Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20c-finance-repo-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20c. How Finance Teams Should Structure AI Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20d-github-vs-shared-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20d. GitHub vs. The Shared Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20e-pull-requests-are-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20e. Pull Requests Are Internal Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20f-reproducible-financial-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20f. Reproducible Financial Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-ai-use-cases-and-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Use Cases and Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-one-time-to-repeatable-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Time to Repeatable Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-workings-layer-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Workings Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-schema-driven-sanitization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema-Driven Sanitization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Automation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills & Automation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-skills-and-agents-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills and Agents for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17b-your-first-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-ai-runs-before-you-log-in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI That Runs Before You Log In
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-multi-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Orchestration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-model-context-protocol-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Reports to Requests (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-what-the-heck-is-a-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What the Heck Is a Script?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-vscode-extensions-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VS Code Extensions for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-python-libraries-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-ai-routines-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Routines for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-metadata-is-the-label-maker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Is the Label Maker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-from-ai-answers-to-audit-trails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From AI Answers to Audit Trails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-copilot-only-approved-ai-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Copilot Is the Only Approved AI Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Don't Just Prompt AI. ONBOARD It.
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Don't Just Prompt AI. ONBOARD It.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-example-building-a-monthly-variance-review-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Example: Building a Monthly Variance Review Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-organize-the-workspace-and-define-ais-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O — Organize the Workspace and Define AI's Role
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O — Organize the Workspace and Define AI&#39;s Role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-1-create-the-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 1: Create the Workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-agent-instructions-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Agent-Instructions File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-2-draft-the-agent-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 2: Draft the Agent File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-3-apply-the-approved-agent-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 3: Apply the Approved Agent Instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#n-name-the-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N — Name the Assignment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="N — Name the Assignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-4-draft-the-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 4: Draft the Assignment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-brief-ai-on-the-business" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — Brief AI on the Business
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B — Brief AI on the Business">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-5-let-ai-interview-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 5: Let AI Interview You
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-obtain-and-approve-a-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O — Obtain and Approve a Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O — Obtain and Approve a Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-6-propose-the-execution-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 6: Propose the Execution Plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-allow-controlled-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Allow Controlled Execution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A — Allow Controlled Execution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-7-prepare-the-controlled-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 7: Prepare the Controlled Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r-review-the-work-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R — Review the Work and Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="R — Review the Work and Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-8-prepare-the-review-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 8: Prepare the Review Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-document-what-was-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D — Document What Was Learned
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="D — Document What Was Learned">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-9-review-the-permanent-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 9: Review the Permanent Instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#then-repeat-the-controlled-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Then Repeat the Controlled Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#written-rules-are-the-beginning-not-the-entire-control-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Written Rules Are the Beginning, Not the Entire Control Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-workflow-will-teach-you-what-you-forgot-to-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Workflow Will Teach You What You Forgot to Explain
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-example-building-a-monthly-variance-review-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Example: Building a Monthly Variance Review Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-organize-the-workspace-and-define-ais-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O — Organize the Workspace and Define AI's Role
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O — Organize the Workspace and Define AI&#39;s Role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-1-create-the-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 1: Create the Workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-agent-instructions-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Agent-Instructions File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-2-draft-the-agent-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 2: Draft the Agent File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-3-apply-the-approved-agent-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 3: Apply the Approved Agent Instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#n-name-the-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N — Name the Assignment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="N — Name the Assignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-4-draft-the-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 4: Draft the Assignment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-brief-ai-on-the-business" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — Brief AI on the Business
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B — Brief AI on the Business">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-5-let-ai-interview-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 5: Let AI Interview You
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-obtain-and-approve-a-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O — Obtain and Approve a Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O — Obtain and Approve a Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-6-propose-the-execution-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 6: Propose the Execution Plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-allow-controlled-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — Allow Controlled Execution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A — Allow Controlled Execution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-7-prepare-the-controlled-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 7: Prepare the Controlled Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r-review-the-work-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R — Review the Work and Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="R — Review the Work and Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-8-prepare-the-review-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 8: Prepare the Review Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-document-what-was-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D — Document What Was Learned
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="D — Document What Was Learned">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt-9-review-the-permanent-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Prompt 9: Review the Permanent Instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#then-repeat-the-controlled-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Then Repeat the Controlled Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#written-rules-are-the-beginning-not-the-entire-control-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Written Rules Are the Beginning, Not the Entire Control Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-workflow-will-teach-you-what-you-forgot-to-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Workflow Will Teach You What You Forgot to Explain
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dont-just-prompt-ai-onboard-it">Don't Just Prompt AI. ONBOARD It.</h1>
+<p><em>A practical starter method for building your first accounting workflow</em></p>
+<hr />
+<p><strong>PythonMuse LLC</strong>
+<em>Published August 2026</em></p>
+<p><img alt="The ONBOARD Checklist" src="visuals/35_hero.png" /></p>
+<hr />
+<p>You completed the class.</p>
+<p>You followed the micro-learnings.</p>
+<p>You learned about prompts, agents, skills, scripts, hooks, and repositories — enough new terminology to make you briefly miss the simplicity of a 14-tab Excel workbook.</p>
+<p>You are ready to build something.</p>
+<p>Then you open a blank folder and think:</p>
+<p><strong>What exactly am I supposed to tell AI first?</strong></p>
+<p>The first instruction should not be:</p>
+<blockquote>
+<p>Analyze this file.</p>
+</blockquote>
+<p>It should not even be:</p>
+<blockquote>
+<p>Build me an accounting agent.</p>
+</blockquote>
+<p>Your first step is to create a controlled place for the work and explain how AI is expected to operate inside it.</p>
+<p>Think about how you would assign work to a new accounting intern. You would not forward the intern a general ledger, disappear into meetings for three days, and return expecting a completed management report. You would explain the role, the purpose of the assignment, the steps to perform, what the intern is allowed to do, what the intern must not do, when to stop and ask questions, what evidence must be preserved, and who is responsible for reviewing the work.</p>
+<p>AI needs the same kind of onboarding.</p>
+<p>The analogy has limits. AI is not an employee, does not accept professional responsibility, and does not reliably follow every instruction simply because you wrote it in a Markdown file. But written instructions are still an important starting point. They help AI understand the intended workflow, and they help you — the accountant — recognize where written instructions alone are insufficient and stronger controls, such as permissions, validation scripts, or hooks, may be needed.</p>
+<p>If you've already read <a href="../11-one-time-to-repeatable-workflows/">From One-Time Analysis to Repeatable Workflows</a>, you know the moment you run something twice, it stops being analysis and becomes a system. ONBOARD is how you bring AI into that system deliberately, from the very first run, instead of discovering the rules the hard way in month three.</p>
+<p>The <strong>PythonMuse ONBOARD checklist</strong> gives you a practical way to begin:</p>
+<ul>
+<li><strong>O — Organize the workspace and define AI's role</strong></li>
+<li><strong>N — Name the assignment</strong></li>
+<li><strong>B — Brief AI on the business</strong></li>
+<li><strong>O — Obtain and approve a plan</strong></li>
+<li><strong>A — Allow controlled execution</strong></li>
+<li><strong>R — Review the work and evidence</strong></li>
+<li><strong>D — Document what was learned</strong></li>
+</ul>
+<p>This is not a one-prompt formula. It is a supervised process for turning accounting knowledge — including the knowledge you didn't know you had — into a repeatable workflow.</p>
+<blockquote>
+<p><strong>🛠️ Reminder — this is a framework.</strong> The worked example below uses <code>AGENTS.md</code> inside Claude Code, running in VS Code through the GitHub Copilot extension — that's the daily setup this article was tested against. But ONBOARD is not a Claude feature, and it isn't tied to any single vendor. The same seven steps apply if your organization standardizes on ChatGPT with file uploads and custom instructions, Gemini, or any other MCP- or tool-use-capable client. You might call the instruction file something else — <code>CLAUDE.md</code>, <code>.cursor/rules</code>, a system prompt — but the discipline of organizing, naming, briefing, obtaining approval, allowing controlled execution, reviewing, and documenting stays identical. This series teaches the framework, not the vendor.</p>
+</blockquote>
+<hr />
+<h2 id="the-example-building-a-monthly-variance-review-workflow">The Example: Building a Monthly Variance Review Workflow</h2>
+<p>Suppose you want to build a workflow that compares current-year and prior-year operating expenses, identifies material variances, and prepares questions for management.</p>
+<p>You may already know how to perform this review manually. The challenge is making your knowledge explicit enough that AI can assist without guessing what you meant.</p>
+<p>Here is how to execute the workflow using ONBOARD.</p>
+<hr />
+<h2 id="o-organize-the-workspace-and-define-ais-role">O — Organize the Workspace and Define AI's Role</h2>
+<p>Before giving AI financial data, create a structured project folder. A forthcoming <strong>PythonMuse Accounting Workflow Starter Kit</strong> will provide a reusable starting structure — but you can build the same shape yourself today:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>monthly-variance-review/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── AGENTS.md
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── plan.md
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── status_update.md
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── backlog.md
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── data/
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   ├── raw/
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   └── processed/
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── scripts/
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── prompts/
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── outputs/
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── evidence/
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── skills/
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└── docs/
+</code></pre></div>
+<p><img alt="The Onboarding Workspace" src="visuals/35_workspace_structure.png" /></p>
+<p>The first prompt should ask AI to create the workspace, explain its structure, and draft the primary agent-instruction file.</p>
+<h3 id="sample-prompt-1-create-the-workspace">Sample Prompt 1: Create the Workspace</h3>
+<blockquote>
+<p>Create a new project workspace named <code>monthly-variance-review</code>.</p>
+<p>Create the recommended folders and the following starter files:</p>
+<ul>
+<li><code>AGENTS.md</code></li>
+<li><code>plan.md</code></li>
+<li><code>status_update.md</code></li>
+<li><code>backlog.md</code></li>
+</ul>
+<p>Do not process any accounting data yet.</p>
+<p>Do not create business rules that I have not provided.</p>
+<p>After creating the workspace, explain the purpose of each folder and file.</p>
+</blockquote>
+<p>At this stage, review whether the structure makes sense for the workflow. Do not add sensitive source data simply because the folders now look impressive.</p>
+<p>A neat folder structure is not a security control. It is just a neat folder structure.</p>
+<h3 id="create-the-agent-instructions-file">Create the Agent-Instructions File</h3>
+<p>The next step is to define how AI should operate within this project.</p>
+<p>The primary agent file may be named <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or another filename required by the AI harness you're using. The exact filename matters less than the content — and whether the tool you picked actually reads it. If you want the fuller walkthrough of what belongs inside that file, <a href="../17b-your-first-claude-md/">Your First CLAUDE.md</a> covers the anatomy in more depth than we have room for here.</p>
+<p>At a minimum, the file should contain three sections.</p>
+<p><strong>1. AI's Role</strong></p>
+<p>Explain what AI is within this workflow. For example:</p>
+<blockquote>
+<p>AI serves as an accounting workflow co-pilot supporting the preparation of a monthly operating-expense variance review.</p>
+<p>AI may organize files, inspect approved data structures, propose processing logic, create reviewed scripts, perform approved calculations, prepare draft outputs, run validation checks, and document exceptions.</p>
+<p>AI does not replace the preparer, reviewer, controller, or other responsible accounting professional.</p>
+</blockquote>
+<p><strong>2. What AI Is Allowed and Expected to Do</strong></p>
+<p>Describe the expected process step by step. For example:</p>
+<ol>
+<li>Read the approved project instructions.</li>
+<li>Confirm the required inputs are present.</li>
+<li>Inspect file headers and data structure.</li>
+<li>Identify missing fields or inconsistencies.</li>
+<li>Propose a processing plan.</li>
+<li>Wait for approval before processing data.</li>
+<li>Preserve raw source files without modification.</li>
+<li>Create transformed files only in approved folders.</li>
+<li>Perform the approved calculations.</li>
+<li>Run required validation checks.</li>
+<li>Save outputs and supporting evidence.</li>
+<li>Stop and report exceptions requiring accounting judgment.</li>
+<li>Propose updates to permanent instructions when new information is learned.</li>
+</ol>
+<p><strong>3. What AI Is Not Allowed to Do</strong></p>
+<p>These boundaries are especially important. For example:</p>
+<ul>
+<li>Do not alter files stored in <code>data/raw/</code>.</li>
+<li>Do not overwrite source reports.</li>
+<li>Do not invent missing accounting policies, mappings, thresholds, explanations, or approvals.</li>
+<li>Do not assume that an unexplained variance is an error.</li>
+<li>Do not post journal entries or modify the general ledger or any production accounting system.</li>
+<li>Do not distribute final reports without human review.</li>
+<li>Do not treat a generated explanation as verified fact.</li>
+<li>Do not send unmasked financial or sensitive data to an external cloud service.</li>
+<li>Do not copy sensitive fields into prompts, logs, error messages, or external tools.</li>
+<li>Do not continue processing when a required reconciliation fails.</li>
+<li>Do not change permanent workflow instructions without presenting the proposed changes for human approval.</li>
+</ul>
+<h3 id="sample-prompt-2-draft-the-agent-file">Sample Prompt 2: Draft the Agent File</h3>
+<blockquote>
+<p>Draft the primary agent-instruction file for this project.</p>
+<p>At a minimum, include:</p>
+<ol>
+<li><strong>AI's role in this folder and workflow</strong></li>
+<li><strong>What AI is allowed and expected to do</strong>, including the required step-by-step process</li>
+<li><strong>What AI is not allowed to do</strong></li>
+</ol>
+<p>Include explicit instructions that AI must not:</p>
+<ul>
+<li>Alter raw source files</li>
+<li>Invent accounting rules or explanations</li>
+<li>Post entries or modify production systems</li>
+<li>Distribute unreviewed outputs</li>
+<li>Pass unmasked sensitive or financial data to cloud-based tools for processing</li>
+<li>Continue when required validations fail</li>
+</ul>
+<p>Also define when AI must stop and ask for human review.</p>
+<p>Draft the file first and show it to me for review. Do not save or apply it until I approve it.</p>
+</blockquote>
+<p>Review this draft carefully. The fact that a restriction appears in <code>AGENTS.md</code> does <strong>not</strong> guarantee AI will never violate it. Written instructions guide model behavior — they are not the same as an enforced technical control.</p>
+<p>For example, an instruction stating that unmasked data must not leave the local environment is an important starting point. During implementation, AI may recommend stronger protections such as a masking script, a pre-processing validation, a prohibited-field scanner, restricted folder permissions, a hook that blocks an external tool call, an approved-tools list, a confirmation requirement before network access, or logging that records which files were transmitted or processed.</p>
+<p>That is a healthy progression. The instruction identifies the rule. The implementation process helps determine how the rule should be enforced.</p>
+<h3 id="sample-prompt-3-apply-the-approved-agent-instructions">Sample Prompt 3: Apply the Approved Agent Instructions</h3>
+<blockquote>
+<p>Apply the approved agent instructions to <code>AGENTS.md</code>.</p>
+<p>Then review the file for:</p>
+<ul>
+<li>Ambiguous language</li>
+<li>Conflicting instructions</li>
+<li>Missing stop conditions</li>
+<li>Rules that rely only on AI compliance but may require a stronger technical control</li>
+</ul>
+<p>Do not build those technical controls yet.</p>
+<p>Add any recommended controls to <code>backlog.md</code> for my review.</p>
+</blockquote>
+<p><strong>Completion check.</strong> Before moving to the next letter, confirm that: the project structure exists; raw and processed data have separate folders; the primary agent file identifies AI's role; allowed and prohibited activities are documented; stop conditions are documented; potential technical controls are captured for later review; and no financial data has been processed yet.</p>
+<p>Only then proceed to <strong>N</strong>.</p>
+<hr />
+<h2 id="n-name-the-assignment">N — Name the Assignment</h2>
+<p>Now define what the workflow is supposed to accomplish. "Perform a variance analysis" is too vague. A stronger assignment might be:</p>
+<blockquote>
+<p>Compare current-year monthly operating expenses with the same period in the prior year by general ledger account and department. Identify items exceeding approved dollar or percentage thresholds. Prepare a draft management-review report with source amounts, calculated variances, known explanations, unresolved questions, and validation status.</p>
+</blockquote>
+<p>The assignment should also define what is outside the scope. For example: balance-sheet accounts are excluded, payroll accounts are reviewed through a separate process, journal entries will not be prepared or posted, and AI-generated explanations will not be presented as facts without supporting evidence.</p>
+<h3 id="sample-prompt-4-draft-the-assignment">Sample Prompt 4: Draft the Assignment</h3>
+<blockquote>
+<p>Help me draft the assignment definition for the monthly variance review.</p>
+<p>Ask me one question at a time until you understand:</p>
+<ul>
+<li>The business objective</li>
+<li>The reporting period</li>
+<li>Included entities and departments</li>
+<li>Included and excluded accounts</li>
+<li>Materiality thresholds</li>
+<li>Expected output</li>
+<li>Intended users</li>
+<li>Reviewer and approver responsibilities</li>
+<li>Activities outside the scope</li>
+</ul>
+<p>Use my answers to draft the assignment section of <code>plan.md</code>.</p>
+<p>Do not make assumptions when I have not provided an answer.</p>
+<p>Show me the draft before editing the file.</p>
+</blockquote>
+<p><strong>Completion check.</strong> Confirm that <code>plan.md</code> clearly states what question the workflow answers, what is included and excluded, what the final output should contain, who reviews the work, and what AI is not being asked to decide.</p>
+<hr />
+<h2 id="b-brief-ai-on-the-business">B — Brief AI on the Business</h2>
+<p>The source reports will not contain every fact AI needs. This is where company-specific and accounting-specific knowledge must be documented.</p>
+<p>You may know that department 410 was created during the year, that account 6210 is reviewed through the payroll process, that credits appear as positive amounts in one system export, that one entity uses a different fiscal calendar, that a customer changed names after an acquisition, that December balance-sheet amounts are snapshots rather than monthly activity, or that a reclassification makes two accounts comparable only when combined.</p>
+<p>These details may feel obvious to you because you have worked with the company for years. They are not obvious to AI. They may not even be obvious to the accountant who joins the company next year.</p>
+<h3 id="sample-prompt-5-let-ai-interview-you">Sample Prompt 5: Let AI Interview You</h3>
+<blockquote>
+<p>Act as a new accounting intern preparing to perform this variance review.</p>
+<p>Ask me one question at a time to identify the business and accounting context needed to complete the assignment correctly.</p>
+<p>Cover:</p>
+<ul>
+<li>The meaning of each source report</li>
+<li>Period activity versus ending balances</li>
+<li>Account and department mappings</li>
+<li>Sign conventions</li>
+<li>Materiality rules</li>
+<li>Known exclusions</li>
+<li>New or discontinued accounts</li>
+<li>Reclassifications</li>
+<li>Expected exceptions</li>
+<li>Required tie-outs</li>
+<li>Situations requiring professional judgment</li>
+</ul>
+<p>Do not execute the workflow.</p>
+<p>Use my answers to propose updates to <code>plan.md</code>, <code>docs/</code>, a mapping file, or another appropriate project file.</p>
+<p>Explain why each item belongs in the recommended location and wait for my approval.</p>
+</blockquote>
+<p>This step helps uncover information that may currently exist only in someone's memory. It is also where you will begin to realize that the hardest part of workflow design is not teaching AI subtraction. It is explaining why account 6210 must never be included, because of an exception created during a system conversion in 2019 that everyone remembers but no one documented.</p>
+<p><strong>Completion check.</strong> Confirm that the source reports are understood, important business definitions are documented, mappings and thresholds have a defined home, known exceptions are recorded, and AI has not filled missing context with assumptions.</p>
+<hr />
+<h2 id="o-obtain-and-approve-a-plan">O — Obtain and Approve a Plan</h2>
+<p>Before processing data, require AI to describe exactly how it intends to complete the work. The plan should identify required input files, expected fields, processing steps, calculations, mapping logic, validation procedures, outputs, evidence to retain, stop conditions, and remaining questions.</p>
+<h3 id="sample-prompt-6-propose-the-execution-plan">Sample Prompt 6: Propose the Execution Plan</h3>
+<blockquote>
+<p>Based on the approved agent instructions, assignment definition, and business context, propose a detailed execution plan for the monthly variance review.</p>
+<p>Include:</p>
+<ol>
+<li>Required inputs</li>
+<li>Expected fields</li>
+<li>Data-preparation steps</li>
+<li>Calculations</li>
+<li>Materiality logic</li>
+<li>Mapping procedures</li>
+<li>Validation checks</li>
+<li>Exception handling</li>
+<li>Output files</li>
+<li>Evidence to preserve</li>
+<li>Stop conditions</li>
+<li>Open questions</li>
+</ol>
+<p>Identify every assumption separately.</p>
+<p>Do not process data, write production scripts, or generate the final report until I approve the plan.</p>
+</blockquote>
+<p>Review the methodology before approving execution. A polished report generated from the wrong methodology is still wrong. It is simply wrong with a title page.</p>
+<p><strong>Completion check.</strong> Confirm that every material step is described, assumptions are visible, validation is part of the process rather than an afterthought, the plan agrees with <code>AGENTS.md</code>, no prohibited action is included, and open questions have been resolved or explicitly deferred.</p>
+<hr />
+<h2 id="a-allow-controlled-execution">A — Allow Controlled Execution</h2>
+<p>Do not begin with the complete confidential dataset. Start with a small and controlled test — headers only, synthetic data, masked data, one department, one month, one calculation, one sample output.</p>
+<p>Before sharing a sample with a cloud-based model, confirm that confidential fields have been removed or masked in accordance with company policy and the approved tool environment.</p>
+<p>Do not ask AI to mask the data in the cloud after you have already uploaded the unmasked file. At that point, the horse has not merely left the barn. It has accepted a calendar invitation from the barn's competitor.</p>
+<h3 id="sample-prompt-7-prepare-the-controlled-test">Sample Prompt 7: Prepare the Controlled Test</h3>
+<blockquote>
+<p>Review the approved plan and propose the smallest controlled test that can demonstrate whether the variance logic works correctly.</p>
+<p>The test must:</p>
+<ul>
+<li>Use synthetic, masked, or otherwise approved data</li>
+<li>Cover one limited portion of the workflow</li>
+<li>Produce one sample output</li>
+<li>Include validation evidence</li>
+<li>Stop if required fields are missing</li>
+<li>Stop if control totals do not reconcile</li>
+</ul>
+<p>Before executing, confirm that the test does not require unmasked sensitive data to be passed to a cloud-based service.</p>
+<p>Show me the test design and wait for approval.</p>
+</blockquote>
+<p>After approval:</p>
+<blockquote>
+<p>Execute only the approved controlled test.</p>
+<p>Save transformed data in <code>data/processed/</code>.</p>
+<p>Save the sample report in <code>outputs/</code>.</p>
+<p>Save tie-outs and validation evidence in <code>evidence/</code>.</p>
+<p>Do not process additional departments, periods, or files.</p>
+<p>Summarize all assumptions, exclusions, errors, and unresolved questions.</p>
+</blockquote>
+<p><strong>Completion check.</strong> Confirm that only the approved sample was processed, raw files were not changed, no prohibited sensitive data was transmitted, calculations agree with expected results, evidence was created, and AI stopped where instructed.</p>
+<hr />
+<h2 id="r-review-the-work-and-evidence">R — Review the Work and Evidence</h2>
+<p>Do not review only the final spreadsheet. Review how the result was produced.</p>
+<p>Ask: were all expected records included? Did beginning and ending control totals agree? Were duplicates identified? Were missing mappings reported? Were materiality rules applied correctly? Were excluded accounts handled properly? Did AI distinguish facts from assumptions? Can every output amount be traced to its source? Did AI perform any action not included in the approved plan?</p>
+<h3 id="sample-prompt-8-prepare-the-review-package">Sample Prompt 8: Prepare the Review Package</h3>
+<blockquote>
+<p>Prepare a review package for the controlled test.</p>
+<p>Include:</p>
+<ul>
+<li>Source record count</li>
+<li>Processed record count</li>
+<li>Excluded record count and reasons</li>
+<li>Source control totals</li>
+<li>Processed control totals</li>
+<li>Reconciliation differences</li>
+<li>Missing fields</li>
+<li>Duplicate records</li>
+<li>Unmapped accounts or departments</li>
+<li>Assumptions used</li>
+<li>Exceptions requiring judgment</li>
+<li>Traceability from each sample output to the source</li>
+<li>Confirmation of whether every step followed the approved plan and <code>AGENTS.md</code></li>
+</ul>
+<p>Do not describe the result as complete or approved.</p>
+<p>Identify items requiring human review.</p>
+</blockquote>
+<p>The accountant remains responsible for determining whether the work is correct and appropriate. An AI-generated statement that says "all validations passed" is not sufficient evidence by itself. Review the underlying calculations and supporting files. For a deeper framework on what "reviewed" should actually mean — tying every number back to source, separating fact from assumption, and building an evidence trail that survives a real audit — see <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails</a>.</p>
+<p><strong>Completion check.</strong> Confirm that the output ties to the source, validation results are supported, exceptions are visible, assumptions have not been presented as facts, reviewer judgment is documented, and the controlled test is approved before the scope is expanded.</p>
+<hr />
+<h2 id="d-document-what-was-learned">D — Document What Was Learned</h2>
+<p>Even after careful onboarding, the first output will probably reveal missing context. You may discover that one account should always be excluded, a department must be analyzed separately, a percentage variance is meaningless below a minimum comparison amount, a system export reverses signs, a newly created account must be combined with an old account, or a specific validation should occur before processing starts.</p>
+<p>This does not necessarily mean the workflow failed. It means the review uncovered information that was previously stored in your head rather than in the workflow. The important step is to update the permanent instructions so the same issue is not repeated next month.</p>
+<h3 id="sample-prompt-9-review-the-permanent-instructions">Sample Prompt 9: Review the Permanent Instructions</h3>
+<blockquote>
+<p>Based on the new information learned during this review, determine whether any of the following should be updated:</p>
+<ul>
+<li><code>AGENTS.md</code></li>
+<li><code>plan.md</code></li>
+<li>Mapping or configuration files</li>
+<li>Validation scripts</li>
+<li>Supporting documentation</li>
+<li><code>backlog.md</code></li>
+</ul>
+<p>Recommend the single best location for each update.</p>
+<p>Avoid duplicating the same rule across multiple files unless there is a specific reason.</p>
+<p>For every proposed change, explain:</p>
+<ol>
+<li>What was learned</li>
+<li>Why the current instructions were insufficient</li>
+<li>Which file should be updated</li>
+<li>The exact proposed wording or logic</li>
+<li>Whether the change applies only to this project or should become a reusable skill</li>
+<li>Whether a written instruction is sufficient or a stronger technical control may be needed</li>
+</ol>
+<p>Do not edit any files until I review and approve the proposed changes.</p>
+</blockquote>
+<p>After review:</p>
+<blockquote>
+<p>Apply only the approved instruction and control updates.</p>
+<p>Summarize which files changed, what changed, why each change was made, how the change will affect the next execution, and which recommended controls remain in <code>backlog.md</code>.</p>
+</blockquote>
+<p>This is how correction becomes institutional knowledge. The goal is not to avoid correcting AI. <strong>The goal is to avoid correcting the same mistake every month.</strong></p>
+<hr />
+<h2 id="then-repeat-the-controlled-process">Then Repeat the Controlled Process</h2>
+<p>Once the first test is reviewed and the instructions are updated, expand the scope gradually: test one additional department, review the output and evidence, document newly discovered rules, approve instruction updates, test one full entity, review again, then expand to the full approved population.</p>
+<p>This is not a promise that every future run will be perfect. Accounting environments change. New accounts are created. Departments reorganize. Systems change. Materiality thresholds are updated. Management requests evolve. Someone adds a column to a report because apparently month-end close was becoming too peaceful.</p>
+<p>The workflow should therefore continue to include human review, validation, and controlled updates. Once a few cycles like this are behind you, the natural next step is <a href="../30-ai-routines-for-accountants/">AI Routines for Accountants</a> — a scheduled version of the same propose-review-approve pattern, run automatically instead of by hand.</p>
+<hr />
+<h2 id="written-rules-are-the-beginning-not-the-entire-control-environment">Written Rules Are the Beginning, Not the Entire Control Environment</h2>
+<p>An agent file is valuable because it gives AI operating context. It also creates a reviewable record of the workflow's intended boundaries.</p>
+<p>But accountants should not confuse instructions with enforcement. Telling AI not to transmit sensitive data does not create a firewall. Telling AI not to overwrite raw data does not create a read-only permission. Telling AI to stop when a reconciliation fails does not guarantee that every failure condition has been identified.</p>
+<p>The written instruction is the starting point. As the workflow matures, the accountant and technical team may determine that certain requirements should be supported by permissions, hooks, scripts, automated validations, approved-tool restrictions, logging, network controls, human approvals, read-only source folders, or data-loss-prevention policies.</p>
+<p>That is not evidence that the original agent file was pointless. It means the workflow is moving from a written expectation toward an enforceable control.</p>
+<p>Accountants already understand this distinction. A policy stating that journal entries require approval is important. A system workflow that prevents an unapproved entry from posting is stronger. AI-enabled accounting workflows should evolve in the same direction.</p>
+<hr />
+<h2 id="your-first-workflow-will-teach-you-what-you-forgot-to-explain">Your First Workflow Will Teach You What You Forgot to Explain</h2>
+<p>The first run will not only test AI. It will test whether the accounting process has been made explicit.</p>
+<p>You will likely discover details that everyone on the current team "just knows." Those details are exactly what a new employee, future reviewer, or AI co-pilot will not know.</p>
+<p>Each controlled execution should therefore leave the project with a reviewed output, validation evidence, fewer undocumented assumptions, better instructions, stronger controls, and a clearer process for the next run.</p>
+<p>Your first AI workflow does not need to be autonomous. It does not need to process every entity. It does not need to impress anyone on LinkedIn.</p>
+<p>It needs to be controlled, reviewable, and better documented after each execution.</p>
+<p>Start by giving the work a home. Define AI's role. State what it may and may not do. Explain the assignment as though you were onboarding a capable intern who has never worked at your company. Then review the work as though your name is going on it.</p>
+<p>Because it probably is.</p>
+<hr />
+<p><strong>A note on how this article was made.</strong> This article started with me. The recurring frustration — watching a promising AI workflow start with a vague prompt instead of a plan, and the ONBOARD checklist that grew out of fixing that for my own work — is mine. ChatGPT (5.5) helped me shape my notes into a first structured draft. Claude Opus reviewed that draft for accuracy and tone. Claude Code (Claude Sonnet 5) then built the final article, the visuals, and the site wiring — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
+<hr />
+<p><em>Related: <a href="../17b-your-first-claude-md/">Your First CLAUDE.md</a> | <a href="../11-one-time-to-repeatable-workflows/">From One-Time Analysis to Repeatable Workflows</a> | <a href="../30-ai-routines-for-accountants/">AI Routines for Accountants</a> | <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
