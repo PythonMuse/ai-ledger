@@ -2702,7 +2702,7 @@
 <p>Instead of building or running the workflow themselves, accountants may be able to describe the business question in natural language. An AI co-pilot could identify the appropriate approved tools, retrieve the relevant information, perform a governed analysis, and return the answer with supporting evidence.</p>
 <p>Model Context Protocol, commonly called MCP, is one technology helping make this possible.</p>
 <p>MCP is not a replacement for APIs, SQL, data warehouses, or well-designed accounting applications. It is better understood as a layer that can connect an accountant's intent with approved system capabilities.</p>
-<p>Let's explore further to understand why is it important and why we accountants need to know about MCP. The API moves the data. The script performs the calculation. MCP helps the AI determine which approved tool to use. The accountant determines whether the answer can be trusted.</p>
+<p>Let's explore why it matters and why accountants need to know about MCP. The API moves the data. The script performs the calculation. MCP helps the AI determine which approved tool to use. The accountant determines whether the answer can be trusted.</p>
 <h2 id="the-accounting-question-has-not-changed">The Accounting Question Has Not Changed</h2>
 <p>Consider a management request:</p>
 <blockquote>
@@ -2712,7 +2712,7 @@
 <p>A traditional accountant may begin by running reports from several systems. One report may contain revenue by customer. Another may contain labor by project. A third may include customer identifiers or organizational classifications.</p>
 <p>The accountant exports each report, cleans the data, adds several tabs to Excel, standardizes customer names, performs lookups, investigates missing matches, calculates gross margin, and compares the current period with the prior period.</p>
 <p>Two or three hours later, the accountant produces the requested analysis and hopes every formula range expanded correctly. The final workbook may be accurate. It may also contain three versions of the same customer name, an unexplained <code>#N/A</code>, and at least one formula copied down one row too far.</p>
-<p>The problem is not a lack of accounting knowledge. The accountant understands the objective. The friction comes from translating the business question into the language and structure of several systems comppiled together by overworked accountant that is trying to pick up his kids from child care on time while trying to keep up with expectation and delivering the add hock analyis that CFO needs by the end of the day. </p>
+<p>The problem is not a lack of accounting knowledge. The accountant understands the objective. The friction comes from translating the business question into the language and structure of several systems — compiled together by an overworked accountant who is trying to pick up their kids from child care on time while still delivering the ad hoc analysis the CFO needs by the end of the day.</p>
 <h2 id="three-paths-to-the-same-answer">Three Paths to the Same Answer</h2>
 <p>The same accounting question can now be answered through three different approaches.</p>
 <table>
@@ -2741,7 +2741,7 @@
 </tr>
 </tbody>
 </table>
-<p>These times are illustrative, not universal benchmarks. The actual effort depends on data quality, system access, workflow complexity, and the controls required. More importantly, the five-minute conversational answer cannot exist until someone has completed the harder work underneath it.</p>
+<p>These times are illustrative, not universal benchmarks. The actual effort depends on data quality, system access, workflow complexity, and the controls required.</p>
 <p>Natural language does not eliminate complexity. It relocates complexity into the workflow, tools, mappings, permissions, and controls.</p>
 <h2 id="the-traditional-accountant">The Traditional Accountant</h2>
 <p>The traditional workflow begins with system navigation. The accountant must know:</p>
@@ -2825,9 +2825,7 @@
 <blockquote>
 <p>"Can you compare customer revenue and gross margin across all systems and show me the largest changes?"</p>
 </blockquote>
-<p>Historically, that junior accountant might spend several hours preparing the analysis.</p>
-<p>An AI-enabled accountant may be able to create or adapt a script and produce the answer in 20 or 30 minutes.</p>
-<p>An MCP-enabled co-pilot could make an already approved version of that workflow available to a broader group of accountants.</p>
+<p>Historically, that junior accountant might spend several hours preparing the analysis. An MCP-enabled co-pilot could make an already approved version of that workflow available to a broader group of accountants.</p>
 <p>The user might ask:</p>
 <blockquote>
 <p>"Compare customer revenue and gross margin across all approved systems for June. Use the approved customer mapping, identify changes greater than 10%, and show the supporting transactions."</p>
@@ -2889,7 +2887,6 @@
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        ↓
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Supported answer or controlled action
 </code></pre></div>
-<p>MCP does not necessarily replace the API. It may help the AI select the appropriate API-backed tool. MCP does not replace the SQL query. It may allow the AI to invoke a governed query without requiring the user to understand the database structure.</p>
 <p>MCP does not replace the builder. It allows the builder's validated work to become reusable by people who may never open the underlying code.</p>
 <h2 id="the-builder-creates-the-road-mcp-adds-the-signs">The Builder Creates the Road; MCP Adds the Signs</h2>
 <p>The builder and conversational user should not be viewed as competing roles. The builder creates the workflow. MCP makes that workflow easier for authorized users to find and invoke.</p>
@@ -2959,7 +2956,6 @@
 </code></pre></div>
 <p>The value is not merely that data moved from the ERP into a conversation. The value is that the accountant expressed a business objective and the co-pilot coordinated several governed system capabilities to answer it.</p>
 <p>Oracle's NetSuite MCP Standard Tools SuiteApp illustrates this direction. Its tools can work with records, reports, saved searches, and SuiteQL queries through an AI client using natural-language input.</p>
-<p>The report, saved search, or query still retrieves the information. MCP helps connect the accountant's request to the appropriate capability.</p>
 <h2 id="for-builders-what-an-mcp-workflow-actually-contains">For Builders: What an MCP Workflow Actually Contains</h2>
 <p>The conversational experience may appear simple:</p>
 <blockquote>
@@ -3013,7 +3009,7 @@
 <li>Reconcile totals to the source systems.</li>
 <li>Produce an exception report and audit log.</li>
 </ol>
-<p>MCP makes the approved tool visible to the AI co-pilot and describes the parameters required to use it. The script still performs the calculation. The API or SQL query still retrieves the data. The accounting instructions still define what the calculation means.The validation routines still determine whether the result reconciles.</p>
+<p>MCP makes the approved tool visible to the AI co-pilot and describes the parameters required to use it. The underlying query, script, accounting instructions, and validation routines still do the actual work.</p>
 <h3 id="the-components-behind-the-conversation">The Components Behind the Conversation</h3>
 <h4 id="the-host-and-client">The host and client</h4>
 <p>The host is the AI application through which the accountant interacts with the workflow. The MCP client operates within that application and manages its connection with the MCP server.</p>
@@ -3123,7 +3119,7 @@
 <h3 id="10x-erp-conversational-access-with-a-built-in-mcp-server">10X ERP: Conversational Access With a Built-In MCP Server</h3>
 <p>10X ERP provides another example of an AI-enabled ERP. Its platform describes an API-first architecture and a built-in MCP server that can connect compatible AI clients with ERP data.</p>
 <p>The combination is instructive. The APIs provide programmatic access to the platform.</p>
-<p>The MCP server provides a conversational route through which an AI client can use approved capabilities. This supports the broader argument that MCP and APIs are complementary rather than interchangeable.</p>
+<p>The MCP server provides a conversational route through which an AI client can use approved capabilities.</p>
 <h3 id="oracle-netsuite-making-an-established-erp-conversational">Oracle NetSuite: Making an Established ERP Conversational</h3>
 <p>NetSuite represents a particularly relevant model for organizations that are not planning to replace their ERP. Its MCP capabilities allow compatible AI clients to work with reports, saved searches, records, and SuiteQL queries while operating through the user's configured NetSuite access.</p>
 <p>This may allow an accountant to ask for information without first remembering the exact report name or saved-search location. For professionals who have spent years memorizing where those items are stored, this progress may feel both exciting and slightly disrespectful.</p>
@@ -3267,7 +3263,7 @@
 <p>One person may perform all three roles in a smaller organization. In a larger company, the responsibilities may be distributed across finance, data, technology, and internal audit.</p>
 <p>The central requirement is not that every accountant learns to code. It is that accounting knowledge becomes explicit enough to be built into a repeatable and governed workflow.</p>
 <h2 id="what-the-future-stack-may-look-like">What the Future Stack May Look Like</h2>
-<p>The future is unlikely to consist of one all-knowing AI system replacing every financial application. A more realistic architecture places governance alongside every layer rather than at the end:</p>
+<p>The future is unlikely to consist of one all-knowing AI system replacing every financial application. A more realistic architecture looks like this:</p>
 <p><img alt="The Future Accounting Technology Stack" src="visuals/34_tech_stack.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Accountant
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>        ↓
@@ -3290,7 +3286,8 @@
 <p>A technically capable accountant may use AI to create a SQL query, Python script, or API-driven analysis in minutes. That builder can combine accounting knowledge, system understanding, and AI assistance to produce work that previously required several hours of manual reporting and spreadsheet manipulation.</p>
 <p>MCP may make the next step possible. Once the workflow has been built, tested, and approved, other accountants may be able to invoke it through natural language. They can ask the same question they previously would have asked a senior accountant, while the AI co-pilot coordinates the approved tools required to produce the answer.</p>
 <p>MCP does not eliminate APIs, SQL, or builders. It connects users with the capabilities those builders and systems provide. The builder creates the road. MCP adds the signs. The conversational user states the destination.</p>
-<p>Accounting governance determines which roads may be used and whether the result can be trusted.The accountants who thrive in this environment will not necessarily be those who memorize the most report menus.</p>
+<p>Accounting governance determines which roads may be used and whether the result can be trusted.</p>
+<p>The accountants who thrive in this environment will not necessarily be those who memorize the most report menus.</p>
 <p>They will be those who understand the business question, the underlying data, the accounting rules, the controls, and the evidence required to support the answer.</p>
 <hr />
 <p><strong>A note on how this article was made.</strong> This article started with me. The question — what actually changes for accountants when AI can reach into live business systems, and where MCP genuinely fits versus where an API was always the better answer — is mine, along with the decision to throw out my own first example when it stopped holding up. ChatGPT (5.5, "Sol") helped me shape my notes and research into a structured draft. Claude Sonnet and Claude Opus reviewed that draft for accuracy — catching several product claims that needed real sourcing, including one I had softened too far on an earlier pass — and helped co-build the companion demo repository so you can run this instead of just reading about it. GitHub Copilot (Claude Sonnet 5) built the final article, the companion visuals, and the repository scaffolding — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.</p>
