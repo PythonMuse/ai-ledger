@@ -397,7 +397,7 @@ def make_social_square():
 
     header_h = 0.165
     add_header_bar(fig, "Model Selection Is a Control",
-                   "The top of the escalation ladder is not another AI model.",
+                   "The top of the escalation ladder is not another AI model. It's the professional.",
                    height=header_h)
 
     rungs = list(reversed(ESCALATION))
@@ -418,12 +418,10 @@ def make_social_square():
                     sub=desc, subsize=10.5, sub_color=sub_color,
                     title_offset=0.18, sub_offset=0.26)
 
-    fig.text(0.5, 0.132, "It is the professional.", fontsize=15,
-             color=DEEP_NAVY, ha="center", va="center", fontweight="bold")
-    fig.text(0.5, 0.073,
+    fig.text(0.5, 0.105,
              "Higher complexity may require stronger models.\nHigher consequence requires stronger controls.",
-             fontsize=10.5, color=OCEAN_TEAL, ha="center", va="center",
-             style="italic", linespacing=1.6, alpha=1.0)
+             fontsize=12, color=DEEP_NAVY, ha="center", va="center",
+             fontweight="bold", linespacing=1.6)
     fig.text(0.5, 0.020, "PythonMuse LLC  |  pythonmuse.com", fontsize=9.5,
              color=OCEAN_TEAL, ha="center", va="center", alpha=0.85)
 
