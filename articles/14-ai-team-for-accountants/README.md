@@ -93,7 +93,7 @@ Copilot is not just another chat tool. It lives inside [Visual Studio Code](http
 
 If you have already set up VS Code using the guidance in [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/), adding Copilot is the next step.
 
-> **A note on tools:** The tiering here (fast/cheap models vs. larger reasoning models) is the pattern to remember, not the specific names — Claude, ChatGPT, and Copilot are the three most common in accounting teams as of this writing, but the same tiers show up in Gemini and Codex too, and model names and versions will keep changing. Match the task to the tier, whatever you call it.
+> **A note on tools:** The tiering here (fast/cheap models vs. larger reasoning models) is the pattern to remember, not the specific names — Claude, ChatGPT, and Copilot are the three most common in accounting teams as of this writing, but the same tiers show up in Gemini and Codex too, and model names and versions will keep changing. Match the task to the tier, whatever you call it. For the durable version of that decision — how to choose a capability level, and why the choice becomes a control once the workflow repeats — see [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md).
 
 ---
 
@@ -253,4 +253,4 @@ That is your first system.
 
 ---
 
-*Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [Ways to Use Claude](../02-ways-to-use-claude/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+*Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [Ways to Use Claude](../02-ways-to-use-claude/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
