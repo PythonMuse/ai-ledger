@@ -224,9 +224,9 @@ def make_complexity_consequence():
         y = pad_b + row * (cell_h + gap)
         text_color, sub_color = text_colors(color)
         rounded_box(ax, (x, y), cell_w, cell_h, color, text_color=text_color,
-                    text=headline, fontsize=14.5,
-                    sub=detail, subsize=11.5, sub_color=sub_color,
-                    title_offset=0.20, sub_offset=0.15, linespacing=1.5)
+                    text=headline, fontsize=18,
+                    sub=detail, subsize=14, sub_color=sub_color,
+                    title_offset=0.22, sub_offset=0.13, linespacing=1.4)
 
     # Axis labels.
     ax.annotate("", xy=(pad_l + grid_w, pad_b - 0.042),
