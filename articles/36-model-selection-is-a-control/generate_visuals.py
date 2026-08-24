@@ -163,15 +163,15 @@ def make_hero():
         # Row label: the capability dimension.
         tc, sc = text_colors(color)
         rounded_box(ax, (x0, y), label_w, row_h, color, text_color=tc,
-                    text=cap, fontsize=14.5,
-                    sub=capsub, subsize=11, sub_color=sc,
-                    title_offset=0.14, sub_offset=0.20)
+                    text=cap, fontsize=16.5,
+                    sub=capsub, subsize=12.5, sub_color=sc,
+                    title_offset=0.15, sub_offset=0.20)
 
         # Cells: one accounting task per environment.
         for c, task in enumerate(tasks):
             cxy = (grid_x + c * (col_w + col_gap), y)
             rounded_box(ax, cxy, col_w, row_h, "#F5F5F5", text_color=DEEP_NAVY,
-                        text=task, fontsize=11.5, bold=False, linespacing=1.55)
+                        text=task, fontsize=13, bold=False, linespacing=1.45)
 
     fig.text(0.5, 0.072,
              "Extracting payroll fields needs little reasoning and a highly controlled environment. "
