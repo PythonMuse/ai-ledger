@@ -360,13 +360,13 @@ def make_seven_questions():
         text_color, sub_color = text_colors(color)
 
         rounded_box(ax, (x0, y), w, row_h, color, text_color=text_color,
-                    text=q, fontsize=14, ha="left",
+                    text=q, fontsize=16.5, ha="left",
                     text_x=x0 + badge_w + 0.028,
-                    sub=detail, subsize=11, sub_color=sub_color,
-                    title_offset=0.20, sub_offset=0.26)
+                    sub=detail, subsize=13, sub_color=sub_color,
+                    title_offset=0.22, sub_offset=0.26)
 
         # Number badge sits inside the row, on the left.
-        ax.text(x0 + badge_w / 2 + 0.012, y + row_h / 2, num, fontsize=19,
+        ax.text(x0 + badge_w / 2 + 0.012, y + row_h / 2, num, fontsize=22,
                 fontweight="bold", color=text_color, ha="center", va="center",
                 zorder=4, alpha=0.9)
 
