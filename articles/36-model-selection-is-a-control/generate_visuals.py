@@ -148,13 +148,38 @@ def make_hero():
     row_h = 0.203
     row_gap = 0.024
 
+    # Two grouping brackets make explicit which axis answers which of the
+    # "two questions" from the title: the row label answers Question 1, the
+    # three columns together answer Question 2 -- otherwise it isn't obvious
+    # the three column headers are one dimension rather than three unrelated
+    # labels.
+    def bracket(x1, x2, y, color):
+        ax.plot([x1, x2], [y, y], color=color, lw=1.6, zorder=3, solid_capstyle="butt")
+        tick = 0.009
+        ax.plot([x1, x1], [y, y - tick], color=color, lw=1.6, zorder=3)
+        ax.plot([x2, x2], [y, y - tick], color=color, lw=1.6, zorder=3)
+
+    badge_y = 0.876
+    bracket_y = 0.857
+    header_y = top + 0.030
+
+    ax.text(x0 + label_w / 2, badge_y, "QUESTION 1  ·  CAPABILITY",
+            fontsize=11.5, fontweight="bold", color=DEEP_NAVY,
+            ha="center", va="center", zorder=3)
+    bracket(x0, x0 + label_w, bracket_y, DEEP_NAVY)
+
+    ax.text(grid_x + grid_w / 2, badge_y, "QUESTION 2  ·  ENVIRONMENT",
+            fontsize=11.5, fontweight="bold", color=BRIGHT_TEAL,
+            ha="center", va="center", zorder=3)
+    bracket(grid_x, grid_x + grid_w, bracket_y, BRIGHT_TEAL)
+
     # Column headers for the environment dimension.
     for c, env in enumerate(environments):
         cx = grid_x + c * (col_w + col_gap) + col_w / 2
-        ax.text(cx, top + 0.038, env, fontsize=13, fontweight="bold",
+        ax.text(cx, header_y, env, fontsize=13, fontweight="bold",
                 color=BRIGHT_TEAL, ha="center", va="center", zorder=3)
 
-    ax.text(x0 + label_w / 2, top + 0.038, "Capability level", fontsize=13,
+    ax.text(x0 + label_w / 2, header_y, "Capability level", fontsize=13,
             fontweight="bold", color=DEEP_NAVY, ha="center", va="center", zorder=3)
 
     for r, (cap, capsub, color, tasks) in enumerate(capabilities):
