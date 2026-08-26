@@ -21,6 +21,20 @@ In accounting, we already match people, review levels, and controls to the risk 
 
 ---
 
+## What We Mean When We Say "Model"
+
+Before going further, it is worth pausing on the word doing most of the work in this article, because it did not start in computing and it is easy to misread if your only reference point is a computer.
+
+Here is the quick chain, top to bottom. Artificial intelligence, or AI, is a broad field of study that predates most of our careers — the term was coined in 1956. Generative AI is the slice of that field this series lives in: tools that create or transform content — text, code, a chart, a slide deck — in response to a prompt. The engine inside most of those tools is a large language model, or LLM: software trained on enormous amounts of text to recognize and continue patterns in language, which is why you can talk to it in plain English instead of a command syntax. What you actually open — the chat window, the Copilot panel in VS Code, the mobile app — is the AI assistant, the car built around that engine. Throughout this article, "model" means the engine. Everything else is dashboard.
+
+Now the word itself, outside of software. A fashion model gives you an approximation of how a garment will look, without your exact proportions. A model train captures a locomotive's shape and motion, not its rivets. A hurricane forecast shows several storm models at once — meteorologists never trust just one — each predicting a path from the patterns in thousands of storms that came before it, and each getting shakier the further out it reaches.
+
+A language model is built the same way, from patterns in existing writing instead of storm tracks or fabric. And it inherits the same limitation as a model of a 1986 taxi: it can describe 1986 in perfect detail and knows nothing about 2026, because 2026 was not in its training data. A model built from everything written up to a certain date can name every accounting standard, president, or ticker symbol that existed before that date. Ask about something from the following week, and a well-built model says it does not know. A poorly built one guesses anyway — confidently, in full sentences, which is a far more expensive way to be wrong than a shrug.
+
+That distinction is worth sitting with, because it is the same discipline behind professional skepticism: a model produces a prediction, not a record. Treat its output the way a meteorologist treats one forecast track among several — genuinely useful, never the whole picture, and never a substitute for watching the actual sky.
+
+---
+
 ## Start With the Task, Not the Model
 
 Accountants rarely assign work based only on who is available. We consider the nature of the work itself. Is it routine? Does it require interpretation? Could an error materially affect a decision? Does it need specialized expertise?
@@ -49,7 +63,7 @@ The two questions are related but distinct. **AI permissions determine where the
 
 ## Think in Capability Levels
 
-Specific model names will keep changing. A durable accounting framework should not depend on today's model leaderboard, which has the shelf life of a banana. Think instead in broader capability levels.
+Specific model names will keep changing. A durable accounting framework should not depend on today's model leaderboard, which has the shelf life of a banana — or of that 1986 taxi model from a few paragraphs back. Think instead in broader capability levels.
 
 **Fast models** suit structured, routine, easily verified tasks: renaming columns, reformatting dates, extracting defined fields, standardizing descriptions, building simple summaries. The rules are clear and the output can be checked quickly. Reaching for the most advanced reasoning model here adds cost without adding value.
 
