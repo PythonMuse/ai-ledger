@@ -1035,6 +1035,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../36-model-selection-is-a-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Selection Is an Accounting Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../20-version-control-for-accountants/" class="md-nav__link">
         
   
@@ -2395,7 +2423,7 @@
 <h3 id="example-2-rate-lookup-with-a-fallback">Example 2 — Rate Lookup With a Fallback</h3>
 <p><strong>The accounting task:</strong> Look up a billing rate by item code. If the item is missing, treat the rate as zero. Then multiply by quantity.</p>
 <p><strong>Excel:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=IFERROR(VLOOKUP(A2,&#39;Rate Table&#39;!A:D,4,FALSE)*B2,0)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=IFERROR(VLOOKUP(A2,'Rate Table'!A:D,4,FALSE)*B2,0)
 </code></pre></div>
 <p>Now your audit begins. You click the formula. Jump to another tab. Then another.</p>
 <p>You are tracing cell references across 14 worksheets trying to figure out:</p>
@@ -2424,16 +2452,16 @@
 <p>This is where the gap gets really obvious.</p>
 <p><strong>The accounting task:</strong> Your ERP exports amounts like <code>"$(1,234.50)"</code> and you need real numbers like <code>-1234.50</code> so you can sum them.</p>
 <p><strong>Excel:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>=-VALUE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(A2,&quot;$&quot;,&quot;&quot;),&quot;,&quot;,&quot;&quot;),&quot;(&quot;,&quot;-&quot;),&quot;)&quot;,&quot;&quot;))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>=-VALUE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(A2,"$",""),",",""),"(","-"),")",""))
 </code></pre></div>
 <p>Stare at that for a second.</p>
 <p>Four nested <code>SUBSTITUTE</code> calls, a <code>VALUE</code>, a leading minus sign, and you still aren't 100% sure it handles every edge case. Try explaining it to your reviewer without drawing on a whiteboard.</p>
 <p><strong>Python:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">clean_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"$"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"("</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">")"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
 </code></pre></div>
 <p>Read it like an accounting checklist:</p>

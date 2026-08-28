@@ -1035,6 +1035,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../36-model-selection-is-a-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Selection Is an Accounting Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../20-version-control-for-accountants/" class="md-nav__link">
         
   
@@ -2528,7 +2556,7 @@
 <a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
 <a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="gu">## Accounting-Specific Rules</span>
 <a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="k">-</span><span class="w"> </span>Never assume a materiality threshold -- ask for the engagement&#39;s defined threshold
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="k">-</span><span class="w"> </span>Never assume a materiality threshold -- ask for the engagement's defined threshold
 <a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>  before flagging or suppressing items.
 <a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="k">-</span><span class="w"> </span>Always tie-out totals to source before reporting. Document any difference.
 <a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="k">-</span><span class="w"> </span>Flag rounding differences &gt;= $1 for review. Do not silently adjust.
@@ -2656,11 +2684,11 @@
 <p>Ask AI to generate a copy script. Give it your file list and your destination path. The script it produces will have placeholder values for the legacy paths. A human fills those in, runs the script once, and the data lands in <code>data/raw/</code> without touching the source.</p>
 <p>The pattern looks like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">LEGACY_FILES</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="p">(</span><span class="s2">&quot;GL export&quot;</span><span class="p">,</span>       <span class="sa">r</span><span class="s2">&quot;LEGACY_PATH_PLACEHOLDER\gl_export.xlsx&quot;</span><span class="p">),</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="p">(</span><span class="s2">&quot;Bank statement&quot;</span><span class="p">,</span>  <span class="sa">r</span><span class="s2">&quot;LEGACY_PATH_PLACEHOLDER\bank_april.csv&quot;</span><span class="p">),</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="p">(</span><span class="s2">"GL export"</span><span class="p">,</span>       <span class="sa">r</span><span class="s2">"LEGACY_PATH_PLACEHOLDER\gl_export.xlsx"</span><span class="p">),</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="p">(</span><span class="s2">"Bank statement"</span><span class="p">,</span>  <span class="sa">r</span><span class="s2">"LEGACY_PATH_PLACEHOLDER\bank_april.csv"</span><span class="p">),</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">]</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">DESTINATION_FOLDER</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;DESTINATION_PATH_PLACEHOLDER\workings\data\raw&quot;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">DESTINATION_FOLDER</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"DESTINATION_PATH_PLACEHOLDER\workings\data\raw"</span>
 </code></pre></div>
 <p>Replace the placeholders with your actual paths, run the script, and a dated log file is written to <code>data/raw/</code> documenting exactly what was copied and when.</p>
 <p>A full working example is available here: <a href="../../examples/legacy-data-import/">examples/legacy-data-import</a></p>
