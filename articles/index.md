@@ -55,6 +55,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 33 | [When Copilot Is the Only Approved AI Tool](33-copilot-only-approved-ai-tool/README.md) | Microsoft Copilot, AI harness comparison, IT-approved tools, validation, governance |
 | 34 | [From Reports to Requests](34-model-context-protocol-for-accounting/README.md) | Model Context Protocol, MCP, APIs vs. MCP, AI builders, workflow design, accounting team roles |
 | 35 | [Don't Just Prompt AI. ONBOARD It.](35-onboard-ai-workflows/README.md) | ONBOARD checklist, AGENTS.md, controlled workflow onboarding, variance review example, review and documentation |
+| 36 | [Model Selection Is an Accounting Control](36-model-selection-is-a-control/README.md) | Model selection, capability levels, escalation, complexity vs. consequence, verification cost, model change control |
 
 ---
 

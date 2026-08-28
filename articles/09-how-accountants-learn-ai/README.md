@@ -254,7 +254,7 @@ For SQL query patterns, a sample IT request email, and a Python example: **[SQL 
 
 **Agents** are AI interns that follow instructions. Give them clear scope, review their work, and expand their responsibilities as they prove reliable.
 
-**Models** -- choose based on need. Reasoning models for complex analysis. Fast models for summaries and formatting. Secure models for sensitive data.
+**Models** -- choose based on need. Reasoning models for complex analysis. Fast models for summaries and formatting. Secure models for sensitive data. Once that choice sits inside a repeating workflow it stops being a preference and becomes a control -- see [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md).
 
 For skill templates, a model selection guide, and agent best practices: **[Skills, Agents, and Models](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main/13-skills-agents-models)**
 

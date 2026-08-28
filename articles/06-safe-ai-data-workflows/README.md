@@ -349,4 +349,4 @@ Starting with simple guardrails -- such as masking data locally and sharing only
 
 ---
 
-*Related: [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+*Related: [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
