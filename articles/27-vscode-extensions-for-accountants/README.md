@@ -358,3 +358,5 @@ Because that is a completely different kind of install.
 ---
 
 *Related: [Python Libraries for Accountants](../28-python-libraries-for-accountants/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [AI Governance in Accounting](../04-ai-governance-in-accounting/) | [What the Heck Is a Script?](../25-what-the-heck-is-a-script/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

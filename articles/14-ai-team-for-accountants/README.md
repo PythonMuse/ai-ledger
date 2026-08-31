@@ -254,3 +254,5 @@ That is your first system.
 ---
 
 *Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [Ways to Use Claude](../02-ways-to-use-claude/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

@@ -202,3 +202,5 @@ For a more detailed, step-by-step version of this checklist -- including a 30-da
 *Published March 2026*
 
 *Related: [True or False: AI Will Replace My Job?](../00-ai-will-not-replace-your-job/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

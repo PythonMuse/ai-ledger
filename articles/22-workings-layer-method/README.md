@@ -469,3 +469,5 @@ The workings layer is how you do that without becoming the person who broke the 
 ---
 
 *Related: [Your First CLAUDE.md](../17b-your-first-claude-md/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

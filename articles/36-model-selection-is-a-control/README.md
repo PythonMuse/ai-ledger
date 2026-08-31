@@ -17,6 +17,8 @@ The better question is: **what level of AI capability does this accounting task 
 
 Choosing the most powerful model for every task is like sending a senior partner to file invoices. It works. It is also expensive, unnecessary, and slightly insulting to everyone involved.
 
+Underneath that question sit two separate decisions, and most of this article is about keeping them apart. The complexity of the task determines the capability you may need. The consequence of an error determines the controls, validation, and review you need. A stronger model helps with the first. It does nothing about the second.
+
 In accounting, we already match people, review levels, and controls to the risk and complexity of the work. We should approach AI models the same way. Model selection is not simply a technology preference. Once AI becomes part of a repeatable workflow, **model selection becomes an accounting control**.
 
 ---
@@ -29,7 +31,9 @@ Here is the quick chain, top to bottom. Artificial intelligence, or AI, is a bro
 
 Now the word itself, outside of software. A fashion model gives you an approximation of how a garment will look, without your exact proportions. A model train captures a locomotive's shape and motion, not its rivets. A hurricane forecast shows several storm models at once — meteorologists never trust just one — each predicting a path from the patterns in thousands of storms that came before it, and each getting shakier the further out it reaches.
 
-A language model is built the same way, from patterns in existing writing instead of storm tracks or fabric. And it inherits the same limitation as a model of a 1986 taxi: it can describe 1986 in perfect detail and knows nothing about 2026, because 2026 was not in its training data. A model built from everything written up to a certain date can name every accounting standard, president, or ticker symbol that existed before that date. Ask about something from the following week, and a well-built model says it does not know. A poorly built one guesses anyway — confidently, in full sentences, which is a far more expensive way to be wrong than a shrug.
+The fashion model and the model train are the loosest of those comparisons — they are representations of one specific thing, and a language model is not that. The hurricane forecast is the closer relative. A language model is built from patterns in existing writing the way a storm track is built from patterns in thousands of storms that came before it, and it produces the same kind of output: a projection, not a lookup.
+
+It also inherits the same limitation as a model of a 1986 taxi. A model built from everything written up to a certain date has seen the accounting standards, elections, and ticker symbols that came before it — though having seen something in training is not the same as recalling it reliably on demand. And it knows nothing about what came after, because that was never in its training data. Ask about something from the following week and the better outcome is a model that flags the gap. Plenty do not. One that guesses anyway — confidently, in full sentences — is a far more expensive way to be wrong than a shrug, and no vendor label tells you in advance which kind you have.
 
 That distinction is worth sitting with, because it is the same discipline behind professional skepticism: a model produces a prediction, not a record. Treat its output the way a meteorologist treats one forecast track among several — genuinely useful, never the whole picture, and never a substitute for watching the actual sky.
 
@@ -49,7 +53,7 @@ The accounting task should drive the model decision, not the other way around.
 
 ---
 
-## Permission Comes Before Selection
+## Permission Comes Before Capability
 
 Before selecting a model, there is an earlier question: **is this information permitted in this AI environment?**
 
@@ -57,13 +61,19 @@ Model capability does not override data governance. Payroll records, employee in
 
 That decision belongs to your organization's AI permissions framework — the territory covered in [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/). Once the information is permitted, model selection becomes the next control.
 
-The two questions are related but distinct. **AI permissions determine where the work may happen. Model selection determines what level of capability should perform the work.**
+So the decision runs across two dimensions, not one. The first is capability: fast, general-purpose, or reasoning. The second is environment: approved cloud, enterprise-controlled, or private and local. The two are related but distinct. **AI permissions determine where the work may happen. Model selection determines what level of capability should perform the work.**
+
+That second dimension is not a ranking. A local or secure model is not "higher" or "lower" than a cloud one; it answers a different question. A payroll task may need no sophisticated reasoning at all, while the sensitivity of the data demands a highly controlled environment. A complex accounting research question may need strong reasoning while involving no confidential information whatsoever. The accountant has to consider both.
+
+And sometimes the two dimensions are wired together in the product itself, which is exactly when this matters most: reaching for more capability can change the data-retention posture of the work, with an administrator approval gate and a warning banner attached. The dated snapshot at the end of this article gives a current example. Read that as an accountant and it is not a footnote — it is a control decision. Whoever picks the model is making a governance call, whether or not they realize it.
 
 ---
 
 ## Think in Capability Levels
 
 Specific model names will keep changing. A durable accounting framework should not depend on today's model leaderboard, which has the shelf life of a banana — or of that 1986 taxi model from a few paragraphs back. Think instead in broader capability levels.
+
+Push that model kit a little further and it explains why the levels exist at all. A 200-piece model of the same 1986 taxi is a perfectly good representation — enough to show four wheels, a windshield, roughly the right shape. A 4,000-piece kit of the identical car carries a level of detail the 200-piece kit was never built for: individual engine components, an accurate exhaust system, enough fidelity to answer whether the car has a catalytic converter. You do not need 4,000 pieces to count wheels. You need them only once the question gets specific enough that nothing less will answer it — and that extra detail costs more, in pieces and in build time. If even the 4,000-piece kit cannot answer the question, the next step is not a bigger model. It is the real car, or a museum's original, and that step costs more again. That is model selection in one object: the cheap kit for the routine question, the detailed kit when the question demands it, and the primary source when only that will do.
 
 **Fast models** suit structured, routine, easily verified tasks: renaming columns, reformatting dates, extracting defined fields, standardizing descriptions, building simple summaries. The rules are clear and the output can be checked quickly. Reaching for the most advanced reasoning model here adds cost without adding value.
 
@@ -75,35 +85,11 @@ These tasks require more than summarization. The model has to connect facts, fol
 
 One caution on vocabulary: "reasoning model" is a vendor marketing term, not an accounting standard. Nobody audits the label. The three levels above are a way of thinking about the work, not a certification you can rely on.
 
-### What the levels look like across the major providers
+Every major provider organizes its lineup into roughly these three tiers, using its own names. Which name maps to which tier in any given month is the detail that goes stale fastest, so it lives in a dated snapshot at the end of this article rather than here. The rows are the part worth learning; the columns will be wrong within a year, possibly within a quarter.
 
-Every major provider organizes its lineup into roughly these tiers, using its own names. Here is how the mapping looked in August 2026:
+There is a further shift worth noticing, because it changes how this decision gets made. Capability is increasingly a **dial rather than a model name**. Claude and OpenAI both now expose an effort setting that runs from low through maximum on the same model, so the same model can be pointed at a quick reformatting job or a hard analytical one. That does not undermine the three levels. It reinforces the argument: if the capability level is a setting your workflow chooses, then it is unmistakably a workflow parameter — something to be designed and documented, not something to shrug at.
 
-| Capability level | Claude | OpenAI | Gemini | Microsoft 365 Copilot |
-|---|---|---|---|---|
-| **Fast** | Haiku | GPT-5.6 Luna — "optimized for cost-sensitive workloads" | Flash-Lite — "fastest, most cost-effective" | Whatever your organization enables, with **Auto** choosing |
-| **General-purpose** | Sonnet | GPT-5.6 Terra — "balances intelligence and cost" | Flash | Same — the list is set by your admin |
-| **Reasoning** | Opus | GPT-5.6 Sol — "frontier model for complex professional work" | Pro | Same — including which high-end models appear at all |
-
-> **A note on tools:** That table is a snapshot, not a framework. The rows are the part worth learning; the columns will be wrong within a year, possibly within a quarter. If you memorize one thing here, memorize the rows.
-
-There is a second shift worth noticing, because it changes how this decision gets made. Capability is increasingly a **dial rather than a model name**. Claude and OpenAI both now expose an effort setting that runs from low through maximum on the same model, so the same model can be pointed at a quick reformatting job or a hard analytical one. That does not undermine the three levels. It reinforces the argument: if the capability level is a setting your workflow chooses, then it is unmistakably a workflow parameter — something to be designed and documented, not something to shrug at.
-
-> **🛠️ Reminder — this is a framework.** The examples in this article were tested using Claude in Visual Studio Code through the GitHub Copilot extension, which is the daily setup behind most of this series. Nothing here is Claude-specific. The same seven questions apply if your organization standardizes on ChatGPT, Gemini, or Microsoft 365 Copilot — and if your organization has one approved tool and no picker at all, the questions still apply. They just get answered by whoever configures the tool instead of by you. This series teaches the framework, not the vendor.
-
----
-
-## Security Is a Separate Dimension
-
-There is an important distinction between model capability and model environment. A local or secure model is not "higher" or "lower" than another model. Security answers a different question.
-
-Model selection therefore runs across two dimensions. The first is capability: fast, general-purpose, or reasoning. The second is environment: approved cloud, enterprise-controlled, private, or local.
-
-A payroll task may need no sophisticated reasoning at all, while the sensitivity of the data demands a highly controlled environment. A complex accounting research question may need strong reasoning while involving no confidential information whatsoever. The accountant has to consider both.
-
-And sometimes the two dimensions are wired together in the product itself, which is exactly when this matters most. In Microsoft 365 Copilot's Cowork experience, the highest-capability Anthropic model available in the picker — Claude Fable 5, in preview as of August 2026 — is off by default and *requires data retention*. Microsoft's own documentation is explicit: select it, and your prompts and responses are retained by the model provider rather than following Cowork's default no-retention posture. An administrator has to enable it first, and the interface shows a banner the whole time it is selected.
-
-Read that as an accountant and it is not a footnote. It is a control decision. Reaching for more capability changed the data-retention posture of the work. That is the two-dimensional trade-off this section describes, shipped as a real product setting, with an approval gate and a warning banner attached. Whoever picks that model is making a governance decision, whether or not they realize it.
+> **🛠️ Reminder — this is a framework.** The examples in this article were tested using Claude in Visual Studio Code through the GitHub Copilot extension, which is the daily setup behind most of this series. Nothing here is Claude-specific. The seven questions at the close of this article apply just as well if your organization standardizes on ChatGPT, Gemini, or Microsoft 365 Copilot — and if your organization has one approved tool and no picker at all, they still apply. They just get answered by whoever configures the tool instead of by you. This series teaches the framework, not the vendor.
 
 ---
 
@@ -119,7 +105,7 @@ Which leads to the next question: **what happens if the output is wrong?**
 
 As the consequence of error rises, so should the strength of the workflow. That might mean a more capable model — or better source documentation, added validation steps, more structured instructions, increased human review, or formal approval before the output is used.
 
-The distinction matters, and it is the single most useful idea in this article: **higher complexity may require stronger models. Higher consequence requires stronger controls.** Those are not the same thing, and a bigger model is a remarkably popular way to avoid building the control you actually needed.
+This is where the distinction this article opened with earns its keep, and it is the single most useful idea here: **higher complexity may require stronger models. Higher consequence requires stronger controls.** Those are not the same thing, and a bigger model is a remarkably popular way to avoid building the control you actually needed.
 
 ![Complexity and consequence are different axes](./visuals/36_complexity_vs_consequence.png)
 
@@ -135,7 +121,7 @@ Now suppose AI offers five explanations for why gross margin declined. The expla
 
 Same tool. Same session. Entirely different risk.
 
-An AI task should not be judged only by how quickly the model produces an answer. It should also be judged by how efficiently a reviewer can validate the result. Call it the **verification-cost test**: delegate the work when the output can be verified more efficiently than producing it manually.
+An AI task should not be judged only by how quickly the model produces an answer. It should also be judged by how efficiently a reviewer can validate the result. Call it the **verification-cost test**: delegate when the output can be verified reliably, at a cost proportionate to the value and risk of the task. Cheap to verify is not the same as safe to accept.
 
 When verification becomes harder than the work itself, the workflow needs to change — more structured outputs, one large task broken into smaller checkable steps, or more of the judgment kept with the accountant. [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) covers what that validation looks like in practice.
 
@@ -147,6 +133,10 @@ You do not need to begin every task with the most powerful model available. Mode
 
 A routine extraction or transformation can start with a fast model. If the task needs more interpretation, move it to a general-purpose model. If ambiguity or multi-step analysis remains, escalate to a reasoning model. If the matter involves professional judgment, material uncertainty, or accountability, it escalates to the accountant.
 
+This is not a rule that every task begins at the bottom. Enter the ladder at the level the work actually calls for — a complex lease analysis has no business starting with a fast model — and move up when the work, not impatience, calls for it.
+
+That escalation does not have to be managed by hand, prompt by prompt. A well-built harness can enact the same ladder automatically, inside a single request. Ask a reasoning-tier model to review a project plan, and a good implementation delegates the structured sub-tasks inside that review — pulling a file, formatting a list — to a faster model, reserving its own top-tier inference for the step that actually needs it. The ladder does not disappear inside an agentic tool. It just runs one level down, inside the tool instead of across a workflow you assemble yourself.
+
 That final step is the one that matters.
 
 The top of the escalation ladder is not another AI model. **It is the professional.**
@@ -157,7 +147,7 @@ AI can support the analysis. It cannot own the accounting judgment or the conseq
 
 ---
 
-## Cost and Speed Are Controls Too
+## Cost and Speed Shape the Workflow
 
 Model selection affects workflow economics. That may sound like a technical concern, but accountants already think exactly this way. We ask whether a control is proportionate to the risk, whether a process can scale, and whether additional cost buys anything real.
 
@@ -179,7 +169,7 @@ Providers update, retire, and rename models continuously. Platforms route reques
 
 Accountants already know how to handle this. It is change control, applied to a new kind of component:
 
-- **Record which model actually ran**, not just which model the procedure specifies. Some products help here — Microsoft 365 Copilot's Cowork shows a model badge on each response so you can see what produced it. Capture that in your evidence.
+- **Record which model actually ran**, not just which model the procedure specifies. Some products help here — Microsoft 365 Copilot's Cowork shows a model badge on each response so you can see what produced it. Capture that in your evidence. When a harness delegates internally across tiers, as described above, a single output may reflect more than one model — evidence should capture that, not just the top-level model name.
 - **Pin the version where the platform allows it**, so a workflow you validated is the workflow that runs next month.
 - **Re-validate after a tier or version change.** A model upgrade is genuinely likely to be an improvement. It is still an unvalidated change to a control.
 - **Record the run, not just the model name.** The same model can return different answers to the same prompt. Evidence that says "we used the reasoning tier" is a policy statement. Evidence that preserves the actual inputs, outputs, and validation for the run that happened is an audit trail.
@@ -209,7 +199,7 @@ Here is what monthly variance commentary looks like once the decision is written
 
 At that point model selection is no longer arbitrary. It is part of the workflow design. The organization can explain why a particular level of capability was selected, define when escalation should occur, and periodically review whether the control still operates as intended.
 
-This is where AI starts to look less like casual chatbot use and more like an accounting process. If you have not yet set up a workflow this way, [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) walks through building the first one; this article is the decision that belongs inside it.
+This is where AI starts to look less like casual chatbot use and more like an accounting process. If you have not yet set up a workflow this way, [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) walks through building the first one. The model-selection decision described in this article is one of the things that belongs inside that workflow.
 
 > **Further reading:** A fill-in version of the table above is available as a reusable [Model Selection Decision Record](https://github.com/PythonMuse/ai-ledger/blob/main/templates/model-selection-record.md) in this repository, along with the seven questions as a pre-flight checklist and a model change-control log.
 
@@ -255,8 +245,26 @@ Because model selection is no longer just an AI decision.
 
 ---
 
+## Appendix: A Dated Snapshot (August 2026)
+
+Everything below is perishable. The framework above does not depend on any of it — these are the current details that make the framework concrete, and they are the first things that will be wrong. Treat this section the way you would treat a rate table with an effective date on it.
+
+**How the capability levels mapped across providers, August 2026:**
+
+| Capability level | Claude | OpenAI | Gemini | Microsoft 365 Copilot |
+|---|---|---|---|---|
+| **Fast** | Haiku | GPT-5.6 Luna — "optimized for cost-sensitive workloads" | Flash-Lite — "fastest, most cost-effective" | Whatever your organization enables, with **Auto** choosing |
+| **General-purpose** | Sonnet | GPT-5.6 Terra — "balances intelligence and cost" | Flash | Same — the list is set by your admin |
+| **Reasoning** | Opus | GPT-5.6 Sol — "frontier model for complex professional work" | Pro | Same — including which high-end models appear at all |
+
+**When capability and environment are wired together.** In Microsoft 365 Copilot's Cowork experience, the highest-capability Anthropic model available in the picker — Claude Fable 5, in preview as of August 2026 — is off by default and *requires data retention*. Microsoft's own documentation is explicit: select it, and your prompts and responses are retained by the model provider rather than following Cowork's default no-retention posture. An administrator has to enable it first, and the interface shows a banner the whole time it is selected. That is the two-dimensional trade-off from earlier in this article, shipped as a real product setting with an approval gate attached.
+
+---
+
 **A note on how this article was made.** This article started with me. The argument — that accountants keep asking which model is best when the useful question is what the work actually requires, and that the answer belongs in workflow design rather than personal preference — is mine. ChatGPT (GPT-5.6 Sol) helped me shape my notes into a first structured draft. Claude Sonnet and Claude Opus reviewed that draft for accuracy, which is where the cross-provider comparison and the Microsoft Copilot data-retention example came from — both were verified against vendor documentation rather than taken on faith, and one of them changed a claim I had originally written the other way around. Claude Code (Claude Opus 5) then built the final article, the visuals, the decision-record template, and the site wiring — working from my direction and feedback at each step. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 
 *Related: [Stop Using AI Like It Is Excel](../14-ai-team-for-accountants/) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

@@ -329,3 +329,5 @@ Also available in the [PythonMuse Workflow Kit](https://github.com/PythonMuse/py
 ---
 
 *Published by [PythonMuse LLC](https://pythonmuse.com) | [GitHub](https://github.com/PythonMuse/ai-ledger)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

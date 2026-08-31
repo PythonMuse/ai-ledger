@@ -102,3 +102,5 @@ This series weaves together threads from across the catalog. Articles you'll see
 ---
 
 *By Svetlana Toohey*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

@@ -148,3 +148,5 @@ In **[Article 20b — Git Explained Using Accounting Terms](../20b-git-in-accoun
 ---
 
 *By Svetlana Toohey*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

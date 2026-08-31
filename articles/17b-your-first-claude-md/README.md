@@ -247,3 +247,5 @@ Your `CLAUDE.md` is the difference between the two.
 ---
 
 *Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [PythonMuse Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit) | [Metadata Is the Label Maker Your AI Workflow Needs](../31-metadata-is-the-label-maker/README.md) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

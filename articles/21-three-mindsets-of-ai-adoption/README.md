@@ -216,3 +216,5 @@ AI won't replace accountants. But accountants who understand their role in this 
 ---
 
 *Related: [How Accountants Learn AI](../09-how-accountants-learn-ai/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

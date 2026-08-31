@@ -574,3 +574,5 @@ The future of accounting is not blind trust in AI. It is controlled collaboratio
 ---
 
 *Related: [The Power of Skills and Agents: How Accountants Actually Use AI](../17-skills-and-agents-for-accountants/README.md) | [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) | [Metadata Is the Label Maker](../31-metadata-is-the-label-maker/README.md) | [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/README.md) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) | [From Reports to Requests](../34-model-context-protocol-for-accounting/README.md) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

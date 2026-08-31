@@ -148,3 +148,5 @@ History is good. But for finance, history alone isn't enough — we also need **
 ---
 
 *By Svetlana Toohey*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

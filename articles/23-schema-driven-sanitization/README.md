@@ -414,3 +414,5 @@ Get the architecture right, and you can use cloud AI tools for financial analysi
 [^4]: Committee of Sponsoring Organizations of the Treadway Commission (COSO), *Internal Control — Integrated Framework* (originally issued 1992, updated 2013). COSO is jointly sponsored by the AICPA, IMA, AAA, IIA, and FEI. Framework guidance and supplemental publications are available at: https://www.coso.org/guidance-on-ic
 
 [^5]: Faker is an open-source Python library for generating realistic synthetic data. Documentation and installation instructions are available at: https://faker.readthedocs.io/en/master/
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*
