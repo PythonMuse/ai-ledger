@@ -290,3 +290,5 @@ And sometimes the process of teaching AI your workflow is what finally reveals a
 ---
 
 *Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [Stop Using One AI Like It Is Excel](../14-ai-team-for-accountants/) | [AI Use Cases and How to Structure Them](../10-ai-use-cases-and-structure/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

@@ -257,3 +257,5 @@ If you want the full hands-on walkthrough, [Article 01](../01-ai-copilot-for-acc
 ---
 
 *Related: [Workflow Kit (GitHub)](https://github.com/PythonMuse/pythonmuse-workflow-kit) | [Demo Prompts](https://github.com/PythonMuse/pythonmuse-workflow-kit/blob/main/docs/demo-prompts.md) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) | [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

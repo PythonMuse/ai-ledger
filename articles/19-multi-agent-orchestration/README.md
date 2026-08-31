@@ -290,3 +290,5 @@ It does not have to be complicated to be powerful.
 ---
 
 **PythonMuse LLC**
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

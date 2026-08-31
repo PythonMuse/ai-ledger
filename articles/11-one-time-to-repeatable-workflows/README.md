@@ -243,3 +243,5 @@ The goal is to stop doing the same thinking twice.
 ---
 
 *Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [AI Use Cases and How to Structure Them](../10-ai-use-cases-and-structure/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main) | [AI Governance Repository](https://github.com/PythonMuse/accounting_and_finance-ai-governance)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

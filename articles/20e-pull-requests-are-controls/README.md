@@ -175,3 +175,5 @@ History plus approvals gives you defensible change. The final article puts it al
 ---
 
 *By Svetlana Toohey*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

@@ -17,7 +17,7 @@ Work through these before assigning the task. If you cannot answer one of them, 
 - [ ] **2. Is the information permitted in this environment?** Data governance is resolved *before* capability is considered.
 - [ ] **3. How much reasoning does the task require?** Routine work may prioritize speed; complex work may need depth.
 - [ ] **4. What happens if the output is wrong?** Financial, operational, reporting, or compliance consequence.
-- [ ] **5. How easily can the result be verified?** Apply the verification-cost test: delegate when the output can be verified more efficiently than producing it manually.
+- [ ] **5. How easily can the result be verified?** Apply the verification-cost test: delegate when the output can be verified reliably, at a cost proportionate to the value and risk of the task. Cheap to verify is not the same as safe to accept.
 - [ ] **6. Does the model cost match the value of the task?** Matters most for recurring or high-volume workflows.
 - [ ] **7. When should the workflow escalate?** Defined in advance — to a stronger capability level, and to a human reviewer.
 

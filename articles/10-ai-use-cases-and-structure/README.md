@@ -203,3 +203,5 @@ The mistake is not experimenting with AI. The mistake is leaving experimental wo
 ---
 
 *Related: [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) | [Reproducible Accounting](../05-reproducible-accounting/) | [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework/tree/main) | [AI Governance Repository](https://github.com/PythonMuse/accounting_and_finance-ai-governance)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

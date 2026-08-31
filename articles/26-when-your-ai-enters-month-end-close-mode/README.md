@@ -368,3 +368,5 @@ Not a developer. Not a data scientist. An accountant who understands control —
 ---
 
 *Related: [Why Claude "Forgets"](../08-why-claude-forgets/) | [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [What the Heck Is a Script?](../25-what-the-heck-is-a-script/) | [Metadata Is the Label Maker Your AI Workflow Needs](../31-metadata-is-the-label-maker/README.md)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

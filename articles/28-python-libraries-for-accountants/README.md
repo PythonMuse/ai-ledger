@@ -373,3 +373,5 @@ And if you want to see repeatable workflows built around these libraries:
 ---
 
 *Related: [Visual Studio Code Extensions for Accountants](../27-vscode-extensions-for-accountants/) | [What the Heck Is a Script?](../25-what-the-heck-is-a-script/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

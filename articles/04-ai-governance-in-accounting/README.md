@@ -295,3 +295,5 @@ And fortunately, that is still something AI cannot do nearly as well as a good c
 ---
 
 *Related: [Your AI Co-Pilot for Accounting](../01-ai-copilot-for-accounting/) | [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [Reproducible Accounting](../05-reproducible-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

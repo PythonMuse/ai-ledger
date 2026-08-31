@@ -311,3 +311,5 @@ AI -- when done right -- makes us system builders.
 *Related: [Why Claude "Forgets"](../08-why-claude-forgets/) | [Safe AI Data Workflows](../06-safe-ai-data-workflows/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [Reproducible Accounting](../05-reproducible-accounting/)*
 
 *Companion repository: [PythonMuse AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

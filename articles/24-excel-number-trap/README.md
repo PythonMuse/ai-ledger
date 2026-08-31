@@ -239,3 +239,5 @@ Also available in the [PythonMuse Workflow Kit](https://github.com/PythonMuse/py
 ---
 
 *By Svetlana Toohey | [PythonMuse](https://pythonmuse.com) | [GitHub](https://github.com/PythonMuse/pythonmuse-workflow-kit)*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

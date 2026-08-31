@@ -442,3 +442,5 @@ That is the exercise.
 
 **PythonMuse LLC**
 *Practical AI for accounting and finance professionals.*
+
+*© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*
