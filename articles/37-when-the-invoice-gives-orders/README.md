@@ -85,15 +85,15 @@ Prompt injection can happen in different ways, but you do not need a cybersecuri
 
 The National Institute of Standards and Technology (NIST), the U.S. government agency that develops widely used standards and guidance for technology and cybersecurity, describes indirect prompt injection as an attack enabled by control of an external resource — one that lets an attacker inject instructions "without directly interacting with the application."
 
-NIST also states the underlying mechanism in a single sentence that is, essentially, this entire article written by a standard setter:
+NIST also explains why this happens at a technical level:
 
 > "Because GenAI models combine the data and instruction channels, attackers can leverage the data channel to affect system operations by manipulating resources with which the system interacts."
 >
 > — NIST AI 100-2e2025, *Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations*
 
-Combine the data and instruction channels. That is the whole problem. Accounting has spent a century keeping those two things apart, and we did not have a name for it because nobody had built a system that mixed them.
+In plain terms: the model reads facts and reads commands through the same pipe. Accounting has spent a century keeping those two things apart. We never needed a name for that discipline, because nobody had built a system that mixed them until now.
 
-There is one more feature of indirect injection worth noting, because it changes who you think the victim is. NIST points out that unlike direct injection, these attacks are mounted not by the model's primary user but by a third party — and that in many cases it is the primary user who is harmed. The person holding the risk is not the attacker experimenting with your chatbot. It is your own AP clerk.
+That mixed pipe also changes who the victim usually is. With direct injection, the attacker is the one at the keyboard — they type the override themselves, straight into the chat. With indirect injection, NIST notes the attacker never touches your AI at all: they plant the instruction inside a document and let your own system carry it in for them. The person actually exposed to risk is not that outside attacker. It is your own AP clerk, the one who opened the invoice.
 
 Microsoft's security guidance makes the same point from the product side: generative AI systems integrated into enterprise workflows "often process untrusted content from external sources like emails, documents, websites, and plugins," and the AI's inability to distinguish user input from external content makes "traditional input validation insufficient."
 
