@@ -198,6 +198,6 @@ Don't send documents. Send structure.
 
 ---
 
-*Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [Why Claude "Forgets"](../08-why-claude-forgets/) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | ["AI Can't Work With Our Excel Files"... or Can It?](../15-ai-and-excel-files/) | [AI in Accounting Is About Control](../13-zero-trust-ai-accounting/) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/)*
+*Related: [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/) | [Why Claude "Forgets"](../08-why-claude-forgets/) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | ["AI Can't Work With Our Excel Files"... or Can It?](../15-ai-and-excel-files/) | [AI in Accounting Is About Control](../13-zero-trust-ai-accounting/) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

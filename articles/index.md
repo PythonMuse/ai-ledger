@@ -56,6 +56,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 34 | [From Reports to Requests](34-model-context-protocol-for-accounting/README.md) | Model Context Protocol, MCP, APIs vs. MCP, AI builders, workflow design, accounting team roles |
 | 35 | [Don't Just Prompt AI. ONBOARD It.](35-onboard-ai-workflows/README.md) | ONBOARD checklist, AGENTS.md, controlled workflow onboarding, variance review example, review and documentation |
 | 36 | [Model Selection Is an Accounting Control](36-model-selection-is-a-control/README.md) | Model selection, capability levels, escalation, complexity vs. consequence, verification cost, model change control |
+| 37 | [When the Invoice Starts Giving Orders](37-when-the-invoice-gives-orders/README.md) | Prompt injection, trust boundaries, untrusted content, least privilege, instruction-integrity canary, defense in depth |
 
 ---
 

@@ -697,6 +697,6 @@ They will be those who understand the business question, the underlying data, th
 
 ---
 
-*Related: [When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting](../19-multi-agent-orchestration/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md)*
+*Related: [When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting](../19-multi-agent-orchestration/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

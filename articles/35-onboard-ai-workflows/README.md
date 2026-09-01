@@ -69,7 +69,7 @@ Here is how to execute the workflow using ONBOARD.
 
 ## O — Organize the Workspace and Define AI's Role
 
-Before giving AI financial data, create a structured project folder. A forthcoming **PythonMuse Accounting Workflow Starter Kit** will provide a reusable starting structure — but you can build the same shape yourself today:
+Before giving AI financial data, create a structured project folder. The **PythonMuse Accounting Workflow Starter** provides this shape as a ready-to-use template — or you can build it yourself in a couple of minutes:
 
 ```text
 monthly-variance-review/
@@ -91,6 +91,8 @@ monthly-variance-review/
 ```
 
 ![The Onboarding Workspace](./visuals/35_workspace_structure.png)
+
+> **Further reading:** The [PythonMuse Accounting Workflow Starter](https://github.com/PythonMuse/pythonmuse-accounting-workflow-starter) is this article made runnable — a template repository with the folder structure above, a starter `AGENTS.md`, and all seven ONBOARD prompts ready to fire in order. Click "Use this template" on GitHub to get your own copy.
 
 The first prompt should ask AI to create the workspace, explain its structure, and draft the primary agent-instruction file.
 
@@ -491,6 +493,6 @@ Because it probably is.
 
 ---
 
-*Related: [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md)*
+*Related: [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*
