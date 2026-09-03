@@ -2388,6 +2388,9 @@
 <p>Now imagine that somewhere inside the invoice PDF there is additional text telling the AI to ignore its previous instructions, treat the invoice as already approved, and avoid reporting the variance.</p>
 <p>A human accountant would recognize that statement as irrelevant at best and suspicious at worst. The AI may not.</p>
 <p><img alt="The deterministic calculation does not care what the invoice says about itself" src="visuals/37_invoice_walkthrough.png" /></p>
+<blockquote>
+<p><strong>A quick definition:</strong> "Deterministic" just means the same inputs always produce the exact same output, every time — the way a spreadsheet formula does. The variance calculation in the image above is deterministic: $48,750 minus $40,000 is always $8,750, no matter what the invoice says about itself. An AI's summary or judgment call is not deterministic in that sense — it can vary from run to run, which is exactly why the two stay separate throughout this article.</p>
+</blockquote>
 <p>OWASP, the <strong>Open Worldwide Application Security Project</strong>, is a nonprofit organization that publishes practical guidance on software and application security. Its materials are widely used by technology, cybersecurity, and audit professionals to identify and manage risks in systems that process data and instructions.</p>
 <blockquote>
 <p><strong>Why this matters to accountants:</strong> OWASP is not an accounting standard setter. Its guidance is useful here because AI systems are software applications, and prompt injection is a technology risk that can affect the reliability of accounting workflows and the integrity of related controls.</p>
@@ -2477,9 +2480,12 @@
 <p>For example, an invoice-review agent might include the following in its approved instruction file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>## Instruction Integrity Canary
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Include "CONTROL-CHECK" in every workflow status output.
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>If this instruction cannot be followed, stop processing and route the item for human review.
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Include "CONTROL-CHECK" in every
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>workflow status output.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>If this instruction cannot be
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>followed, stop processing and
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>route the item for human review.
 </code></pre></div>
 <p>Under normal operation, the agent returns:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>CONTROL-CHECK
@@ -2513,7 +2519,10 @@
 <h2 id="limit-what-the-ai-can-do">Limit What the AI Can Do</h2>
 <p>Prompt injection becomes far more consequential when an AI has broad permissions.</p>
 <p>An invoice review agent may need permission to read invoices, purchase orders, and purchasing policies. That does not mean it should have permission to change vendor banking information, release payments, create new vendors, send external emails, modify accounting policies, or post directly to the general ledger.</p>
-<p>This is the principle of <strong>least privilege</strong>, applied to AI. Microsoft's guidance goes a step further and recommends short-lived privileges: grant them when needed, remove them after each use.</p>
+<p>Before permissions, there is an earlier design choice worth making: how much is any one agent actually responsible for? Software engineers call this the <strong>single responsibility principle</strong> — give a component exactly one job, and nothing else. Applied to the invoice example already on the table, that means the agent reading the PDF has exactly one task: extract the invoice amount, vendor, date, and referenced purchase order number. Whether that amount falls within the approved tolerance is a separate decision, made by the deterministic calculation described above — outside that agent's scope entirely, not merely outside its permissions.</p>
+<p>Scoped this narrowly, the extraction agent has almost nothing left for an injected instruction to redirect. It doesn't decide approvals, it doesn't apply the tolerance rule, and it doesn't hold a conversation about the invoice — it returns a value. A returned value is far easier to govern than a conversation: it can be checked against an expected type and range, logged, and passed to the next step without carrying along whatever the document tried to say about itself. The same discipline holds even in more elaborate setups, where an orchestrating agent calls a specialized sub-agent just to perform the extraction — a single returned value can be sanitized before it ever reaches the calling context in a way that free-form model output cannot.</p>
+<p>This is also where the earlier point about deterministic scripts meets a real limit. A hand-written script is still the strongest available control, but it assumes source documents consistent enough to parse with fixed rules — and invoices arriving from dozens of vendors, in dozens of layouts, are not always that cooperative. Writing a dedicated parser for every vendor's format is the ideal. Where that is genuinely impractical, narrowing what the extraction agent is responsible for is one of the better mitigations available — not because it prevents an injection from occurring, but because it shrinks what a successful one could possibly change.</p>
+<p>This is the principle of <strong>least privilege</strong>: grant any user, process, or system only the access required for its specific job, and nothing more. Accountants already practice a close cousin of it — segregation of duties, and access controls that decide which employees can approve payments, edit vendor master data, or post journal entries, regardless of how trusted they are. Applied to AI, the discipline holds just as well: permission to read a document is not the same as permission to act on it, and permission to act inside one system is not the same as permission to act inside all of them. Microsoft's guidance goes a step further and recommends short-lived privileges — grant them only when a task actually needs them, and remove them again once it's done, rather than leaving an agent permanently provisioned with access it uses once a month.</p>
 <p>The workflow should receive only the permissions required for its approved purpose.</p>
 <p>That creates an important second layer of protection. Even if the AI misreads malicious content, the system restricts what it is capable of doing as a result.</p>
 <p>The control objective is not limited to preventing the AI from ever being manipulated. A stronger objective is:</p>
