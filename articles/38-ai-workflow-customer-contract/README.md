@@ -13,9 +13,7 @@
 
 Imagine this.
 
-Your accounting team spends several weeks building an AI-assisted workflow. The use case is documented. Access is limited. The team identifies the data involved, tests the results, builds in human review, and keeps evidence of the testing. The AI Governance Lead approves the workflow.
-
-You did what good AI governance is supposed to require. Genuinely — this is the part most organizations skip, and your team did it.
+Your accounting team spends several weeks building an AI-assisted workflow. The use case is documented. Access is limited. The team identifies the data involved, tests the results, builds in human review, and keeps evidence of the testing. Finally, the AI Governance Lead approves the workflow.
 
 Then the workflow goes live.
 
@@ -93,8 +91,6 @@ The third includes broader internal activities that may still use customer infor
 
 If a contract limits the use of AI "in connection with the Services," which of those layers does it cover?
 
-That should not be left unclear if the answer affects how the company can operate.
-
 The definition of AI matters just as much.
 
 Contracts may refer to artificial intelligence, machine learning, automated decisioning, or simply automated tools. Those terms can describe very different technologies.
@@ -123,7 +119,7 @@ Consider an AI-assisted billing workflow.
 
 The tool may read project records, employee time, billing instructions, contract terms, and customer correspondence. It may identify missing support, prepare an invoice narrative, calculate charges, or route the draft for review.
 
-From an accounting-control perspective, that workflow may look excellent. It has a defined owner. Access is limited. The results are reviewed. The accountant validates the invoice before it is released. Evidence is retained. If you have been following the [audit-ready workflow framework](../12-audit-ready-ai-workflows/README.md) in this series, it checks every box.
+From an accounting-control perspective, that workflow may look excellent. If you have been following the [audit-ready workflow framework](../12-audit-ready-ai-workflows/README.md) in this series, it checks every box.
 
 But there is now another control question:
 
@@ -142,8 +138,6 @@ Then we build an AI workflow that processes that same customer's data — and ne
 ## Using Customer Data Is Not the Same as Training on Customer Data
 
 There is another distinction worth getting right, because it is the one most likely to be blurred in a hallway conversation.
-
-An AI tool may process customer information without using that information to train the underlying model. Those are not the same activity.
 
 An AI billing tool may need customer project records to prepare a draft invoice. The provider may contractually agree not to use those records to train or improve its models. Another provider may have entirely different terms — retaining inputs, or using information to improve its service unless a particular tier or setting is in place.
 
@@ -177,7 +171,7 @@ They may be a contract compliance control. Which means somebody should be keepin
 
 Organizations should also be careful with the phrase **human in the loop**.
 
-Human review is an important control. This series has argued for it repeatedly. But it does not automatically make every use of AI acceptable, and it is not a universal contractual solvent.
+Human review is an important control. This series has argued for it repeatedly. But it is not a universal contractual solvent.
 
 A contract may prohibit AI not only from *making* a decision but also from *supporting* certain decisions.
 
@@ -213,9 +207,7 @@ So the approval question becomes more specific:
 
 That sounds complicated. The actual control is fairly simple.
 
-The problem today is not that the information is unavailable — it is that it sits in different places. Legal has the contract. Sales knows what was negotiated. IT knows which technology is being used. Accounting and Operations know how customer information moves through the process. The AI Governance Lead knows which use cases have been approved.
-
-Each department may be doing its job correctly while the connection between those pieces is still missing.
+The problem today is not that the information is unavailable. It is scattered across the same departments from the opening — Legal, Sales, IT, Accounting, the AI Governance Lead — and connecting it is nobody's job.
 
 One field added to the AI use-case register can close most of it:
 
@@ -241,15 +233,13 @@ Your company may not be the one that introduced the AI.
 
 A CRM adds an AI assistant. A billing platform adds automated review. A scheduling tool starts generating summaries. A subcontractor quietly starts using AI in its own process.
 
-Nobody launched a formal AI project. Nobody filled out a use-case form. Nobody scheduled a kickoff meeting. The technology simply changed, and it arrived in a release note that went to an IT distribution list.
+Nobody launched a formal AI project. Nobody filled out a use-case form. The technology simply changed, and it arrived in a release note that went to an IT distribution list.
 
 Even the models underneath an approved tool move. Microsoft says plainly that the models powering Copilot "are regularly updated and enhanced" — noting that updates bring improved capability without changing your security, privacy, or compliance settings. That is a reassuring statement about configuration, and it is also a reminder that the thing you evaluated in March is not necessarily the thing running in September. [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) makes the case that model changes deserve change control; this is the contractual reason why.
 
 That is why AI approval cannot be treated as permanent.
 
-A workflow deserves another look when the data changes, a new customer is added, a different model or vendor is introduced, access expands, or the workflow begins taking actions it did not take before.
-
-And contracts change too. A new customer arrives with different restrictions. An existing MSA is renewed. New language gets negotiated in a renewal that nobody thought to mention to the AI Governance Lead.
+A workflow deserves another look when the data changes, a new customer is added, a different model or vendor is introduced, access expands, the workflow begins taking actions it did not take before — or the contract itself changes: a renewal, a new customer with different restrictions, new language negotiated that nobody thought to mention to the AI Governance Lead.
 
 The workflow you approved six months ago may not be the workflow you are operating today. Nobody changed it. It changed.
 
@@ -257,25 +247,25 @@ The workflow you approved six months ago may not be the workflow you are operati
 
 ## Practical Ways to Reduce the Risk
 
-The answer is not to send every automation idea to Legal. That would slow the organization to a crawl and make AI governance something people route around rather than through — which is worse than having none, because at least then you know where you stand.
+The answer is not to send every automation idea to Legal. That would slow the organization to a crawl and make AI governance something people route around rather than through.
 
 A few targeted controls go a long way.
 
 ![Six controls, and which ones prevent the problem versus detect it](./visuals/38_controls.png)
 
-**Flag AI terms during contract review.** When a new MSA is reviewed, record whether it contains restrictions related to AI, machine learning, automated decisioning, automated tools, model training, or customer data. A simple **AI Restrictions: Yes / No / Review Required** flag may be enough.
+**Flag AI terms during contract review.** A simple **AI Restrictions: Yes / No / Review Required** field on the contract register is enough to start.
 
-**Define the perimeter clearly.** For new contracts, make sure the definitions of Services, AI, and automated tools are clear enough to distinguish direct service delivery from supporting and internal processes.
+**Define the perimeter clearly.** For new contracts, get the definitions of Services, AI, and automated tools tight enough to separate direct delivery from supporting and internal work.
 
-**Add a contract checkpoint to AI approval.** If a workflow uses customer information or supports delivery of customer services, determine whether customer-specific restrictions apply before deployment — not after.
+**Add a contract checkpoint to AI approval.** The register field described above, enforced before deployment rather than after.
 
 **Understand what happens to the data.** Separate processing customer information from retaining it, training on it, or using it to improve a provider's models or services. Record which tier and which settings that answer depends on.
 
 **Map the full workflow.** Do not review only the obvious AI step. Follow customer data through the whole process — service delivery, billing, collections, reporting, and retention.
 
-**Establish re-review triggers.** Changes in data, customers, vendors, models, system access, autonomous actions, or contract terms should prompt another look.
+**Establish re-review triggers.** Write the trigger list from the previous section into the register so it is checked, not remembered.
 
-None of these needs to be complicated. The goal is simply to make sure the right question reaches the right person before the workflow goes live.
+None of these needs to be complicated.
 
 This is also not a novel idea in the standards world, which is worth knowing if you ever need to defend the control to an auditor. The NIST AI Risk Management Framework devotes an entire category to third-party risk: GOVERN 6.1 calls for "policies and procedures ... in place that address AI risks associated with third-party entities," and GOVERN 6.2 asks for contingency processes when third-party AI systems fail. ISO/IEC 42001, the AI management system standard, closes its Annex A controls with a section on third-party and customer relationships. And in the EU, the AI Act's Article 50 transparency obligations — applicable since August 2026 — mean disclosure duties are no longer only a matter of private contract.
 
@@ -326,7 +316,7 @@ Vendor terms change. Every statement above was verified against the linked sourc
 
 ---
 
-**A note on how this article was made.** This article started with me. The observation — that AI clauses are starting to appear in customer MSAs, and that a workflow can pass every internal control while still conflicting with a contract the company already signed — is mine, and it came from reading a real agreement. ChatGPT (5.5 Sol) helped me shape my notes into a first structured draft. Claude Sonnet and Claude Opus reviewed that draft and co-built the practice repository this article points to, which is where the seeded exception cases came from. Claude Code (Claude Opus 5, handing off mid-session to Claude Sonnet 5) then built the final article, the visuals, and the site wiring — the draft carried no external citations at all, so every NIST, ISO, EU AI Act, Microsoft, Anthropic, and OpenAI claim in the published version was researched and verified against the primary source from scratch rather than taken on faith. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**A note on how this article was made.** This article started with me. The observation is mine, and it came from reading a real agreement. ChatGPT (5.5 Sol) helped me shape my notes into a first structured draft. Claude Sonnet and Claude Opus reviewed that draft and co-built the practice repository this article points to, which is where the seeded exception cases came from. Claude Code (Claude Opus 5, handing off mid-session to Claude Sonnet 5) then built the final article, the visuals, and the site wiring — the draft carried no external citations at all, so every NIST, ISO, EU AI Act, Microsoft, Anthropic, and OpenAI claim in the published version was researched and verified against the primary source from scratch rather than taken on faith. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 
