@@ -55,6 +55,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 35 | [Don't Just Prompt AI. ONBOARD It.](articles/35-onboard-ai-workflows/) | ONBOARD checklist, AGENTS.md, controlled workflow onboarding, variance review example, review and documentation |
 | 36 | [Model Selection Is an Accounting Control](articles/36-model-selection-is-a-control/) | Model selection, capability levels, escalation, complexity vs. consequence, verification cost, model change control |
 | 37 | [When the Invoice Starts Giving Orders](articles/37-when-the-invoice-gives-orders/) | Prompt injection, trust boundaries, untrusted content, least privilege, instruction-integrity canary, defense in depth |
+| 38 | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](articles/38-ai-workflow-customer-contract/) | Customer contracts, MSA review, AI use-case register, data processing vs. training, approved-tool lists, contract checkpoint |
 
 
 ---
