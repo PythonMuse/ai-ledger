@@ -423,45 +423,45 @@ def make_customer_dimension():
 # ---------------------------------------------------------------------------
 CONTROLS = [
     ("Flag AI terms during contract review",
-     "Record whether a new MSA restricts AI, ML, decisioning, or model training.",
+     "Record whether a new MSA restricts AI, ML,\ndecisioning, or model training.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Define the perimeter clearly",
-     "Make the definitions specific enough to separate delivery from support.",
+     "Make the definitions specific enough to\nseparate delivery from support.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Add a contract checkpoint to AI approval",
-     "Before deployment, determine whether customer-specific restrictions apply.",
+     "Before deployment, determine whether\ncustomer-specific restrictions apply.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Understand what happens to the data",
-     "Separate processing customer information from retaining or training on it.",
+     "Separate processing customer information\nfrom retaining or training on it.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Map the full workflow",
-     "Follow customer data through delivery, billing, collections, and reporting.",
+     "Follow customer data through delivery,\nbilling, collections, and reporting.",
      "DETECTIVE", OCEAN_TEAL),
     ("Establish re-review triggers",
-     "New data, customers, models, or contract terms should trigger a re-review.",
+     "New data, customers, models, or contract\nterms should trigger a re-review.",
      "DETECTIVE", OCEAN_TEAL),
 ]
 
 
 def make_controls():
-    fig, ax = blank_axes((13.4, 11.8))
+    fig, ax = blank_axes((13.4, 13.5))
     add_header_bar(fig, "Six Controls, Not One Legal Review",
                    "You do not need to send every automation idea to Legal. You do need these.",
-                   height=0.084)
+                   height=0.078)
 
-    row_h, row_gap = 0.096, 0.016
+    row_h, row_gap = 0.100, 0.016
     pitch = row_h + row_gap
-    top = 0.874
+    top = 0.895
     body_x, body_w = 0.05, 0.72
     chip_x, chip_w = 0.79, 0.16
 
     for i, (title, detail, kind, color) in enumerate(CONTROLS):
         y = top - i * pitch - row_h
         rounded_box(ax, (body_x, y), body_w, row_h, color, text_color=WHITE,
-                    text=title, fontsize=18, sub=detail, subsize=15.5,
+                    text=title, fontsize=19, sub=detail, subsize=18,
                     sub_color=WARM_GLOW, ha="left",
                     text_x=body_x + 0.028,
-                    title_offset=0.22, sub_offset=0.30, linespacing=1.2)
+                    title_offset=0.32, sub_offset=0.20, linespacing=1.15)
         chip_fill = GOLDEN_YELLOW if kind == "PREVENTIVE" else BRIGHT_TEAL
         rounded_box(ax, (chip_x, y), chip_w, row_h, chip_fill,
                     text_color=DEEP_NAVY, text=kind, fontsize=16)
