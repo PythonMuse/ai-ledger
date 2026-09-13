@@ -133,33 +133,33 @@ MSA_SAYS = [
 
 
 def make_hero():
-    fig, ax = blank_axes((13.4, 10.2))
+    fig, ax = blank_axes((13.4, 10.6))
     add_header_bar(fig, "Approved by Us. Permitted by Them?",
                    "Both can be true about the same workflow at the same time.",
-                   height=0.095)
+                   height=0.092)
 
     col_w = 0.40
     left_x, right_x = 0.04, 0.56
-    head_bottom, head_h = 0.740, 0.078
-    box_h, gap = 0.076, 0.014
+    head_bottom, head_h = 0.735, 0.080
+    box_h, gap = 0.080, 0.014
     pitch = box_h + gap
 
     rounded_box(ax, (left_x, head_bottom), col_w, head_h, DEEP_NAVY,
                 text_color=GOLDEN_YELLOW, text="OUR AI GOVERNANCE APPROVED",
-                fontsize=17)
+                fontsize=18.5)
     rounded_box(ax, (right_x, head_bottom), col_w, head_h, OCEAN_TEAL,
-                text_color=WHITE, text="THE CUSTOMER'S MSA SAYS", fontsize=17)
+                text_color=WHITE, text="THE CUSTOMER'S MSA SAYS", fontsize=18.5)
 
     for i, label in enumerate(APPROVED):
         y = head_bottom - gap - i * pitch - box_h
         rounded_box(ax, (left_x, y), col_w, box_h, MIDNIGHT_TEAL,
-                    text_color=WHITE, text=label, fontsize=15.5, bold=False,
+                    text_color=WHITE, text=label, fontsize=17, bold=False,
                     linespacing=1.3)
 
     for i, label in enumerate(MSA_SAYS):
         y = head_bottom - gap - i * pitch - box_h
         rounded_box(ax, (right_x, y), col_w, box_h, LIGHT_GRAY,
-                    text_color=DEEP_NAVY, text=label, fontsize=15.5, bold=False,
+                    text_color=DEEP_NAVY, text=label, fontsize=17, bold=False,
                     linespacing=1.3, edge=OCEAN_TEAL, lw=1.1)
 
     rows_bottom = head_bottom - gap - (len(APPROVED) - 1) * pitch - box_h
@@ -170,12 +170,12 @@ def make_hero():
     # entirely correct on their own.
     ax.plot([0.50, 0.50], [0.205, header_top + 0.010], linestyle=(0, (5, 4)),
             color=OCEAN_TEAL, linewidth=2.2, zorder=1)
-    ax.text(0.50, 0.46, "THE  CONTROL  GAP", rotation=90, fontsize=15,
+    ax.text(0.50, 0.46, "THE  CONTROL  GAP", rotation=90, fontsize=16.5,
             fontweight="bold", color=ALERT_ORANGE, ha="center", va="center",
             zorder=4, bbox=dict(facecolor=WHITE, edgecolor="none", pad=5))
 
     # Neither column contradicts the other -- they just never compared notes.
-    ax.text(0.50, header_center, "≠", fontsize=26, fontweight="bold",
+    ax.text(0.50, header_center, "≠", fontsize=28, fontweight="bold",
             color=ALERT_ORANGE, ha="center", va="center", zorder=5,
             bbox=dict(facecolor=WHITE, edgecolor="none", pad=2))
 
@@ -184,26 +184,26 @@ def make_hero():
             color=OCEAN_TEAL)
     arrow_v(ax, right_x + col_w / 2, rows_bottom - 0.018, wf_bottom + wf_h + 0.014,
             color=SEA_GREEN)
-    ax.text(left_x + col_w / 2, rows_bottom - 0.048,
-            "all true", fontsize=14.5, fontweight="bold", color=OCEAN_TEAL,
+    ax.text(left_x + col_w / 2, rows_bottom - 0.050,
+            "all true", fontsize=16, fontweight="bold", color=OCEAN_TEAL,
             ha="center", va="center")
-    ax.text(right_x + col_w / 2, rows_bottom - 0.048,
-            "also true", fontsize=14.5, fontweight="bold", color=SEA_GREEN,
+    ax.text(right_x + col_w / 2, rows_bottom - 0.050,
+            "also true", fontsize=16, fontweight="bold", color=SEA_GREEN,
             ha="center", va="center")
 
     rounded_box(ax, (0.04, wf_bottom), 0.92, wf_h, GOLDEN_YELLOW,
                 text_color=DEEP_NAVY, text="THE WORKFLOW GOES LIVE",
-                fontsize=18.5,
+                fontsize=20,
                 sub="Nobody asked whether the applicable customer contract permitted it",
-                subsize=15, sub_color=OCEAN_TEAL,
+                subsize=16.5, sub_color=OCEAN_TEAL,
                 title_offset=0.17, sub_offset=0.24)
 
-    fig.text(0.5, 0.048,
+    fig.text(0.5, 0.046,
              "Approved by internal governance is not the same question as permitted by contract.",
-             fontsize=15, color=DEEP_NAVY, ha="center", va="center",
+             fontsize=16.5, color=DEEP_NAVY, ha="center", va="center",
              style="italic")
-    fig.text(0.5, 0.015, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=10.5, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+    fig.text(0.5, 0.014, "PythonMuse LLC  |  www.pythonmuse.com",
+             fontsize=11, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_hero.png")
 
@@ -212,7 +212,7 @@ def make_hero():
 # 2. Service layers -- direct service, supporting activities, internal use
 # ---------------------------------------------------------------------------
 LAYERS3 = [
-    ("LAYER 1\nDIRECT SERVICE", MIDNIGHT_TEAL,
+    ("LAYER 1\nDIRECT\nSERVICE", MIDNIGHT_TEAL,
      "Inspect the vehicle. Change the oil. Replace the part.",
      "Everyone agrees the contract covers this.",
      "Clear."),
@@ -220,7 +220,7 @@ LAYERS3 = [
      "Schedule the appointment. Create the work order. Draft the invoice.",
      "This is where AI shows up first — and the AI never touches the oil filter.",
      "Depends how 'Services' is defined."),
-    ("LAYER 3\nINTERNAL ANALYSIS", SEA_GREEN,
+    ("LAYER 3\nINTERNAL\nANALYSIS", SEA_GREEN,
      "Profitability analysis. Forecasting. Management reporting.",
      "Still uses the customer's information, several steps removed.",
      "Rarely what the drafter had in mind."),
@@ -228,31 +228,31 @@ LAYERS3 = [
 
 
 def make_service_layers():
-    fig, ax = blank_axes((13.4, 10.8))
+    fig, ax = blank_axes((13.4, 11.4))
     add_header_bar(fig, "Where Does the Service Actually End?",
                    "The same customer engagement, in three layers -- and AI doesn't stay in layer one.",
-                   height=0.092)
+                   height=0.088)
 
     row_h, row_gap = 0.202, 0.030
     pitch = row_h + row_gap
-    top = 0.862
+    top = 0.868
     chip_x, chip_w = 0.05, 0.235
     body_x, body_w = 0.305, 0.660
 
     for i, (name, color, doing, note, clarity) in enumerate(LAYERS3):
         y = top - i * pitch - row_h
         rounded_box(ax, (chip_x, y), chip_w, row_h, color,
-                    text_color=WHITE, text=name, fontsize=15.5,
+                    text_color=WHITE, text=name, fontsize=17.5,
                     linespacing=1.3)
         rounded_box(ax, (body_x, y), body_w, row_h, LIGHT_GRAY,
                     text_color=DEEP_NAVY, text="", edge=OCEAN_TEAL, lw=1.1)
-        ax.text(body_x + 0.028, y + row_h * 0.76, doing, fontsize=16,
+        ax.text(body_x + 0.028, y + row_h * 0.76, doing, fontsize=17.5,
                 color=DEEP_NAVY, ha="left", va="center", zorder=4)
-        ax.text(body_x + 0.028, y + row_h * 0.48, note, fontsize=16,
+        ax.text(body_x + 0.028, y + row_h * 0.48, note, fontsize=17.5,
                 fontweight="bold", color=OCEAN_TEAL, ha="left", va="center",
                 zorder=4, linespacing=1.25)
         ax.text(body_x + 0.028, y + row_h * 0.17, "MSA reach: " + clarity,
-                fontsize=15.5, color=DEEP_NAVY, ha="left", va="center",
+                fontsize=17, color=DEEP_NAVY, ha="left", va="center",
                 zorder=4, style="italic")
 
     bottom_row_y = top - (len(LAYERS3) - 1) * pitch - row_h
@@ -260,18 +260,18 @@ def make_service_layers():
                 arrowprops=dict(arrowstyle="-|>", color=ALERT_ORANGE, lw=2.8,
                                 mutation_scale=19), zorder=1)
     ax.text(0.011, (top + bottom_row_y) / 2, "HOW CLEARLY DOES THE MSA REACH?",
-            rotation=90, fontsize=14.5, fontweight="bold", color=ALERT_ORANGE,
+            rotation=90, fontsize=16, fontweight="bold", color=ALERT_ORANGE,
             ha="center", va="center")
 
-    rounded_box(ax, (0.05, 0.042), 0.90, 0.150, DEEP_NAVY, text_color=WHITE,
+    rounded_box(ax, (0.05, 0.038), 0.90, 0.155, DEEP_NAVY, text_color=WHITE,
                 text="Which layers does “in connection with the Services” cover?",
-                fontsize=17,
+                fontsize=18.5,
                 sub="If nobody can answer confidently, resolve it before automating the layer beneath it.",
-                subsize=15, sub_color=WARM_GLOW,
+                subsize=16.5, sub_color=WARM_GLOW,
                 title_offset=0.24, sub_offset=0.24)
 
-    fig.text(0.5, 0.0139, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=10.5, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+    fig.text(0.5, 0.0125, "PythonMuse LLC  |  www.pythonmuse.com",
+             fontsize=11, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_service_layers.png")
 
@@ -280,19 +280,19 @@ def make_service_layers():
 # 3. Processing vs. training -- two different questions, two different answers
 # ---------------------------------------------------------------------------
 def make_process_vs_train():
-    fig, ax = blank_axes((13.4, 9.8))
+    fig, ax = blank_axes((13.4, 10.6))
     add_header_bar(fig, "Using the Data Is Not the Same as Training on It",
                    "Same document, two separate questions -- and the contract may answer them differently.",
-                   height=0.102)
+                   height=0.095)
 
-    card_top, card_bottom = 0.835, 0.320
+    card_top, card_bottom = 0.845, 0.300
     card_h = card_top - card_bottom
     left_x, right_x, card_w = 0.04, 0.52, 0.44
 
     rounded_box(ax, (left_x, card_bottom), card_w, card_h, LIGHT_GRAY,
                 text_color=DEEP_NAVY, text="", edge=OCEAN_TEAL, lw=1.2)
-    ax.text(left_x + card_w / 2, card_top - 0.055, "PROCESSING THE DATA",
-            fontsize=18.5, fontweight="bold", color=DEEP_NAVY,
+    ax.text(left_x + card_w / 2, card_top - 0.058, "PROCESSING THE DATA",
+            fontsize=20, fontweight="bold", color=DEEP_NAVY,
             ha="center", va="center", zorder=4)
 
     left_rows = [
@@ -301,48 +301,48 @@ def make_process_vs_train():
         ("Microsoft Copilot", "Graph data not used to train"),
         ("OpenAI API", "Not used to train, unless opted in"),
     ]
-    row_top, row_pitch = card_top - 0.115, 0.107
+    row_top, row_pitch = card_top - 0.128, 0.122
 
     y = row_top
     for label, value in left_rows:
-        ax.text(left_x + 0.032, y + 0.024, label, fontsize=14.5,
+        ax.text(left_x + 0.032, y + 0.028, label, fontsize=16,
                 color=OCEAN_TEAL, ha="left", va="center", zorder=4)
-        ax.text(left_x + 0.032, y - 0.024, value, fontsize=16,
+        ax.text(left_x + 0.032, y - 0.026, value, fontsize=17.5,
                 fontweight="bold", color=DEEP_NAVY, ha="left", va="center",
                 zorder=4)
         y -= row_pitch
 
     rounded_box(ax, (right_x, card_bottom), card_w, card_h, MIDNIGHT_TEAL,
                 text_color=WHITE, text="", edge="none")
-    ax.text(right_x + card_w / 2, card_top - 0.055, "TRAINING ON THE DATA",
-            fontsize=18.5, fontweight="bold", color=GOLDEN_YELLOW,
+    ax.text(right_x + card_w / 2, card_top - 0.058, "TRAINING ON THE DATA",
+            fontsize=20, fontweight="bold", color=GOLDEN_YELLOW,
             ha="center", va="center", zorder=4)
 
     right_rows = [
-        ("What it means", "Uses inputs/outputs to improve the model"),
+        ("What it means", "Used to improve the model"),
         ("Consumer Claude (Free / Pro / Max)", "Used unless you opt out"),
         ("Same vendor, different product", "The tier changes the answer"),
-        ("Ask", "Retained? Disabled? Which tier requires it?"),
+        ("Ask", "Retained? Disabled? Which tier?"),
     ]
     y = row_top
     for label, value in right_rows:
-        ax.text(right_x + 0.032, y + 0.024, label, fontsize=14.5,
+        ax.text(right_x + 0.032, y + 0.028, label, fontsize=16,
                 color=WARM_GLOW, ha="left", va="center", zorder=4)
-        ax.text(right_x + 0.032, y - 0.024, value, fontsize=16,
+        ax.text(right_x + 0.032, y - 0.026, value, fontsize=17.5,
                 fontweight="bold", color=WHITE, ha="left", va="center",
                 zorder=4)
         y -= row_pitch
 
-    rounded_box(ax, (0.04, 0.045), 0.92, 0.230, DEEP_NAVY,
+    rounded_box(ax, (0.04, 0.042), 0.92, 0.225, DEEP_NAVY,
                 text_color=WHITE,
                 text="Same vendor. Different tier. Different answer.",
-                fontsize=18.5,
+                fontsize=20,
                 sub="A contract can permit processing customer data as part of the service while\nseparately prohibiting the use of that data to train, fine-tune, or improve a\nmodel. Get the answer in writing, then match it to what the contract promised.",
-                subsize=15, sub_color=WARM_GLOW, linespacing=1.45,
+                subsize=16.5, sub_color=WARM_GLOW, linespacing=1.45,
                 title_offset=0.29, sub_offset=0.16)
 
-    fig.text(0.5, 0.014, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=10.5, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+    fig.text(0.5, 0.013, "PythonMuse LLC  |  www.pythonmuse.com",
+             fontsize=11, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_process_vs_train.png")
 
@@ -363,27 +363,27 @@ CUSTOMERS = [
 
 
 def make_customer_dimension():
-    fig, ax = blank_axes((13.4, 9.6))
+    fig, ax = blank_axes((13.4, 10.6))
     add_header_bar(fig, "One Approved Tool. Four Different Answers.",
                    "The same AI-assisted billing workflow, evaluated against four real contracts.",
-                   height=0.105)
+                   height=0.095)
 
-    # Header bar occupies the top 0.105 of the figure (down to y=0.895), so
+    # Header bar occupies the top 0.095 of the figure (down to y=0.905), so
     # everything below has to clear that with room to spare.
-    top_w, top_h = 0.62, 0.115
+    top_w, top_h = 0.64, 0.110
     top_x = 0.5 - top_w / 2
-    top_y = 0.760
+    top_y = 0.775
     rounded_box(ax, (top_x, top_y), top_w, top_h, DEEP_NAVY, text_color=WHITE,
                 text="APPROVED: AI-ASSISTED INVOICE DRAFTING TOOL",
-                fontsize=16,
+                fontsize=17.5,
                 sub="Same tool. Same workflow. Same internal approval.",
-                subsize=13.5, sub_color=WARM_GLOW,
+                subsize=15, sub_color=WARM_GLOW,
                 title_offset=0.20, sub_offset=0.26)
 
-    col_w, col_gap = 0.215, 0.023
+    col_w, col_gap = 0.220, 0.020
     total_w = 4 * col_w + 3 * col_gap
     start_x = 0.5 - total_w / 2
-    card_h, card_y = 0.310, 0.270
+    card_h, card_y = 0.355, 0.240
 
     for i, (name, verdict, color, detail) in enumerate(CUSTOMERS):
         x = start_x + i * (col_w + col_gap)
@@ -395,25 +395,25 @@ def make_customer_dimension():
         # will not reliably keep three stacked labels inside a short card.
         rounded_box(ax, (x, card_y), col_w, card_h, color, text="")
         cx = x + col_w / 2
-        ax.text(cx, card_y + card_h * 0.85, name, fontsize=14.5,
+        ax.text(cx, card_y + card_h * 0.87, name, fontsize=16.5,
                 fontweight="bold", color=title_color, ha="center",
                 va="center", zorder=4)
-        ax.text(cx, card_y + card_h * 0.58, verdict, fontsize=16.5,
+        ax.text(cx, card_y + card_h * 0.60, verdict, fontsize=19,
                 fontweight="bold", color=title_color, ha="center",
                 va="center", zorder=4, linespacing=1.2)
-        ax.text(cx, card_y + card_h * 0.24, detail, fontsize=12.5,
+        ax.text(cx, card_y + card_h * 0.24, detail, fontsize=15,
                 color=sub_color, ha="center", va="center", zorder=4,
-                linespacing=1.3)
+                linespacing=1.35)
 
-    rounded_box(ax, (0.05, 0.045), 0.90, 0.205, MIDNIGHT_TEAL, text_color=WHITE,
+    rounded_box(ax, (0.05, 0.040), 0.90, 0.180, MIDNIGHT_TEAL, text_color=WHITE,
                 text="Is this tool approved for this workflow, using this data,\nfor this customer, under this contract?",
-                fontsize=17,
+                fontsize=18.5,
                 sub="“Approved for the organization” and “permitted for this customer”\nare two different questions -- and only one of them is usually being asked.",
-                subsize=14.5, sub_color=WARM_GLOW, linespacing=1.35,
+                subsize=15.5, sub_color=WARM_GLOW, linespacing=1.35,
                 title_offset=0.24, sub_offset=0.20)
 
-    fig.text(0.5, 0.014, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=10.5, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+    fig.text(0.5, 0.012, "PythonMuse LLC  |  www.pythonmuse.com",
+             fontsize=11, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_customer_dimension.png")
 
@@ -423,10 +423,10 @@ def make_customer_dimension():
 # ---------------------------------------------------------------------------
 CONTROLS = [
     ("Flag AI terms during contract review",
-     "Record whether a new MSA restricts AI, ML, automated decisioning, or model training.",
+     "Record whether a new MSA restricts AI, ML, decisioning, or model training.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Define the perimeter clearly",
-     "Make Services, AI, and automated tools specific enough to separate delivery from support.",
+     "Make the definitions specific enough to separate delivery from support.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Add a contract checkpoint to AI approval",
      "Before deployment, determine whether customer-specific restrictions apply.",
@@ -435,47 +435,47 @@ CONTROLS = [
      "Separate processing customer information from retaining or training on it.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Map the full workflow",
-     "Follow customer data through delivery, billing, collections, reporting, and retention.",
+     "Follow customer data through delivery, billing, collections, and reporting.",
      "DETECTIVE", OCEAN_TEAL),
     ("Establish re-review triggers",
-     "New data, customers, vendors, models, access, or contract terms prompt another look.",
+     "New data, customers, models, or contract terms should trigger a re-review.",
      "DETECTIVE", OCEAN_TEAL),
 ]
 
 
 def make_controls():
-    fig, ax = blank_axes((13.4, 10.8))
+    fig, ax = blank_axes((13.4, 11.8))
     add_header_bar(fig, "Six Controls, Not One Legal Review",
                    "You do not need to send every automation idea to Legal. You do need these.",
-                   height=0.092)
+                   height=0.084)
 
-    row_h, row_gap = 0.086, 0.016
+    row_h, row_gap = 0.096, 0.016
     pitch = row_h + row_gap
-    top = 0.862
+    top = 0.874
     body_x, body_w = 0.05, 0.72
     chip_x, chip_w = 0.79, 0.16
 
     for i, (title, detail, kind, color) in enumerate(CONTROLS):
         y = top - i * pitch - row_h
         rounded_box(ax, (body_x, y), body_w, row_h, color, text_color=WHITE,
-                    text=title, fontsize=16.5, sub=detail, subsize=14,
+                    text=title, fontsize=18, sub=detail, subsize=15.5,
                     sub_color=WARM_GLOW, ha="left",
                     text_x=body_x + 0.028,
                     title_offset=0.22, sub_offset=0.30, linespacing=1.2)
         chip_fill = GOLDEN_YELLOW if kind == "PREVENTIVE" else BRIGHT_TEAL
         rounded_box(ax, (chip_x, y), chip_w, row_h, chip_fill,
-                    text_color=DEEP_NAVY, text=kind, fontsize=14.5)
+                    text_color=DEEP_NAVY, text=kind, fontsize=16)
 
-    rounded_box(ax, (0.05, 0.042), 0.90, 0.150, DEEP_NAVY, text_color=WHITE,
+    rounded_box(ax, (0.05, 0.038), 0.90, 0.145, DEEP_NAVY, text_color=WHITE,
                 text="The goal is the right question reaching the right person before launch.",
-                fontsize=17,
+                fontsize=18.5,
                 sub="Not more bureaucracy -- one field in a register and one flag in contract review.",
-                subsize=15, sub_color=WARM_GLOW,
+                subsize=16, sub_color=WARM_GLOW,
                 title_offset=0.24, sub_offset=0.24)
 
-    fig.text(0.5, 0.013,
+    fig.text(0.5, 0.0115,
              "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=10.5, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+             fontsize=11, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_controls.png")
 
@@ -484,39 +484,39 @@ def make_controls():
 # 6. Social square -- the punchline
 # ---------------------------------------------------------------------------
 def make_social_square():
-    fig, ax = blank_axes((8, 9.2))
-    header_h = 0.155
+    fig, ax = blank_axes((8, 9.6))
+    header_h = 0.150
     add_header_bar(fig, "Did Anyone Read the Contract?",
                    "AI governance has a customer dimension.",
-                   height=header_h, title_size=22, subtitle_size=14.5,
+                   height=header_h, title_size=24, subtitle_size=15.5,
                    brand=False)
 
-    rounded_box(ax, (0.06, 0.635), 0.88, 0.165, MIDNIGHT_TEAL,
+    rounded_box(ax, (0.06, 0.640), 0.88, 0.165, MIDNIGHT_TEAL,
                 text_color=WHITE, text="YOUR AI GOVERNANCE CAN SAY",
-                fontsize=16.5,
+                fontsize=18,
                 sub="documented, tested, reviewed, approved",
-                subsize=15, sub_color=WARM_GLOW,
+                subsize=16, sub_color=WARM_GLOW,
                 title_offset=0.19, sub_offset=0.25)
 
-    rounded_box(ax, (0.06, 0.440), 0.88, 0.165, OCEAN_TEAL,
+    rounded_box(ax, (0.06, 0.445), 0.88, 0.165, OCEAN_TEAL,
                 text_color=WHITE, text="THE MSA CAN STILL SAY",
-                fontsize=16.5,
+                fontsize=18,
                 sub="not without disclosure. not for this decision.",
-                subsize=15, sub_color=WARM_GLOW,
+                subsize=16, sub_color=WARM_GLOW,
                 title_offset=0.19, sub_offset=0.25)
 
     # Both lines belong to `text` so they render at the same weight -- passing
     # the second as `sub` leaves it un-bolded next to a bold first line.
-    rounded_box(ax, (0.06, 0.225), 0.88, 0.185, GOLDEN_YELLOW,
+    rounded_box(ax, (0.06, 0.225), 0.88, 0.190, GOLDEN_YELLOW,
                 text_color=DEEP_NAVY,
                 text="APPROVED ISN'T\nPERMITTED",
-                fontsize=23, linespacing=1.7)
+                fontsize=25, linespacing=1.7)
 
     fig.text(0.5, 0.135,
              "Your AI register and your contract\nregister need to start talking.",
-             fontsize=15, color=DEEP_NAVY, ha="center", va="center",
+             fontsize=16.5, color=DEEP_NAVY, ha="center", va="center",
              fontweight="bold", linespacing=1.6)
-    fig.text(0.5, 0.030, "PythonMuse LLC  |  www.pythonmuse.com", fontsize=10.5,
+    fig.text(0.5, 0.028, "PythonMuse LLC  |  www.pythonmuse.com", fontsize=11,
              color=OCEAN_TEAL, ha="center", va="center", alpha=0.85)
 
     save(fig, "38_social_square.png")
