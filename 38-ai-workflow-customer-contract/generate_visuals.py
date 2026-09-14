@@ -137,15 +137,24 @@ def make_hero():
     # 38_controls.png) -- everything else (header, column headers, control-
     # gap label, banner, footer) is bumped a size step to match, which is
     # why this figure is considerably larger than its first pass.
-    fig, ax = blank_axes((16.5, 15.2))
+    fig, ax = blank_axes((16.5, 16.9))
+    # Header title is the dominant element on the page -- as large as fits
+    # on one line at this figure width -- with the subtitle matched to the
+    # column-header tier (22pt) below it, per feedback that the header was
+    # still too close in size to its own content.
     add_header_bar(fig, "Approved by Us. Permitted by Them?",
                    "Both can be true about the same workflow at the same time.",
-                   height=0.132, title_size=31, subtitle_size=17.5, brand=False)
+                   height=0.219, title_size=52, subtitle_size=22, brand=False)
 
+    # Everything below is scaled by (old H 15.2 / new H 16.9) relative to
+    # the previous working layout -- the header grew to hold a much bigger
+    # title, and this keeps every box below it at the same physical size
+    # and the same physical gap from the header, just renumbered for the
+    # taller canvas.
     col_w = 0.42
     left_x, right_x = 0.03, 0.55
-    head_bottom, head_h = 0.780, 0.069
-    box_h, gap = 0.089, 0.010
+    head_bottom, head_h = 0.702, 0.062
+    box_h, gap = 0.080, 0.009
     pitch = box_h + gap
 
     rounded_box(ax, (left_x, head_bottom), col_w, head_h, DEEP_NAVY,
@@ -172,9 +181,9 @@ def make_hero():
 
     # The control gap itself, sitting between two columns that can each be
     # entirely correct on their own.
-    ax.plot([0.50, 0.50], [0.185, header_top + 0.008], linestyle=(0, (5, 4)),
+    ax.plot([0.50, 0.50], [0.166, header_top + 0.007], linestyle=(0, (5, 4)),
             color=OCEAN_TEAL, linewidth=2.2, zorder=1)
-    ax.text(0.50, 0.44, "THE  CONTROL  GAP", rotation=90, fontsize=19,
+    ax.text(0.50, 0.396, "THE  CONTROL  GAP", rotation=90, fontsize=19,
             fontweight="bold", color=ALERT_ORANGE, ha="center", va="center",
             zorder=4, bbox=dict(facecolor=WHITE, edgecolor="none", pad=5))
 
@@ -186,18 +195,18 @@ def make_hero():
     # Label sits just below the rows; the arrow starts below the label (not
     # through it) and runs down to the banner -- at the bigger 19pt label
     # size, the old fixed offsets put the arrow shaft right through the text.
-    wf_bottom, wf_h = 0.065, 0.118
-    label_y = rows_bottom - 0.024
-    arrow_top = label_y - 0.024
+    wf_bottom, wf_h = 0.058, 0.106
+    label_y = rows_bottom - 0.022
+    arrow_top = label_y - 0.022
     ax.text(left_x + col_w / 2, label_y,
             "all true", fontsize=19, fontweight="bold", color=OCEAN_TEAL,
             ha="center", va="center")
     ax.text(right_x + col_w / 2, label_y,
             "also true", fontsize=19, fontweight="bold", color=SEA_GREEN,
             ha="center", va="center")
-    arrow_v(ax, left_x + col_w / 2, arrow_top, wf_bottom + wf_h + 0.010,
+    arrow_v(ax, left_x + col_w / 2, arrow_top, wf_bottom + wf_h + 0.009,
             color=OCEAN_TEAL)
-    arrow_v(ax, right_x + col_w / 2, arrow_top, wf_bottom + wf_h + 0.010,
+    arrow_v(ax, right_x + col_w / 2, arrow_top, wf_bottom + wf_h + 0.009,
             color=SEA_GREEN)
 
     rounded_box(ax, (0.03, wf_bottom), 0.94, wf_h, GOLDEN_YELLOW,
@@ -207,12 +216,12 @@ def make_hero():
                 subsize=19, sub_color=OCEAN_TEAL,
                 title_offset=0.19, sub_offset=0.24)
 
-    fig.text(0.5, 0.030,
+    fig.text(0.5, 0.027,
              "Approved by internal governance is not the same question as permitted by contract.",
              fontsize=19, color=DEEP_NAVY, ha="center", va="center",
              style="italic")
-    fig.text(0.5, 0.007, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=13, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+    fig.text(0.5, 0.006, "PythonMuse LLC  |  www.pythonmuse.com",
+             fontsize=20, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_hero.png")
 
@@ -241,14 +250,24 @@ def make_service_layers():
     # 32-36pt benchmark from 38_controls.png; everything else here (chip
     # name, the other two lines, side label, header, banner, footer) is
     # bumped a size step to match, per the same note.
-    fig, ax = blank_axes((14.5, 14.4))
+    # Widened (14.5in -> 16.6in) so Layer 2's longest line ("Draft the
+    # invoice.") clears the card's right edge with real margin instead of
+    # running up against it -- all three cards share body_w, so this gives
+    # every row the same extra breathing room, not just the tight one.
+    fig, ax = blank_axes((16.6, 15.0))
+    # Header title dominant (as large as fits on one line at this figure
+    # width); subtitle matched to the chip-name tier (22pt) below it, per
+    # feedback that the header was still too close in size to its content.
     add_header_bar(fig, "Where Does the Service Actually End?",
                    "The same customer engagement, in three layers -- and AI doesn't stay in layer one.",
-                   height=0.130, title_size=31, subtitle_size=17.5, brand=False)
+                   height=0.167, title_size=42, subtitle_size=22, brand=False)
 
-    row_h, row_gap = 0.2153, 0.0139
+    # Everything below is scaled by (old H 14.4 / new H 15.0) relative to
+    # the previous working layout, to keep the same physical row size and
+    # gaps under the taller header.
+    row_h, row_gap = 0.2067, 0.0133
     pitch = row_h + row_gap
-    top = 0.852
+    top = 0.8179
     chip_x, chip_w = 0.05, 0.235
     body_x, body_w = 0.305, 0.660
 
@@ -282,15 +301,15 @@ def make_service_layers():
             rotation=90, fontsize=19, fontweight="bold", color=ALERT_ORANGE,
             ha="center", va="center")
 
-    rounded_box(ax, (0.05, 0.010), 0.90, 0.132, DEEP_NAVY, text_color=WHITE,
+    rounded_box(ax, (0.05, 0.010), 0.90, 0.127, DEEP_NAVY, text_color=WHITE,
                 text="Which layers does “in connection with the Services” cover?",
                 fontsize=22,
                 sub="If nobody can answer confidently, resolve it before automating the layer beneath it.",
-                subsize=19, sub_color=WARM_GLOW,
+                subsize=22, sub_color=WARM_GLOW,
                 title_offset=0.24, sub_offset=0.24)
 
     fig.text(0.5, -0.004, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=13, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+             fontsize=20, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_service_layers.png")
 
@@ -303,18 +322,21 @@ def make_process_vs_train():
     # benchmark); the label above it, the card headers, header bar, bottom
     # banner, and footer are all bumped a size step to match. The two
     # longest values needed a manual line break to fit at the larger size.
-    fig, ax = blank_axes((17.0, 13.1))
+    fig, ax = blank_axes((17.0, 14.9))
+    # Header title dominant (as large as fits on one line at this figure
+    # width -- this is the longest title in the set, which caps it lower
+    # than the others); subtitle matched to the card-header tier (26pt).
     add_header_bar(fig, "Using the Data Is Not the Same as Training on It",
                    "Same document, two separate questions -- and the contract may answer them differently.",
-                   height=0.141, title_size=31, subtitle_size=19, brand=False)
+                   height=0.215, title_size=38, subtitle_size=26, brand=False)
 
-    card_top, card_bottom = 0.840, 0.221
+    card_top, card_bottom = 0.768, 0.225
     card_h = card_top - card_bottom
     left_x, right_x, card_w = 0.03, 0.51, 0.46
 
     rounded_box(ax, (left_x, card_bottom), card_w, card_h, LIGHT_GRAY,
                 text_color=DEEP_NAVY, text="", edge=OCEAN_TEAL, lw=1.2)
-    ax.text(left_x + card_w / 2, card_top - 0.045, "PROCESSING THE DATA",
+    ax.text(left_x + card_w / 2, card_top - 0.040, "PROCESSING THE DATA",
             fontsize=26, fontweight="bold", color=DEEP_NAVY,
             ha="center", va="center", zorder=4)
 
@@ -324,20 +346,20 @@ def make_process_vs_train():
         ("Microsoft Copilot", "Graph data not used\nto train"),
         ("OpenAI API", "Not used to train,\nunless opted in"),
     ]
-    row_top, row_pitch = 0.716, 0.1393
+    row_top, row_pitch = 0.660, 0.1225
 
     y = row_top
     for label, value in left_rows:
-        ax.text(left_x + 0.028, y + 0.052, label, fontsize=21,
+        ax.text(left_x + 0.028, y + 0.046, label, fontsize=21,
                 color=OCEAN_TEAL, ha="left", va="center", zorder=4)
-        ax.text(left_x + 0.028, y - 0.026, value, fontsize=30,
+        ax.text(left_x + 0.028, y - 0.023, value, fontsize=30,
                 fontweight="bold", color=DEEP_NAVY, ha="left", va="center",
                 zorder=4, linespacing=1.15)
         y -= row_pitch
 
     rounded_box(ax, (right_x, card_bottom), card_w, card_h, MIDNIGHT_TEAL,
                 text_color=WHITE, text="", edge="none")
-    ax.text(right_x + card_w / 2, card_top - 0.045, "TRAINING ON THE DATA",
+    ax.text(right_x + card_w / 2, card_top - 0.040, "TRAINING ON THE DATA",
             fontsize=26, fontweight="bold", color=GOLDEN_YELLOW,
             ha="center", va="center", zorder=4)
 
@@ -349,23 +371,23 @@ def make_process_vs_train():
     ]
     y = row_top
     for label, value in right_rows:
-        ax.text(right_x + 0.028, y + 0.052, label, fontsize=21,
+        ax.text(right_x + 0.028, y + 0.046, label, fontsize=21,
                 color=WARM_GLOW, ha="left", va="center", zorder=4)
-        ax.text(right_x + 0.028, y - 0.026, value, fontsize=30,
+        ax.text(right_x + 0.028, y - 0.023, value, fontsize=30,
                 fontweight="bold", color=WHITE, ha="left", va="center",
                 zorder=4, linespacing=1.15)
         y -= row_pitch
 
-    rounded_box(ax, (0.03, 0.038), 0.94, 0.172, DEEP_NAVY,
+    rounded_box(ax, (0.03, 0.037), 0.94, 0.178, DEEP_NAVY,
                 text_color=WHITE,
                 text="Same vendor. Different tier. Different answer.",
                 fontsize=26,
                 sub="A contract can permit processing customer data as part of the service while\nseparately prohibiting the use of that data to train, fine-tune, or improve a\nmodel. Get the answer in writing, then match it to what the contract promised.",
-                subsize=21, sub_color=WARM_GLOW, linespacing=1.4,
+                subsize=26, sub_color=WARM_GLOW, linespacing=1.4,
                 title_offset=0.29, sub_offset=0.15)
 
     fig.text(0.5, 0.010, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=13, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+             fontsize=20, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_process_vs_train.png")
 
@@ -391,14 +413,19 @@ def make_customer_dimension():
     # can go -- 24pt is what its column width will actually hold). Name,
     # verdict, both banners, header, and footer are all bumped a size step
     # to match, per the same note in SKILL.md.
-    fig, ax = blank_axes((15.0, 13.0))
+    fig, ax = blank_axes((15.0, 13.5))
+    # Header title dominant (as large as fits on one line at this figure
+    # width); subtitle matched to the top-banner-title tier (22pt) below it.
     add_header_bar(fig, "One Approved Tool. Four Different Answers.",
                    "The same AI-assisted billing workflow, evaluated against four real contracts.",
-                   height=0.142, title_size=31, subtitle_size=19, brand=False)
+                   height=0.159, title_size=36, subtitle_size=22, brand=False)
 
-    top_w, top_h = 0.64, 0.112
+    # Everything below is scaled by (old H 13.0 / new H 13.5) relative to
+    # the previous working layout, to keep the same physical sizes and gaps
+    # under the taller header.
+    top_w, top_h = 0.64, 0.108
     top_x = 0.5 - top_w / 2
-    top_y = 0.727
+    top_y = 0.7145
     rounded_box(ax, (top_x, top_y), top_w, top_h, DEEP_NAVY, text_color=WHITE,
                 text="APPROVED: AI-ASSISTED INVOICE DRAFTING TOOL",
                 fontsize=22,
@@ -409,7 +436,7 @@ def make_customer_dimension():
     col_w, col_gap = 0.220, 0.020
     total_w = 4 * col_w + 3 * col_gap
     start_x = 0.5 - total_w / 2
-    card_h, card_y = 0.431, 0.219
+    card_h, card_y = 0.4151, 0.2109
 
     for i, (name, verdict, color, detail) in enumerate(CUSTOMERS):
         x = start_x + i * (col_w + col_gap)
@@ -433,15 +460,15 @@ def make_customer_dimension():
                 color=sub_color, ha="center", va="center", zorder=4,
                 linespacing=1.30)
 
-    rounded_box(ax, (0.05, 0.031), 0.90, 0.173, MIDNIGHT_TEAL, text_color=WHITE,
+    rounded_box(ax, (0.05, 0.030), 0.90, 0.179, MIDNIGHT_TEAL, text_color=WHITE,
                 text="Is this tool approved for this workflow, using this data,\nfor this customer, under this contract?",
                 fontsize=22,
                 sub="“Approved for the organization” and “permitted for this customer”\nare two different questions -- and only one of them is usually being asked.",
-                subsize=18, sub_color=WARM_GLOW, linespacing=1.35,
-                title_offset=0.24, sub_offset=0.20)
+                subsize=22, sub_color=WARM_GLOW, linespacing=1.35,
+                title_offset=0.22, sub_offset=0.22)
 
     fig.text(0.5, 0.010, "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=13, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+             fontsize=20, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_customer_dimension.png")
 
@@ -476,11 +503,14 @@ def make_controls():
     # 13.4x13.5 layout at any reasonable line count, so this figure is both
     # wider (more usable width per line) and considerably taller (six rows,
     # each now sized for a 3-line block at 36pt) than the rest of the set.
-    # Everything ELSE in the figure (row title, header, chips, bottom
-    # banner, footer) is bumped up a size step too, per the new benchmark
-    # note in SKILL.md -- the 36pt focal line made all of those look like
-    # an afterthought at their old sizes.
-    fig, ax = blank_axes((15.5, 26.5))
+    # Second pass per feedback: the 36pt detail text stays untouched, but
+    # the figure header, row titles, chips, bottom banner, and footer were
+    # all still noticeably smaller than it in relative terms -- pushed
+    # further here, with the header title now the clear dominant element on
+    # the page (its "content" is the row title / chip / subtitle tier, not
+    # the 36pt line, since going 3-5x the 36pt line literally would not fit
+    # on any reasonably-proportioned canvas).
+    fig, ax = blank_axes((18.0, 30.0))
     # add_header_bar's title/subtitle offsets (+/-0.018, -0.032) are fixed
     # figure-fraction constants, not inches -- header height needs to stay
     # roughly >=0.08 regardless of how tall the overall figure is, or the
@@ -488,35 +518,35 @@ def make_controls():
     # the title and dropped the subtitle onto row 1 at height=0.041.
     add_header_bar(fig, "Six Controls, Not One Legal Review",
                    "You do not need to send every automation idea to Legal. You do need these.",
-                   height=0.098, title_size=33, subtitle_size=19, brand_size=13)
+                   height=0.143, title_size=56, subtitle_size=30, brand=False)
 
-    row_h, row_gap = 0.118, 0.010
+    row_h, row_gap = 0.110, 0.0088
     pitch = row_h + row_gap
-    top = 0.892
-    body_x, body_w = 0.035, 0.775
-    chip_x, chip_w = 0.825, 0.140
+    top = 0.847
+    body_x, body_w = 0.035, 0.745
+    chip_x, chip_w = 0.795, 0.170
 
     for i, (title, detail, kind, color) in enumerate(CONTROLS):
         y = top - i * pitch - row_h
         rounded_box(ax, (body_x, y), body_w, row_h, color, text_color=WHITE,
-                    text=title, fontsize=24, sub=detail, subsize=36,
+                    text=title, fontsize=30, sub=detail, subsize=36,
                     sub_color=WARM_GLOW, ha="left",
                     text_x=body_x + 0.022,
                     title_offset=0.40, sub_offset=0.0, linespacing=1.18)
         chip_fill = GOLDEN_YELLOW if kind == "PREVENTIVE" else BRIGHT_TEAL
         rounded_box(ax, (chip_x, y), chip_w, row_h, chip_fill,
-                    text_color=DEEP_NAVY, text=kind, fontsize=18)
+                    text_color=DEEP_NAVY, text=kind, fontsize=28)
 
-    rounded_box(ax, (0.035, 0.026), 0.930, 0.094, DEEP_NAVY, text_color=WHITE,
+    rounded_box(ax, (0.035, 0.0275), 0.930, 0.110, DEEP_NAVY, text_color=WHITE,
                 text="The goal is the right question reaching the right person before launch.",
-                fontsize=21.5,
+                fontsize=30,
                 sub="Not more bureaucracy -- one field in a register and one flag in contract review.",
-                subsize=18, sub_color=WARM_GLOW,
-                title_offset=0.24, sub_offset=0.24)
+                subsize=30, sub_color=WARM_GLOW,
+                title_offset=0.20, sub_offset=0.26)
 
     fig.text(0.5, 0.010,
              "PythonMuse LLC  |  www.pythonmuse.com",
-             fontsize=13, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
+             fontsize=20, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "38_controls.png")
 
@@ -525,28 +555,43 @@ def make_controls():
 # 6. Social square -- the punchline
 # ---------------------------------------------------------------------------
 def make_social_square():
-    # This square already had a decent bump; per the new benchmark note,
-    # pushed a size step further so it's consistent with the rest of the
-    # set -- the wide (0.88-fraction) boxes had plenty of unused width to
-    # support it without any layout change.
-    fig, ax = blank_axes((8, 10.8))
-    header_h = 0.135
-    add_header_bar(fig, "Did Anyone Read the Contract?",
-                   "AI governance has a customer dimension.",
-                   height=header_h, title_size=26, subtitle_size=17,
-                   brand=False)
+    # This canvas is much narrower (8in) than the rest of the set, so a
+    # single-line title tops out around 29pt -- nowhere near dominant.
+    # Wrapped the title to two lines instead, which lets it go much larger,
+    # matching the "header is the dominant element" treatment used
+    # everywhere else in this article.
+    fig, ax = blank_axes((8, 12.2))
+    header_h = 0.235
+    # add_header_bar's title/subtitle offsets assume a single-line title --
+    # with this one wrapped to two lines, using it put the subtitle right on
+    # top of the title's second line. Built by hand instead, with each line
+    # explicitly positioned top-down.
+    bar = FancyBboxPatch(
+        (0, 1 - header_h), 1, header_h,
+        boxstyle="square,pad=0", transform=fig.transFigure,
+        facecolor=DEEP_NAVY, edgecolor="none", zorder=0,
+    )
+    fig.patches.append(bar)
+    fig.text(0.05, 0.975, "Did Anyone Read\nthe Contract?", fontsize=44,
+             fontweight="bold", color=WHITE, va="top", ha="left",
+             linespacing=1.1)
+    fig.text(0.05, 0.815, "AI governance has a customer dimension.",
+             fontsize=21, color=WARM_GLOW, va="top", ha="left")
 
-    # The second line in each box is now uppercase to match the title above
-    # it (not lowercase, per feedback) and enlarged enough that it needs two
-    # lines to stay inside the box.
-    rounded_box(ax, (0.06, 0.660), 0.88, 0.195, MIDNIGHT_TEAL,
+    # Everything below is scaled by (old H 10.8 / new H 12.2) relative to
+    # the previous working layout, to keep the same physical box sizes and
+    # gaps under the taller header.
+    # The second line in each box is uppercase to match the title above it
+    # (not lowercase) and enlarged enough that it needs two lines to stay
+    # inside the box.
+    rounded_box(ax, (0.06, 0.584), 0.88, 0.173, MIDNIGHT_TEAL,
                 text_color=WHITE, text="YOUR AI GOVERNANCE CAN SAY",
                 fontsize=21,
                 sub="DOCUMENTED, TESTED,\nREVIEWED, APPROVED",
                 subsize=24, sub_color=WARM_GLOW, linespacing=1.3,
                 title_offset=0.26, sub_offset=0.18)
 
-    rounded_box(ax, (0.06, 0.440), 0.88, 0.195, OCEAN_TEAL,
+    rounded_box(ax, (0.06, 0.390), 0.88, 0.173, OCEAN_TEAL,
                 text_color=WHITE, text="THE MSA CAN STILL SAY",
                 fontsize=21,
                 sub="NOT WITHOUT DISCLOSURE.\nNOT FOR THIS DECISION.",
@@ -555,16 +600,16 @@ def make_social_square():
 
     # Both lines belong to `text` so they render at the same weight -- passing
     # the second as `sub` leaves it un-bolded next to a bold first line.
-    rounded_box(ax, (0.06, 0.225), 0.88, 0.190, GOLDEN_YELLOW,
+    rounded_box(ax, (0.06, 0.199), 0.88, 0.168, GOLDEN_YELLOW,
                 text_color=DEEP_NAVY,
                 text="APPROVED ISN'T\nPERMITTED",
                 fontsize=28, linespacing=1.7)
 
-    fig.text(0.5, 0.135,
+    fig.text(0.5, 0.120,
              "Your AI register and your contract\nregister need to start talking.",
              fontsize=18, color=DEEP_NAVY, ha="center", va="center",
              fontweight="bold", linespacing=1.6)
-    fig.text(0.5, 0.028, "PythonMuse LLC  |  www.pythonmuse.com", fontsize=13,
+    fig.text(0.5, 0.025, "PythonMuse LLC  |  www.pythonmuse.com", fontsize=18,
              color=OCEAN_TEAL, ha="center", va="center", alpha=0.85)
 
     save(fig, "38_social_square.png")
