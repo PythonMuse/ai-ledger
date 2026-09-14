@@ -433,57 +433,66 @@ def make_customer_dimension():
 # ---------------------------------------------------------------------------
 CONTROLS = [
     ("Flag AI terms during contract review",
-     "Record whether a new MSA restricts AI, ML,\ndecisioning, or model training.",
+     "Record whether a new MSA restricts\nAI, ML, decisioning, or training.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Define the perimeter clearly",
-     "Make the definitions specific enough to\nseparate delivery from support.",
+     "Make definitions specific enough\nto separate delivery from support.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Add a contract checkpoint to AI approval",
-     "Before deployment, determine whether\ncustomer-specific restrictions apply.",
+     "Before deployment, determine\nwhether customer-specific\nrestrictions apply.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Understand what happens to the data",
-     "Separate processing customer information\nfrom retaining or training on it.",
+     "Separate processing customer\ninformation from retaining or\ntraining on it.",
      "PREVENTIVE", MIDNIGHT_TEAL),
     ("Map the full workflow",
-     "Follow customer data through delivery,\nbilling, collections, and reporting.",
+     "Follow customer data through\ndelivery, billing, collections,\nand reporting.",
      "DETECTIVE", OCEAN_TEAL),
     ("Establish re-review triggers",
-     "New data, customers, models, or contract\nterms should trigger a re-review.",
+     "New data, customers, models,\nor contract terms should\ntrigger a re-review.",
      "DETECTIVE", OCEAN_TEAL),
 ]
 
 
 def make_controls():
-    fig, ax = blank_axes((13.4, 13.5))
+    # Doubling the detail text (18pt -> 36pt) doesn't fit in the old
+    # 13.4x13.5 layout at any reasonable line count, so this figure is both
+    # wider (more usable width per line) and considerably taller (six rows,
+    # each now sized for a 3-line block at 36pt) than the rest of the set.
+    fig, ax = blank_axes((15.0, 25.5))
+    # add_header_bar's title/subtitle offsets (+/-0.018, -0.032) are fixed
+    # figure-fraction constants, not inches -- header height needs to stay
+    # roughly >=0.08 regardless of how tall the overall figure is, or the
+    # subtitle anchor falls outside the bar entirely. That's what clipped
+    # the title and dropped the subtitle onto row 1 at height=0.041.
     add_header_bar(fig, "Six Controls, Not One Legal Review",
                    "You do not need to send every automation idea to Legal. You do need these.",
-                   height=0.078)
+                   height=0.082)
 
-    row_h, row_gap = 0.100, 0.016
+    row_h, row_gap = 0.126, 0.010
     pitch = row_h + row_gap
-    top = 0.895
-    body_x, body_w = 0.05, 0.72
-    chip_x, chip_w = 0.79, 0.16
+    top = 0.905
+    body_x, body_w = 0.035, 0.820
+    chip_x, chip_w = 0.870, 0.095
 
     for i, (title, detail, kind, color) in enumerate(CONTROLS):
         y = top - i * pitch - row_h
         rounded_box(ax, (body_x, y), body_w, row_h, color, text_color=WHITE,
-                    text=title, fontsize=19, sub=detail, subsize=18,
+                    text=title, fontsize=20, sub=detail, subsize=36,
                     sub_color=WARM_GLOW, ha="left",
-                    text_x=body_x + 0.028,
-                    title_offset=0.32, sub_offset=0.20, linespacing=1.15)
+                    text_x=body_x + 0.022,
+                    title_offset=0.39, sub_offset=0.0, linespacing=1.18)
         chip_fill = GOLDEN_YELLOW if kind == "PREVENTIVE" else BRIGHT_TEAL
         rounded_box(ax, (chip_x, y), chip_w, row_h, chip_fill,
-                    text_color=DEEP_NAVY, text=kind, fontsize=16)
+                    text_color=DEEP_NAVY, text=kind, fontsize=14)
 
-    rounded_box(ax, (0.05, 0.038), 0.90, 0.145, DEEP_NAVY, text_color=WHITE,
+    rounded_box(ax, (0.035, 0.021), 0.930, 0.086, DEEP_NAVY, text_color=WHITE,
                 text="The goal is the right question reaching the right person before launch.",
                 fontsize=18.5,
                 sub="Not more bureaucracy -- one field in a register and one flag in contract review.",
                 subsize=16, sub_color=WARM_GLOW,
                 title_offset=0.24, sub_offset=0.24)
 
-    fig.text(0.5, 0.0115,
+    fig.text(0.5, 0.006,
              "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=11, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
