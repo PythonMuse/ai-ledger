@@ -250,7 +250,11 @@ def make_service_layers():
     # 32-36pt benchmark from 38_controls.png; everything else here (chip
     # name, the other two lines, side label, header, banner, footer) is
     # bumped a size step to match, per the same note.
-    fig, ax = blank_axes((14.5, 15.0))
+    # Widened (14.5in -> 16.6in) so Layer 2's longest line ("Draft the
+    # invoice.") clears the card's right edge with real margin instead of
+    # running up against it -- all three cards share body_w, so this gives
+    # every row the same extra breathing room, not just the tight one.
+    fig, ax = blank_axes((16.6, 15.0))
     # Header title dominant (as large as fits on one line at this figure
     # width); subtitle matched to the chip-name tier (22pt) below it, per
     # feedback that the header was still too close in size to its content.
