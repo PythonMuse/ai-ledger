@@ -197,8 +197,13 @@ def make_hero():
                 subsize=19, sub_color=OCEAN_TEAL,
                 title_offset=0.19, sub_offset=0.24)
 
+    # This line has to point at the two columns above it and add a beat the
+    # banner has not already made -- accountability. An earlier version
+    # ("build or buy is a budgeting question; this is a control question")
+    # had no referent for "this" and contradicted the article's own point
+    # that internal building carries real cost too.
     fig.text(0.5, 0.027,
-             "Build or buy is a budgeting question. This is a control question.",
+             "You can buy the left column. You still have to answer for the right one.",
              fontsize=19, color=DEEP_NAVY, ha="center", va="center",
              style="italic")
     fig.text(0.5, 0.006, "PythonMuse LLC  |  www.pythonmuse.com",
