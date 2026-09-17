@@ -682,6 +682,6 @@ Copilot or harness, cafeteria or kitchen — the tool your organization approves
 
 ---
 
-*Related: [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md) | [The Power of Skills and Agents: How Accountants Actually Use AI](../17-skills-and-agents-for-accountants/README.md) | [Stop Using One AI Like It Is Excel](../14-ai-team-for-accountants/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/README.md)*
+*Related: [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md) | [The Power of Skills and Agents: How Accountants Actually Use AI](../17-skills-and-agents-for-accountants/README.md) | [Stop Using One AI Like It Is Excel](../14-ai-team-for-accountants/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/README.md) | [Buy the Platform. Own the Accounting Logic.](../39-buy-platform-own-accounting-logic/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

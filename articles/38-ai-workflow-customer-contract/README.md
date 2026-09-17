@@ -320,6 +320,6 @@ Vendor terms change. Every statement above was verified against the linked sourc
 
 ---
 
-*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/README.md) | [How to Use AI in Accounting Without Sending the Wrong Data](../06-safe-ai-data-workflows/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md)*
+*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/README.md) | [How to Use AI in Accounting Without Sending the Wrong Data](../06-safe-ai-data-workflows/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) | [Buy the Platform. Own the Accounting Logic.](../39-buy-platform-own-accounting-logic/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

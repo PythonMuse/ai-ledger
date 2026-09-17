@@ -58,6 +58,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 36 | [Model Selection Is an Accounting Control](36-model-selection-is-a-control/README.md) | Model selection, capability levels, escalation, complexity vs. consequence, verification cost, model change control |
 | 37 | [When the Invoice Starts Giving Orders](37-when-the-invoice-gives-orders/README.md) | Prompt injection, trust boundaries, untrusted content, least privilege, instruction-integrity canary, defense in depth |
 | 38 | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](38-ai-workflow-customer-contract/README.md) | Customer contracts, MSA review, AI use-case register, data processing vs. training, approved-tool lists, contract checkpoint |
+| 39 | [Buy the Platform. Own the Accounting Logic.](39-buy-platform-own-accounting-logic/README.md) | Build vs. buy, vendor due diligence, SOC 1 and SOC 2 limits, agent governance, model change control, vendor exit test |
 
 ---
 
