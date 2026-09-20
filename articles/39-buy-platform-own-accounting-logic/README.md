@@ -23,9 +23,7 @@ There is also another option. Someone on your team who genuinely understands you
 
 So which direction should you take? Build the capability inside accounting, or buy what somebody else already made?
 
-That is not actually the right question.
-
-The better question is:
+That is not actually the right question. The better question is:
 
 > **Where do you want the accounting knowledge, the control knowledge, and the ability to validate the process to live?**
 
@@ -67,9 +65,7 @@ Building internally can give accounting more control — but only if you actuall
 
 ## Buying the Agent Does Not Eliminate the Work
 
-Now consider the alternative.
-
-A vendor tells you it already has a bank reconciliation agent.
+Now consider the alternative. A vendor tells you it already has a bank reconciliation agent.
 
 Great. But what exactly does that mean?
 
@@ -126,7 +122,7 @@ Three practical refinements are worth carrying into your next vendor call.
 
 **Third: ask for the complementary user entity controls.** Buried in every SOC report is a list of the controls the service organization assumes *you* are performing. They have a name — CUECs — precisely so you can ask for the list by name. The vendor's report is only valid if your side of it is true. That list is the most useful page in the document and the one most likely to have never been read.
 
-And if the service performs activities that could affect financial reporting, ask whether SOC 1 is the relevant report. SOC 1 specifically addresses controls at a service organization relevant to a user entity's internal control over financial reporting. An agent that prepares journal entries has wandered into SOC 1 territory, whatever the marketing page says.
+And if the service performs activities that could affect financial reporting — preparing journal entries, for example — ask whether SOC 1 is the more relevant report. SOC 1 specifically addresses controls at a service organization relevant to a user entity's internal control over financial reporting, whatever the marketing page emphasizes.
 
 Neither report validates your accounting workflow. That part does not come in a PDF.
 
@@ -140,7 +136,7 @@ AI agents differ from ordinary software because we increasingly give them **auth
 
 That changes the questions a controller should ask.
 
-In February 2026, NIST's Center for AI Standards and Innovation launched an [AI Agent Standards Initiative](https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure) focused on agent security, interoperability, identity, and trusted adoption. NIST is specifically examining how agents should be identified and authorized, and how their actions can be audited. The work raises questions about least privilege, delegation of authority, logging, human authorization, and prompt-injection controls.
+In February 2026, NIST's Center for AI Standards and Innovation launched an [AI Agent Standards Initiative](https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure) focused on agent security, identity, and authorization — how agents should be identified, what they should be allowed to do, and how their actions can be audited.
 
 Those concepts should sound extremely familiar.
 
@@ -150,9 +146,7 @@ Who can perform the action? Who authorized it? What access was granted? What evi
 
 Accounting has been asking those six questions since long before anyone said "agentic." The nouns changed. The questions did not.
 
-NIST's [May 2026 analysis of industry responses](https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai) reached a conclusion worth quoting to anyone who thinks this is all brand new: fundamental cybersecurity principles and practices remain relevant, but they will require adaptation to address agent security satisfactorily.
-
-International standards are developing alongside. ISO/IEC 42001 addresses AI management systems and ongoing governance. ISO/IEC TS 42119-2 applies a risk-based approach to testing AI systems, extending established software-testing practice rather than replacing it.
+NIST's [May 2026 analysis of industry responses](https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai) reached a familiar conclusion: fundamental cybersecurity principles remain relevant, but they need real adaptation for software that acts instead of just reporting. International standards are catching up too — ISO/IEC 42001 for AI governance, ISO/IEC TS 42119-2 for testing AI systems.
 
 None of this means you should demand a particular AI certification from every vendor tomorrow. The landscape is still forming, and a checkbox that does not exist yet is not a control.
 
@@ -227,9 +221,7 @@ Or she may use it without understanding where it can fail, which is the expensiv
 
 All of those outcomes create risk, and none of them show up on the invoice. [The 3 Mindsets of AI Adoption in Accounting](../21-three-mindsets-of-ai-adoption/README.md) covers why the same rollout lands completely differently depending on who receives it.
 
-So the economics of buying an agent include more than the subscription. There is implementation, validation, training, change management, process redesign, monitoring, vendor management, and eventually exit.
-
-Internal development has its own hidden costs: employee time, learning curve, testing, governance, maintenance, and the opportunity cost of pulling a talented accountant away from the work only she can do.
+Buying an agent carries costs beyond the subscription: implementation, validation, training, change management, process redesign, monitoring, vendor management, and eventually exit. Building one carries employee time, testing, governance, maintenance, and the opportunity cost of pulling a talented accountant away from the work only she can do.
 
 Neither option is free. They just put the costs in different places, and only one of them sends you an invoice that makes the cost visible.
 
@@ -251,11 +243,11 @@ Which gives you a cleaner way to make the decision:
 
 > **Buy the plumbing. Own the accounting logic.**
 
+That still leaves one question: what exactly should you evaluate before approving an agent? I reduce it to three things.
+
 ---
 
 ## The Three Questions I Would Ask
-
-Before approving an accounting agent — whether you built it or bought it — you want satisfactory answers to three questions.
 
 ![The three trust questions, and who owns the answer to each](./visuals/39_three_questions.png)
 
@@ -265,9 +257,7 @@ Before approving an accounting agent — whether you built it or bought it — y
 
 **3. Can I trust this agent to perform this accounting process?** That answer comes only from your own testing, your own exceptions, your own control requirements, and your own evidence.
 
-The first question belongs largely to vendor risk management. The second is becoming part of AI governance. The third still belongs squarely to accounting.
-
-That is the one I would not outsource.
+The first question belongs largely to vendor risk management. The second is becoming part of AI governance. The third remains an accounting responsibility.
 
 Because whether your employee built the agent, a hyperscaler supplied it, or a startup sold it to you, someone — an auditor, a CFO, a customer, a board member — will eventually ask:
 
