@@ -24,6 +24,41 @@ LIGHT_GRAY = "#F5F5F5"
 
 plt.rcParams["font.family"] = "sans-serif"
 
+# ---------------------------------------------------------------------------
+# PowerPoint-readability pass (trial for the house SKILL.md rule): every
+# visual in this article was originally tuned with a 18pt floor. These are
+# meant to be dropped onto a slide, not just viewed full-screen as a PNG, so
+# the floor is raised to 22pt and every other size in the set is scaled up
+# by the same ratio -- not just the smallest text, or the small text would
+# end up closer in size to everything around it than it started.
+#
+# `pt()` wraps every *design* font size (the number tuned by eye in each
+# call below) so the original value stays visible for reference. `canvas()`
+# scales each figure's physical inches by the same factor -- since every box
+# position and gap in this file is a fraction of the figure (0-1), enlarging
+# the canvas by the same ratio as the text keeps every box the same size
+# *relative to its text* as before. Nothing needs to be repositioned; the
+# whole layout grows like a photograph enlargement. Footer branding
+# ("PythonMuse LLC | www.pythonmuse.com") is exempted and keeps its
+# original size, per instruction.
+FONT_SCALE = 22 / 18
+
+
+def pt(size):
+    """Scale a design font size by FONT_SCALE, rounded to the nearest point."""
+    return round(size * FONT_SCALE)
+
+
+def canvas(w, h):
+    """Scale a figure's inches by FONT_SCALE so boxes keep the same size
+    relative to the now-larger text instead of fighting it."""
+    return (round(w * FONT_SCALE, 1), round(h * FONT_SCALE, 1))
+
+
+def lw(width):
+    """Scale a line weight (points) by FONT_SCALE, to one decimal place."""
+    return round(width * FONT_SCALE, 1)
+
 
 def add_header_bar(fig, title, subtitle, height=0.13, title_size=29,
                     subtitle_size=16, brand_size=10.5, brand=True):
@@ -33,18 +68,19 @@ def add_header_bar(fig, title, subtitle, height=0.13, title_size=29,
         facecolor=DEEP_NAVY, edgecolor="none", zorder=0,
     )
     fig.patches.append(bar)
-    fig.text(0.03, 1 - height / 2 + 0.018, title, fontsize=title_size,
+    fig.text(0.03, 1 - height / 2 + 0.018, title, fontsize=pt(title_size),
              fontweight="bold", color=WHITE, va="center", ha="left")
-    fig.text(0.03, 1 - height / 2 - 0.032, subtitle, fontsize=subtitle_size,
+    fig.text(0.03, 1 - height / 2 - 0.032, subtitle, fontsize=pt(subtitle_size),
              color=WARM_GLOW, va="center", ha="left", alpha=1.0)
     if brand:
-        fig.text(0.97, 1 - height / 2, "PythonMuse LLC", fontsize=brand_size,
+        fig.text(0.97, 1 - height / 2, "PythonMuse LLC", fontsize=pt(brand_size),
                  color=WHITE, va="center", ha="right", alpha=0.70)
 
 
 # FancyBboxPatch inflates each box by `pad` on every side. Keep this small so
 # that the gaps computed in each layout below survive and the connector arrows
-# stay visible -- a larger pad silently eats them.
+# stay visible -- a larger pad silently eats them. This is a fractional
+# (data-space) value, not a font size, so it does not scale with FONT_SCALE.
 BOX_PAD = 0.004
 
 
@@ -60,23 +96,23 @@ def rounded_box(ax, xy, w, h, color, text_color=WHITE, text="", fontsize=12,
     cx, cy = xy[0] + w / 2, xy[1] + h / 2
     tx = text_x if text_x is not None else cx
     if sub:
-        ax.text(tx, cy + h * title_offset, text, fontsize=fontsize,
+        ax.text(tx, cy + h * title_offset, text, fontsize=pt(fontsize),
                 fontweight="bold" if bold else "normal",
                 color=text_color, ha=ha, va="center", zorder=zorder + 1)
-        ax.text(tx, cy - h * sub_offset, sub, fontsize=subsize,
+        ax.text(tx, cy - h * sub_offset, sub, fontsize=pt(subsize),
                 color=sub_color or text_color, ha=ha, va="center",
                 zorder=zorder + 1, alpha=1.0, linespacing=linespacing)
     else:
-        ax.text(tx, cy, text, fontsize=fontsize,
+        ax.text(tx, cy, text, fontsize=pt(fontsize),
                 fontweight="bold" if bold else "normal",
                 color=text_color, ha=ha, va="center", zorder=zorder + 1,
                 linespacing=linespacing)
 
 
-def arrow_v(ax, x, y1, y2, color=OCEAN_TEAL, lw=2.4):
+def arrow_v(ax, x, y1, y2, color=OCEAN_TEAL, width=2.4):
     ax.annotate("", xy=(x, y2), xytext=(x, y1),
-                arrowprops=dict(arrowstyle="-|>", color=color, lw=lw,
-                                mutation_scale=17), zorder=1)
+                arrowprops=dict(arrowstyle="-|>", color=color, lw=lw(width),
+                                mutation_scale=round(17 * FONT_SCALE)), zorder=1)
 
 
 # Anything at or lighter than Bright Teal takes dark text -- white on Bright
@@ -134,10 +170,13 @@ ACCOUNTING_LOGIC = [
 
 
 def make_hero():
-    # Row items are the focal text (32-36pt benchmark), so every supporting
-    # element -- header, column headers, divider label, banner, footer -- is
-    # sized a step up to match rather than left behind.
-    fig, ax = blank_axes((17.4, 17.4))
+    # Row items are the focal text (32-36pt design-size benchmark, before the
+    # PowerPoint pass), so every supporting element -- header, column
+    # headers, divider label, banner, footer -- is sized a step up to match
+    # rather than left behind. The canvas grows by the same FONT_SCALE
+    # factor as the text, so every box keeps its size relative to the text
+    # it holds.
+    fig, ax = blank_axes(canvas(17.4, 17.4))
     add_header_bar(fig, "The Line Is Not Between Build and Buy",
                    "It runs between the plumbing and the accounting logic.",
                    height=0.212, title_size=48, subtitle_size=22, brand=False)
@@ -158,7 +197,7 @@ def make_hero():
         y = head_bottom - gap - i * pitch - box_h
         rounded_box(ax, (left_x, y), col_w, box_h, LIGHT_GRAY,
                     text_color=DEEP_NAVY, text=label, fontsize=26, bold=False,
-                    linespacing=1.25, edge=OCEAN_TEAL, lw=1.1)
+                    linespacing=1.25, edge=OCEAN_TEAL, lw=lw(1.1))
 
     for i, label in enumerate(ACCOUNTING_LOGIC):
         y = head_bottom - gap - i * pitch - box_h
@@ -171,19 +210,20 @@ def make_hero():
 
     # The dividing line itself.
     ax.plot([0.50, 0.50], [0.168, header_top + 0.007], linestyle=(0, (5, 4)),
-            color=OCEAN_TEAL, linewidth=2.2, zorder=1)
-    ax.text(0.50, 0.400, "THE  REAL  DIVIDING  LINE", rotation=90, fontsize=19,
-            fontweight="bold", color=ALERT_ORANGE, ha="center", va="center",
-            zorder=4, bbox=dict(facecolor=WHITE, edgecolor="none", pad=5))
+            color=OCEAN_TEAL, linewidth=lw(2.2), zorder=1)
+    ax.text(0.50, 0.400, "THE  REAL  DIVIDING  LINE", rotation=90,
+            fontsize=pt(19), fontweight="bold", color=ALERT_ORANGE,
+            ha="center", va="center", zorder=4,
+            bbox=dict(facecolor=WHITE, edgecolor="none", pad=round(5 * FONT_SCALE)))
 
     wf_bottom, wf_h = 0.058, 0.106
     label_y = rows_bottom - 0.024
     arrow_top = label_y - 0.024
     ax.text(left_x + col_w / 2, label_y,
-            "somebody else builds this well", fontsize=19, fontweight="bold",
+            "somebody else builds this well", fontsize=pt(19), fontweight="bold",
             color=OCEAN_TEAL, ha="center", va="center")
     ax.text(right_x + col_w / 2, label_y,
-            "nobody else knows this", fontsize=19, fontweight="bold",
+            "nobody else knows this", fontsize=pt(19), fontweight="bold",
             color=SEA_GREEN, ha="center", va="center")
     arrow_v(ax, left_x + col_w / 2, arrow_top, wf_bottom + wf_h + 0.009,
             color=OCEAN_TEAL)
@@ -204,8 +244,9 @@ def make_hero():
     # that internal building carries real cost too.
     fig.text(0.5, 0.027,
              "You can buy the left column. You still have to answer for the right one.",
-             fontsize=19, color=DEEP_NAVY, ha="center", va="center",
+             fontsize=pt(19), color=DEEP_NAVY, ha="center", va="center",
              style="italic")
+    # Footer branding keeps its original size -- exempt from the scale pass.
     fig.text(0.5, 0.006, "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=20, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
@@ -235,7 +276,7 @@ SOC_PANELS = [
 
 
 def make_soc_scope():
-    fig, ax = blank_axes((17.6, 18.6))
+    fig, ax = blank_axes(canvas(17.6, 18.6))
     add_header_bar(fig, "Three Reports. Three Different Questions.",
                    "Asking SOC 2 whether the agent reconciles your bank account is asking the wrong document.",
                    height=0.152, title_size=44, subtitle_size=21, brand=False)
@@ -254,26 +295,28 @@ def make_soc_scope():
         # the pairing, but the body line is set explicitly for clarity.
         body_col = DEEP_NAVY if fill in LIGHT_FILLS else WHITE
 
-        # Name chip on the left of the card, sized for the 24pt label it holds.
+        # Name chip on the left of the card, sized for the label it holds.
         chip_w = 0.205
         chip_fill = WHITE if fill in LIGHT_FILLS else WARM_GLOW
         rounded_box(ax, (x + 0.022, y + card_h / 2 - 0.048), chip_w, 0.096,
                     chip_fill, text_color=DEEP_NAVY, text=name, fontsize=30)
 
         text_left = x + 0.022 + chip_w + 0.030
-        ax.text(text_left, y + card_h * 0.775, verb, fontsize=19,
+        ax.text(text_left, y + card_h * 0.775, verb, fontsize=pt(19),
                 fontweight="bold", color=note_col, ha="left", va="center",
                 zorder=4)
-        ax.text(text_left, y + card_h * 0.505, body, fontsize=24,
+        ax.text(text_left, y + card_h * 0.505, body, fontsize=pt(24),
                 color=body_col, ha="left", va="center", zorder=4,
                 linespacing=1.42)
-        ax.text(text_left, y + card_h * 0.165, note, fontsize=18,
+        # This note was the 18pt floor that set FONT_SCALE -- it now renders
+        # at exactly 22pt.
+        ax.text(text_left, y + card_h * 0.165, note, fontsize=pt(18),
                 color=note_col, ha="left", va="center", zorder=4,
                 style="italic", linespacing=1.38)
 
     fig.text(0.5, 0.030,
              "Read the report, not the badge — then ask for the complementary user entity controls.",
-             fontsize=20, color=DEEP_NAVY, ha="center", va="center",
+             fontsize=pt(20), color=DEEP_NAVY, ha="center", va="center",
              fontweight="bold")
     fig.text(0.5, 0.008, "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=19, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
@@ -284,9 +327,10 @@ def make_soc_scope():
 # ---------------------------------------------------------------------------
 # 3. Agent questions -- the accounting control question and its agent form
 # ---------------------------------------------------------------------------
-# The right column's longest lines are wrapped by hand: at 24pt in a 0.455-wide
-# column they overrun the card and collide with the incoming connector arrow.
-# Wrapping keeps the wording intact rather than shrinking the font to fit.
+# The right column's longest lines are wrapped by hand: at design-size 24pt in
+# a 0.455-wide column they overrun the card and collide with the incoming
+# connector arrow. Wrapping keeps the wording intact rather than shrinking
+# the font to fit.
 AGENT_ROWS = [
     ("Who can perform the action?",
      "Which tools and systems\nmay the agent call?"),
@@ -304,7 +348,7 @@ AGENT_ROWS = [
 
 
 def make_agent_questions():
-    fig, ax = blank_axes((19.0, 18.0))
+    fig, ax = blank_axes(canvas(19.0, 18.0))
     add_header_bar(fig, "The Questions Did Not Change. The Actor Did.",
                    "Accounting has asked all six of these since long before anyone said \"agentic.\"",
                    height=0.130, title_size=44, subtitle_size=21, brand=False)
@@ -326,15 +370,15 @@ def make_agent_questions():
         y = head_bottom - gap - i * pitch - row_h
         rounded_box(ax, (left_x, y), col_w, row_h, LIGHT_GRAY,
                     text_color=DEEP_NAVY, text=classic, fontsize=24,
-                    bold=False, linespacing=1.25, edge=OCEAN_TEAL, lw=1.1)
+                    bold=False, linespacing=1.25, edge=OCEAN_TEAL, lw=lw(1.1))
         rounded_box(ax, (right_x, y), col_w, row_h, MIDNIGHT_TEAL,
                     text_color=WHITE, text=agentic, fontsize=24,
                     bold=False, linespacing=1.25)
         # Connector between the two columns for this row.
         ax.annotate("", xy=(right_x - 0.004, y + row_h / 2),
                     xytext=(left_x + col_w + 0.004, y + row_h / 2),
-                    arrowprops=dict(arrowstyle="-|>", color=SEA_GREEN, lw=2.2,
-                                    mutation_scale=16), zorder=1)
+                    arrowprops=dict(arrowstyle="-|>", color=SEA_GREEN, lw=lw(2.2),
+                                    mutation_scale=round(16 * FONT_SCALE)), zorder=1)
 
     rows_bottom = head_bottom - gap - (len(AGENT_ROWS) - 1) * pitch - row_h
 
@@ -344,6 +388,8 @@ def make_agent_questions():
                 text_color=DEEP_NAVY,
                 text="THE NOUNS CHANGED. THE QUESTIONS DID NOT.",
                 fontsize=27,
+                # This subtitle was the other 18pt floor -- also lands at
+                # exactly 22pt now.
                 sub="NIST is working on agent identity and authorization. Accounting has been working on it for a century.",
                 subsize=18, sub_color=OCEAN_TEAL,
                 title_offset=0.19, sub_offset=0.25)
@@ -368,7 +414,7 @@ EXIT_ITEMS = [
 
 
 def make_exit_test():
-    fig, ax = blank_axes((17.0, 18.0))
+    fig, ax = blank_axes(canvas(17.0, 18.0))
     add_header_bar(fig, "The Exit Test",
                    "If the relationship ends tomorrow, what do you actually walk out with?",
                    height=0.128, title_size=50, subtitle_size=21, brand=False)
@@ -385,17 +431,17 @@ def make_exit_test():
 
     for i, (label, detail) in enumerate(EXIT_ITEMS):
         y = top - i * (card_h + gap) - card_h
-        rounded_box(ax, (x, y), w, card_h, LIGHT_GRAY, edge=OCEAN_TEAL, lw=1.1)
+        rounded_box(ax, (x, y), w, card_h, LIGHT_GRAY, edge=OCEAN_TEAL, lw=lw(1.1))
 
         # Numbered badge, sized to sit inside the shorter card with margin.
         rounded_box(ax, (x + 0.020, y + card_h / 2 - 0.030), 0.068, 0.060,
                     num_fills[i], text_color=WHITE, text=str(i + 1), fontsize=28)
 
         text_left = x + 0.020 + 0.068 + 0.028
-        ax.text(text_left, y + card_h * 0.680, label, fontsize=25,
+        ax.text(text_left, y + card_h * 0.680, label, fontsize=pt(25),
                 fontweight="bold", color=DEEP_NAVY, ha="left", va="center",
                 zorder=4)
-        ax.text(text_left, y + card_h * 0.280, detail, fontsize=21,
+        ax.text(text_left, y + card_h * 0.280, detail, fontsize=pt(21),
                 color=OCEAN_TEAL, ha="left", va="center", zorder=4)
 
     rows_bottom = top - (len(EXIT_ITEMS) - 1) * (card_h + gap) - card_h
@@ -411,7 +457,7 @@ def make_exit_test():
 
     fig.text(0.5, 0.038,
              "Run this before you sign — not the week you need it.",
-             fontsize=20, color=DEEP_NAVY, ha="center", va="center",
+             fontsize=pt(20), color=DEEP_NAVY, ha="center", va="center",
              style="italic")
     fig.text(0.5, 0.010, "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=19, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
@@ -442,7 +488,7 @@ TRUST_QUESTIONS = [
 
 
 def make_three_questions():
-    fig, ax = blank_axes((17.8, 18.8))
+    fig, ax = blank_axes(canvas(17.8, 18.8))
     add_header_bar(fig, "Three Questions Before You Approve an Agent",
                    "Built it or bought it — the third one never leaves the department.",
                    height=0.145, title_size=43, subtitle_size=21, brand=False)
@@ -467,16 +513,16 @@ def make_three_questions():
                     badge_fill, text_color=DEEP_NAVY, text=num, fontsize=30)
 
         text_left = x + 0.022 + 0.072 + 0.028
-        ax.text(text_left, y + card_h * 0.820, question, fontsize=27,
+        ax.text(text_left, y + card_h * 0.820, question, fontsize=pt(27),
                 fontweight="bold", color=head_col, ha="left", va="center",
                 zorder=4)
         # Body sits higher than the first pass so the owner chip below it has
         # real clearance instead of touching the body's last line.
-        ax.text(text_left, y + card_h * 0.520, body, fontsize=21,
+        ax.text(text_left, y + card_h * 0.520, body, fontsize=pt(21),
                 color=body_col, ha="left", va="center", zorder=4,
                 linespacing=1.40)
 
-        # Owner chip, bottom-left under the body, widened for its 19pt label.
+        # Owner chip, bottom-left under the body, widened for its label.
         chip_w = 0.30 if len(owner) > 16 else 0.20
         rounded_box(ax, (text_left, y + card_h * 0.045), chip_w, 0.048,
                     DEEP_NAVY if on_light else WHITE,
@@ -485,13 +531,13 @@ def make_three_questions():
 
         if i == 2:
             ax.text(x + w - 0.028, y + card_h * 0.150,
-                    "does not outsource", fontsize=20, fontweight="bold",
+                    "does not outsource", fontsize=pt(20), fontweight="bold",
                     color=OCEAN_TEAL, ha="right", va="center", zorder=4,
                     style="italic")
 
     fig.text(0.5, 0.032,
              "\"How do you know this works?\" is not a question the vendor can answer for you.",
-             fontsize=21, color=DEEP_NAVY, ha="center", va="center",
+             fontsize=pt(21), color=DEEP_NAVY, ha="center", va="center",
              fontweight="bold")
     fig.text(0.5, 0.009, "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=19, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
@@ -505,7 +551,7 @@ def make_three_questions():
 def make_social_square():
     # Narrow canvas (8in), so the title wraps to two lines to stay dominant --
     # add_header_bar's offsets assume one line, so the bar is built by hand.
-    fig, ax = blank_axes((8, 12.4))
+    fig, ax = blank_axes(canvas(8, 12.4))
     header_h = 0.230
     bar = FancyBboxPatch(
         (0, 1 - header_h), 1, header_h,
@@ -513,11 +559,11 @@ def make_social_square():
         facecolor=DEEP_NAVY, edgecolor="none", zorder=0,
     )
     fig.patches.append(bar)
-    fig.text(0.05, 0.975, "Buy the Platform.\nOwn the Logic.", fontsize=42,
+    fig.text(0.05, 0.975, "Buy the Platform.\nOwn the Logic.", fontsize=pt(42),
              fontweight="bold", color=WHITE, va="top", ha="left",
              linespacing=1.1)
     fig.text(0.05, 0.818, "Build or buy is the wrong question.",
-             fontsize=21, color=WARM_GLOW, va="top", ha="left")
+             fontsize=pt(21), color=WARM_GLOW, va="top", ha="left")
 
     rounded_box(ax, (0.06, 0.584), 0.88, 0.173, MIDNIGHT_TEAL,
                 text_color=WHITE, text="A SOC 2 REPORT TELLS YOU",
@@ -538,9 +584,10 @@ def make_social_square():
                 text="THAT PART IS\nSTILL YOURS",
                 fontsize=28, linespacing=1.7)
 
+    # This closing line was the third 18pt floor in the set -- also now 22pt.
     fig.text(0.5, 0.120,
              "Buy the plumbing.\nOwn the accounting logic.",
-             fontsize=18, color=DEEP_NAVY, ha="center", va="center",
+             fontsize=pt(18), color=DEEP_NAVY, ha="center", va="center",
              fontweight="bold", linespacing=1.6)
     fig.text(0.5, 0.025, "PythonMuse LLC  |  www.pythonmuse.com", fontsize=18,
              color=OCEAN_TEAL, ha="center", va="center", alpha=0.85)
