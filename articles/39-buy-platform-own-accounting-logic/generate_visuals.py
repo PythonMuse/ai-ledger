@@ -276,15 +276,33 @@ SOC_PANELS = [
 
 
 def make_soc_scope():
-    fig, ax = blank_axes(canvas(17.6, 18.6))
+    # The SOC 2 / SOC 1 / NEITHER chip is the category label for each row --
+    # it was badly under-filling its box (~16% of box height) at the old
+    # fontsize=30. Tripling it to 90 brings the fill ratio to the ~50-65%
+    # SKILL.md target, so it now reads as a real badge instead of a caption.
+    # Canvas grows in both dimensions -- taller to give the row's now-larger
+    # body/verb/note text room without cramming the card, wider so the much
+    # wider chip box doesn't eat into the body-text column and start
+    # wrapping its pre-broken lines. Header height is pulled back from 0.152
+    # to 0.133 so its absolute size doesn't balloon just because the canvas
+    # underneath it grew -- the header wasn't part of what needed enlarging.
+    fig, ax = blank_axes(canvas(22.0, 20.0))
     add_header_bar(fig, "Three Reports. Three Different Questions.",
                    "Asking SOC 2 whether the agent reconciles your bank account is asking the wrong document.",
-                   height=0.152, title_size=44, subtitle_size=21, brand=False)
+                   height=0.142, title_size=44, subtitle_size=21, brand=False)
 
-    top = 0.795
-    card_h = 0.207
-    gap = 0.036
+    top = 0.838
+    card_h = 0.237
+    gap = 0.021
     x, w = 0.03, 0.94
+
+    # Chip width is sized for "NEITHER" (the longest label) at the new 90pt
+    # design size with real side padding. Chip height barely needs to grow
+    # at all -- the box was already generously tall; it was the text inside
+    # it that was too small -- so it only grows enough to keep centering
+    # clean against the taller card.
+    chip_w = 0.30
+    chip_h = 0.082
 
     for i, (name, fill, verb, body, note) in enumerate(SOC_PANELS):
         y = top - i * (card_h + gap) - card_h
@@ -295,28 +313,24 @@ def make_soc_scope():
         # the pairing, but the body line is set explicitly for clarity.
         body_col = DEEP_NAVY if fill in LIGHT_FILLS else WHITE
 
-        # Name chip on the left of the card, sized for the label it holds.
-        chip_w = 0.205
         chip_fill = WHITE if fill in LIGHT_FILLS else WARM_GLOW
-        rounded_box(ax, (x + 0.022, y + card_h / 2 - 0.048), chip_w, 0.096,
-                    chip_fill, text_color=DEEP_NAVY, text=name, fontsize=30)
+        rounded_box(ax, (x + 0.022, y + card_h / 2 - chip_h / 2), chip_w, chip_h,
+                    chip_fill, text_color=DEEP_NAVY, text=name, fontsize=90)
 
         text_left = x + 0.022 + chip_w + 0.030
-        ax.text(text_left, y + card_h * 0.775, verb, fontsize=pt(19),
+        ax.text(text_left, y + card_h * 0.775, verb, fontsize=pt(24),
                 fontweight="bold", color=note_col, ha="left", va="center",
                 zorder=4)
-        ax.text(text_left, y + card_h * 0.505, body, fontsize=pt(24),
+        ax.text(text_left, y + card_h * 0.505, body, fontsize=pt(30),
                 color=body_col, ha="left", va="center", zorder=4,
                 linespacing=1.42)
-        # This note was the 18pt floor that set FONT_SCALE -- it now renders
-        # at exactly 22pt.
-        ax.text(text_left, y + card_h * 0.165, note, fontsize=pt(18),
+        ax.text(text_left, y + card_h * 0.165, note, fontsize=pt(22),
                 color=note_col, ha="left", va="center", zorder=4,
                 style="italic", linespacing=1.38)
 
     fig.text(0.5, 0.030,
              "Read the report, not the badge — then ask for the complementary user entity controls.",
-             fontsize=pt(20), color=DEEP_NAVY, ha="center", va="center",
+             fontsize=pt(26), color=DEEP_NAVY, ha="center", va="center",
              fontweight="bold")
     fig.text(0.5, 0.008, "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=19, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
