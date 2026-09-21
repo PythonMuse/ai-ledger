@@ -280,29 +280,43 @@ def make_soc_scope():
     # it was badly under-filling its box (~16% of box height) at the old
     # fontsize=30. Tripling it to 90 brings the fill ratio to the ~50-65%
     # SKILL.md target, so it now reads as a real badge instead of a caption.
-    # Canvas grows in both dimensions -- taller to give the row's now-larger
-    # body/verb/note text room without cramming the card, wider so the much
-    # wider chip box doesn't eat into the body-text column and start
-    # wrapping its pre-broken lines. Header height is pulled back from 0.152
-    # to 0.133 so its absolute size doesn't balloon just because the canvas
-    # underneath it grew -- the header wasn't part of what needed enlarging.
-    fig, ax = blank_axes(canvas(22.0, 20.0))
+    #
+    # The italic note under each body paragraph -- the quotable punchline
+    # ("There is no such thing as 'SOC 2 certified.'", "You test it, or
+    # nobody does.") -- and the header subtitle are the actual "context"
+    # text that needed the 3x treatment; an earlier pass enlarged the chip
+    # and body instead and left these alone. Note fontsize triples from the
+    # article's original 18pt baseline to 54 (up from this file's
+    # intermediate 22). The header subtitle gets a real but smaller bump
+    # (21 -> 28) -- tripling it too would put it at 63, larger than the
+    # 44pt title above it, which is its own kind of broken.
+    #
+    # Because the note block is now the tallest thing in the card, the
+    # vertical stack is rebuilt around it instead of the other way around:
+    # verb + body + chip keep their old relative grouping in the upper
+    # portion of a taller card, and the note gets its own, much larger
+    # share of the card below them. Canvas grows to give all of this room
+    # without touching a single coordinate in the other five visuals.
+    fig, ax = blank_axes(canvas(24.0, 24.5))
     add_header_bar(fig, "Three Reports. Three Different Questions.",
                    "Asking SOC 2 whether the agent reconciles your bank account is asking the wrong document.",
-                   height=0.142, title_size=44, subtitle_size=21, brand=False)
+                   height=0.115, title_size=44, subtitle_size=28, brand=False)
 
-    top = 0.838
-    card_h = 0.237
-    gap = 0.021
+    top = 0.871
+    card_h = 0.257
+    gap = 0.017
     x, w = 0.03, 0.94
 
-    # Chip width is sized for "NEITHER" (the longest label) at the new 90pt
-    # design size with real side padding. Chip height barely needs to grow
-    # at all -- the box was already generously tall; it was the text inside
-    # it that was too small -- so it only grows enough to keep centering
-    # clean against the taller card.
+    # Chip width/height are unchanged from the previous pass -- they were
+    # already sized correctly for "NEITHER" at fontsize=90 and didn't need
+    # to move just because the card got taller underneath them.
     chip_w = 0.30
-    chip_h = 0.082
+    chip_h = 0.067
+
+    # Vertical anchors as fractions of card_h, top to bottom: verb, then
+    # body (chip aligns with body), then a gap, then the much taller note
+    # block gets the bottom share of the card.
+    verb_y, body_y, note_y = 0.918, 0.720, 0.286
 
     for i, (name, fill, verb, body, note) in enumerate(SOC_PANELS):
         y = top - i * (card_h + gap) - card_h
@@ -314,17 +328,17 @@ def make_soc_scope():
         body_col = DEEP_NAVY if fill in LIGHT_FILLS else WHITE
 
         chip_fill = WHITE if fill in LIGHT_FILLS else WARM_GLOW
-        rounded_box(ax, (x + 0.022, y + card_h / 2 - chip_h / 2), chip_w, chip_h,
+        rounded_box(ax, (x + 0.022, y + card_h * body_y - chip_h / 2), chip_w, chip_h,
                     chip_fill, text_color=DEEP_NAVY, text=name, fontsize=90)
 
         text_left = x + 0.022 + chip_w + 0.030
-        ax.text(text_left, y + card_h * 0.775, verb, fontsize=pt(24),
+        ax.text(text_left, y + card_h * verb_y, verb, fontsize=pt(24),
                 fontweight="bold", color=note_col, ha="left", va="center",
                 zorder=4)
-        ax.text(text_left, y + card_h * 0.505, body, fontsize=pt(30),
+        ax.text(text_left, y + card_h * body_y, body, fontsize=pt(30),
                 color=body_col, ha="left", va="center", zorder=4,
                 linespacing=1.42)
-        ax.text(text_left, y + card_h * 0.165, note, fontsize=pt(22),
+        ax.text(text_left, y + card_h * note_y, note, fontsize=pt(54),
                 color=note_col, ha="left", va="center", zorder=4,
                 style="italic", linespacing=1.38)
 
