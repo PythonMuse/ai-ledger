@@ -524,15 +524,32 @@ TRUST_QUESTIONS = [
 
 
 def make_three_questions():
-    fig, ax = blank_axes(canvas(17.8, 18.8))
+    # The header subtitle and the three-card body paragraph double here --
+    # design 21 -> 42, exactly the "at least 2x" asked for. The question
+    # heading, number badge, and owner chip are NOT part of this ask and
+    # keep their old absolute size; because canvas width/height both have
+    # to grow to give the doubled body room, the badge and owner-chip boxes
+    # (sized as canvas fractions) are recomputed so their PHYSICAL size
+    # stays put rather than growing along with the canvas by accident.
+    fig, ax = blank_axes(canvas(22.0, 17.9))
     add_header_bar(fig, "Three Questions Before You Approve an Agent",
                    "Built it or bought it — the third one never leaves the department.",
-                   height=0.145, title_size=43, subtitle_size=21, brand=False)
+                   height=0.183, title_size=43, subtitle_size=42, brand=False)
 
-    top = 0.800
-    card_h = 0.203
-    gap = 0.034
+    top = 0.799
+    card_h = 0.231
+    gap = 0.023
     x, w = 0.03, 0.94
+
+    # Badge and owner-chip boxes, re-expressed for the new canvas so their
+    # absolute (inch) size matches what they were before this edit.
+    badge_w, badge_h = 0.058, 0.077
+    owner_chip_h = 0.050
+
+    # Vertical anchors as fractions of card_h -- rebuilt from scratch around
+    # the doubled body block rather than reusing the old fractions, which
+    # were sized for a body block less than half this height.
+    heading_y, body_y, owner_y = 0.876, 0.485, 0.089
 
     for i, (num, question, fill, body, owner) in enumerate(TRUST_QUESTIONS):
         y = top - i * (card_h + gap) - card_h
@@ -543,30 +560,28 @@ def make_three_questions():
         body_col = DEEP_NAVY if on_light else WHITE
         note_col = OCEAN_TEAL if on_light else WARM_GLOW
 
-        # Number badge.
+        # Number badge, aligned with the body block it labels.
         badge_fill = WHITE if on_light else WARM_GLOW
-        rounded_box(ax, (x + 0.022, y + card_h * 0.56), 0.072, 0.074,
+        rounded_box(ax, (x + 0.022, y + card_h * body_y - badge_h / 2), badge_w, badge_h,
                     badge_fill, text_color=DEEP_NAVY, text=num, fontsize=30)
 
-        text_left = x + 0.022 + 0.072 + 0.028
-        ax.text(text_left, y + card_h * 0.820, question, fontsize=pt(27),
+        text_left = x + 0.022 + badge_w + 0.028
+        ax.text(text_left, y + card_h * heading_y, question, fontsize=pt(27),
                 fontweight="bold", color=head_col, ha="left", va="center",
                 zorder=4)
-        # Body sits higher than the first pass so the owner chip below it has
-        # real clearance instead of touching the body's last line.
-        ax.text(text_left, y + card_h * 0.520, body, fontsize=pt(21),
+        ax.text(text_left, y + card_h * body_y, body, fontsize=pt(42),
                 color=body_col, ha="left", va="center", zorder=4,
                 linespacing=1.40)
 
         # Owner chip, bottom-left under the body, widened for its label.
-        chip_w = 0.30 if len(owner) > 16 else 0.20
-        rounded_box(ax, (text_left, y + card_h * 0.045), chip_w, 0.048,
+        chip_w = 0.243 if len(owner) > 16 else 0.162
+        rounded_box(ax, (text_left, y + card_h * owner_y - owner_chip_h / 2), chip_w, owner_chip_h,
                     DEEP_NAVY if on_light else WHITE,
                     text_color=GOLDEN_YELLOW if on_light else DEEP_NAVY,
                     text=owner, fontsize=19)
 
         if i == 2:
-            ax.text(x + w - 0.028, y + card_h * 0.150,
+            ax.text(x + w - 0.028, y + card_h * owner_y,
                     "does not outsource", fontsize=pt(20), fontweight="bold",
                     color=OCEAN_TEAL, ha="right", va="center", zorder=4,
                     style="italic")
