@@ -57,7 +57,7 @@ Accounting already understands this instinct. The preparer and the reviewer are 
 
 An accountant may be exactly the right person to design an agent. Someone else still needs to test it independently. The process owner still needs to approve it before production use. Significant changes still need regression testing. If you want the pattern in detail, [Pull Requests Are Internal Controls](../20e-pull-requests-are-controls/README.md) covers how a review-and-approve step gets built into the work rather than bolted on afterward.
 
-Building internally can give accounting more control — but only if you actually apply controls to the building.
+Building internally can give accounting more control — but only if you actually apply controls when building AI-assisted workflows.
 
 > **🛠️ Reminder — this is a framework.** The worked examples in this series run Claude through the Claude extension in Visual Studio Code, because that is what our environment uses. Nothing in this article depends on that choice. The same questions apply to a ChatGPT Enterprise workspace, a Gemini Enterprise agent, a deployment on Amazon Bedrock, or a vendor's packaged accounting agent. The tool changes; the questions do not. This series teaches the framework, not the vendor.
 
@@ -79,7 +79,7 @@ Which means you still need to validate it.
 
 You need expected results. Normal transactions. Exceptions. Transactions that *should* fail. You need to understand its false positives and its false negatives, because those two failure modes cost you very different things.
 
-In other words: most of the testing you would perform if your own employee built the agent still exists when you buy it instead.
+In other words, most of the testing you would perform if your own employee built the agent still exists when you buy it instead.
 
 **The development work may disappear. The controller's responsibility does not.**
 
@@ -229,7 +229,7 @@ Neither option is free. They just put the costs in different places, and only on
 
 ## Maybe the Answer Is Not Build or Buy
 
-Most accounting departments will land on a hybrid, and that is the right instinct.
+Most accounting departments will land on a hybrid — and they should.
 
 You do not need accountants building infrastructure. There is very little value in your team recreating authentication systems, model gateways, connectors, orchestration platforms, or monitoring tools that other companies already build well and maintain around the clock. Buy that. Buy it happily.
 
@@ -287,7 +287,9 @@ Every statement above was verified against the linked source in September 2026. 
 
 ---
 
-**A note on how this article was made.** This article started with me. The argument — that build-versus-buy is the wrong question, and that the real decision is where the accounting knowledge lives — is mine, and it came from reading a stack of vendor pitches. ChatGPT (5.5 Sol) helped me shape my notes into a first structured draft. Claude Sonnet and Claude Opus reviewed that draft and co-built the practice repository the series points to. Claude Code (Claude Opus 5) then built the final article, the visuals, and the site wiring — the draft carried no citations at all, so every NIST, ISO, and AICPA claim in the published version was researched and verified against the primary source from scratch rather than taken on faith, and the SOC Type 1 versus Type 2 distinction and the complementary user entity controls were added during that review because the original draft stopped one question short. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**A note on how this article was made.** This article started with me. The argument — that build-versus-buy is the wrong question, and that the real decision is where the accounting knowledge lives — is mine, and it came from reading a stack of vendor pitches. ChatGPT (5.5 Sol) helped me shape my notes into a first structured draft. Claude Sonnet and Claude Opus reviewed that draft and co-built the practice repository the series points to. Claude Code (Claude Opus 5) then built the final article, the visuals, and the site wiring — the draft carried no citations at all, so every NIST, ISO, and AICPA claim in the published version was researched and verified against the primary source from scratch rather than taken on faith.
+
+The SOC Type 1 versus Type 2 distinction and the complementary user entity controls were added during that review because the original draft stopped one question short. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
 
 ---
 
