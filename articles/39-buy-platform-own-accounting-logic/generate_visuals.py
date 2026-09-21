@@ -297,26 +297,34 @@ def make_soc_scope():
     # portion of a taller card, and the note gets its own, much larger
     # share of the card below them. Canvas grows to give all of this room
     # without touching a single coordinate in the other five visuals.
-    fig, ax = blank_axes(canvas(24.0, 24.5))
+    # Round 3: the title, the "ANSWERS" label, the body paragraph, and the
+    # closing line were left behind by the last two passes and now read as
+    # small next to the much bigger chip and note -- bumped up (roughly
+    # +15-20% each), but kept clearly under the chip/note, which stay
+    # exactly as they are per instruction. The body's growth eats into the
+    # gap above the note block, so the vertical stack is rebuilt again with
+    # real spacing between body and note rather than nudging the old
+    # fractions (the first attempt at this left body and note almost
+    # touching).
+    fig, ax = blank_axes(canvas(24.0, 26.3))
     add_header_bar(fig, "Three Reports. Three Different Questions.",
                    "Asking SOC 2 whether the agent reconciles your bank account is asking the wrong document.",
-                   height=0.115, title_size=44, subtitle_size=28, brand=False)
+                   height=0.122, title_size=50, subtitle_size=28, brand=False)
 
-    top = 0.871
-    card_h = 0.257
-    gap = 0.017
+    top = 0.866
+    card_h = 0.258
+    gap = 0.016
     x, w = 0.03, 0.94
 
-    # Chip width/height are unchanged from the previous pass -- they were
-    # already sized correctly for "NEITHER" at fontsize=90 and didn't need
-    # to move just because the card got taller underneath them.
+    # Chip width/height are unchanged in substance from the previous pass --
+    # sized for "NEITHER" at fontsize=90 -- just re-expressed as a fraction
+    # of the taller canvas so the chip's absolute size stays the same.
     chip_w = 0.30
-    chip_h = 0.067
+    chip_h = 0.062
 
     # Vertical anchors as fractions of card_h, top to bottom: verb, then
-    # body (chip aligns with body), then a gap, then the much taller note
-    # block gets the bottom share of the card.
-    verb_y, body_y, note_y = 0.918, 0.720, 0.286
+    # body (chip aligns with body), then a real gap, then the note block.
+    verb_y, body_y, note_y = 0.917, 0.694, 0.265
 
     for i, (name, fill, verb, body, note) in enumerate(SOC_PANELS):
         y = top - i * (card_h + gap) - card_h
@@ -332,10 +340,10 @@ def make_soc_scope():
                     chip_fill, text_color=DEEP_NAVY, text=name, fontsize=90)
 
         text_left = x + 0.022 + chip_w + 0.030
-        ax.text(text_left, y + card_h * verb_y, verb, fontsize=pt(24),
+        ax.text(text_left, y + card_h * verb_y, verb, fontsize=pt(28),
                 fontweight="bold", color=note_col, ha="left", va="center",
                 zorder=4)
-        ax.text(text_left, y + card_h * body_y, body, fontsize=pt(30),
+        ax.text(text_left, y + card_h * body_y, body, fontsize=pt(35),
                 color=body_col, ha="left", va="center", zorder=4,
                 linespacing=1.42)
         ax.text(text_left, y + card_h * note_y, note, fontsize=pt(54),
@@ -344,7 +352,7 @@ def make_soc_scope():
 
     fig.text(0.5, 0.030,
              "Read the report, not the badge — then ask for the complementary user entity controls.",
-             fontsize=pt(26), color=DEEP_NAVY, ha="center", va="center",
+             fontsize=pt(30), color=DEEP_NAVY, ha="center", va="center",
              fontweight="bold")
     fig.text(0.5, 0.008, "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=19, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
