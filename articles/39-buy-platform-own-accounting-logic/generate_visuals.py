@@ -297,34 +297,36 @@ def make_soc_scope():
     # portion of a taller card, and the note gets its own, much larger
     # share of the card below them. Canvas grows to give all of this room
     # without touching a single coordinate in the other five visuals.
-    # Round 3: the title, the "ANSWERS" label, the body paragraph, and the
-    # closing line were left behind by the last two passes and now read as
-    # small next to the much bigger chip and note -- bumped up (roughly
-    # +15-20% each), but kept clearly under the chip/note, which stay
-    # exactly as they are per instruction. The body's growth eats into the
-    # gap above the note block, so the vertical stack is rebuilt again with
-    # real spacing between body and note rather than nudging the old
-    # fractions (the first attempt at this left body and note almost
-    # touching).
-    fig, ax = blank_axes(canvas(24.0, 26.3))
+    # Round 4: the title, the "ANSWERS" label, the body paragraph, and the
+    # closing line are pulled up into the same visual family as the chip and
+    # note instead of the token +15% the previous pass gave them, which was
+    # invisible next to 110pt chips and 66pt notes. They land just under the
+    # note (the smaller of the two "large" elements) rather than above it,
+    # so the chip > note > title ordering still holds. Chip (90) and note
+    # (54) are untouched.
+    #
+    # The body at this size needs a much wider text column than it had, so
+    # the canvas widens AND the chip box narrows (it was 8.8in wide holding
+    # a word that needs under 6in) to hand that width back to the body.
+    fig, ax = blank_axes(canvas(28.0, 31.8))
     add_header_bar(fig, "Three Reports. Three Different Questions.",
                    "Asking SOC 2 whether the agent reconciles your bank account is asking the wrong document.",
-                   height=0.122, title_size=50, subtitle_size=28, brand=False)
+                   height=0.129, title_size=62, subtitle_size=40, brand=False)
 
-    top = 0.866
-    card_h = 0.258
-    gap = 0.016
+    top = 0.859
+    card_h = 0.244
+    gap = 0.015
     x, w = 0.03, 0.94
 
-    # Chip width/height are unchanged in substance from the previous pass --
-    # sized for "NEITHER" at fontsize=90 -- just re-expressed as a fraction
-    # of the taller canvas so the chip's absolute size stays the same.
-    chip_w = 0.30
-    chip_h = 0.062
+    # Chip box narrowed from 0.30 -- "NEITHER" at fontsize=90 needs under
+    # 6in and had 8.8in, and the body column needs that space more than the
+    # chip does. The chip's text size does not change.
+    chip_w = 0.25
+    chip_h = 0.051
 
     # Vertical anchors as fractions of card_h, top to bottom: verb, then
     # body (chip aligns with body), then a real gap, then the note block.
-    verb_y, body_y, note_y = 0.917, 0.694, 0.265
+    verb_y, body_y, note_y = 0.914, 0.658, 0.237
 
     for i, (name, fill, verb, body, note) in enumerate(SOC_PANELS):
         y = top - i * (card_h + gap) - card_h
@@ -340,21 +342,23 @@ def make_soc_scope():
                     chip_fill, text_color=DEEP_NAVY, text=name, fontsize=90)
 
         text_left = x + 0.022 + chip_w + 0.030
-        ax.text(text_left, y + card_h * verb_y, verb, fontsize=pt(28),
+        ax.text(text_left, y + card_h * verb_y, verb, fontsize=pt(44),
                 fontweight="bold", color=note_col, ha="left", va="center",
                 zorder=4)
-        ax.text(text_left, y + card_h * body_y, body, fontsize=pt(35),
+        ax.text(text_left, y + card_h * body_y, body, fontsize=pt(46),
                 color=body_col, ha="left", va="center", zorder=4,
                 linespacing=1.42)
         ax.text(text_left, y + card_h * note_y, note, fontsize=pt(54),
                 color=note_col, ha="left", va="center", zorder=4,
                 style="italic", linespacing=1.38)
 
-    fig.text(0.5, 0.030,
-             "Read the report, not the badge — then ask for the complementary user entity controls.",
-             fontsize=pt(30), color=DEEP_NAVY, ha="center", va="center",
-             fontweight="bold")
-    fig.text(0.5, 0.008, "PythonMuse LLC  |  www.pythonmuse.com",
+    # Wrapped to two lines -- as one line at this size it ran the full width
+    # of the canvas and clipped at both edges.
+    fig.text(0.5, 0.050,
+             "Read the report, not the badge —\nthen ask for the complementary user entity controls.",
+             fontsize=pt(44), color=DEEP_NAVY, ha="center", va="center",
+             fontweight="bold", linespacing=1.4)
+    fig.text(0.5, 0.010, "PythonMuse LLC  |  www.pythonmuse.com",
              fontsize=19, color=OCEAN_TEAL, ha="center", va="center", alpha=0.78)
 
     save(fig, "39_soc_scope.png")
