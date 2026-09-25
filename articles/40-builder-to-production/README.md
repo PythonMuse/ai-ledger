@@ -17,6 +17,8 @@ A lot of it starts with experimentation. I know because I do it myself. I see so
 
 Eventually, the experiment is no longer really an experiment. It has quietly become part of how I do my job. That is where the interesting problem begins.
 
+*(Stick with me. This ends with a practical, no-fluff repository of templates you can use on a workflow you already rely on — not just a thought exercise.)*
+
 ---
 
 ## The Experiment That Accidentally Became a Process
@@ -46,6 +48,8 @@ If the answer is no, I may have automated the work, but I have not yet made the 
 I think organizations are going to experience this builder boom in very different ways.
 
 **Some organizations will know their employees are building** and will create a path for experimentation to become a controlled production process. Useful workflows will eventually be registered, tested, documented, assigned an owner, approved where necessary, monitored, and maintained. These organizations are not trying to stop people from building. They are simply creating somewhere for successful experiments to go.
+
+> **If that is your organization:** this article stays deliberately lightweight. For the fuller toolkit — policy, risk rating, approvals, sign-off — see the [Accounting and Finance AI Governance repository](https://github.com/PythonMuse/accounting_and_finance-ai-governance) and [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md).
 
 **A second group may not even realize how much is being built.** Employees will quietly create tools to make themselves more productive, eliminate frustrating work, or simply make their jobs more enjoyable. The organization may discover those tools only when the employee changes roles or leaves. Then someone opens the monthly Close folder and asks a surprisingly difficult question: "How did they create this?"
 
@@ -209,7 +213,20 @@ But when one of those experiments starts becoming part of how the business opera
 
 Your future coworkers — and perhaps your future lottery-winning self — will appreciate it.
 
-> **Leave your breadcrumbs:** The [Builder-to-Production repository](https://github.com/PythonMuse/pythonmuse-builder-to-production) is the practical companion to this article: the [Lottery Test](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/LOTTERY_TEST.md), a one-page [Workflow Passport](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/WORKFLOW_PASSPORT.md), a [Human Instructions guide](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/HUMAN_INSTRUCTIONS_GUIDE.md), a [Builder Handoff](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/BUILDER_HANDOFF.md), [output traceability](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/OUTPUT_TRACEABILITY.md), [production readiness](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/PRODUCTION_READINESS.md), [change management](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/CHANGE_MANAGEMENT.md), and a [takeover assessment](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/TAKEOVER_ASSESSMENT.md) for when the builder has already left. It also includes a small, runnable monthly reconciliation example that shows all four breadcrumbs in place. Copy the templates and use them on a workflow you already rely on.
+## Leave Your Breadcrumbs
+
+This is the part of the article worth bookmarking. The **[Builder-to-Production repository](https://github.com/PythonMuse/pythonmuse-builder-to-production)** is the practical companion to everything above — copy it, don't just read about it:
+
+- **[Lottery Test](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/LOTTERY_TEST.md)** — the short, no-score checklist from earlier in this article
+- **[Workflow Passport](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/WORKFLOW_PASSPORT.md)** — the one-page record so someone can discover what exists without reading the code
+- **[Human Instructions guide](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/HUMAN_INSTRUCTIONS_GUIDE.md)** — written for the accountant who inherits the process, not another developer
+- **[Builder Handoff](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/BUILDER_HANDOFF.md)** — what to leave behind before you move on
+- **[Output Traceability](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/OUTPUT_TRACEABILITY.md)** — linking a final accounting output back to the workflow that produced it
+- **[Production Readiness](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/PRODUCTION_READINESS.md)** — the Build → Prove → Approve → Launch checklist
+- **[Change Management](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/CHANGE_MANAGEMENT.md)** — the Issue → Diagnose → Change → Retest → Reapprove → Release loop
+- **[Takeover Assessment](https://github.com/PythonMuse/pythonmuse-builder-to-production/blob/main/TAKEOVER_ASSESSMENT.md)** — Discover → Stabilize → Understand → Decide, for when the builder has already left
+
+It also includes a small, runnable monthly reconciliation example that shows all four breadcrumbs in place end to end. Clone it, copy the templates, and use them on a workflow you already rely on — this week, not "eventually."
 
 ---
 
