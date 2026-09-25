@@ -475,7 +475,7 @@ Accountants already understand this distinction. A policy stating that journal e
 
 The first run will not only test AI. It will test whether the accounting process has been made explicit.
 
-You will likely discover details that everyone on the current team "just knows." Those details are exactly what a new employee, future reviewer, or AI co-pilot will not know.
+You will likely discover details that everyone on the current team "just knows." Those details are exactly what a new employee, future reviewer, or AI co-pilot will not know. Onboarding and handoff are two sides of the same page: once a workflow outgrows its builder, [You Built an AI Workflow. What Happens If You Win the Lottery?](../40-builder-to-production/README.md) covers what to leave behind so a colleague can pick it up.
 
 Each controlled execution should therefore leave the project with a reviewed output, validation evidence, fewer undocumented assumptions, better instructions, stronger controls, and a clearer process for the next run.
 
@@ -493,6 +493,6 @@ Because it probably is.
 
 ---
 
-*Related: [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md)*
+*Related: [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [You Built an AI Workflow. What Happens If You Win the Lottery?](../40-builder-to-production/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*
