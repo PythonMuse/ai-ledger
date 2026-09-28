@@ -207,7 +207,7 @@ If nobody else knows how that workflow operates, a new form of key-person depend
 
 The goal is not to prevent employees from building. The goal is to make successful experiments inheritable. Organizations should give employees room to experiment while creating a lightweight path for useful tools to graduate into durable business processes.
 
-So build. Experiment. Let the ideas that do not work join the vibe-coding graveyard. Keep the ones that do.
+So build. Experiment. Keep the ideas that work. Let the rest join the vibe-coding graveyard.
 
 But when one of those experiments starts becoming part of how the business operates, leave some breadcrumbs behind.
 
