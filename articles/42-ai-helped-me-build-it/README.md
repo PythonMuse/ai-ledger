@@ -163,7 +163,7 @@ Ask these questions of **each step**, not once for the whole process.
 
 First: is the step still necessary? Automating a process nobody understands is just an efficient way to produce confusion on schedule.
 
-![A decision tree for each process step: four questions to choose an approach, then two control questions for every option](./visuals/42_decision_tree.png)
+![A decision tree for each process step: four questions to choose an approach, and a person stays accountable for every option](./visuals/42_decision_tree.png)
 
 **Choose the starting approach:**
 
