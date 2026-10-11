@@ -698,6 +698,7 @@ That is the exercise.
 - [Reproducible Accounting](../05-reproducible-accounting/README.md) — The audit trail principle behind keeping evidence of every governed workflow run
 - [Zero Trust for AI](../13-zero-trust-ai-accounting/README.md) — Why "the AI read the rule" is not the same as a control operating effectively
 - [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) — The validation layer: once metadata governs what AI can use, this article covers how to prove the output is supported
+- [AI Helped Me Build It. AI Does Not Have to Run It.](../42-ai-helped-me-build-it/README.md) — Control or polite request? Which boundaries in your agent files the harness actually enforces, and which ones only ask
 
 ---
 

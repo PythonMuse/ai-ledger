@@ -315,6 +315,7 @@ If scripts are new territory, these articles build the foundation:
 - [AI That Runs Before You Log In](../18-ai-runs-before-you-log-in/README.md) — the next step: schedule your script to run automatically before you arrive
 - [The Magic Loop: Why Easy to Generate Doesn't Mean Safe to Run](../29-loops-the-automation-that-feels-magical/README.md) — now that you know what a script is, see how AI strings them into full automated workflows — and why reviewing what it built matters
 - [Metadata Is the Label Maker Your AI Workflow Needs](../31-metadata-is-the-label-maker/README.md) — the script that reads a manifest and blocks draft files is the script from this article doing real governance work
+- [AI Helped Me Build It. AI Does Not Have to Run It.](../42-ai-helped-me-build-it/README.md) — once you know what a script is, this is where it belongs: AI helps you build it, then the approved script does the recurring work without it
 
 ---
 
