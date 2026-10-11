@@ -72,6 +72,7 @@ nav:
     - The Workings Layer: 22-workings-layer-method/README.md
     - Schema-Driven Sanitization: 23-schema-driven-sanitization/README.md
     - AI Helped Me Build It. AI Does Not Have to Run It.: 42-ai-helped-me-build-it/README.md
+    - "42 Technical Appendix: Under the Hood": 42-ai-helped-me-build-it/technical-appendix.md
   - Skills & Automation:
     - Skills and Agents for Accountants: 17-skills-and-agents-for-accountants/README.md
     - Your First CLAUDE.md: 17b-your-first-claude-md/README.md

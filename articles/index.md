@@ -61,7 +61,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 39 | [Buy the Platform. Own the Accounting Logic.](39-buy-platform-own-accounting-logic/README.md) | Build vs. buy, vendor due diligence, SOC 1 and SOC 2 limits, agent governance, model change control, vendor exit test |
 | 40 | [You Built an AI Workflow. What Happens If You Win the Lottery?](40-builder-to-production/README.md) | Employee-built workflows, key-person risk, human instructions, output traceability, production lifecycle, change management, takeover |
 | 41 | [If the Data Can't Leave, Bring the Model In](41-bring-the-model-in/README.md) | Local LLMs, where the model runs, open-weight model licenses, task-specific benchmarks, cross-client retrieval, ethical walls, valuation and M&A |
-| 42 | [AI Helped Me Build It. AI Does Not Have to Run It.](42-ai-helped-me-build-it/README.md) | Deterministic automation, build-time vs. run-time AI, rules vs. patterns vs. language vs. judgment, per-step decision tree, harness permissions, duplicate-payment test |
+| 42 | [AI Helped Me Build It. AI Does Not Have to Run It.](42-ai-helped-me-build-it/README.md) | Deterministic automation, build-time vs. run-time AI, rules vs. patterns vs. language vs. judgment, per-step decision tree, harness permissions, duplicate-payment test ([technical appendix](42-ai-helped-me-build-it/technical-appendix.md)) |
 
 ---
 
