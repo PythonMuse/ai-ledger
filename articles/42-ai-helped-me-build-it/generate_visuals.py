@@ -5,9 +5,11 @@ Run from anywhere:
     python generate_visuals.py
 
 Produces six article visuals plus three square social cards in ./visuals/.
-The social cards are exported at exactly 1080 x 1080 px.
+The social cards are exported at exactly 1080 x 1080 px. Seven slide-ready
+variants (13.333 x 7.5 in, 24pt body) go to ./visuals/slides/.
 """
 
+import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -661,6 +663,224 @@ def make_social_wrong_rule():
     save_square(fig, "42_social_wrong_rule.png")
 
 
+# ---------------------------------------------------------------------------
+# Slide-ready variants (13.333 x 7.5 in; the point size set here is the point
+# size on the slide). One idea per slide, no header or footer bars, no outlines.
+# Rules: .claude/skills/pythonmuse-slide-visuals/SKILL.md. save_slide() raises
+# if any text is under 22pt or runs off the edge.
+# ---------------------------------------------------------------------------
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from slide_kit import blank_slide, save_slide, SLIDE_TARGET_PT  # noqa: E402
+
+SLIDES_OUT = OUT / "slides"
+HEAD_PT = 32      # headings and focal words
+BODY_PT = SLIDE_TARGET_PT
+
+
+def slide_box(ax, x, y, w, h, fill, zorder=2):
+    ax.add_patch(FancyBboxPatch(
+        (x, y), w, h, boxstyle="round,pad=0.002,rounding_size=0.02",
+        facecolor=fill, edgecolor="none", zorder=zorder))
+
+
+def slide_arrow(ax, start, end, color=SEA_GREEN):
+    ax.annotate("", xy=end, xytext=start,
+                arrowprops=dict(arrowstyle="-|>", color=color, lw=6,
+                                mutation_scale=40, shrinkA=0, shrinkB=0),
+                zorder=5)
+
+
+def slide_card(ax, x, y, w, h, fill, head, lines, head_col, body_col,
+               head_size=HEAD_PT, body_size=BODY_PT, bold_last=False,
+               first_off=0.200, step=0.140):
+    """Heading at the top of a filled card, body lines spread beneath it.
+    first_off is the first body line's distance below the card's top edge."""
+    slide_box(ax, x, y, w, h, fill)
+    pad = 0.025
+    ax.text(x + pad, y + h - 0.085, head, fontsize=head_size,
+            fontweight="bold", color=head_col, ha="left", va="center",
+            zorder=4)
+    for i, line in enumerate(lines):
+        last = bold_last and i == len(lines) - 1
+        ax.text(x + pad, y + h - first_off - i * step, line,
+                fontsize=body_size, fontweight="bold" if last else "normal",
+                color=body_col, ha="left", va="center", zorder=4)
+
+
+def slide_band(ax, text, y=0.060, h=0.130, size=HEAD_PT):
+    slide_box(ax, 0.03, y, 0.94, h, GOLDEN_YELLOW)
+    ax.text(0.5, y + h / 2, text, fontsize=size, fontweight="bold",
+            color=DEEP_NAVY, ha="center", va="center", zorder=4)
+
+
+def make_hero_slide():
+    fig, ax = blank_slide()
+    lx, rx, w = 0.03, 0.60, 0.37
+    y, h = 0.250, 0.690
+    slide_card(ax, lx, y, w, h, LIGHT_GRAY, "BUILD TIME",
+               ["AI explains the steps", "Drafts the script",
+                "Tests on mock data"], OCEAN_TEAL, DEEP_NAVY)
+    slide_card(ax, rx, y, w, h, DEEP_NAVY, "RUN TIME",
+               ["Same approved rules", "Data stays put",
+                "You review exceptions"], WARM_GLOW, WHITE)
+    mid = (lx + w + rx) / 2
+    slide_arrow(ax, (lx + w + 0.015, y + h * 0.42), (rx - 0.015, y + h * 0.42))
+    ax.text(mid, y + h * 0.42 + 0.105, "Tested.\nApproved.", fontsize=BODY_PT,
+            fontweight="bold", color=DEEP_NAVY, ha="center", va="center",
+            linespacing=1.2)
+    slide_band(ax, "Then the model goes home.", y=0.060, h=0.140, size=36)
+    save_slide(fig, str(SLIDES_OUT / "42_hero_slide.png"))
+
+
+def make_chatbot_vs_build_slide():
+    fig, ax = blank_slide()
+    w, y, h = 0.455, 0.250, 0.690
+    slide_card(ax, 0.03, y, w, h, LIGHT_GRAY, "ASK THE CHATBOT",
+               ["Data goes to the model", "The approach may shift",
+                "Evidence: a transcript"], OCEAN_TEAL, DEEP_NAVY)
+    slide_card(ax, 0.515, y, w, h, DEEP_NAVY, "BUILD IT ONCE",
+               ["Mock data at build time", "Same rules every run",
+                "Evidence: run log, report"], WARM_GLOW, WHITE)
+    slide_band(ax, "Same task. Different evidence.", y=0.060, h=0.140)
+    save_slide(fig, str(SLIDES_OUT / "42_chatbot_vs_build_slide.png"))
+
+
+def make_four_kinds_slide():
+    fig, ax = blank_slide()
+    kinds = [
+        ("RULES", "Can we write the rule?", "Excel, SQL, Python",
+         DEEP_NAVY, WARM_GLOW, WHITE),
+        ("PATTERNS", "History holds a pattern?", "Machine learning",
+         OCEAN_TEAL, WARM_GLOW, WHITE),
+        ("LANGUAGE", "Must it read text?", "An LLM, validated",
+         BRIGHT_TEAL, DEEP_NAVY, DEEP_NAVY),
+        ("JUDGMENT", "Needs accountability?", "A qualified person",
+         GOLDEN_YELLOW, DEEP_NAVY, DEEP_NAVY),
+    ]
+    w, h = 0.455, 0.320
+    for idx, (name, question, tool, fill, head_col, body_col) in enumerate(kinds):
+        r, c = divmod(idx, 2)
+        x = 0.03 + c * 0.485
+        y = 0.620 - r * 0.350
+        slide_card(ax, x, y, w, h, fill, name, [question, tool], head_col,
+                   body_col, bold_last=True, first_off=0.165, step=0.085)
+    slide_band(ax, "AI helps build all four. Judgment stays human.", y=0.060,
+               h=0.130, size=30)
+    save_slide(fig, str(SLIDES_OUT / "42_four_kinds_slide.png"))
+
+
+def make_decision_tree_slide():
+    """Questions 2-4 of the per-step tree, as the Rule of Thumb."""
+    fig, ax = blank_slide()
+    rows = [
+        ("Rule is known?", "Encode the rule.", DEEP_NAVY, WARM_GLOW, WHITE),
+        ("Language to read?", "LLM, then validate it.", OCEAN_TEAL, WARM_GLOW,
+         WHITE),
+        ("Pattern, no rule?", "Machine learning may fit.", BRIGHT_TEAL,
+         DEEP_NAVY, DEEP_NAVY),
+        ("Needs accountability?", "Keep a person responsible.", GOLDEN_YELLOW,
+         DEEP_NAVY, DEEP_NAVY),
+    ]
+    h, gap, top = 0.190, 0.030, 0.940
+    for i, (q, a, fill, qcol, acol) in enumerate(rows):
+        y = top - i * (h + gap) - h
+        slide_box(ax, 0.03, y, 0.94, h, fill)
+        ax.text(0.060, y + h / 2, q, fontsize=BODY_PT, color=qcol,
+                ha="left", va="center", zorder=4)
+        ax.text(0.400, y + h / 2, a, fontsize=28, fontweight="bold",
+                color=acol, ha="left", va="center", zorder=4)
+    save_slide(fig, str(SLIDES_OUT / "42_decision_tree_slide.png"))
+
+
+def make_control_questions_slide():
+    """Questions 5 and 6 of the per-step tree: they apply to every option."""
+    fig, ax = blank_slide()
+    ax.text(0.03, 0.915, "Then, for every option:", fontsize=HEAD_PT,
+            fontweight="bold", color=DEEP_NAVY, ha="left", va="center")
+    slide_card(ax, 0.03, 0.470, 0.94, 0.360, DEEP_NAVY,
+               "5.  Judgment, approval, or limits?",
+               ["A qualified person stays responsible,",
+                "whatever technology prepared the work."],
+               WARM_GLOW, WHITE)
+    slide_card(ax, 0.03, 0.070, 0.94, 0.360, OCEAN_TEAL,
+               "6.  What evidence shows it worked?",
+               ["Define validation, logging, exceptions,",
+                "and sign-off before you build."],
+               WARM_GLOW, WHITE)
+    save_slide(fig, str(SLIDES_OUT / "42_control_questions_slide.png"))
+
+
+def make_swimlane_slide():
+    fig, ax = blank_slide()
+    lanes = [
+        ("SCRIPT", ["Calculates the", "27 percent"], DEEP_NAVY, WARM_GLOW,
+         WHITE),
+        ("LLM", ["Suggests", "questions", "(if permitted)"], BRIGHT_TEAL,
+         DEEP_NAVY, DEEP_NAVY),
+        ("ACCOUNTANT", ["Finds, supports,", "and owns the", "explanation"],
+         GOLDEN_YELLOW, DEEP_NAVY, DEEP_NAVY),
+    ]
+    w, gap, y, h = 0.292, 0.032, 0.270, 0.670
+    for i, (name, lines, fill, head_col, body_col) in enumerate(lanes):
+        x = 0.03 + i * (w + gap)
+        slide_card(ax, x, y, w, h, fill, name, lines, head_col, body_col,
+                   head_size=30, step=0.115)
+        if i < len(lanes) - 1:
+            slide_arrow(ax, (x + w + 0.002, y + h / 2),
+                        (x + w + gap - 0.002, y + h / 2))
+    slide_band(ax, "Python calculates. AI suggests. You decide.", y=0.060,
+               h=0.140, size=30)
+    save_slide(fig, str(SLIDES_OUT / "42_variance_swimlane_slide.png"))
+
+
+def make_control_or_request_slide():
+    fig, ax = blank_slide()
+    w, y, h = 0.455, 0.250, 0.690
+    panel_y, panel_h = y + 0.215, 0.250
+    # Left: polite request.
+    slide_box(ax, 0.03, y, w, h, LIGHT_GRAY)
+    ax.text(0.055, y + h - 0.085, "POLITE REQUEST", fontsize=HEAD_PT,
+            fontweight="bold", color=OCEAN_TEAL, ha="left", va="center",
+            zorder=4)
+    ax.text(0.055, y + h - 0.185, "Written in the agent file",
+            fontsize=BODY_PT, color=DEEP_NAVY, ha="left", va="center",
+            zorder=4)
+    slide_box(ax, 0.055, panel_y, w - 0.050, panel_h, MIDNIGHT_TEAL, zorder=3)
+    ax.text(0.080, panel_y + panel_h / 2, "Do not touch the\npayroll folder.",
+            fontsize=BODY_PT, family="monospace", color=WHITE, ha="left",
+            va="center", linespacing=1.4, zorder=4)
+    ax.text(0.055, y + 0.080, "The model is asked.", fontsize=28,
+            fontweight="bold", color=DEEP_NAVY, ha="left", va="center",
+            zorder=4)
+    # Right: control.
+    rx = 0.515
+    slide_box(ax, rx, y, w, h, DEEP_NAVY)
+    ax.text(rx + 0.025, y + h - 0.085, "CONTROL", fontsize=HEAD_PT,
+            fontweight="bold", color=WARM_GLOW, ha="left", va="center",
+            zorder=4)
+    ax.text(rx + 0.025, y + h - 0.185, "Claude Code settings.json",
+            fontsize=BODY_PT, color=WHITE, ha="left", va="center", zorder=4)
+    slide_box(ax, rx + 0.025, panel_y, w - 0.050, panel_h, MIDNIGHT_TEAL,
+              zorder=3)
+    ax.text(rx + 0.050, panel_y + panel_h / 2, "deny:\nRead(./payroll/**)",
+            fontsize=BODY_PT, family="monospace", color=WHITE, ha="left",
+            va="center", linespacing=1.4, zorder=4)
+    ax.text(rx + 0.025, y + 0.080, "The harness blocks it.", fontsize=28,
+            fontweight="bold", color=WHITE, ha="left", va="center", zorder=4)
+    slide_band(ax, "Know which is which.", y=0.060, h=0.140)
+    save_slide(fig, str(SLIDES_OUT / "42_control_or_request_slide.png"))
+
+
+def make_slides():
+    make_hero_slide()
+    make_chatbot_vs_build_slide()
+    make_four_kinds_slide()
+    make_decision_tree_slide()
+    make_control_questions_slide()
+    make_swimlane_slide()
+    make_control_or_request_slide()
+
+
 if __name__ == "__main__":
     make_hero()
     make_chatbot_vs_build()
@@ -671,4 +891,5 @@ if __name__ == "__main__":
     make_social_square()
     make_social_rule_of_thumb()
     make_social_wrong_rule()
-    print("Generated 9 visuals for Article 42.")
+    make_slides()
+    print("Generated 9 visuals and 7 slide-ready visuals for Article 42.")
