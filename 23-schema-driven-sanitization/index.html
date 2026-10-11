@@ -18,7 +18,7 @@
         <link rel="prev" href="../22-workings-layer-method/">
       
       
-        <link rel="next" href="../17-skills-and-agents-for-accountants/">
+        <link rel="next" href="../42-ai-helped-me-build-it/">
       
       
         
@@ -1175,6 +1175,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../41-bring-the-model-in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If the Data Can't Leave, Bring the Model In
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-bring-the-model-in/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    41 Technical Appendix: Under the Hood
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../20-version-control-for-accountants/" class="md-nav__link">
         
   
@@ -1835,6 +1891,62 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-ai-helped-me-build-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Helped Me Build It. AI Does Not Have to Run It.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-ai-helped-me-build-it/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    42 Technical Appendix: Under the Hood
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2781,7 +2893,7 @@
 <p>There is one exception to this verification-layer framing: during <em>schema discovery</em> for third-party documents (Stage 1b above), Privacy Filter steps forward as a primary tool rather than a backstop. When you don't yet have a schema, you don't yet have deterministic rules — and probabilistic detection is the best initial signal about what's in the document. The role flips back to verification once discovery is complete and the deterministic transformations are in place. The same model serves both functions; it's the position in the pipeline that changes.</p>
 <p>For a small business, this is where a critical distinction enters the picture — one that many people aren't aware exists: <strong>you can run AI models on your own computer, without sending any data to the cloud.</strong></p>
 <p>When most people think of AI, they think of a website — Claude, ChatGPT, Gemini — where you type a prompt and get a response from a model running on someone else's servers. But there's a growing ecosystem of models designed to run entirely on hardware you own. The Privacy Filter is one of them. At 1.5B parameters with only 50M active, it runs comfortably on a standard office laptop or desktop. It works fine on a CPU alone — no graphics card required. If your machine does have a GPU with 4GB or more of memory, it'll run even faster, but it's not a requirement. (Not sure what any of that means? Ask your IT person whether your office machines can "run a 1.5B parameter model locally" — if they know, they'll tell you; if they don't, that's useful information too.) You install it once using Python's <code>transformers</code> library, and from that point forward, every document you process stays on your machine. Nothing is transmitted. No API calls. No cloud dependency. Your data never leaves your desk.</p>
-<p>This is the key reason Privacy Filter earns its place in this architecture. The <em>privacy-critical</em> step — verifying that your sanitization didn't miss anything — happens in an environment you fully control. Tools like <a href="https://ollama.com">Ollama</a> make running local models even more accessible, providing a simple interface to download and run a growing library of open-weight models without needing to write Python. If you're new to the concept of local AI, Ollama is a good place to start exploring what's possible on your own hardware.</p>
+<p>This is the key reason Privacy Filter earns its place in this architecture. The <em>privacy-critical</em> step — verifying that your sanitization didn't miss anything — happens in an environment you fully control. Tools like <a href="https://ollama.com">Ollama</a> make running local models even more accessible, providing a simple interface to download and run a growing library of open-weight models without needing to write Python. If you're new to the concept of local AI, Ollama is a good place to start exploring what's possible on your own hardware. <a href="../41-bring-the-model-in/">If the Data Can't Leave, Bring the Model In</a> takes the idea further: how to test a local model on completed engagements before trusting it with confidential financial work.</p>
 <p>The broader point is this: "AI" doesn't have to mean "cloud." For tasks where data sensitivity is the primary concern, local models give you the analytical capability without the exposure. They're smaller, less capable than the cloud models you'd use for complex analysis — but for a focused task like PII detection, that's exactly the right tradeoff.</p>
 <h2 id="mapping-to-cia-and-coso">Mapping to CIA and COSO</h2>
 <p>For those coming from a controls and audit background, this architecture maps cleanly to both the CIA triad and the COSO framework[^4]. Even though COSO is most commonly associated with SOX compliance for public companies, its five-component structure provides useful scaffolding for any organization that wants to think systematically about controls — including private small businesses that will never file a 10-K.</p>
@@ -2821,6 +2933,9 @@
 <p>The OpenAI Privacy Filter model is a genuinely useful tool, and its system card is a model of responsible disclosure about limitations. But the most important thing in the system card isn't the model architecture or the performance metrics — it's the framing. The repeated insistence that this is "one of multiple layers" points to a deeper truth about data privacy in the AI era.</p>
 <p>For most business data, the problem isn't that we don't know what's sensitive. It's that we reach for probabilistic detection when we should be applying the structural knowledge we already have — or could readily acquire. The exciting ML model feels like the sophisticated solution. The boring Python script that pseudonymizes column 3 and drops column 7 feels like it can't possibly be enough. But for structured data with known schemas — which is what accounting data overwhelmingly is, once you've taken the time to inventory it — the boring script is the <em>correct</em> primary control, and the ML model is the <em>correct</em> verification layer. Even when the schema isn't yours to begin with — when the data arrives as a vendor PDF or an opaque third-party export — the right move is to <em>build</em> a schema once and then proceed deterministically, not to outsource the question to a probabilistic guess every time.</p>
 <p>Get the architecture right, and you can use cloud AI tools for financial analysis with confidence — not because you trust the model to find every sensitive field, but because you <em>know</em> what you transformed, and you can prove it.</p>
+<blockquote>
+<p><strong>Keep reading:</strong> The same principle, applied to recurring accounting work in general, is the subject of <a href="../42-ai-helped-me-build-it/">AI Helped Me Build It. AI Does Not Have to Run It.</a>: when the rule is known, encode the rule, and let AI help you build the script rather than run it.</p>
+</blockquote>
 <hr />
 <p>[^1]: The prompt that initiated this collaboration: <em>"I was reviewing the system card for the openai privacy-filter model. We are interested in getting a better understanding of how to appropriately mask data to ensure confidentiality, integrity, and availability of systems (CIA). Particularly in local accounting settings where cloud models may interact with data. The COSO framework touches on these topics. In reading the system card, the authors warn that it is not an all in one solution, but more simply, a piece of a bigger pipeline. In the context of a small-to-medium accounting department for a small business (i.e., not publicly traded), what appropriate safeguards should be recommended and demonstrated to better understand the scope and concerns in this area. I was envisioning local model as a preferred facility for this task, but I think it may be easier to model the datasets and produce fake data to help models (i.e., local or cloud) to develop the scripts necessary to sanitize data that then allows cloud models to assist in further analysis of properly transformed datasets. Can we think through this? This sounds like a good blog post for us."</em></p>
 <p>[^2]: The CIA triad (Confidentiality, Integrity, Availability) is formally defined in NIST Special Publication 800-12 Rev 1, <em>An Introduction to Information Security</em> (National Institute of Standards and Technology). Available at: https://csrc.nist.gov/publications/detail/sp/800-12/rev-1/final</p>

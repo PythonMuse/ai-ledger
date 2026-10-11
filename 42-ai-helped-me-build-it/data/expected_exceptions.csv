@@ -1,0 +1,6 @@
+exception_type,payment_id,vendor_name,invoice_number,amount,payment_date,matched_payment_id,matched_vendor_name,matched_invoice_number,matched_payment_date,days_apart
+possible_duplicate,P001,Northwind Supply,INV-1043,1250.10,2026-09-02,P002,NORTHWIND SUPPLY,inv 1043,2026-09-12,10
+possible_duplicate,P003,Contoso Freight,88017,640.00,2026-09-03,P004,Contoso Freight,88017,2026-10-02,29
+missing_key,P007,Tailspin Catering,,480.00,2026-09-10,,,,,
+missing_key,P008,Tailspin Catering,,480.00,2026-09-17,,,,,
+missing_key,P015,,X-5150,150.00,2026-09-21,,,,,

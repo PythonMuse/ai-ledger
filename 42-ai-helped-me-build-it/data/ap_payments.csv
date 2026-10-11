@@ -1,0 +1,16 @@
+payment_id,vendor_name,invoice_number,amount,payment_date
+P001,Northwind Supply,INV-1043,1250.10,2026-09-02
+P002,NORTHWIND SUPPLY,inv 1043,1250.10,2026-09-12
+P003,Contoso Freight,88017,640.00,2026-09-03
+P004,Contoso Freight,88017,640.00,2026-10-02
+P005,Fabrikam Office,F-2207,315.45,2026-08-05
+P006,Fabrikam Office,F-2207,315.45,2026-09-05
+P007,Tailspin Catering,,480.00,2026-09-10
+P008,Tailspin Catering,,480.00,2026-09-17
+P009,ABC Corp,A-5521,2100.00,2026-09-08
+P010,ABC Corporation,A-5521,2100.00,2026-09-15
+P011,Litware Consulting,LC-900,5000.00,2026-09-01
+P012,Litware Consulting,LC-901,5000.00,2026-09-01
+P013,Northwind Supply,INV-1044,1250.10,2026-09-20
+P014,Adatum Utilities,7781,89.99,2026-09-14
+P015,,X-5150,150.00,2026-09-21
