@@ -58,6 +58,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 38 | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](articles/38-ai-workflow-customer-contract/) | Customer contracts, MSA review, AI use-case register, data processing vs. training, approved-tool lists, contract checkpoint |
 | 39 | [Buy the Platform. Own the Accounting Logic.](articles/39-buy-platform-own-accounting-logic/) | Build vs. buy, vendor due diligence, SOC 1 and SOC 2 limits, agent governance, model change control, vendor exit test |
 | 40 | [You Built an AI Workflow. What Happens If You Win the Lottery?](articles/40-builder-to-production/) | Employee-built workflows, key-person risk, human instructions, output traceability, production lifecycle, change management, takeover |
+| 41 | [If the Data Can't Leave, Bring the Model In](articles/41-bring-the-model-in/) | Local LLMs, where the model runs, open-weight model licenses, task-specific benchmarks, cross-client retrieval, ethical walls, valuation and M&A |
 
 
 ---

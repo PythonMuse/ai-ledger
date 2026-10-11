@@ -47,6 +47,8 @@ Examples include:
 
 In these cases, the data never leaves your computer or internal environment.
 
+> **Related read:** Local processing is no longer limited to scripts. An AI model itself can run on hardware your company controls, which changes what confidential work is possible and what you become responsible for. [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/) explores that for valuation and M&A work.
+
 ### Cloud Processing
 
 Many AI assistants work differently.
@@ -349,6 +351,6 @@ Starting with simple guardrails -- such as masking data locally and sharing only
 
 ---
 
-*Related: [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/) | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
+*Related: [Getting the Right Tools Installed](../03-getting-the-right-tools-installed/) | [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/) | [AI Governance for Controllers](../07-ai-governance-for-controllers/) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/) | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/) | [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/) | [AI Accounting Framework](https://github.com/PythonMuse/pythonmuse-ai-accounting-framework)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

@@ -455,6 +455,8 @@ This is not a promise that every future run will be perfect. Accounting environm
 
 The workflow should therefore continue to include human review, validation, and controlled updates. Once a few cycles like this are behind you, the natural next step is [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) — a scheduled version of the same propose-review-approve pattern, run automatically instead of by hand.
 
+> **Related read:** For ONBOARD applied to a very different setting, a model running on hardware the company controls for confidential valuation work, see [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md#onboard-it).
+
 ---
 
 ## Written Rules Are the Beginning, Not the Entire Control Environment
@@ -493,6 +495,6 @@ Because it probably is.
 
 ---
 
-*Related: [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [You Built an AI Workflow. What Happens If You Win the Lottery?](../40-builder-to-production/README.md)*
+*Related: [Your First CLAUDE.md](../17b-your-first-claude-md/README.md) | [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/) | [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [You Built an AI Workflow. What Happens If You Win the Lottery?](../40-builder-to-production/README.md) | [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

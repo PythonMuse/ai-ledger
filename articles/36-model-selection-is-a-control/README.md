@@ -65,6 +65,8 @@ So the decision runs across two dimensions, not one. The first is capability: fa
 
 That second dimension is not a ranking. A local or secure model is not "higher" or "lower" than a cloud one; it answers a different question. A payroll task may need no sophisticated reasoning at all, while the sensitivity of the data demands a highly controlled environment. A complex accounting research question may need strong reasoning while involving no confidential information whatsoever. The accountant has to consider both.
 
+> **Related read:** When the environment answer is "private and local," capability is no longer a picker setting; it is the hardware you bought and the model you installed. [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md) covers how to test that trade-off on your own completed work instead of a public leaderboard.
+
 And sometimes the two dimensions are wired together in the product itself, which is exactly when this matters most: reaching for more capability can change the data-retention posture of the work, with an administrator approval gate and a warning banner attached. The dated snapshot at the end of this article gives a current example. Read that as an accountant and it is not a footnote — it is a control decision. Whoever picks the model is making a governance call, whether or not they realize it.
 
 ---
@@ -265,6 +267,6 @@ Everything below is perishable. The framework above does not depend on any of it
 
 ---
 
-*Related: [Stop Using AI Like It Is Excel](../14-ai-team-for-accountants/) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [Buy the Platform. Own the Accounting Logic.](../39-buy-platform-own-accounting-logic/README.md)*
+*Related: [Stop Using AI Like It Is Excel](../14-ai-team-for-accountants/) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [Buy the Platform. Own the Accounting Logic.](../39-buy-platform-own-accounting-logic/README.md) | [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

@@ -267,6 +267,8 @@ A few targeted controls go a long way.
 
 None of these needs to be complicated.
 
+> **Related read:** Sometimes the honest answer from that review is that the data cannot go to any outside AI service at all. That does not have to end the conversation. [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md) looks at running the model where the data already is.
+
 This is also not a novel idea in the standards world, which is worth knowing if you ever need to defend the control to an auditor. The NIST AI Risk Management Framework devotes an entire category to third-party risk: GOVERN 6.1 calls for "policies and procedures ... in place that address AI risks associated with third-party entities," and GOVERN 6.2 asks for contingency processes when third-party AI systems fail. ISO/IEC 42001, the AI management system standard, closes its Annex A controls with a section on third-party and customer relationships. And in the EU, the AI Act's Article 50 transparency obligations — applicable since August 2026 — mean disclosure duties are no longer only a matter of private contract.
 
 The frameworks already point outward. Most organizations' AI registers still point inward.
@@ -320,6 +322,6 @@ Vendor terms change. Every statement above was verified against the linked sourc
 
 ---
 
-*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/README.md) | [How to Use AI in Accounting Without Sending the Wrong Data](../06-safe-ai-data-workflows/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) | [Buy the Platform. Own the Accounting Logic.](../39-buy-platform-own-accounting-logic/README.md)*
+*Related: [AI in Accounting Is Not the Wild West Anymore](../04-ai-governance-in-accounting/README.md) | [How to Use AI in Accounting Without Sending the Wrong Data](../06-safe-ai-data-workflows/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) | [Buy the Platform. Own the Accounting Logic.](../39-buy-platform-own-accounting-logic/README.md) | [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*
