@@ -115,18 +115,7 @@ Take duplicate-payment testing.
 
 **Option one:** upload the accounts payable (AP) data to an LLM every month and ask, "Which of these look like duplicates?" The model might find useful items. It might also read the request differently next month, skip a relevant record, or confidently flag two payments that merely look alike.
 
-**Option two:** ask AI to help build a Python script that follows criteria the accounting team approved. In plain English, the script:
-
-- Makes vendor names and invoice numbers comparable, so "INV-1043" and "inv 1043" count as the same invoice.
-- Sets aside any payment with a blank vendor or invoice number for a person, instead of guessing.
-- Compares amounts in whole cents, so floating-point leftovers can't make equal amounts look different.
-- Pairs payments with the same vendor, invoice, and amount, paid within 30 days, and writes them to an exception report.
-
-A confession, because it proves the point: the first draft of this script, written with AI help, had a bug that reported two blank-invoice payments as duplicates of each other. We caught it the boring way, by running the code against test data with a known answer. Which is rather the point of this whole article.
-
-> **Under the hood:** The full script, line by line, the story of that bug, and how to run the demo yourself are in [the technical appendix](./technical-appendix.md#1-the-duplicate-payment-script-line-by-line).
-
-Notice what the script does not do. It does not decide that anything is a duplicate. It consistently finds transactions that meet the approved criteria and hands them to an accountant.
+**Option two:** ask AI to help build a Python script that applies the criteria the accounting team approved (same vendor, same invoice, same amount, paid within 30 days) and hands every match to an accountant. The script doesn't decide anything is a duplicate. It finds what meets the rule, the same way, every time.
 
 During development, AI might write the code, explain each line, generate mock data, and suggest test cases. When the test runs next month, production data does not need to go anywhere near the model.
 
@@ -136,17 +125,17 @@ The script keeps working.
 
 This is the difference between **build-time AI** and **run-time AI**. At build time, AI assists the person designing the workflow. At run time, the approved process does the work. AI can still have a run-time role, but that should be a design decision, not a default.
 
-(The demo's sample data includes one pair the script deliberately misses. We will come back to it. And if you are new to scripts, [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle on-ramp.)
+> **Under the hood:** The script is real and runnable. Its plain-English walkthrough, the code line by line, and the bug AI helped us write into the first draft (and the test that caught it) are in [the technical appendix](./technical-appendix.md#1-the-duplicate-payment-script-line-by-line). Its sample data includes one pair the script deliberately misses. We will come back to it. New to scripts? [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle on-ramp.
 
 ---
 
-## Don't Classify the Whole Process at Once
+## Classify Each Step, Not the Whole Process
 
 Technology decisions get confusing when we label an entire process an "AI use case."
 
 A bank reconciliation, a variance analysis, or a journal-entry process is rarely one kind of work. It might contain a calculation, a matching exercise, some language interpretation, an investigation, and an approval. Those pieces should not automatically use the same technology.
 
-Break the process into steps. Then classify the work inside each step. Four categories are a good start: **rules, patterns, language, and judgment.**
+So break the process into steps, and classify the work inside each one. Four categories are a good start: **rules, patterns, language, and judgment.**
 
 ![Four kinds of work: rules, patterns, language, and judgment, with example tools for each](./visuals/42_four_kinds_of_work.png)
 
@@ -155,92 +144,27 @@ Break the process into steps. Then classify the work inside each step. Four cate
 - **Language:** *Does the work require interpreting or producing unstructured text?* This is where an LLM earns its keep: contract summaries, draft variance commentary. The flexibility is the feature, and the reason for validation. [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) covers what that looks like.
 - **Judgment:** *Does it need professional accountability or a facts-and-circumstances call?* That stays with a qualified person. AI should not quietly inherit approval authority because it helped automate the steps leading up to the decision.
 
----
-
-## A Decision Tree for Each Step
-
-Ask these questions of **each step**, not once for the whole process.
-
-First: is the step still necessary? Automating a process nobody understands is just an efficient way to produce confusion on schedule.
+Before any of that, ask whether the step is still necessary. Automating a process nobody understands is just an efficient way to produce confusion on schedule.
 
 ![A decision tree for each process step: four questions to choose an approach, and a person stays accountable for every option](./visuals/42_decision_tree.png)
 
-**Choose the starting approach:**
+Whatever you choose for a step, a person stays accountable, and you define the evidence that it worked before you build it.
 
-1. **Is the step necessary and understood?** No → simplify, document, or redesign first.
-2. **Can we write the rule, and should the same input always give the same result?** Yes → start with deterministic automation.
-3. **Does it require interpreting language or context?** Yes → consider an LLM, subject to data restrictions, validation, and review.
-4. **Do reliable historical examples hold a pattern we can't write as rules?** Yes → consider machine learning. No → keep it human-led or redesign.
+> **Framework reminder:** None of this depends on a particular tool. The same questions work whether the deterministic part ends up as an Excel formula, a Power Query, a SQL view, or a Python script, and whether the co-pilot helping you build it is Claude Code, OpenAI Codex, GitHub Copilot, or Copilot in Excel. The tool changes; the classification does not.
 
-**Then apply two control questions to every option**, whatever you chose:
+> **Under the hood:** The full decision tree, all six questions, is in [the technical appendix](./technical-appendix.md#3-the-decision-tree-question-by-question), and there is a printable [Step Decision Tree card](./templates/step_decision_tree_card.md) for the desk.
 
-5. **Does the step involve judgment, approval, restricted data, or contractual limitations?** Yes → a qualified person stays responsible, whatever technology prepared the work.
-6. **What evidence will show that it worked as intended?** Define validation, logging, exception handling, and sign-off before you build.
+### What it looks like in a real workflow
 
-> **Framework reminder:** None of this depends on a particular tool. The same six questions work whether the deterministic part ends up as an Excel formula, a Power Query, a SQL view, or a Python script, and whether the co-pilot helping you build it is Claude Code, OpenAI Codex, GitHub Copilot, or Copilot in Excel. The tool changes; the classification does not.
-
-There is a printable one-page version in the templates folder: [Step Decision Tree card](./templates/step_decision_tree_card.md).
-
----
-
-## What This Looks Like in a Real Workflow
-
-Take year-over-year variance analysis. It's tempting to call the whole thing an AI use case. Break it down and a better design appears.
-
-| Process step | Nature of the work | Likely approach |
-|---|---|---|
-| Confirm expected files and fields are present | Known rules | Deterministic automation |
-| Validate reporting periods and control totals | Known rules | Deterministic automation |
-| Calculate dollar and percentage changes | Known calculations | Deterministic automation |
-| Apply materiality thresholds | Approved policy rules | Deterministic automation |
-| Retrieve supporting transaction detail | Defined retrieval | Query, script, or approved tool |
-| Draft preliminary commentary | Language and context | LLM, if permitted |
-| Determine the actual business explanation | Evidence and judgment | Accountant |
-| Approve the final analysis | Accountability | Human reviewer |
+Take year-over-year variance analysis. It's tempting to call the whole thing an AI use case. Break it into steps and a better design appears.
 
 ![Variance analysis as three lanes: the script calculates, an LLM drafts questions if permitted, and the accountant explains and approves](./visuals/42_variance_swimlane.png)
 
-The model should not invent the reason travel expense went up 27 percent.
+The script checks the files, calculates the changes, and applies the materiality thresholds. An LLM, if permitted, can help draft questions for the account owner. But the model should not invent the reason travel expense went up 27 percent.
 
 **Python calculates the 27 percent. AI suggests questions. The accountant finds, supports, and owns the explanation.**
 
-Bank reconciliations and recurring journal entries work the same way: the script prepares and separates the exceptions; the accountant investigates and approves. The system does not post an entry just because the math worked.
-
-The process is neither "AI-driven" nor "deterministic." It is a controlled workflow containing different kinds of work.
-
----
-
-## Scripts, Skills, and Agents Play Different Roles
-
-As more accountants work in AI harness environments (Claude Code in the terminal or inside Visual Studio Code, OpenAI Codex, or GitHub Copilot's agent mode, where AI works with your files, tools, and saved instructions), one more distinction matters:
-
-- A **script** encodes defined logic, and applies the same rules every time.
-- A **skill** gives AI reusable instructions: which files to expect, which approved script to run, when to stop for human review. It makes the model more consistent, not deterministic.
-- An **agent file** defines a role and its boundaries: which tools it may use and which decisions need a human. [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/README.md) introduces both.
-
-| Accounting world | Harness world |
-|---|---|
-| Calculation template | Script |
-| Desk procedure / standard operating procedure (SOP) | Skill |
-| Role description + delegation of authority | Agent file |
-| System access rights | Harness permissions |
-| Reviewer sign-off | Still you |
-
-### Control, or polite request?
-
-Here's the part people miss.
-
-*"It says right there in the agent file: do not touch the payroll folder."*
-
-That sentence is an instruction. The model is asked to follow it. A hard boundary is enforced by the harness itself: tool allowlists, permission settings, folder access, sandboxing. Know which of your boundaries are controls and which are polite requests.
-
-![Control or polite request? A sentence in an agent file asks; a harness permission enforces](./visuals/42_control_or_request.png)
-
-Every harness has its own version of this. In Claude Code it is a deny rule in a settings file; in OpenAI Codex, a sandbox mode; in GitHub Copilot's agent mode, the tools picker and approvals; in plain Excel, folder permissions and workbook protection. The control lives in the system, not in the instructions. (If a boundary that only *asks* makes you uneasy, it should: [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) shows why.)
-
-> **Under the hood:** The exact Claude Code settings, the limits of what a deny rule covers, and the Codex and Copilot equivalents are in [the technical appendix](./technical-appendix.md#3-turning-a-polite-request-into-a-control).
-
-<!-- TODO: Add a link to the MCP article here once it is published (planned as Article 41 in the approved plan; check the final number before linking). MCP servers are where "approved tools an agent can call" becomes concrete. -->
+The process is neither "AI-driven" nor "deterministic." It is a controlled workflow containing different kinds of work. (The step-by-step breakdown is in [the technical appendix](./technical-appendix.md#4-a-real-workflow-step-by-step).)
 
 ---
 
@@ -261,7 +185,7 @@ Consistency makes the process testable. It does not make testing optional.
 That is why organization, boundaries, and validation stay central:
 
 - **Organization:** know what the process is supposed to do.
-- **Boundaries:** limit the data, tools, outputs, and actions the workflow can touch.
+- **Boundaries:** limit the data, tools, outputs, and actions the workflow can touch. And know which boundaries are real: "do not touch the payroll folder" written in an AI agent's instructions is a polite request; a permission setting the tool enforces is a control. ([The technical appendix](./technical-appendix.md#5-scripts-skills-agents-and-the-controls-around-them) shows the difference.)
 - **Validation:** check results against known examples, control totals, expected ranges, and documented exceptions.
 
 Treat changes to the logic with the same seriousness as changes to an important spreadsheet or a financial system configuration. Because that is what they are. ([Pull Requests Are Internal Controls](../20e-pull-requests-are-controls/README.md) shows that review for code, and [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) is the same lesson for the LLM steps.)
@@ -292,7 +216,7 @@ You may also find that your "AI workflow" doesn't need AI in every step.
 
 > **Use the worksheet:** Download the [Process Step Classification Worksheet](./templates/process_step_classification_worksheet.xlsx) (also available as [CSV](./templates/process_step_classification_worksheet.csv)) and map one process step by step. It comes pre-filled with the variance-analysis example above.
 
-> **Take it with you:** Beyond the worksheet, this article's folder has a desk card for the decision tree, a build-time vs. run-time record, a release checklist for scripts, a "control or polite request?" boundary audit, and the runnable duplicate-payment demo. All synthetic, all meant to be copied. The full list is in [the technical appendix](./technical-appendix.md#4-the-toolkit).
+> **Take it with you:** Beyond the worksheet, this article's folder has a desk card for the decision tree, a build-time vs. run-time record, a release checklist for scripts, a "control or polite request?" boundary audit, and the runnable duplicate-payment demo. All synthetic, all meant to be copied. The full list is in [the technical appendix](./technical-appendix.md#6-the-toolkit).
 
 ---
 
@@ -300,7 +224,7 @@ You may also find that your "AI workflow" doesn't need AI in every step.
 
 At first I thought AI maturity meant asking better questions.
 
-Then I learned the environment mattered as much as the prompt. Moving into a harness gave me a way to organize files, write reusable instructions, set boundaries, use approved tools, keep documentation, and validate outputs.
+Then I learned the environment mattered as much as the prompt. Moving into a harness (a workspace like Claude Code in Visual Studio Code, where AI works with your files, tools, and saved instructions) gave me a way to organize files, write reusable instructions, set boundaries, use approved tools, keep documentation, and validate outputs.
 
 About 40 articles later, most of what I've learned still fits in three words: **organization, boundaries, and validation.**
 

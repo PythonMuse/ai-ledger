@@ -1,6 +1,6 @@
 # AI Helped Me Build It: The Technical Appendix
 
-*Under the hood of Article 42: the demo script line by line, the fine print on "deterministic," and how to turn a polite request into a control*
+*Under the hood of Article 42: the demo script line by line, the fine print on "deterministic," the full decision tree, a real workflow step by step, and how scripts, skills, agents, and harness controls fit together*
 
 ---
 
@@ -9,13 +9,22 @@
 
 ---
 
-This page is for readers who want to run the demo, read the code, or wire up the controls. [The article](./README.md) stands on its own; nothing here changes its argument. Think of this as the workpapers behind the memo.
+This page is for readers who want to run the demo, read the code, walk the full decision tree, or wire up the controls. [The article](./README.md) stands on its own; nothing here changes its argument. Think of this as the workpapers behind the memo.
 
 ---
 
 ## 1. The Duplicate-Payment Script, Line by Line
 
-The article describes a Python script that follows criteria the accounting team approved. Here is its core.
+The article describes a Python script that follows criteria the accounting team approved. In plain English, the script:
+
+- Makes vendor names and invoice numbers comparable, so "INV-1043" and "inv 1043" count as the same invoice.
+- Sets aside any payment with a blank vendor or invoice number for a person, instead of guessing.
+- Compares amounts in whole cents, so floating-point leftovers can't make equal amounts look different.
+- Pairs payments with the same vendor, invoice, and amount, paid within 30 days, and writes them to an exception report.
+
+Notice what the script does not do. It does not decide that anything is a duplicate. It consistently finds transactions that meet the approved criteria and hands them to an accountant.
+
+Here is its core.
 
 > **Simplified illustration, not production-ready code.** It leaves out the schema checks, logging, and run evidence a production script needs. This is the core of [`duplicate_payment_test.py`](./duplicate_payment_test.py), which you can run yourself.
 
@@ -99,9 +108,76 @@ And before anyone asks: yes, there is a "temperature" setting, and no, turning i
 
 ---
 
-## 3. Turning a Polite Request into a Control
+## 3. The Decision Tree, Question by Question
 
-The article's point: *"Do not touch the payroll folder"* in an agent file is an instruction the model is asked to follow. A hard boundary is enforced by the harness itself: tool allowlists, permission settings, folder access, sandboxing. Here is what that looks like in practice.
+The article classifies each step as rules, patterns, language, or judgment. Here is the full tree behind that picture. Ask these questions of **each step**, not once for the whole process.
+
+**Choose the starting approach:**
+
+1. **Is the step necessary and understood?** No → simplify, document, or redesign first.
+2. **Can we write the rule, and should the same input always give the same result?** Yes → start with deterministic automation.
+3. **Does it require interpreting language or context?** Yes → consider an LLM, subject to data restrictions, validation, and review.
+4. **Do reliable historical examples hold a pattern we can't write as rules?** Yes → consider machine learning. No → keep it human-led or redesign.
+
+**Then apply two control questions to every option**, whatever you chose:
+
+5. **Does the step involve judgment, approval, restricted data, or contractual limitations?** Yes → a qualified person stays responsible, whatever technology prepared the work.
+6. **What evidence will show that it worked as intended?** Define validation, logging, exception handling, and sign-off before you build.
+
+There is a printable one-page version in the templates folder: [Step Decision Tree card](./templates/step_decision_tree_card.md).
+
+---
+
+## 4. A Real Workflow, Step by Step
+
+The article's worked example is year-over-year variance analysis. Here is the full breakdown behind the swimlane picture:
+
+| Process step | Nature of the work | Likely approach |
+|---|---|---|
+| Confirm expected files and fields are present | Known rules | Deterministic automation |
+| Validate reporting periods and control totals | Known rules | Deterministic automation |
+| Calculate dollar and percentage changes | Known calculations | Deterministic automation |
+| Apply materiality thresholds | Approved policy rules | Deterministic automation |
+| Retrieve supporting transaction detail | Defined retrieval | Query, script, or approved tool |
+| Draft preliminary commentary | Language and context | LLM, if permitted |
+| Determine the actual business explanation | Evidence and judgment | Accountant |
+| Approve the final analysis | Accountability | Human reviewer |
+
+Bank reconciliations and recurring journal entries work the same way: the script prepares and separates the exceptions; the accountant investigates and approves. The system does not post an entry just because the math worked.
+
+To map one of your own processes this way, use the [Process Step Classification Worksheet](./templates/process_step_classification_worksheet.xlsx); it comes pre-filled with this example.
+
+---
+
+## 5. Scripts, Skills, Agents, and the Controls Around Them
+
+### Three different roles
+
+As more accountants work in AI harness environments (Claude Code in the terminal or inside Visual Studio Code, OpenAI Codex, or GitHub Copilot's agent mode, where AI works with your files, tools, and saved instructions), one more distinction matters:
+
+- A **script** encodes defined logic, and applies the same rules every time.
+- A **skill** gives AI reusable instructions: which files to expect, which approved script to run, when to stop for human review. It makes the model more consistent, not deterministic.
+- An **agent file** defines a role and its boundaries: which tools it may use and which decisions need a human. [The Power of Skills and Agents](../17-skills-and-agents-for-accountants/README.md) introduces both.
+
+| Accounting world | Harness world |
+|---|---|
+| Calculation template | Script |
+| Desk procedure / standard operating procedure (SOP) | Skill |
+| Role description + delegation of authority | Agent file |
+| System access rights | Harness permissions |
+| Reviewer sign-off | Still you |
+
+### Control, or polite request?
+
+Here's the part people miss.
+
+*"It says right there in the agent file: do not touch the payroll folder."*
+
+That sentence is an instruction. The model is asked to follow it. A hard boundary is enforced by the harness itself: tool allowlists, permission settings, folder access, sandboxing. Know which of your boundaries are controls and which are polite requests. (If a boundary that only *asks* makes you uneasy, it should: [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) shows why.)
+
+![Control or polite request? A sentence in an agent file asks; a harness permission enforces](./visuals/42_control_or_request.png)
+
+<!-- TODO: Add a link to the MCP article here once it is published (planned as Article 41 in the approved plan; check the final number before linking). MCP servers are where "approved tools an agent can call" becomes concrete. -->
 
 ### Claude Code
 
@@ -130,7 +206,7 @@ Settings like these change often, so check your provider's current documentation
 
 ---
 
-## 4. The Toolkit
+## 6. The Toolkit
 
 Everything below lives in the article's folder. All of it uses synthetic data, and all of it is meant to be copied and adapted:
 
