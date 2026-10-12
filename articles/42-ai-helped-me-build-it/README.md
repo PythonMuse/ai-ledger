@@ -123,7 +123,9 @@ The script keeps working.
 
 This is the difference between **build-time AI** and **run-time AI**. At build time, AI assists the person designing the workflow. At run time, the approved process does the work. AI can still have a run-time role, but that should be a design decision, not a default.
 
-> **Under the hood:** The script is real and runnable. Its plain-English walkthrough, the code line by line, and the bug AI helped us write into the first draft (and the test that caught it) are in [the technical appendix](./technical-appendix.md#1-the-duplicate-payment-script-line-by-line). Its sample data includes one pair the script deliberately misses. We will come back to it. New to scripts? [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle on-ramp.
+We built that script for this article as a small working demo: a handful of made-up payments, seeded with the tricky cases we could think of, plus the answer the script should produce. One pair it misses on purpose. Hold that thought.
+
+> **Under the hood:** The code line by line, the bug AI helped us write into the first draft (and the test that caught it), and how to run the demo yourself are in [the technical appendix](./technical-appendix.md#1-the-duplicate-payment-script-line-by-line). New to scripts? [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle on-ramp.
 
 ---
 
@@ -174,7 +176,7 @@ Deterministic does not mean correct.
 
 **A script can apply the wrong rule perfectly. Every month. Forever.**
 
-Remember the pair the demo deliberately misses? "ABC Corp" and "ABC Corporation," same invoice number, same $2,100.00, paid a week apart. A person would spot it in a second. The script compares exact vendor keys, "ABCCORP" is not "ABCCORPORATION," and so it misses the pair. Consistently. Every run.
+Remember the pair our duplicate-payment demo misses on purpose? "ABC Corp" and "ABC Corporation," same invoice number, same $2,100.00, paid a week apart. A person would spot it in a second. The script compares exact vendor keys, "ABCCORP" is not "ABCCORPORATION," and so it misses the pair. Consistently. Every run.
 
 The rule isn't broken. It is exactly what was approved. It is just incomplete, and the script's consistency makes that invisible until someone tests for it. The same goes for an incomplete file, last year's threshold, or a library update nobody noticed.
 
