@@ -1778,6 +1778,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#same-prompt-two-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Same prompt, two sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1807,10 +1818,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#excels-volatile-functions-and-a-sql-cousin" class="md-nav__link">
+  <a href="#hidden-inputs-today-and-friends-and-a-sql-cousin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Excel's volatile functions (and a SQL cousin)
+        Hidden inputs: TODAY() and friends (and a SQL cousin)
       
     </span>
   </a>
@@ -2435,6 +2446,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#same-prompt-two-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Same prompt, two sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2464,10 +2486,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#excels-volatile-functions-and-a-sql-cousin" class="md-nav__link">
+  <a href="#hidden-inputs-today-and-friends-and-a-sql-cousin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Excel's volatile functions (and a SQL cousin)
+        Hidden inputs: TODAY() and friends (and a SQL cousin)
       
     </span>
   </a>
@@ -2686,16 +2708,69 @@
 <p>The article folder includes the full <a href="../duplicate_payment_test.py"><code>duplicate_payment_test.py</code></a>, a synthetic <a href="../data/ap_payments.csv"><code>ap_payments.csv</code></a>, and a hand-calculated <a href="../data/expected_exceptions.csv"><code>expected_exceptions.csv</code></a>. The sample data is seeded on purpose: "INV-1043" vs. "inv 1043", a blank invoice number, payments 29 days apart (flagged) and 31 days apart (not flagged), and one pair the script deliberately misses ("ABC Corp" vs. "ABC Corporation," the subject of the article's "Deterministic Does Not Mean Correct" section).</p>
 <p>Run <code>python duplicate_payment_test.py</code> and it checks its own output against the expected answer. The <a href="../test_duplicate_payment_demo.py">test file</a> pins down every deliberate edge case, including the one the script misses, so nobody "fixes" the lesson out of the sample data.</p>
 <p>If you are new to scripts altogether, <a href="../../25-what-the-heck-is-a-script/">What the Heck Is a Script?</a> is the gentle on-ramp.</p>
+<h3 id="same-prompt-two-sessions">Same prompt, two sessions</h3>
+<p>To show rather than tell, we asked the same model the same plain-English question in two fresh, independent sessions: write a pandas script that finds possible duplicate payments (same vendor, same invoice number, same amount, within 30 days). Then we ran both scripts on the sample data above:</p>
+<table>
+<thead>
+<tr>
+<th>Edge case</th>
+<th>Approved answer</th>
+<th>Session A</th>
+<th>Session B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"INV-1043" vs. "inv 1043", 10 days apart</td>
+<td>Flagged</td>
+<td>Not flagged</td>
+<td>Not flagged</td>
+</tr>
+<tr>
+<td>Same invoice, 29 days apart</td>
+<td>Flagged</td>
+<td>Flagged</td>
+<td>Flagged</td>
+</tr>
+<tr>
+<td>Same invoice, 31 days apart</td>
+<td>Not flagged</td>
+<td>Not flagged</td>
+<td>Not flagged</td>
+</tr>
+<tr>
+<td>Blank invoice number (two payments)</td>
+<td>Sent to a person</td>
+<td>Flagged as a duplicate of each other</td>
+<td>Never reported</td>
+</tr>
+<tr>
+<td>Blank vendor name</td>
+<td>Sent to a person</td>
+<td>Never reported</td>
+<td>Never reported</td>
+</tr>
+<tr>
+<td>"ABC Corp" vs. "ABC Corporation"</td>
+<td>Not flagged (missed by design)</td>
+<td>Not flagged</td>
+<td>Not flagged</td>
+</tr>
+</tbody>
+</table>
+<p>Two tidy, plausible scripts; two different answers; neither matches the approved one. Session A made the same blank-invoice mistake as our own first draft. Session B's report looks cleaner and is worse: three payments were never tested, and nothing says so. The exact prompt, both scripts unedited, and a <code>compare.py</code> that reproduces the table are in <a href="../experiments/same-prompt-two-sessions/RESULTS/"><code>experiments/same-prompt-two-sessions/</code></a>.</p>
 <hr />
 <h2 id="2-why-same-rules-isnt-quite-enough">2. Why "Same Rules" Isn't Quite Enough</h2>
 <p>The article's definition is <strong>same inputs + same rules (in the same environment) = same outputs.</strong> Three bits of fine print.</p>
 <h3 id="the-environment-is-part-of-the-input">The environment is part of the input</h3>
 <p>That small "in the same environment" matters. A script running on a different version of a library is, quietly, a slightly different script. <a href="../../28-python-libraries-for-accountants/">Python Libraries for Accountants</a> explains why each project should have its own environment with the same library versions every time it runs.</p>
-<h3 id="excels-volatile-functions-and-a-sql-cousin">Excel's volatile functions (and a SQL cousin)</h3>
-<p><code>TODAY()</code>, <code>NOW()</code>, and <code>RAND()</code> are the exceptions to Excel's determinism. They recalculate on their own. If your aging schedule uses <code>TODAY()</code>, it will give you a different answer tomorrow. Very on brand for Excel. The fix is boring and effective: put the as-of date in a cell, label it, and point every formula at that cell.</p>
+<h3 id="hidden-inputs-today-and-friends-and-a-sql-cousin">Hidden inputs: <code>TODAY()</code> and friends (and a SQL cousin)</h3>
+<p><code>TODAY()</code> and <code>NOW()</code> are deterministic. They just read an input you never typed: the system clock. Build an aging schedule on <code>TODAY()</code> and tomorrow it gives a different answer, exactly as designed, because the input moved. That is a hidden input, not randomness, and hidden inputs are what make last month's numbers hard to reproduce. The fix is boring and effective: put the as-of date in a cell, label it, and point every formula at that cell.</p>
+<p><code>RAND()</code> is the genuine exception: it is designed to return a different value every time it recalculates. Excel calls all three "volatile," but that word describes <em>when</em> they recalculate (every time the workbook does), not whether they are deterministic.</p>
 <p>Databases have a cousin of this problem: a SQL query without <code>ORDER BY</code> doesn't promise to return rows in the same order twice.</p>
 <h3 id="temperature-zero-does-not-make-an-llm-deterministic">Temperature zero does not make an LLM deterministic</h3>
-<p>And before anyone asks: yes, there is a "temperature" setting, and no, turning it to zero does not make the problem go away. Even at the most conservative settings, providers don't guarantee identical output. Anthropic's API documentation says so in as many words, and OpenAI describes its own reproducibility controls as best effort. (Both are linked in the Sources below.)</p>
+<p>First, what temperature is. As a large language model writes, it picks each next word (strictly, each next <em>token</em>: a word or piece of a word) from a ranked list of likely candidates. <strong>Temperature</strong> is the setting that controls how adventurous that pick is. A low temperature keeps the model near the top of the list; a high one lets it wander further down. Low is the "follow the template" setting; high is the "brainstorm session." You will usually find it in API and developer tool settings, not in chat apps, and not every model accepts it.</p>
+<p>So the natural question: turn it to zero, and doesn't the model become deterministic? No. Zero makes the output more consistent, not guaranteed identical. Small differences in how the computation is run, and updates on the provider's side, can still change the answer. The providers say so themselves: Anthropic's API documentation says so in as many words, and OpenAI describes its own reproducibility controls as best effort. (Both are linked in the Sources below.)</p>
 <hr />
 <h2 id="3-the-decision-tree-question-by-question">3. The Decision Tree, Question by Question</h2>
 <p>The article classifies each step as rules, patterns, language, or judgment. Here is the full tree behind that picture. Ask these questions of <strong>each step</strong>, not once for the whole process.</p>
@@ -2706,6 +2781,9 @@
 <li><strong>Does it require interpreting language or context?</strong> Yes → consider an LLM, subject to data restrictions, validation, and review.</li>
 <li><strong>Do reliable historical examples hold a pattern we can't write as rules?</strong> Yes → consider machine learning. No → keep it human-led or redesign.</li>
 </ol>
+<blockquote>
+<p><strong>Two kinds of pattern-finding:</strong> Machine learning comes in two broad flavors. <strong>Supervised</strong> learning trains on past examples where you already know the answer: these receivables went delinquent, those didn't. It then predicts the answer for new ones. <strong>Unsupervised</strong> learning has no answer key. It looks for structure on its own, such as grouping similar vendors or flagging journal entries that look unlike the rest. That second kind is behind many "find the unusual items" tools. Either way, the step still needs a person to decide what a flag means.</p>
+</blockquote>
 <p><strong>Then apply two control questions to every option</strong>, whatever you chose:</p>
 <ol>
 <li><strong>Does the step involve judgment, approval, restricted data, or contractual limitations?</strong> Yes → a qualified person stays responsible, whatever technology prepared the work.</li>
@@ -2842,6 +2920,7 @@
 <li><strong><a href="../templates/deterministic_script_release_checklist/">Deterministic Script Release Checklist</a>:</strong> known-input tests, control totals, schema checks, pinned versions, a fixed as-of date, run logs, and sign-off before a script goes live.</li>
 <li><strong><a href="../templates/boundary_audit/">"Control or Polite Request?" Boundary Audit</a>:</strong> list every boundary in your skill and agent files and mark which ones the harness actually enforces.</li>
 <li><strong><a href="../duplicate_payment_test.py">Duplicate-payment demo</a>:</strong> the script above, its <a href="../data/ap_payments.csv">synthetic data</a>, the <a href="../data/expected_exceptions.csv">expected result</a>, and a <a href="../test_duplicate_payment_demo.py">test file</a> that pins down every deliberate edge case, including the one it misses.</li>
+<li><strong><a href="../experiments/same-prompt-two-sessions/RESULTS/">Same prompt, two sessions</a>:</strong> the two AI-written versions of that script, the exact prompt, and a <code>compare.py</code> that shows how differently they treat the same data.</li>
 </ul>
 <hr />
 <h2 id="sources">Sources</h2>
