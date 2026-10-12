@@ -97,13 +97,11 @@ That is the whole idea of this article, in a tool you already own.
 
 An aging calculation is deterministic. A SUM formula is deterministic. A rule that sends every transaction over $25,000 for extra approval is deterministic. The system does not wake up on Tuesday and decide that $24,750 feels suspicious.
 
-> **Excel footnote:** `TODAY()` is the exception. If your aging schedule uses it, it will give you a different answer tomorrow. Very on brand for Excel. Put the as-of date in a cell and point every formula at it.
-
 A large language model (LLM) works differently. It generates a response based on probabilities. Give it substantially the same instructions and data twice, and the wording, reasoning, classification, or conclusion may change.
 
 That flexibility is why LLMs are good at interpreting language and messy requests. It is also why their output needs validation. Neither approach is universally better; they are built for different kinds of work.
 
-> **Under the hood:** Library versions, volatile functions, SQL's `ORDER BY`, and why you can't simply switch an AI model into "always give the same answer" mode are in [the technical appendix](./technical-appendix.md#2-why-same-rules-isnt-quite-enough).
+> **Under the hood:** Library versions, hidden inputs like Excel's `TODAY()`, SQL's `ORDER BY`, and why you can't simply switch an AI model into "always give the same answer" mode are in [the technical appendix](./technical-appendix.md#2-why-same-rules-isnt-quite-enough).
 
 So the question is not *"Can we use AI for this process?"* The better question is: **what kind of work happens inside each step of this process?**
 

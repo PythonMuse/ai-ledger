@@ -96,9 +96,11 @@ The article's definition is **same inputs + same rules (in the same environment)
 
 That small "in the same environment" matters. A script running on a different version of a library is, quietly, a slightly different script. [Python Libraries for Accountants](../28-python-libraries-for-accountants/README.md) explains why each project should have its own environment with the same library versions every time it runs.
 
-### Excel's volatile functions (and a SQL cousin)
+### Hidden inputs: `TODAY()` and friends (and a SQL cousin)
 
-`TODAY()`, `NOW()`, and `RAND()` are the exceptions to Excel's determinism. They recalculate on their own. If your aging schedule uses `TODAY()`, it will give you a different answer tomorrow. Very on brand for Excel. The fix is boring and effective: put the as-of date in a cell, label it, and point every formula at that cell.
+`TODAY()` and `NOW()` are deterministic. They just read an input you never typed: the system clock. Build an aging schedule on `TODAY()` and tomorrow it gives a different answer, exactly as designed, because the input moved. That is a hidden input, not randomness, and hidden inputs are what make last month's numbers hard to reproduce. The fix is boring and effective: put the as-of date in a cell, label it, and point every formula at that cell.
+
+`RAND()` is the genuine exception: it is designed to return a different value every time it recalculates. Excel calls all three "volatile," but that word describes *when* they recalculate (every time the workbook does), not whether they are deterministic.
 
 Databases have a cousin of this problem: a SQL query without `ORDER BY` doesn't promise to return rows in the same order twice.
 
