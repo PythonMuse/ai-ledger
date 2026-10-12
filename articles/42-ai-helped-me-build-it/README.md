@@ -194,7 +194,7 @@ Treat changes to the logic with the same seriousness as changes to an important 
 
 ## The Rule of Thumb
 
-- **If the rule is known,** encode the rule.
+- **If the rule is known,** encode the rule. (Don't know how? Ask your AI co-pilot to help you build it. That's the whole point.)
 - **If language must be interpreted,** consider an LLM, and validate it.
 - **If historical examples hold a pattern you can't write down,** machine learning may fit.
 - **If the decision needs professional accountability,** keep a person responsible.
