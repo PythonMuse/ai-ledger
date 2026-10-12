@@ -86,6 +86,21 @@ Run `python duplicate_payment_test.py` and it checks its own output against the 
 
 If you are new to scripts altogether, [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle on-ramp.
 
+### Same prompt, two sessions
+
+To show rather than tell, we asked the same model the same plain-English question in two fresh, independent sessions: write a pandas script that finds possible duplicate payments (same vendor, same invoice number, same amount, within 30 days). Then we ran both scripts on the sample data above:
+
+| Edge case | Approved answer | Session A | Session B |
+|---|---|---|---|
+| "INV-1043" vs. "inv 1043", 10 days apart | Flagged | Not flagged | Not flagged |
+| Same invoice, 29 days apart | Flagged | Flagged | Flagged |
+| Same invoice, 31 days apart | Not flagged | Not flagged | Not flagged |
+| Blank invoice number (two payments) | Sent to a person | Flagged as a duplicate of each other | Never reported |
+| Blank vendor name | Sent to a person | Never reported | Never reported |
+| "ABC Corp" vs. "ABC Corporation" | Not flagged (missed by design) | Not flagged | Not flagged |
+
+Two tidy, plausible scripts; two different answers; neither matches the approved one. Session A made the same blank-invoice mistake as our own first draft. Session B's report looks cleaner and is worse: three payments were never tested, and nothing says so. The exact prompt, both scripts unedited, and a `compare.py` that reproduces the table are in [`experiments/same-prompt-two-sessions/`](./experiments/same-prompt-two-sessions/RESULTS.md).
+
 ---
 
 ## 2. Why "Same Rules" Isn't Quite Enough
@@ -222,6 +237,7 @@ Everything below lives in the article's folder. All of it uses synthetic data, a
 - **[Deterministic Script Release Checklist](./templates/deterministic_script_release_checklist.md):** known-input tests, control totals, schema checks, pinned versions, a fixed as-of date, run logs, and sign-off before a script goes live.
 - **["Control or Polite Request?" Boundary Audit](./templates/boundary_audit.md):** list every boundary in your skill and agent files and mark which ones the harness actually enforces.
 - **[Duplicate-payment demo](./duplicate_payment_test.py):** the script above, its [synthetic data](./data/ap_payments.csv), the [expected result](./data/expected_exceptions.csv), and a [test file](./test_duplicate_payment_demo.py) that pins down every deliberate edge case, including the one it misses.
+- **[Same prompt, two sessions](./experiments/same-prompt-two-sessions/RESULTS.md):** the two AI-written versions of that script, the exact prompt, and a `compare.py` that shows how differently they treat the same data.
 
 ---
 
