@@ -104,7 +104,9 @@ Databases have a cousin of this problem: a SQL query without `ORDER BY` doesn't 
 
 ### Temperature zero does not make an LLM deterministic
 
-And before anyone asks: yes, there is a "temperature" setting, and no, turning it to zero does not make the problem go away. Even at the most conservative settings, providers don't guarantee identical output. Anthropic's API documentation says so in as many words, and OpenAI describes its own reproducibility controls as best effort. (Both are linked in the Sources below.)
+First, what temperature is. As a large language model writes, it picks each next word (strictly, each next *token*: a word or piece of a word) from a ranked list of likely candidates. **Temperature** is the setting that controls how adventurous that pick is. A low temperature keeps the model near the top of the list; a high one lets it wander further down. Low is the "follow the template" setting; high is the "brainstorm session." You will usually find it in API and developer tool settings, not in chat apps, and not every model accepts it.
+
+So the natural question: turn it to zero, and doesn't the model become deterministic? No. Zero makes the output more consistent, not guaranteed identical. Small differences in how the computation is run, and updates on the provider's side, can still change the answer. The providers say so themselves: Anthropic's API documentation says so in as many words, and OpenAI describes its own reproducibility controls as best effort. (Both are linked in the Sources below.)
 
 ---
 
