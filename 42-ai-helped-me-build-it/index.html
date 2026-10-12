@@ -2508,7 +2508,8 @@
 <hr />
 <p><strong>PythonMuse LLC</strong>
 <em>Published October 2026</em></p>
-<p><img alt="Build time vs. run time: AI helps design and test the workflow, then the approved script runs every month without it" src="visuals/42_hero.png" /></p>
+<p align="center"><img src="./visuals/42_hero.png" alt="Build time vs. run time: AI helps design and test the workflow, then the approved script runs every month without it" width="430"></p>
+
 <hr />
 <h2 id="one-year-every-day">One Year, Every Day</h2>
 <p>It has been almost exactly one year since I made it my mission to use artificial intelligence (AI) in my work every day.</p>
@@ -2535,7 +2536,8 @@
 <p>Deterministic automation is option three.</p>
 <p>AI can help an accountant translate an existing procedure into an Excel formula, a Power Query transformation, a Structured Query Language (SQL) query, or a Python script. It can explain unfamiliar code, suggest tests, spot edge cases, and draft documentation. Once the automation is tested and approved, the recurring process runs on defined logic.</p>
 <p><strong>AI helped build it. AI does not have to run it.</strong></p>
-<p><img alt="Asking the chatbot every month vs. building it once" src="visuals/42_chatbot_vs_build.png" /></p>
+<p align="center"><img src="./visuals/42_chatbot_vs_build.png" alt="Asking the chatbot every month vs. building it once" width="430"></p>
+
 <table>
 <thead>
 <tr>
@@ -2631,7 +2633,8 @@
 <p>Technology decisions get confusing when we label an entire process an "AI use case."</p>
 <p>A bank reconciliation, a variance analysis, or a journal-entry process is rarely one kind of work. It might contain a calculation, a matching exercise, some language interpretation, an investigation, and an approval. Those pieces should not automatically use the same technology.</p>
 <p>So break the process into steps, and classify the work inside each one. Four categories are a good start: <strong>rules, patterns, language, and judgment.</strong></p>
-<p><img alt="Four kinds of work: rules, patterns, language, and judgment, with example tools for each" src="visuals/42_four_kinds_of_work.png" /></p>
+<p align="center"><img src="./visuals/42_four_kinds_of_work.png" alt="Four kinds of work: rules, patterns, language, and judgment, with example tools for each" width="430"></p>
+
 <ul>
 <li><strong>Rules:</strong> <em>Can we state exactly how the result is calculated?</em> Aging buckets, allocations, matching criteria, thresholds. Deterministic automation follows the rules; AI can help build it. (The same idea runs through <a href="../23-schema-driven-sanitization/">Don't Trust the Model to Find What You Already Know Is There</a>.)</li>
 <li><strong>Patterns:</strong> <em>Do past examples hold a relationship we can't write down?</em> That may be machine learning, such as estimating which receivables are likely to go delinquent. The difference from a rule is where the logic came from: a person wrote it, or the data taught it. Machine learning deserves its own article.</li>
@@ -2639,7 +2642,8 @@
 <li><strong>Judgment:</strong> <em>Does it need professional accountability or a facts-and-circumstances call?</em> That stays with a qualified person. AI should not quietly inherit approval authority because it helped automate the steps leading up to the decision.</li>
 </ul>
 <p>Before any of that, ask whether the step is still necessary. Automating a process nobody understands is just an efficient way to produce confusion on schedule.</p>
-<p><img alt="A decision tree for each process step: four questions to choose an approach, and a person stays accountable for every option" src="visuals/42_decision_tree.png" /></p>
+<p align="center"><img src="./visuals/42_decision_tree.png" alt="A decision tree for each process step: four questions to choose an approach, and a person stays accountable for every option" width="430"></p>
+
 <p>Whatever you choose for a step, a person stays accountable, and you define the evidence that it worked before you build it.</p>
 <blockquote>
 <p><strong>Framework reminder:</strong> None of this depends on a particular tool. The same questions work whether the deterministic part ends up as an Excel formula, a Power Query, a SQL view, or a Python script, and whether the co-pilot helping you build it is Claude Code, OpenAI Codex, GitHub Copilot, or Copilot in Excel. The tool changes; the classification does not.</p>
@@ -2647,7 +2651,8 @@
 </blockquote>
 <h3 id="what-it-looks-like-in-a-real-workflow">What it looks like in a real workflow</h3>
 <p>Take year-over-year variance analysis. It's tempting to call the whole thing an AI use case. Break it into steps and a better design appears.</p>
-<p><img alt="Variance analysis as three lanes: the script calculates, an LLM drafts questions if permitted, and the accountant explains and approves" src="visuals/42_variance_swimlane.png" /></p>
+<p align="center"><img src="./visuals/42_variance_swimlane.png" alt="Variance analysis as three lanes: the script calculates, an LLM drafts questions if permitted, and the accountant explains and approves" width="430"></p>
+
 <p>The script checks the files, calculates the changes, and applies the materiality thresholds. An LLM, if permitted, can help draft questions for the account owner. But the model should not invent the reason travel expense went up 27 percent.</p>
 <p><strong>Python calculates the 27 percent. AI suggests questions. The accountant finds, supports, and owns the explanation.</strong></p>
 <p>The process is neither "AI-driven" nor "deterministic." It is a controlled workflow containing different kinds of work. (The step-by-step breakdown is in <a href="technical-appendix/#4-a-real-workflow-step-by-step">the technical appendix</a>.)</p>
