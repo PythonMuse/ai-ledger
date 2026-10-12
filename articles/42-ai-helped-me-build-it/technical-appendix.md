@@ -123,6 +123,8 @@ The article classifies each step as rules, patterns, language, or judgment. Here
 3. **Does it require interpreting language or context?** Yes → consider an LLM, subject to data restrictions, validation, and review.
 4. **Do reliable historical examples hold a pattern we can't write as rules?** Yes → consider machine learning. No → keep it human-led or redesign.
 
+> **Two kinds of pattern-finding:** Machine learning comes in two broad flavors. **Supervised** learning trains on past examples where you already know the answer: these receivables went delinquent, those didn't. It then predicts the answer for new ones. **Unsupervised** learning has no answer key. It looks for structure on its own, such as grouping similar vendors or flagging journal entries that look unlike the rest. That second kind is behind many "find the unusual items" tools. Either way, the step still needs a person to decide what a flag means.
+
 **Then apply two control questions to every option**, whatever you chose:
 
 5. **Does the step involve judgment, approval, restricted data, or contractual limitations?** Yes → a qualified person stays responsible, whatever technology prepared the work.
