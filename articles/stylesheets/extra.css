@@ -118,3 +118,13 @@
 .md-content table tr:nth-child(even) {
   background-color: rgba(15, 123, 108, 0.05);
 }
+
+/* Article 42+ visuals are built at true slide size (13.33 x 7.5 in) so their
+   text is large; at full column width they dominate the page. Show them at
+   half the 860px column instead. */
+.md-content img[src*="visuals/42_"] {
+  display: block;
+  width: 430px;
+  max-width: 100%;
+  margin: 0 auto;
+}

@@ -7,7 +7,7 @@
 **PythonMuse LLC**
 *Published October 2026*
 
-![Build time vs. run time: AI helps design and test the workflow, then the approved script runs every month without it](./visuals/42_hero.png)
+<p align="center"><img src="./visuals/42_hero.png" alt="Build time vs. run time: AI helps design and test the workflow, then the approved script runs every month without it" width="430"></p>
 
 ---
 
@@ -52,7 +52,7 @@ AI can help an accountant translate an existing procedure into an Excel formula,
 
 **AI helped build it. AI does not have to run it.**
 
-![Asking the chatbot every month vs. building it once](./visuals/42_chatbot_vs_build.png)
+<p align="center"><img src="./visuals/42_chatbot_vs_build.png" alt="Asking the chatbot every month vs. building it once" width="430"></p>
 
 | Asking the chatbot every month | Building it once |
 |---|---|
@@ -139,7 +139,7 @@ A bank reconciliation, a variance analysis, or a journal-entry process is rarely
 
 So break the process into steps, and classify the work inside each one. Four categories are a good start: **rules, patterns, language, and judgment.**
 
-![Four kinds of work: rules, patterns, language, and judgment, with example tools for each](./visuals/42_four_kinds_of_work.png)
+<p align="center"><img src="./visuals/42_four_kinds_of_work.png" alt="Four kinds of work: rules, patterns, language, and judgment, with example tools for each" width="430"></p>
 
 - **Rules:** *Can we state exactly how the result is calculated?* Aging buckets, allocations, matching criteria, thresholds. Deterministic automation follows the rules; AI can help build it. (The same idea runs through [Don't Trust the Model to Find What You Already Know Is There](../23-schema-driven-sanitization/README.md).)
 - **Patterns:** *Do past examples hold a relationship we can't write down?* That may be machine learning, such as estimating which receivables are likely to go delinquent. The difference from a rule is where the logic came from: a person wrote it, or the data taught it. Machine learning deserves its own article.
@@ -148,7 +148,7 @@ So break the process into steps, and classify the work inside each one. Four cat
 
 Before any of that, ask whether the step is still necessary. Automating a process nobody understands is just an efficient way to produce confusion on schedule.
 
-![A decision tree for each process step: four questions to choose an approach, and a person stays accountable for every option](./visuals/42_decision_tree.png)
+<p align="center"><img src="./visuals/42_decision_tree.png" alt="A decision tree for each process step: four questions to choose an approach, and a person stays accountable for every option" width="430"></p>
 
 Whatever you choose for a step, a person stays accountable, and you define the evidence that it worked before you build it.
 
@@ -160,7 +160,7 @@ Whatever you choose for a step, a person stays accountable, and you define the e
 
 Take year-over-year variance analysis. It's tempting to call the whole thing an AI use case. Break it into steps and a better design appears.
 
-![Variance analysis as three lanes: the script calculates, an LLM drafts questions if permitted, and the accountant explains and approves](./visuals/42_variance_swimlane.png)
+<p align="center"><img src="./visuals/42_variance_swimlane.png" alt="Variance analysis as three lanes: the script calculates, an LLM drafts questions if permitted, and the accountant explains and approves" width="430"></p>
 
 The script checks the files, calculates the changes, and applies the materiality thresholds. An LLM, if permitted, can help draft questions for the account owner. But the model should not invent the reason travel expense went up 27 percent.
 
