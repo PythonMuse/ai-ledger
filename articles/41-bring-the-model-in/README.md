@@ -1,6 +1,6 @@
 # If the Data Can't Leave, Bring the Model In
 
-*Exploring local LLMs for valuation, M&A, and other confidential financial work*
+*Exploring local AI for valuation, M&A, and other confidential financial work*
 
 ---
 
@@ -11,206 +11,201 @@
 
 ---
 
-I recently had lunch with a valuation specialist. Think M&A transactions, securities and debt valuations, private-company financials, cap tables, and plenty of information that definitely should not accidentally find its way onto the internet. When our conversation turned to AI, it ended fairly quickly. The work is too confidential, and Excel is still where much of it happens.
+I recently had lunch with a valuation specialist. We talked about M&A transactions, private-company financial statements, debt and securities valuations, and all the confidential information that comes with that work.
 
-That is a perfectly reasonable concern. In valuation work, confidentiality is not a nice-to-have control. It is part of the product. But on the drive home, I kept wondering whether it should have been the end of the AI conversation or the beginning of a different one. Every hour a specialist spends locating, comparing, and reformatting information is an hour not spent doing what they were hired to do: analyze.
+When our conversation turned to AI, it ended fairly quickly. The information was simply too confidential, and Excel was still doing much of the heavy lifting.
 
-That is the tension: the data may be too valuable to expose, but the specialist's time is also too valuable to waste.
+I understood the concern. In valuation work, protecting client information is part of the job.
 
-Maybe the question is not, "Can we use AI?" Maybe the better question is, "Where does the AI need to run?"
+But on my drive home, I kept thinking about that conversation. How much time do valuation professionals spend finding documents, comparing agreements, checking information, and preparing files before they even get to the analysis?
 
-Local does not necessarily mean installing an AI model on every employee's laptop. It means running the model in an environment the company controls: perhaps a dedicated workstation, an internal server, a private data center, or another isolated environment. Employees can still use it through a normal browser or internal application, because the model can run centrally for many people. The trade-off is that local means more control and more responsibility. Someone has to manage the infrastructure, access, updates, and testing.
+Their expertise is valuable. Their time is valuable, too.
 
-> **📎 Quick definition: what "local" means.** A **large language model (LLM)** is the engine behind tools like ChatGPT, Claude, Gemini, and Copilot. Usually it runs on the provider's servers and you reach it over the internet. A **local model** runs on hardware your company controls instead, and most are **open-weight**: the model file is published so anyone can download and run it, under its own license.
+So perhaps we were asking the wrong question.
 
-And local is not the only secure option. Enterprise AI platforms can provide contractual, privacy, retention, and security protections that may be entirely appropriate. What matters is what your contracts, customers, [data classification](../06-safe-ai-data-workflows/README.md), and risk tolerance permit. That's the territory of [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/README.md).
+Instead of asking whether confidential financial work can use AI, perhaps we should ask **where the AI needs to run.**
 
-If an approved enterprise platform meets those requirements, great. If it does not, that does not automatically mean "no AI." It may simply mean the architecture needs to change.
+---
 
-> **🛠️ Reminder — this is a framework.** The worked examples in this series were built with the Claude extension in Visual Studio Code, because that is what our environment uses. Nothing in the method depends on that choice, and in this article, *where the model runs* is the whole point: a desktop app on an approved machine, a server your company runs, your own cloud account, or an enterprise subscription. The test is the same everywhere. This series teaches the framework, not the vendor.
+## What If We Bring AI to the Data?
+
+Most of us are familiar with AI applications such as ChatGPT, Claude, Gemini, and Copilot. Depending on the product and configuration, we send information to a service that processes it on the provider's systems.
+
+But that is not the only way to use AI.
+
+Some AI models can run directly on a company's computer or internal server. These are commonly called local models. An organization can also evaluate private cloud environments or enterprise AI platforms with specific contractual and security protections.
+
+These options are not identical. The right choice depends on what the company is permitted to do with its data, where that data may be processed, and what security controls are required.
+
+Running a model locally does not necessarily mean installing AI on every employee's laptop. A company could operate one centrally managed system that authorized employees access through an internal application.
+
+Of course, managing the system also becomes the company's responsibility.
+
+The important point is that confidential data does not automatically mean AI is off the table. It means we need to determine which arrangements are permitted before selecting a tool.
 
 ---
 
 ## Start With the Work, Not the Model
 
-This is where I think many AI conversations go backward.
+When organizations explore AI, I often see the conversation start with the technology.
 
-We start with: *"What model should we buy?"*
+Which model should we buy? Which one is the smartest? Do we need an expensive server?
 
-Instead, start with: *"What work are our people spending time on that AI may be able to help with?"*
+I would start somewhere else.
 
-For a valuation firm, I would not begin by asking AI to perform a valuation. There are plenty of lower-risk opportunities first.
+**What work are our professionals spending time on that AI could help them complete?**
 
-Consider the information surrounding a transaction or security valuation: financing agreements, debt documents, cap tables, term sheets, financial statements, historical workpapers, prior valuations, customer correspondence, and supporting market data.
+For a valuation firm, I would not begin by asking AI to calculate the value of a business.
 
-An AI system could help identify what documents arrived and what is missing. It could extract agreed-upon terms. It could compare this quarter's materials with the prior quarter and identify what changed. It could find the source supporting an assumption. It could flag inconsistencies between a cap table and a transaction document.
+I would look at the work surrounding the valuation.
 
-It could also help an analyst locate similar historical work without spending twenty minutes opening folders named things like "FINAL," "FINAL2," and my personal favorite, "FINAL_USE_THIS_ONE."
+Think about the number of documents a specialist may need to review: financial statements, financing agreements, ownership records, prior valuations, correspondence, and supporting schedules.
 
-None of this requires AI to replace valuation judgment. It requires AI to reduce the time professionals spend hunting for information.
+AI may be able to identify missing documents, locate important terms, compare current and prior agreements, or find the source supporting a particular assumption.
 
-> **Under the hood:** New to deal vocabulary? Term sheets, cap tables, liquidation preferences, and waterfalls are explained in one breath in [the technical appendix](./technical-appendix.md#1-valuation-terms-in-one-breath).
+It might even help an analyst find the correct file without opening folders named FINAL, FINAL2, and my personal favorite, FINAL_USE_THIS_ONE.
 
-This is not purely theoretical. IBM's [case study of Bay Point Advisors](https://www.ibm.com/case-studies/bay-point), an investment firm focused on private debt, describes a platform that lets clients ask questions of secure data rooms in plain language and get answers with citations back to the documents. Bay Point built it on a hosted enterprise model rather than a local one, which fits the point. The architecture has to match what the data allows, and AI is already reducing manual work around confidential private-market information.
+None of this requires AI to make a valuation decision.
 
----
-
-## Start With What You Did, Not What You Will Do
-
-Start with work you already completed successfully. Pick one narrow task from a prior engagement, such as a financing agreement from last year's closed transaction that a person processed by hand. Give it to the best model you are permitted to run, and compare the output with what the valuation professional actually produced.
-
-You do not need a server for this first check. A small model on an approved laptop is enough to learn whether the idea has legs.
-
-Most importantly, define "acceptable" before testing starts. The output may never match the manual work exactly, so the valuation specialist, not the person adjusting the prompts, sets the pass bar. And don't grade the model on the same engagements you used to tune it. You don't test a control with the sample you used to design it.
-
-> **Under the hood:** Which laptop, which model size, which licenses to read, how many engagements to use, and what to do when the local model falls short are all in [the technical appendix](./technical-appendix.md#2-running-your-first-local-test).
-
-> **Try it Monday:** Pick one closed engagement and one task. Give your co-pilot only the documents that engagement was authorized to use, and this prompt:
->
-> *"Using only these documents, identify the liquidation preference, the conversion terms, and the valuation date. For each one, name the document and section it came from. If a value is not stated, answer 'insufficient evidence' instead of estimating. Do not calculate anything."*
->
-> Then put the answers next to what your specialist actually concluded. The co-pilot retrieves; the specialist decides whether that was good enough.
+It requires AI to help professionals find, organize, and compare information so they can spend more time doing the analysis they were hired to do.
 
 ---
 
-## Your Work. Your Data. Your Acceptance Criteria.
+## Let Excel Keep Doing What Excel Does Best
 
-What you are really building is your own small exam: the same finished engagements, run through every model you're considering, graded against a pass bar set in advance.
+There is another distinction worth making before getting too excited about AI.
 
-![A scorecard with the pass bar set before testing: example results for a small and a large local model, where one invented citation fails the pass bar](./visuals/41_scorecard.png)
+Not every part of a financial process needs a language model.
 
-Then compare what actually matters:
+If a valuation requires a discounted cash flow calculation, a Black-Scholes model, or another established financial calculation, I would keep that work in validated Excel models or Python scripts.
 
-- **Did it get the answer right?**
-- **Did it cite the correct source?**
-- **Did it invent anything?**
-- **How often did an analyst have to correct it?**
-- **How much time did it save?**
-- **What did it cost to run?**
+These tools follow defined rules and produce repeatable results when the inputs and logic remain the same.
 
-Those numbers matter far more than whether somebody on the internet ranked Model A three points above Model B.
+AI can help locate information that belongs in the calculation. It can help organize the supporting documents or draft an explanation of the results.
 
-> **Run it for real:** The [Local LLM Test Kit](https://github.com/PythonMuse/pythonmuse-local-llm-test-kit) lets you practice on fictional, deliberately booby-trapped deals before you touch your own. One of its example models gets every answer right and still fails. What's in the kit, and how to build the same test from your own engagements, is in [the technical appendix](./technical-appendix.md#3-building-your-own-benchmark).
+But the calculation itself should remain in a tool designed for that purpose, and the valuation specialist should review the assumptions and conclusions.
 
----
+Think of the responsibilities this way:
 
-## Why a Smaller Model Might Be Enough
-
-This is where the use case becomes interesting.
-
-A local model may know less about the entire world than the strongest hosted model. But perhaps it does not need to know the entire world.
-
-If you are asking it:
-
-*"Using only these seven authorized documents, identify the liquidation preference, conversion terms, valuation date, and outstanding shares, and show me where each answer came from,"*
-
-then the most important information is already sitting inside the engagement folder.
-
-Likewise, if the model is weaker at complex arithmetic, that matters much less if Excel or Python performs the calculation.
-
-If it cannot hold an entire deal room in its head at once, that matters less if the system looks up only the documents relevant to the question and hands it those.
-
-If it occasionally tries to make things up, require citations and explicitly allow it to respond:
-
-*"I do not have enough evidence to answer this."*
-
-In other words, instead of asking whether a smaller local model can compete with the smartest AI system on earth, ask whether it can reliably perform your defined workflow.
-
-You do not need an AI that can debate philosophy, write a screenplay, and explain quantum mechanics if its actual job is to find the liquidation preference in seven documents.
-
-Those are two very different tests.
-
-> **Under the hood:** The look-it-up-first design (called retrieval, or RAG), the model's working memory (its context window), and why citations are the defense against made-up answers are explained in [the technical appendix](./technical-appendix.md#4-retrieval-context-windows-and-hallucination).
-
----
-
-## Let Excel Keep Doing What Excel Is Good At
-
-There is another distinction I would make early in any valuation AI project.
-
-Do not turn the LLM into the calculator simply because it can talk confidently about finance.
-
-If the workflow requires a DCF, a Black-Scholes model, a distribution waterfall, a discount rate calculation, or another repeatable valuation model, keep those calculations in validated tools such as Excel or Python. Those tools give the same answer every time for the same inputs. A model's answer can vary from run to run, which is exactly why [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) keeps the two apart. If Python still sounds like a different department, [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle introduction, and [The Workings Layer](../22-workings-layer-method/README.md) shows how it sits alongside the Excel files you can't change.
+**AI finds and organizes information. Excel or Python performs the calculations. The specialist applies professional judgment.**
 
 ![AI retrieves and cites. Excel and Python calculate. The specialist judges.](./visuals/41_division_of_labor.png)
 
-Let the AI help retrieve the inputs. Let validated code perform the calculation. Let AI help organize or explain the results. Then let the valuation specialist make the judgment and approve the conclusion.
+This distinction also helps explain why a smaller AI model might be sufficient.
 
-That is a much cleaner division of responsibilities. AI handles language, retrieval, and organization. Validated tools handle the math. The valuation specialist handles judgment.
+A local model may not have all the capabilities of the strongest cloud-based model. But does it need them?
 
-Excel does not need to be fired. It just may finally get a co-pilot.
+If its assignment is to find three specific terms in seven authorized documents and identify their sources, perhaps a smaller model can do that reliably.
+
+The question is not whether the model can do everything. The question is whether it can perform the specific task we need.
 
 ---
 
-## Local Does Not Mean Secure
+## Test It on Work You've Already Completed
 
-This part cannot be skipped.
+This is where I would begin the experiment.
 
-Putting a model on a server inside your building does not sprinkle cybersecurity fairy dust over it. You still need the usual controls: who can log in, what they can see, what gets logged, which model version is approved. A document can still contain instructions a local model will happily follow.
+Choose one narrow task from a completed engagement. Ideally, select something a specialist has already performed and reviewed.
 
-For valuation firms, I think one of the most important risks may actually be far less exciting than anything appearing in cybersecurity headlines: **cross-client retrieval**.
+For example, ask AI to identify key financing terms from a closed transaction.
 
-Imagine years of completed deals sitting in one AI knowledge base. An analyst asks:
+Then compare its answers with the documents and conclusions from the original engagement.
 
-*"Have we valued another security with terms like this?"*
+Before running the test, have the specialist decide what counts as acceptable performance.
 
-The AI finds a beautiful example.
+Was the answer correct? Did AI identify the right supporting document? Did it invent information that was not there? How many corrections were needed? Did the process actually save time after review?
 
-Unfortunately, it belongs to another confidential client engagement.
+**A correct answer supported by an invented citation is not a passing result.**
 
-The model did exactly what you asked. The system still failed.
+And do not use the same engagements for both improving the instructions and independently testing the results. Keep one group for practice and another for scoring.
+
+If the model fails, learn why. It might need better instructions, a different document preparation process, or a more capable model. Or perhaps the task is not suitable for AI yet.
+
+This is why I prefer testing on our own work rather than relying on public model rankings. The model that performs best in a general benchmark may not be the one that works best for a particular accounting or finance process.
+
+I created a [Local LLM Test Kit](https://github.com/PythonMuse/pythonmuse-local-llm-test-kit) with fictional valuation documents, sample responses, and a scoring method to demonstrate this process.
+
+One illustrative example gets every answer right but still fails because it cites a document that does not exist.
+
+![A scorecard with the pass bar set before testing: example results for a small and a large local model, where one invented citation fails the pass bar](./visuals/41_scorecard.png)
+
+The lesson is simple: **we need to test both the answer and the evidence supporting it.**
+
+---
+
+## Local Does Not Automatically Mean Secure
+
+Here is where the conversation gets more serious. Moving AI inside your company's environment does not automatically make it secure. You still need to control who can use it, which documents they can access, what information gets recorded, and how changes to the system are managed.
+
+Consider a valuation firm with years of confidential engagements stored in its document system. An analyst asks AI whether the firm has worked on a similar transaction before. AI finds an excellent example and provides a detailed answer.
+
+Unfortunately, the example belongs to another client whose information the analyst was not authorized to access. 
+
+The model answered the question. The system still failed.
 
 ![The permission filter has to sit before the model, not in the prompt](./visuals/41_cross_client.png)
 
-Professional firms already have a name for the control that should have stopped it: an **ethical wall**, or information barrier, the arrangement that keeps one client's confidential information away from people who shouldn't see it. In an AI system, that wall has to be enforced *before* the model receives anything. Once a document is in front of the model, it is too late to ask nicely.
+Professional services firms already understand the importance of keeping certain client information separate. AI does not eliminate that requirement.
 
-A prompt saying "Please respect customer confidentiality" is not an access control.
+The system must verify which documents a user is permitted to access **before those documents reach the model**.
 
-If that worked, we could probably replace half of cybersecurity with very polite Post-it notes.
+A prompt saying "respect client confidentiality" is not a security control. If polite instructions were enough, cybersecurity would be a much easier profession.
 
-> **Under the hood:** The full local security checklist, model-version control, prompt injection, and how to enforce the ethical wall at the retrieval step are in [the technical appendix](./technical-appendix.md#5-the-local-security-checklist).
+There are other risks, too. Confidential information can appear in logs, software may have network connections, and documents can contain instructions intended to manipulate the AI.
+
+These are reasons to design and test the environment carefully, not reasons to assume local AI is automatically safe.
+
+The same [ONBOARD framework](../35-onboard-ai-workflows/README.md) applies here: define the task, approve the environment and instructions, limit access, test the results, preserve evidence, and document what was approved.
+
+Running a model locally gives an organization more control over some aspects of the system. It also gives the organization more responsibility for operating it.
 
 ---
 
-## ONBOARD It
+## Try It Before You Invest
 
-Local AI does not require a new philosophy of AI governance. The same [ONBOARD checklist](../35-onboard-ai-workflows/README.md) I use for every other AI workflow applies: one narrow task, the authorized documents and nothing else, a plan and pass bar approved before the first run, and a written record of the model version you approved.
+You do not need to begin with an expensive infrastructure project.
 
-Running a model locally gives you more control. It also gives you more responsibility. That trade-off needs to be intentional.
+Start by identifying one task and preparing a small set of fictional, redacted, or otherwise approved documents. If company policy permits, a small local model running on an approved computer can be useful for an initial experiment.
 
-> **Under the hood:** ONBOARD applied letter by letter to a local model is in [the technical appendix](./technical-appendix.md#6-onboard-applied-to-a-local-model).
+Give it a narrow assignment.
+
+For example:
+
+> Using only the approved documents, identify the key financing terms and valuation date. For each answer, identify the supporting document and section. If information is missing or inconsistent, flag it instead of guessing. Do not perform calculations or make valuation conclusions.
+
+Compare the results with a known answer key.
+
+If the idea works, expand the test before considering production use. Evaluate accuracy, reviewer effort, cost, security, and whether the technology can support the volume of work.
+
+If it does not work, you have learned something without investing in a full deployment. The goal is not to prove that AI belongs in every process. It is to determine where it can provide value without compromising the quality or confidentiality of the work.
 
 ---
 
 ## Maybe the Conversation Should Not Have Ended
 
-I understand why the AI conversation at lunch initially ended when confidential data came up.
+I understand why our AI conversation at lunch stopped when confidentiality came up. Protecting client information should always come first. But I keep coming back to the same question.
 
-That instinct is healthy. Protect the client first.
+Does confidential information mean we cannot use AI, or does it mean we need to consider a different way of using it?
 
-What I am questioning is what comes immediately after that.
+Local models have limitations. They require technical support, maintenance, security controls, and testing. They may not perform as well as stronger hosted models for every task.
 
-Sensitive information may mean a consumer AI product is inappropriate. It may mean a particular hosted AI service is inappropriate. It may mean a customer contract requires the data to stay somewhere very specific.
+Enterprise platforms may also be a suitable option when their protections meet the company's requirements. The decision should start with the work, the data, and the controls, not with excitement over a particular model.
 
-But it does not automatically mean AI is inappropriate.
+And Excel does not need to carry the entire workload alone for another twenty years.
 
-And it definitely does not mean Excel needs to carry the entire workload alone for another twenty years.
-
-Local models have limitations. They may be less capable than the strongest hosted systems. They require engineering and maintenance. Hardware costs money. Someone has to manage them. And local should never be confused with secure.
-
-Those are reasons to evaluate the technology carefully. They are not necessarily reasons to stop the conversation.
-
-For organizations whose most valuable information cannot, or should not, travel freely to an outside AI platform, perhaps the better question is the one I left lunch thinking about:
+Perhaps the next time I have that conversation, instead of ending it when someone says the data is too confidential, I will ask:
 
 **If the data cannot leave, what happens when we bring the model in?**
 
 ---
 
-Every product, license, and case-study claim in this article was checked against the provider's own documentation in October 2026. The full, dated list is in [the technical appendix](./technical-appendix.md#sources).
+*For readers who want to go further, the [technical appendix](./technical-appendix.md) covers model sizes, hardware, licensing, document retrieval, security controls, and how to build a testing process. The [companion test kit](https://github.com/PythonMuse/pythonmuse-local-llm-test-kit) provides fictional documents and examples for practice.*
+
+Every product, license, and case-study claim in this article and its appendix was checked against the provider's own documentation in October 2026. The full, dated list is in [the technical appendix](./technical-appendix.md#sources).
 
 ---
 
-**A note on how this article was made.** This article started with me. The lunch conversation with a valuation specialist, and the question I kept turning over on the drive home, are mine. This article was written in collaboration with Patrick Toohey. ChatGPT (Sol 5.6 High) helped us shape our notes into a first structured draft. Claude Sonnet and Claude Opus reviewed that draft and co-designed the practice test kit this article points to. Claude Code (Claude Opus 5.5) then built the final article and its technical appendix, the visuals, the test kit's runner and tests, and the site wiring, working from my direction and feedback at each step. That review is where the ONBOARD section was corrected to match the seven steps from Article 35. It is also where every product, license, and case-study claim was checked against the vendor's own documentation. I reviewed every output, pushed back on things I didn't like, and made all final content decisions. That process — bringing your own experience, using AI to build and iterate, and staying in the editorial seat throughout — is exactly what this series is about.
+**Author's note.** This article grew from my conversation with a valuation specialist and was written in collaboration with Patrick Toohey, with human and AI assistance. I reviewed the content, challenged the recommendations, and made the final editorial decisions.
 
 ---
 

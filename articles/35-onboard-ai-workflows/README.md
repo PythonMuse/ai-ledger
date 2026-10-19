@@ -455,7 +455,7 @@ This is not a promise that every future run will be perfect. Accounting environm
 
 The workflow should therefore continue to include human review, validation, and controlled updates. Once a few cycles like this are behind you, the natural next step is [AI Routines for Accountants](../30-ai-routines-for-accountants/README.md) — a scheduled version of the same propose-review-approve pattern, run automatically instead of by hand.
 
-> **Related read:** For ONBOARD applied to a very different setting, a model running on hardware the company controls for confidential valuation work, see [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/technical-appendix.md#6-onboard-applied-to-a-local-model).
+> **Related read:** For ONBOARD applied to a very different setting, a model running on hardware the company controls for confidential valuation work, see [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/technical-appendix.md#7-onboard-applied-to-a-local-model).
 
 ---
 
