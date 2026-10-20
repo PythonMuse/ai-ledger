@@ -143,7 +143,7 @@ So break the process into steps, and classify the work inside each one. Four cat
 
 - **Rules:** *Can we state exactly how the result is calculated?* Aging buckets, allocations, matching criteria, thresholds. Deterministic automation follows the rules; AI can help build it. (The same idea runs through [Don't Trust the Model to Find What You Already Know Is There](../23-schema-driven-sanitization/README.md).)
 - **Patterns:** *Do past examples hold a relationship we can't write down?* That may be machine learning, such as estimating which receivables are likely to go delinquent. The difference from a rule is where the logic came from: a person wrote it, or the data taught it. Machine learning deserves its own article.
-- **Language:** *Does the work require interpreting or producing unstructured text?* This is where an LLM earns its keep: contract summaries, draft variance commentary. The flexibility is the feature, and the reason for validation. [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) covers what that looks like. An LLM is one kind of **decision model**: the method a step uses to reach its result. A written rule, a model trained on your history, and a qualified person are the others. Choosing the right one for each step gets its own article soon.
+- **Language:** *Does the work require interpreting or producing unstructured text?* This is where an LLM earns its keep: contract summaries, draft variance commentary. The flexibility is the feature, and the reason for validation. [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) covers what that looks like. An LLM is one kind of **decision model**: the method a step uses to reach its result. A written rule, a model trained on your history, and a qualified person are the others. Choosing the right one for each step is the subject of [Does This Decision Actually Need a Large Language Model?](../43-does-this-decision-need-an-llm/README.md).
 - **Judgment:** *Does it need professional accountability or a facts-and-circumstances call?* That stays with a qualified person. AI should not quietly inherit approval authority because it helped automate the steps leading up to the decision.
 
 Before any of that, ask whether the step is still necessary. Automating a process nobody understands is just an efficient way to produce confusion on schedule.
@@ -240,7 +240,7 @@ And sometimes it steps out of the production workflow entirely.
 
 AI maturity is not putting AI into more decisions. It is being deliberate about which method belongs in each step.
 
-Once the process is broken into rules, patterns, language, and judgment, the next question is: which decision model belongs in each step? That is a question for a future article in this series.
+Once the process is broken into rules, patterns, language, and judgment, the next question is: which decision model belongs in each step? That is the question [Does This Decision Actually Need a Large Language Model?](../43-does-this-decision-need-an-llm/README.md) takes up.
 
 ---
 
