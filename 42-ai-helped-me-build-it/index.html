@@ -1210,7 +1210,7 @@
   <span class="md-ellipsis">
     
   
-    41 Technical Appendix: Under the Hood
+    41 Technical Appendix
   
 
     
@@ -1877,7 +1877,63 @@
   <span class="md-ellipsis">
     
   
-    42 Technical Appendix: Under the Hood
+    42 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-does-this-decision-need-an-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Does This Decision Actually Need a Large Language Model?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-does-this-decision-need-an-llm/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    43 Technical Appendix
   
 
     
@@ -2611,7 +2667,7 @@
 <p>A large language model (LLM) works differently. It generates a response based on probabilities. Give it substantially the same instructions and data twice, and the wording, reasoning, classification, or conclusion may change.</p>
 <p>That flexibility is why LLMs are good at interpreting language and messy requests. It is also why their output needs validation. Neither approach is universally better; they are built for different kinds of work.</p>
 <blockquote>
-<p><strong>Under the hood:</strong> Library versions, hidden inputs like Excel's <code>TODAY()</code>, SQL's <code>ORDER BY</code>, and why you can't simply switch an AI model into "always give the same answer" mode are in <a href="technical-appendix/#2-why-same-rules-isnt-quite-enough">the technical appendix</a>.</p>
+<p><strong>Go deeper: the fine print on "deterministic."</strong> Library versions, hidden inputs like Excel's <code>TODAY()</code>, SQL's <code>ORDER BY</code>, and why you can't simply switch an AI model into "always give the same answer" mode are in <a href="technical-appendix/#2-why-same-rules-isnt-quite-enough">the technical appendix</a>.</p>
 </blockquote>
 <p>So the question is not <em>"Can we use AI for this process?"</em> The better question is: <strong>what kind of work happens inside each step of this process?</strong></p>
 <hr />
@@ -2626,7 +2682,7 @@
 <p>We built that script for this article as a small working demo: a handful of made-up payments, seeded with the tricky cases we could think of, plus the answer the script should produce. One pair it misses on purpose. Hold that thought.</p>
 <p>We also put the build step itself to the test. Same prompt, same model, two fresh sessions, each asked to write this script. We got two different scripts and two different answers: one reported two possible duplicates, the other one. The first turned two payments with blank invoice numbers into a "duplicate" of each other. The second quietly dropped them from testing and never said so. Both looked perfectly reasonable. That is fine at build time, because you test one version against a known answer, fix it, and freeze it. It is not fine if every month is a fresh session.</p>
 <blockquote>
-<p><strong>Under the hood:</strong> The code line by line, the two-session experiment side by side, the bug AI helped us write into our own first draft (and the test that caught it), and how to run the demo yourself are in <a href="technical-appendix/#1-the-duplicate-payment-script-line-by-line">the technical appendix</a>. New to scripts? <a href="../25-what-the-heck-is-a-script/">What the Heck Is a Script?</a> is the gentle on-ramp.</p>
+<p><strong>Go deeper: the demo, line by line.</strong> The code line by line, the two-session experiment side by side, the bug AI helped us write into our own first draft (and the test that caught it), and how to run the demo yourself are in <a href="technical-appendix/#1-the-duplicate-payment-script-line-by-line">the technical appendix</a>. New to scripts? <a href="../25-what-the-heck-is-a-script/">What the Heck Is a Script?</a> is the gentle on-ramp.</p>
 </blockquote>
 <hr />
 <h2 id="classify-each-step-not-the-whole-process">Classify Each Step, Not the Whole Process</h2>
@@ -2638,7 +2694,7 @@
 <ul>
 <li><strong>Rules:</strong> <em>Can we state exactly how the result is calculated?</em> Aging buckets, allocations, matching criteria, thresholds. Deterministic automation follows the rules; AI can help build it. (The same idea runs through <a href="../23-schema-driven-sanitization/">Don't Trust the Model to Find What You Already Know Is There</a>.)</li>
 <li><strong>Patterns:</strong> <em>Do past examples hold a relationship we can't write down?</em> That may be machine learning, such as estimating which receivables are likely to go delinquent. The difference from a rule is where the logic came from: a person wrote it, or the data taught it. Machine learning deserves its own article.</li>
-<li><strong>Language:</strong> <em>Does the work require interpreting or producing unstructured text?</em> This is where an LLM earns its keep: contract summaries, draft variance commentary. The flexibility is the feature, and the reason for validation. <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails</a> covers what that looks like. An LLM is one kind of <strong>decision model</strong>: the method a step uses to reach its result. A written rule, a model trained on your history, and a qualified person are the others. Choosing the right one for each step gets its own article soon.</li>
+<li><strong>Language:</strong> <em>Does the work require interpreting or producing unstructured text?</em> This is where an LLM earns its keep: contract summaries, draft variance commentary. The flexibility is the feature, and the reason for validation. <a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails</a> covers what that looks like. An LLM is one kind of <strong>decision model</strong>: the method a step uses to reach its result. A written rule, a model trained on your history, and a qualified person are the others. Choosing the right one for each step is the subject of <a href="../43-does-this-decision-need-an-llm/">Does This Decision Actually Need a Large Language Model?</a>.</li>
 <li><strong>Judgment:</strong> <em>Does it need professional accountability or a facts-and-circumstances call?</em> That stays with a qualified person. AI should not quietly inherit approval authority because it helped automate the steps leading up to the decision.</li>
 </ul>
 <p>Before any of that, ask whether the step is still necessary. Automating a process nobody understands is just an efficient way to produce confusion on schedule.</p>
@@ -2647,7 +2703,7 @@
 <p>Whatever you choose for a step, a person stays accountable, and you define the evidence that it worked before you build it.</p>
 <blockquote>
 <p><strong>Framework reminder:</strong> None of this depends on a particular tool. The same questions work whether the deterministic part ends up as an Excel formula, a Power Query, a SQL view, or a Python script, and whether the co-pilot helping you build it is Claude Code, OpenAI Codex, GitHub Copilot, or Copilot in Excel. The tool changes; the classification does not.</p>
-<p><strong>Under the hood:</strong> The full decision tree, all six questions, is in <a href="technical-appendix/#3-the-decision-tree-question-by-question">the technical appendix</a>, and there is a printable <a href="templates/step_decision_tree_card/">Step Decision Tree card</a> for the desk.</p>
+<p><strong>Go deeper: the full decision tree.</strong> The full decision tree, all six questions, is in <a href="technical-appendix/#3-the-decision-tree-question-by-question">the technical appendix</a>, and there is a printable <a href="templates/step_decision_tree_card/">Step Decision Tree card</a> for the desk.</p>
 </blockquote>
 <h3 id="what-it-looks-like-in-a-real-workflow">What it looks like in a real workflow</h3>
 <p>Take year-over-year variance analysis. It's tempting to call the whole thing an AI use case. Break it into steps and a better design appears.</p>
@@ -2704,7 +2760,7 @@
 <p>Sometimes it helps build the automation. Sometimes it interprets language. Sometimes it coordinates approved tools. Sometimes it prepares information for a decision.</p>
 <p>And sometimes it steps out of the production workflow entirely.</p>
 <p>AI maturity is not putting AI into more decisions. It is being deliberate about which method belongs in each step.</p>
-<p>Once the process is broken into rules, patterns, language, and judgment, the next question is: which decision model belongs in each step? That is a question for a future article in this series.</p>
+<p>Once the process is broken into rules, patterns, language, and judgment, the next question is: which decision model belongs in each step? That is the question <a href="../43-does-this-decision-need-an-llm/">Does This Decision Actually Need a Large Language Model?</a> takes up.</p>
 <hr />
 <h2 id="sources">Sources</h2>
 <p>Every provider-specific statement in this article was checked against the provider's own documentation in October 2026. The full, dated list is in <a href="technical-appendix/#sources">the technical appendix</a>.</p>

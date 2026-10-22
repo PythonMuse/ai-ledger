@@ -1,0 +1,2815 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/43-does-this-decision-need-an-llm/">
+      
+      
+        <link rel="prev" href="../42-ai-helped-me-build-it/technical-appendix/">
+      
+      
+        <link rel="next" href="technical-appendix/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Does This Decision Actually Need a Large Language Model? - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#does-this-decision-actually-need-a-large-language-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Does This Decision Actually Need a Large Language Model?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../17-skills-and-agents-for-accountants/" class="md-tabs__link">
+          
+  
+  
+  Skills & Automation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-three-mindsets-of-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The 3 Mindsets of AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-when-your-ai-enters-month-end-close-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Your AI Enters Month-End Close Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-ai-team-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stop Using One AI Like It Is Excel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ai-and-excel-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI and Excel Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-pdf-token-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PDF Token Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-excel-number-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Number Format Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-audit-ready-ai-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit-Ready AI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-zero-trust-ai-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-model-selection-is-a-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Selection Is an Accounting Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-when-the-invoice-gives-orders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When the Invoice Starts Giving Orders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-ai-workflow-customer-contract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Did Anyone Read the Customer Contract?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-buy-platform-own-accounting-logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buy the Platform. Own the Accounting Logic.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-builder-to-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Happens If You Win the Lottery?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-bring-the-model-in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If the Data Can't Leave, Bring the Model In
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-bring-the-model-in/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    41 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-version-control-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20a-final-v2-xlsx-disaster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20a. The FINAL_v2.xlsx Disaster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20b-git-in-accounting-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20b. Git Explained Using Accounting Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20c-finance-repo-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20c. How Finance Teams Should Structure AI Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20d-github-vs-shared-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20d. GitHub vs. The Shared Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20e-pull-requests-are-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20e. Pull Requests Are Internal Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20f-reproducible-financial-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20f. Reproducible Financial Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-ai-use-cases-and-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Use Cases and Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-one-time-to-repeatable-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Time to Repeatable Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-workings-layer-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Workings Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-schema-driven-sanitization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema-Driven Sanitization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-ai-helped-me-build-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Helped Me Build It. AI Does Not Have to Run It.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-ai-helped-me-build-it/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    42 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Does This Decision Actually Need a Large Language Model?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Does This Decision Actually Need a Large Language Model?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-decision-not-a-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Decision, Not a Conversation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-missing-middle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Missing Middle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-with-the-shape-of-the-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start With the Shape of the Answer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts-receivable-a-decision-without-an-essay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts Receivable: A Decision Without an Essay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts-payable-route-the-exception-dont-approve-the-invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts Payable: Route the Exception, Don't Approve the Invoice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-review-this-time-the-llm-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contract Review: This Time the LLM Wins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dont-forget-the-if-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Forget the IF Statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-workflow-several-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One Workflow, Several Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-probability-is-only-useful-with-a-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Probability Is Only Useful With a Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cheapest-model-is-not-the-cheapest-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cheapest Model Is Not the Cheapest Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fewer-words-same-obligations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fewer Words, Same Obligations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Model?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-one-bounded-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try One Bounded Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-next-stage-of-ai-maturity-may-be-less-impressive-to-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Next Stage of AI Maturity May Be Less Impressive to Watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    43 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Automation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills & Automation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-skills-and-agents-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills and Agents for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17b-your-first-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-ai-runs-before-you-log-in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI That Runs Before You Log In
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-multi-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Orchestration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-model-context-protocol-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Reports to Requests (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-what-the-heck-is-a-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What the Heck Is a Script?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-vscode-extensions-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VS Code Extensions for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-python-libraries-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-ai-routines-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Routines for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-metadata-is-the-label-maker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Is the Label Maker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-from-ai-answers-to-audit-trails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From AI Answers to Audit Trails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-copilot-only-approved-ai-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Copilot Is the Only Approved AI Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-onboard-ai-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Don't Just Prompt AI. ONBOARD It.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-decision-not-a-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Decision, Not a Conversation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-missing-middle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Missing Middle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-with-the-shape-of-the-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start With the Shape of the Answer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts-receivable-a-decision-without-an-essay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts Receivable: A Decision Without an Essay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts-payable-route-the-exception-dont-approve-the-invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts Payable: Route the Exception, Don't Approve the Invoice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-review-this-time-the-llm-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contract Review: This Time the LLM Wins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dont-forget-the-if-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Forget the IF Statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-workflow-several-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One Workflow, Several Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-probability-is-only-useful-with-a-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Probability Is Only Useful With a Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cheapest-model-is-not-the-cheapest-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cheapest Model Is Not the Cheapest Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fewer-words-same-obligations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fewer Words, Same Obligations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Model?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-one-bounded-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try One Bounded Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-next-stage-of-ai-maturity-may-be-less-impressive-to-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Next Stage of AI Maturity May Be Less Impressive to Watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="does-this-decision-actually-need-a-large-language-model">Does This Decision Actually Need a Large Language Model?</h1>
+<p><em>When accounting needs a choice, score, or probability instead of another paragraph</em></p>
+<hr />
+<p><strong>PythonMuse LLC</strong>
+<em>Published October 2026</em></p>
+<p align="center"><img src="./visuals/43_hero.png" alt="The paragraph vs. the decision: a long AI explanation next to a single label, Missing PO, 91 percent" width="430"></p>
+
+<hr />
+<h2 id="a-decision-not-a-conversation">A Decision, Not a Conversation</h2>
+<p>Your shared accounts receivable inbox gets 300 customer emails a week. Someone reads each one to decide which team should handle it: billing, sales, or receiving. A large language model (LLM) could read them all and write a thoughtful paragraph about every one. But nobody needs 300 paragraphs. They need 300 labels.</p>
+<p>A new variety of artificial intelligence (AI) has surfaced for exactly that job: the <strong>decision model</strong>. Microsoft and OpenAI both released one this month. Is it about cost? Performance? A philosophical shift in what AI should be? We will leave the philosophy to the conference panels. This article stays practical: <strong>when is a decision model the right tool for an accounting step, and when is a rule, an LLM, or a person the better choice?</strong> For readers who want to try it, <a href="technical-appendix/">the technical appendix</a> gets hands-on, with provider details, a scoring demo you can run, and a step-by-step practice walkthrough.</p>
+<p>It also continues a thread. <a href="../41-bring-the-model-in/">If the Data Can't Leave, Bring the Model In</a> asked where the model should run. <a href="../42-ai-helped-me-build-it/">AI Helped Me Build It. AI Does Not Have to Run It.</a> asked whether it needed to run at all, and sorted accounting work into four kinds: <strong>rules, patterns, language, and judgment.</strong> Rules we can encode. Language is where an LLM may have a real job. Judgment stays with the professional.</p>
+<p>But what if I can't write an exact rule, and I also don't need three thoughtful paragraphs about the model's feelings on my invoice? Maybe I just need:</p>
+<p><strong>Routine, review, or escalate?</strong></p>
+<p>Perhaps I need a decision, not a conversation.</p>
+<hr />
+<h2 id="the-missing-middle">The Missing Middle</h2>
+<p>The LLM's visibility makes our choices look binary: write the logic ourselves, or send it to an LLM. The decision model sits in the middle. It reads messy text the way an LLM does, but answers like a classifier. You give it the information and the answers it is allowed to give, and it hands back a choice, a yes-or-no probability, or a score on your scale. Microsoft and OpenAI each offer their own, and Vercel, a developer platform, offers several through a single connection.</p>
+<p>The answer might not be a paragraph at all. It might simply be:</p>
+<p><code>Missing purchase order — 91%</code></p>
+<p>Compare that with: "Based on my review of the correspondence, it appears that the payment delay is primarily related to the absence of a valid purchase order. I recommend contacting…"</p>
+<p>If the next step is to route the item to the purchase-order queue, the beautifully written paragraph is computationally impressive and operationally unnecessary.</p>
+<p>Accounting has enough paragraphs already.</p>
+<blockquote>
+<p><strong>Go deeper: what "decision model" means.</strong> One clarification keeps this honest: these models are not trained on your history. They take <em>your</em> categories as instructions with each request, which puts them between language and patterns. How that differs from traditional machine learning and from the broader use of "decision model," plus each provider's offering, release stage, and pricing, is in <a href="technical-appendix/#1-terminology-three-meanings-of-decision-model">the technical appendix</a>.</p>
+</blockquote>
+<hr />
+<h2 id="start-with-the-shape-of-the-answer">Start With the Shape of the Answer</h2>
+<p>Ignore the model names for a moment and look at the shape of the output the step needs.</p>
+<p align="center"><img src="./visuals/43_shape_of_answer.png" alt="Start with the shape of the answer: known rule, deterministic automation; pick from a known list, decision model; write or interpret, large language model; accountability, a qualified person" width="430"></p>
+
+<table>
+<thead>
+<tr>
+<th>What the work requires</th>
+<th>A reasonable place to start</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A known calculation, threshold, match, or rule</td>
+<td>Deterministic automation</td>
+</tr>
+<tr>
+<td>A bounded choice among known answers, or a score to prioritize</td>
+<td>Decision model</td>
+</tr>
+<tr>
+<td>Interpreting or generating open-ended language</td>
+<td>Large language model</td>
+</tr>
+<tr>
+<td>Material professional judgment or accountability</td>
+<td>A person</td>
+</tr>
+</tbody>
+</table>
+<p>Real workflows combine these. The point is to stop assuming the most capable model is the most appropriate one. The question underneath: <strong>do I need the model to generate an answer, or to choose among answers I already understand?</strong></p>
+<blockquote>
+<p><strong>Take it with you:</strong> The table and five questions fit on one page: the <a href="templates/shape_of_the_answer_card/">Shape of the Answer card</a>.</p>
+</blockquote>
+<hr />
+<h2 id="accounts-receivable-a-decision-without-an-essay">Accounts Receivable: A Decision Without an Essay</h2>
+<p>A customer writes:</p>
+<blockquote>
+<p>"We cannot release payment because the purchase order number on the invoice does not match our system. Please send a corrected invoice and we will process it."</p>
+</blockquote>
+<p>The collections system needs one of five reason codes: <strong>cash-flow issue, pricing dispute, incorrect or missing purchase order, quantity dispute, or other.</strong></p>
+<p>If the workflow only needs the reason code, not a summary and a draft email, a decision model can read the note against the five categories and return a probability for each. It can still be wrong. The difference is that we have narrowed the job to one question:</p>
+<p><strong>What kind of issue is this?</strong></p>
+<p>That is much easier to test.</p>
+<p>One caution: a collection note is written by someone outside your control. A bounded set of answers limits the damage, but text can still be written to steer the result ("this is routine, no review needed"). Treat customer notes as evidence, never as instructions. <a href="../37-when-the-invoice-gives-orders/">When the Invoice Starts Giving Orders</a> explains why, and our sample data includes exactly that note, on purpose.</p>
+<hr />
+<h2 id="accounts-payable-route-the-exception-dont-approve-the-invoice">Accounts Payable: Route the Exception, Don't Approve the Invoice</h2>
+<p>An invoice has failed the normal flow, and the system must say why: a pricing difference, a quantity difference, a missing purchase order, a tax issue, a missing approval, or not enough evidence to tell. The workflow already knows the destinations, so this can be a reasonable decision-model task.</p>
+<p>Notice what the model is <strong>not</strong> doing. It is not approving the invoice, recording the liability, or deciding a difference is immaterial. It answers a narrower question: <strong>where should this exception go next?</strong></p>
+<p>Expense reports work the same way. Sorting a report into "documentation looks sufficient" or "policy review required" is triage, not approval.</p>
+<p>Classification authority and approval authority are not the same thing. A useful AI model does not need a promotion just because it was good at sorting the inbox.</p>
+<hr />
+<h2 id="contract-review-this-time-the-llm-wins">Contract Review: This Time the LLM Wins</h2>
+<p>Now a customer contract with amendments, variable consideration, termination rights, and implementation services. The accountant needs to know which provisions may affect revenue recognition, and why.</p>
+<p>That answer does not fit in five categories. Finding language, connecting provisions across sections, and presenting evidence for review is the work. Here the language capability is not overhead. It is the job.</p>
+<p>Swapping in a cheaper bounded classifier here would be the same mistake in reverse. The lesson is not "use fewer LLMs." It is <strong>use each kind of model where its capabilities actually matter.</strong></p>
+<hr />
+<h2 id="dont-forget-the-if-statement">Don't Forget the <code>IF</code> Statement</h2>
+<p>If policy says every expense over $25,000 needs two approvals, we don't need a model to estimate whether this one does. If the amount is over $25,000 and the second approval is missing, route it for review. <a href="../42-ai-helped-me-build-it/">AI Helped Me Build It. AI Does Not Have to Run It.</a> made that point about LLMs; it applies equally to decision models.</p>
+<p>So the question is not <em>can a decision model replace the LLM?</em> It is still: <strong>what is the simplest reliable method for this step?</strong></p>
+<p>Sometimes that is a decision model. Sometimes it is a plain script: a short, saved set of instructions (in Excel, SQL, or Python) that does exactly what it did last month. (New to scripts? <a href="../25-what-the-heck-is-a-script/">What the Heck Is a Script?</a> is a good way to start learning.)</p>
+<hr />
+<h2 id="one-workflow-several-methods">One Workflow, Several Methods</h2>
+<p>The most useful outcome may be that we stop thinking of a process as belonging to one model at all.</p>
+<p align="center"><img src="./visuals/43_layered_workflow.png" alt="One accounts payable workflow, several methods: rules clear most invoices, a decision model routes the exceptions, an LLM reads the long threads, and a person approves" width="430"></p>
+
+<p>Rules clear most invoices without any model. A decision model routes the exceptions, an LLM reads the few long email threads, and a person keeps approval and accounting treatment. That is not an "LLM workflow." It is a controlled process. A less exciting description for the conference slide; a better one for the process owner.</p>
+<blockquote>
+<p><strong>Framework reminder:</strong> We use Claude Code in Visual Studio Code to build the harness: the worksheet, the scoring script, the routing rules. The decision itself could run on OpenAI's Decisions API (public beta), Microsoft-Decision-1 in Microsoft Foundry, or a decision model through Vercel AI Gateway. Claude has no native decision endpoint as of October 2026: it can return one category through structured output, but not a probability for each option. The framework travels with you.</p>
+</blockquote>
+<hr />
+<h2 id="a-probability-is-only-useful-with-a-plan">A Probability Is Only Useful With a Plan</h2>
+<p>Choosing the method is half the job. The other half is making sure it is safe, worth it, and allowed, starting with the number the model hands back.</p>
+<p>Most decision models return probabilities, and that creates a natural control.</p>
+<p align="center"><img src="./visuals/43_confidence_bands.png" alt="A probability needs a plan: 96 percent auto-routes, 78 percent goes to a person to confirm, a 47-42-11 split escalates to a person" width="430"></p>
+
+<p><code>Incorrect purchase order — 96%</code> might be allowed to route automatically. <code>Incorrect purchase order — 47%</code>, <code>Pricing dispute — 42%</code>, <code>Other — 11%</code> is a different situation. The useful feature is not the number; it is that the workflow decides in advance what happens at each level of uncertainty. Think of it like approval limits in an expense policy, except the trigger is the model's probability instead of a dollar amount. Each range of probabilities (a "band") gets its own rule: route automatically, ask a person to confirm, or hand it to a person to decide.</p>
+<p>Never copy the thresholds from an article, including this one. Vercel's documentation, which we cite because its AI Gateway connects software to many vendors' models and so takes no vendor's side, gives developers the same advice: "Choose thresholds from your own results and risk tolerance." And a number labeled "confidence" does not prove the model is right that often on <em>your</em> work. Only your own labeled examples can tell you that.</p>
+<p>Microsoft adds two caveats. Its model returns "numerical decisions without a written rationale," so the reviewer's evidence must come from elsewhere (<a href="../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails</a>). And scores can shift with the question's wording, so freeze and test the wording like any control setting.</p>
+<p>The model makes a recommendation. Deterministic logic controls what authority it gets. A person stays responsible for the consequential decision.</p>
+<blockquote>
+<p><strong>Go deeper: probability, confidence, and calibration.</strong> Probability vs. confidence vs. calibration, and two traps, are in <a href="technical-appendix/#3-probability-confidence-and-calibration">the technical appendix</a>. The <a href="templates/confidence_band_routing_policy/">routing policy template</a> defines the terms in plain English and leaves the thresholds blank on purpose.</p>
+</blockquote>
+<hr />
+<h2 id="the-cheapest-model-is-not-the-cheapest-process">The Cheapest Model Is Not the Cheapest Process</h2>
+<p>Several decision models charge only for input, because they don't generate long output. That matters when a workflow makes the same decision thousands of times.</p>
+<p>But the relevant measure is closer to <strong>cost per acceptable decision</strong>: model cost, plus review time, plus the cost of wrong routing and missed exceptions, divided by the decisions that came out right.</p>
+<p>A model that costs almost nothing but sends half the population to an accountant has not necessarily improved the process. In our synthetic example, the cheapest model produced the most expensive process. The right model is the one that performs acceptably on <strong>your work, your data, your consequences, and your acceptance criteria</strong>, not the one that wins a public benchmark.</p>
+<blockquote>
+<p><strong>Go deeper: cost per acceptable decision.</strong> An example with numbers is in <a href="technical-appendix/#4-cost-per-acceptable-decision-an-example">the technical appendix</a>; the <a href="templates/cost_per_acceptable_decision.xlsx">cost workbook</a> takes your own numbers.</p>
+</blockquote>
+<hr />
+<h2 id="fewer-words-same-obligations">Fewer Words, Same Obligations</h2>
+<p>A decision model doesn't solve confidentiality just because it writes fewer words. The questions from <a href="../41-bring-the-model-in/">If the Data Can't Leave, Bring the Model In</a> still apply: where does it run, what does the provider keep, and what do the contract and policy allow?</p>
+<p>It does create a chance to minimize data. An LLM built to summarize a customer issue might receive the whole email chain. If the real requirement is one of five reason codes, the step may need far less. Ask: <strong>what is the minimum evidence the model needs?</strong> The safest confidential field is still the one we never provided. (<a href="../23-schema-driven-sanitization/">Don't Trust the Model to Find What You Already Know Is There</a> shows how.)</p>
+<p>If policy rules out an LLM, the process need not stay manual: automate the rules, run the bounded classification on an approved decision model, and keep ambiguous items with people. (<a href="../33-copilot-only-approved-ai-tool/">When Copilot Is the Only Approved AI Tool</a> is that conversation.)</p>
+<p>But a decision model is <strong>not a loophole.</strong> A contract may restrict machine learning, automated decision-making, or external processing. Swapping model types does not make those obligations disappear. The restriction should start an architecture conversation, not a game of technology hide-and-seek.</p>
+<blockquote>
+<p><strong>Go deeper: contract and policy restrictions.</strong> What to check in the contract and policy is in <a href="technical-appendix/#5-contract-and-policy-restrictions">the technical appendix</a>, building on <a href="../38-ai-workflow-customer-contract/">Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?</a></p>
+</blockquote>
+<hr />
+<h2 id="why-this-model">Why This Model?</h2>
+<p>Approval reviews usually start with security, privacy, and the vendor. There is an earlier question: <strong>why is this the model being proposed?</strong></p>
+<p>If someone wants an LLM to sort collection notes into six categories, ask whether the task needs generation at all. If someone proposes a decision model for a contract-accounting conclusion, challenge that too. And for decisions about a person, such as a customer's credit, Microsoft's own guidance is not to let the score be the sole basis.</p>
+<p>Model selection is not about choosing the smaller model. It is about matching the method to the work, which makes it part of control design (<a href="../36-model-selection-is-a-control/">Model Selection Is an Accounting Control</a>).</p>
+<blockquote>
+<p><strong>Take it with you:</strong> The full review is the <a href="templates/model_selection_approval_checklist/">"Why This Model?" Approval Checklist</a>, which pairs with <a href="../35-onboard-ai-workflows/">Don't Just Prompt AI. ONBOARD It.</a></p>
+</blockquote>
+<hr />
+<h2 id="try-one-bounded-decision">Try One Bounded Decision</h2>
+<p>Start with one historical task where the answers are already known, such as old collection notes with final reason codes, or synthetic examples modeled on them. Define the allowed choices first. Then compare the model's answers with what actually happened, without letting it take any action.</p>
+<p>Watch the mistakes that matter. Sending a purchase-order issue to the pricing queue is a minor error a person will catch. Automatically clearing something that should have been investigated is a different kind of failure. Then ask: could a rule have solved it, and would an LLM have done materially better?</p>
+<blockquote>
+<p><strong>Use the worksheet:</strong> The <a href="templates/decision_model_pilot_worksheet.xlsx">Decision Model Pilot Worksheet</a> (<a href="templates/decision_model_pilot_worksheet.csv">CSV</a>) is pre-filled with 20 synthetic collection notes, and a <a href="score_predictions.py">scoring script</a> turns any provider's answers into accuracy by band, no API key needed. See <a href="technical-appendix/#6-scoring-a-pilot">the technical appendix</a>.</p>
+<p><strong>Go deeper: from pilot to production.</strong> A step-by-step walkthrough, from triaging a shared AR inbox to going live with controls, is in <a href="technical-appendix/#7-from-pilot-to-production-a-walkthrough">the technical appendix</a>.</p>
+</blockquote>
+<hr />
+<h2 id="the-next-stage-of-ai-maturity-may-be-less-impressive-to-watch">The Next Stage of AI Maturity May Be Less Impressive to Watch</h2>
+<p>The first wave of generative AI made intelligence visible. We typed a question and watched a model write.</p>
+<p>Decision models are almost the opposite. A good one quietly reads the information, returns a probability, and disappears into the workflow. No five-paragraph answer. No offer to "let me know if you would like me to create a table." Just:</p>
+<p><code>Policy review required — 94%</code></p>
+<p>That may not make an exciting chatbot demonstration. It may make a very useful accounting process.</p>
+<p><a href="../41-bring-the-model-in/">If the Data Can't Leave, Bring the Model In</a> asked where the model should run. <a href="../42-ai-helped-me-build-it/">AI Helped Me Build It. AI Does Not Have to Run It.</a> asked whether it needed to run at all. This one asks what kind of model belongs in the step when a model really is necessary.</p>
+<p>The goal is not to use smaller AI, or more AI. The goal is to become precise enough about the work that we know <strong>which kind of intelligence the process actually needs.</strong></p>
+<p>That may be what AI maturity looks like after the hype starts wearing off.</p>
+<hr />
+<p>Every provider-specific statement in this article was checked against the provider's own documentation in October 2026. The full, dated list is in <a href="technical-appendix/#sources">the technical appendix</a>.</p>
+<hr />
+<p><strong>Author's note.</strong> This article grew from the question left open in <em>AI Helped Me Build It. AI Does Not Have to Run It.</em>, which decision model belongs in each step, and was written in collaboration with Patrick Toohey, with human and AI assistance. I reviewed the content, challenged the recommendations, and made the final editorial decisions.</p>
+<hr />
+<p><em>Related: <a href="../41-bring-the-model-in/">If the Data Can't Leave, Bring the Model In</a> | <a href="../42-ai-helped-me-build-it/">AI Helped Me Build It. AI Does Not Have to Run It.</a> | <a href="../36-model-selection-is-a-control/">Model Selection Is an Accounting Control</a> | <a href="../37-when-the-invoice-gives-orders/">When the Invoice Starts Giving Orders</a> | <a href="technical-appendix/">Technical Appendix</a></em></p>
+<p><em>© 2026 PythonMuse LLC. Content licensed under <a href="../../LICENSE">CC BY-NC-SA 4.0</a>; code licensed under <a href="../../LICENSE-CODE">MIT</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
