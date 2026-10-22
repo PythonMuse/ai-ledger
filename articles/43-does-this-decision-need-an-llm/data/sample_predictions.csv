@@ -5,7 +5,7 @@ AR-003,pricing_dispute,0.95,
 AR-004,quantity_dispute,0.97,
 AR-005,purchase_order,0.92,
 AR-006,cash_flow,0.91,
-AR-007,purchase_order,0.47,annoying
+AR-007,purchase_order,0.47,minor
 AR-008,quantity_dispute,0.88,
 AR-009,cash_flow,0.71,
 AR-010,pricing_dispute,0.83,
@@ -17,5 +17,5 @@ AR-015,cash_flow,0.90,
 AR-016,pricing_dispute,0.89,
 AR-017,other,0.58,
 AR-018,purchase_order,0.93,
-AR-019,pricing_dispute,0.52,annoying
+AR-019,pricing_dispute,0.52,minor
 AR-020,other,,

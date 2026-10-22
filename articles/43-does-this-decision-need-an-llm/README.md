@@ -13,9 +13,11 @@
 
 ## A Decision, Not a Conversation
 
-For two articles I have been removing assumptions from the artificial intelligence (AI) conversation. [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md) asked where the model should run. [AI Helped Me Build It. AI Does Not Have to Run It.](../42-ai-helped-me-build-it/README.md) asked whether it needed to run at all, and sorted accounting work into four kinds: **rules, patterns, language, and judgment.**
+Your shared accounts receivable inbox gets 300 customer emails a week. Someone reads each one to decide which team should handle it: billing, sales, or receiving. A large language model (LLM) could read them all and write a thoughtful paragraph about every one. But nobody needs 300 paragraphs. They need 300 labels.
 
-Rules we can encode. Language is where a large language model (LLM) may have a real job. Judgment stays with the professional.
+A new variety of artificial intelligence (AI) has surfaced for exactly that job: the **decision model**. Microsoft and OpenAI both released one this month. Is it about cost? Performance? A philosophical shift in what AI should be? We will leave the philosophy to the conference panels. This article stays practical: **when is a decision model the right tool for an accounting step, and when is a rule, an LLM, or a person the better choice?** For readers who want to try it, [the technical appendix](./technical-appendix.md) gets hands-on, with provider details, a scoring demo you can run, and a step-by-step practice walkthrough.
+
+It also continues a thread. [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md) asked where the model should run. [AI Helped Me Build It. AI Does Not Have to Run It.](../42-ai-helped-me-build-it/README.md) asked whether it needed to run at all, and sorted accounting work into four kinds: **rules, patterns, language, and judgment.** Rules we can encode. Language is where an LLM may have a real job. Judgment stays with the professional.
 
 But what if I can't write an exact rule, and I also don't need three thoughtful paragraphs about the model's feelings on my invoice? Maybe I just need:
 
@@ -27,7 +29,7 @@ Perhaps I need a decision, not a conversation.
 
 ## The Missing Middle
 
-The LLM's visibility makes our choices look binary: write the logic ourselves, or send it to an LLM. But a newer kind of model is moving into the middle ground: the **decision model**. It reads messy text the way an LLM does, but answers like a classifier. You give it the information and the answers it is allowed to give, and it hands back a choice, a yes-or-no probability, or a score on your scale. Microsoft and OpenAI both launched one this month, and Vercel's AI Gateway offers several behind one API.
+The LLM's visibility makes our choices look binary: write the logic ourselves, or send it to an LLM. The decision model sits in the middle. It reads messy text the way an LLM does, but answers like a classifier. You give it the information and the answers it is allowed to give, and it hands back a choice, a yes-or-no probability, or a score on your scale. Microsoft and OpenAI each offer their own, and Vercel, a developer platform, offers several through a single connection.
 
 The answer might not be a paragraph at all. It might simply be:
 
@@ -39,9 +41,7 @@ If the next step is to route the item to the purchase-order queue, the beautiful
 
 Accounting has enough paragraphs already.
 
-One clarification keeps this honest. These decision models are not trained on your history. They are pretrained models that take *your* categories as instructions, so they sit between language and patterns. A model that truly learns from your own past data (traditional machine learning) is a different tool and deserves its own article.
-
-> **Under the hood:** How this differs from Article 42's broader use of "decision model," plus each provider's offering, release stage, and pricing, is in [the technical appendix](./technical-appendix.md#1-terminology-three-meanings-of-decision-model).
+> **Go deeper: what "decision model" means.** One clarification keeps this honest: these models are not trained on your history. They take *your* categories as instructions with each request, which puts them between language and patterns. How that differs from traditional machine learning and from the broader use of "decision model," plus each provider's offering, release stage, and pricing, is in [the technical appendix](./technical-appendix.md#1-terminology-three-meanings-of-decision-model).
 
 ---
 
@@ -106,67 +106,11 @@ Swapping in a cheaper bounded classifier here would be the same mistake in rever
 
 ## Don't Forget the `IF` Statement
 
-If policy says every expense over $25,000 needs two approvals, we don't need a model to estimate whether this one does. If the amount is over $25,000 and the second approval is missing, route it for review. Article 42 made that point about LLMs; it applies equally to decision models.
+If policy says every expense over $25,000 needs two approvals, we don't need a model to estimate whether this one does. If the amount is over $25,000 and the second approval is missing, route it for review. [AI Helped Me Build It. AI Does Not Have to Run It.](../42-ai-helped-me-build-it/README.md) made that point about LLMs; it applies equally to decision models.
 
 So the question is not *can a decision model replace the LLM?* It is still: **what is the simplest reliable method for this step?**
 
-Sometimes that is a decision model. Sometimes it is Python. I realize Python does not arrive with quite the same launch-event excitement, but it continues to cope remarkably well.
-
----
-
-## A Probability Is Only Useful With a Plan
-
-Most decision models return probabilities, and that creates a natural control.
-
-<p align="center"><img src="./visuals/43_confidence_bands.png" alt="A probability needs a plan: 96 percent auto-routes, 78 percent goes to a person to confirm, a 47-42-11 split escalates to a person" width="430"></p>
-
-`Incorrect purchase order — 96%` might be allowed to route automatically. `Incorrect purchase order — 47%`, `Pricing dispute — 42%`, `Other — 11%` is a different situation. The useful feature is not the number; it is that the workflow decides in advance what happens at each level of uncertainty.
-
-Never copy the thresholds from an article, including this one. Vercel's documentation puts it plainly: "Choose thresholds from your own results and risk tolerance." And a number labeled "confidence" does not prove the model is right that often on *your* work. Only your own labeled examples can tell you that.
-
-Microsoft adds two caveats. Its model returns "numerical decisions without a written rationale," so the reviewer's evidence must come from elsewhere ([From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md)). And scores can shift with the question's wording, so freeze and test the wording like any control setting.
-
-The model makes a recommendation. Deterministic logic controls what authority it gets. A person stays responsible for the consequential decision.
-
-> **Under the hood:** Probability vs. confidence vs. calibration, and two traps, are in [the technical appendix](./technical-appendix.md#3-probability-confidence-and-calibration). The [routing policy template](./templates/confidence_band_routing_policy.md) leaves the thresholds blank on purpose.
-
----
-
-## The Cheapest Model Is Not the Cheapest Process
-
-Several decision models charge only for input, because they don't generate long output. That matters when a workflow makes the same decision thousands of times.
-
-But the relevant measure is closer to **cost per acceptable decision**: model cost, plus review time, plus the cost of wrong routing and missed exceptions, divided by the decisions that came out right.
-
-A model that costs almost nothing but sends half the population to an accountant has not necessarily improved the process. In our synthetic example, the cheapest model produced the most expensive process. The right model is the one that performs acceptably on **your work, your data, your consequences, and your acceptance criteria**, not the one that wins a public benchmark.
-
-> **Under the hood:** The worked example is in [the technical appendix](./technical-appendix.md#4-cost-per-acceptable-decision-a-worked-example); the [cost workbook](./templates/cost_per_acceptable_decision.xlsx) takes your own numbers.
-
----
-
-## Fewer Words, Same Obligations
-
-A decision model doesn't solve confidentiality just because it writes fewer words. Article 41's questions still apply: where does it run, what does the provider keep, and what do the contract and policy allow?
-
-It does create a chance to minimize data. An LLM built to summarize a customer issue might receive the whole email chain. If the real requirement is one of five reason codes, the step may need far less. Ask: **what is the minimum evidence the model needs?** The safest confidential field is still the one we never provided. ([Don't Trust the Model to Find What You Already Know Is There](../23-schema-driven-sanitization/README.md) shows how.)
-
-If policy rules out an LLM, the process need not stay manual: automate the rules, run the bounded classification on an approved decision model, and keep ambiguous items with people. ([When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) is that conversation.)
-
-But a decision model is **not a loophole.** A contract may restrict machine learning, automated decision-making, or external processing. Swapping model types does not make those obligations disappear. The restriction should start an architecture conversation, not a game of technology hide-and-seek.
-
-> **Under the hood:** What to check in the contract and policy is in [the technical appendix](./technical-appendix.md#5-contract-and-policy-restrictions), building on [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/README.md)
-
----
-
-## Why This Model?
-
-Approval reviews usually start with security, privacy, and the vendor. There is an earlier question: **why is this the model being proposed?**
-
-If someone wants an LLM to sort collection notes into six categories, ask whether the task needs generation at all. If someone proposes a decision model for a contract-accounting conclusion, challenge that too. And for decisions about a person, such as a customer's credit, Microsoft's own guidance is not to let the score be the sole basis.
-
-Model selection is not about choosing the smaller model. It is about matching the method to the work, which makes it part of control design ([Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md)).
-
-> **Take it with you:** The full review is the ["Why This Model?" Approval Checklist](./templates/model_selection_approval_checklist.md), which pairs with [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md)
+Sometimes that is a decision model. Sometimes it is a plain script: a short, saved set of instructions (in Excel, SQL, or Python) that does exactly what it did last month. (New to scripts? [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is a good way to start learning.)
 
 ---
 
@@ -182,13 +126,73 @@ Rules clear most invoices without any model. A decision model routes the excepti
 
 ---
 
+## A Probability Is Only Useful With a Plan
+
+Choosing the method is half the job. The other half is making sure it is safe, worth it, and allowed, starting with the number the model hands back.
+
+Most decision models return probabilities, and that creates a natural control.
+
+<p align="center"><img src="./visuals/43_confidence_bands.png" alt="A probability needs a plan: 96 percent auto-routes, 78 percent goes to a person to confirm, a 47-42-11 split escalates to a person" width="430"></p>
+
+`Incorrect purchase order — 96%` might be allowed to route automatically. `Incorrect purchase order — 47%`, `Pricing dispute — 42%`, `Other — 11%` is a different situation. The useful feature is not the number; it is that the workflow decides in advance what happens at each level of uncertainty. Think of it like approval limits in an expense policy, except the trigger is the model's probability instead of a dollar amount. Each range of probabilities (a "band") gets its own rule: route automatically, ask a person to confirm, or hand it to a person to decide.
+
+Never copy the thresholds from an article, including this one. Vercel's documentation, which we cite because its AI Gateway connects software to many vendors' models and so takes no vendor's side, gives developers the same advice: "Choose thresholds from your own results and risk tolerance." And a number labeled "confidence" does not prove the model is right that often on *your* work. Only your own labeled examples can tell you that.
+
+Microsoft adds two caveats. Its model returns "numerical decisions without a written rationale," so the reviewer's evidence must come from elsewhere ([From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md)). And scores can shift with the question's wording, so freeze and test the wording like any control setting.
+
+The model makes a recommendation. Deterministic logic controls what authority it gets. A person stays responsible for the consequential decision.
+
+> **Go deeper: probability, confidence, and calibration.** Probability vs. confidence vs. calibration, and two traps, are in [the technical appendix](./technical-appendix.md#3-probability-confidence-and-calibration). The [routing policy template](./templates/confidence_band_routing_policy.md) defines the terms in plain English and leaves the thresholds blank on purpose.
+
+---
+
+## The Cheapest Model Is Not the Cheapest Process
+
+Several decision models charge only for input, because they don't generate long output. That matters when a workflow makes the same decision thousands of times.
+
+But the relevant measure is closer to **cost per acceptable decision**: model cost, plus review time, plus the cost of wrong routing and missed exceptions, divided by the decisions that came out right.
+
+A model that costs almost nothing but sends half the population to an accountant has not necessarily improved the process. In our synthetic example, the cheapest model produced the most expensive process. The right model is the one that performs acceptably on **your work, your data, your consequences, and your acceptance criteria**, not the one that wins a public benchmark.
+
+> **Go deeper: cost per acceptable decision.** An example with numbers is in [the technical appendix](./technical-appendix.md#4-cost-per-acceptable-decision-an-example); the [cost workbook](./templates/cost_per_acceptable_decision.xlsx) takes your own numbers.
+
+---
+
+## Fewer Words, Same Obligations
+
+A decision model doesn't solve confidentiality just because it writes fewer words. The questions from [If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md) still apply: where does it run, what does the provider keep, and what do the contract and policy allow?
+
+It does create a chance to minimize data. An LLM built to summarize a customer issue might receive the whole email chain. If the real requirement is one of five reason codes, the step may need far less. Ask: **what is the minimum evidence the model needs?** The safest confidential field is still the one we never provided. ([Don't Trust the Model to Find What You Already Know Is There](../23-schema-driven-sanitization/README.md) shows how.)
+
+If policy rules out an LLM, the process need not stay manual: automate the rules, run the bounded classification on an approved decision model, and keep ambiguous items with people. ([When Copilot Is the Only Approved AI Tool](../33-copilot-only-approved-ai-tool/README.md) is that conversation.)
+
+But a decision model is **not a loophole.** A contract may restrict machine learning, automated decision-making, or external processing. Swapping model types does not make those obligations disappear. The restriction should start an architecture conversation, not a game of technology hide-and-seek.
+
+> **Go deeper: contract and policy restrictions.** What to check in the contract and policy is in [the technical appendix](./technical-appendix.md#5-contract-and-policy-restrictions), building on [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/README.md)
+
+---
+
+## Why This Model?
+
+Approval reviews usually start with security, privacy, and the vendor. There is an earlier question: **why is this the model being proposed?**
+
+If someone wants an LLM to sort collection notes into six categories, ask whether the task needs generation at all. If someone proposes a decision model for a contract-accounting conclusion, challenge that too. And for decisions about a person, such as a customer's credit, Microsoft's own guidance is not to let the score be the sole basis.
+
+Model selection is not about choosing the smaller model. It is about matching the method to the work, which makes it part of control design ([Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md)).
+
+> **Take it with you:** The full review is the ["Why This Model?" Approval Checklist](./templates/model_selection_approval_checklist.md), which pairs with [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md)
+
+---
+
 ## Try One Bounded Decision
 
 Start with one historical task where the answers are already known, such as old collection notes with final reason codes, or synthetic examples modeled on them. Define the allowed choices first. Then compare the model's answers with what actually happened, without letting it take any action.
 
-Watch the mistakes that matter. Sending a purchase-order issue to the pricing queue is annoying. Automatically clearing something that should have been investigated is a different kind of failure. Then ask: could a rule have solved it, and would an LLM have done materially better?
+Watch the mistakes that matter. Sending a purchase-order issue to the pricing queue is a minor error a person will catch. Automatically clearing something that should have been investigated is a different kind of failure. Then ask: could a rule have solved it, and would an LLM have done materially better?
 
 > **Use the worksheet:** The [Decision Model Pilot Worksheet](./templates/decision_model_pilot_worksheet.xlsx) ([CSV](./templates/decision_model_pilot_worksheet.csv)) is pre-filled with 20 synthetic collection notes, and a [scoring script](./score_predictions.py) turns any provider's answers into accuracy by band, no API key needed. See [the technical appendix](./technical-appendix.md#6-scoring-a-pilot).
+
+> **Go deeper: from pilot to production.** A step-by-step walkthrough, from triaging a shared AR inbox to going live with controls, is in [the technical appendix](./technical-appendix.md#7-from-pilot-to-production-a-walkthrough).
 
 ---
 
@@ -202,7 +206,7 @@ Decision models are almost the opposite. A good one quietly reads the informatio
 
 That may not make an exciting chatbot demonstration. It may make a very useful accounting process.
 
-Article 41 asked where the model should run. Article 42 asked whether it needed to run at all. This one asks what kind of model belongs in the step when a model really is necessary.
+[If the Data Can't Leave, Bring the Model In](../41-bring-the-model-in/README.md) asked where the model should run. [AI Helped Me Build It. AI Does Not Have to Run It.](../42-ai-helped-me-build-it/README.md) asked whether it needed to run at all. This one asks what kind of model belongs in the step when a model really is necessary.
 
 The goal is not to use smaller AI, or more AI. The goal is to become precise enough about the work that we know **which kind of intelligence the process actually needs.**
 
@@ -214,7 +218,7 @@ Every provider-specific statement in this article was checked against the provid
 
 ---
 
-**Author's note.** This article grew from the question Article 42 left open, which decision model belongs in each step, and was written in collaboration with Patrick Toohey, with human and AI assistance. I reviewed the content, challenged the recommendations, and made the final editorial decisions.
+**Author's note.** This article grew from the question left open in *AI Helped Me Build It. AI Does Not Have to Run It.*, which decision model belongs in each step, and was written in collaboration with Patrick Toohey, with human and AI assistance. I reviewed the content, challenged the recommendations, and made the final editorial decisions.
 
 ---
 

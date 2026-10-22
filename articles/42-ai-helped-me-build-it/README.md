@@ -101,7 +101,7 @@ A large language model (LLM) works differently. It generates a response based on
 
 That flexibility is why LLMs are good at interpreting language and messy requests. It is also why their output needs validation. Neither approach is universally better; they are built for different kinds of work.
 
-> **Under the hood:** Library versions, hidden inputs like Excel's `TODAY()`, SQL's `ORDER BY`, and why you can't simply switch an AI model into "always give the same answer" mode are in [the technical appendix](./technical-appendix.md#2-why-same-rules-isnt-quite-enough).
+> **Go deeper: the fine print on "deterministic."** Library versions, hidden inputs like Excel's `TODAY()`, SQL's `ORDER BY`, and why you can't simply switch an AI model into "always give the same answer" mode are in [the technical appendix](./technical-appendix.md#2-why-same-rules-isnt-quite-enough).
 
 So the question is not *"Can we use AI for this process?"* The better question is: **what kind of work happens inside each step of this process?**
 
@@ -127,7 +127,7 @@ We built that script for this article as a small working demo: a handful of made
 
 We also put the build step itself to the test. Same prompt, same model, two fresh sessions, each asked to write this script. We got two different scripts and two different answers: one reported two possible duplicates, the other one. The first turned two payments with blank invoice numbers into a "duplicate" of each other. The second quietly dropped them from testing and never said so. Both looked perfectly reasonable. That is fine at build time, because you test one version against a known answer, fix it, and freeze it. It is not fine if every month is a fresh session.
 
-> **Under the hood:** The code line by line, the two-session experiment side by side, the bug AI helped us write into our own first draft (and the test that caught it), and how to run the demo yourself are in [the technical appendix](./technical-appendix.md#1-the-duplicate-payment-script-line-by-line). New to scripts? [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle on-ramp.
+> **Go deeper: the demo, line by line.** The code line by line, the two-session experiment side by side, the bug AI helped us write into our own first draft (and the test that caught it), and how to run the demo yourself are in [the technical appendix](./technical-appendix.md#1-the-duplicate-payment-script-line-by-line). New to scripts? [What the Heck Is a Script?](../25-what-the-heck-is-a-script/README.md) is the gentle on-ramp.
 
 ---
 
@@ -154,7 +154,7 @@ Whatever you choose for a step, a person stays accountable, and you define the e
 
 > **Framework reminder:** None of this depends on a particular tool. The same questions work whether the deterministic part ends up as an Excel formula, a Power Query, a SQL view, or a Python script, and whether the co-pilot helping you build it is Claude Code, OpenAI Codex, GitHub Copilot, or Copilot in Excel. The tool changes; the classification does not.
 
-> **Under the hood:** The full decision tree, all six questions, is in [the technical appendix](./technical-appendix.md#3-the-decision-tree-question-by-question), and there is a printable [Step Decision Tree card](./templates/step_decision_tree_card.md) for the desk.
+> **Go deeper: the full decision tree.** The full decision tree, all six questions, is in [the technical appendix](./technical-appendix.md#3-the-decision-tree-question-by-question), and there is a printable [Step Decision Tree card](./templates/step_decision_tree_card.md) for the desk.
 
 ### What it looks like in a real workflow
 

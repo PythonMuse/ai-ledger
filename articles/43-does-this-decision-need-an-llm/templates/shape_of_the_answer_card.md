@@ -16,7 +16,7 @@ Before you choose a model, look at the shape of the answer the step needs. Ask t
 | Interpreting or writing open-ended language | **Large language model (LLM)**, validated |
 | Material professional judgment or accountability | **A qualified person** |
 
-This is a starting point, not a hierarchy. Real workflows combine these, and some steps can be solved more than one way.
+This is a starting point, not a hierarchy. Real workflows combine these, and some steps can be solved more than one way. The table describes what *runs* the step each month. AI can still help *build and maintain* any of these, including the deterministic one ([AI Helped Me Build It. AI Does Not Have to Run It.](../../42-ai-helped-me-build-it/README.md)).
 
 ---
 
@@ -24,7 +24,7 @@ This is a starting point, not a hierarchy. Real workflows combine these, and som
 
 | # | Question | If yes |
 |---|---|---|
-| 1 | **Is the rule known?** Could you write it as an `IF` statement? | Encode the rule. No model needed. |
+| 1 | **Is the rule known?** Could you write it as an `IF` statement? | Encode the rule, and let your AI co-pilot help you build, test, and maintain it. No model needed to *run* it. |
 | 2 | **Can the outcomes be listed in advance?** Five reason codes, six queues, a 1-to-4 scale? | A decision model may fit. Add an "other" or "cannot tell" option. |
 | 3 | **Is open-ended language really needed?** Must the answer be *written*, or only *chosen*? | If it must be written, an LLM earns its place. If only chosen, it probably doesn't. |
 | 4 | **What is the minimum evidence?** Which fields does the step actually need to see? | Send only those. The safest confidential field is the one you never provide. |

@@ -225,37 +225,50 @@ def make_confidence_bands_slide():
 # ---------------------------------------------------------------------------
 # 4. Layered workflow: an AP funnel
 # ---------------------------------------------------------------------------
+NL = chr(10)
 LAYERS = [
-    ("RULES", "clear most invoices", 0.94, DEEP_NAVY, WARM_GLOW, WHITE),
-    ("DECISION MODEL", "routes the exceptions", 0.80, OCEAN_TEAL, WARM_GLOW,
-     WHITE),
-    ("LLM", "reads the long threads", 0.66, BRIGHT_TEAL, DEEP_NAVY,
+    ("RULES", "clear most" + NL + "invoices", DEEP_NAVY, WARM_GLOW, WHITE),
+    ("DECISION" + NL + "MODEL", "routes the" + NL + "exceptions", OCEAN_TEAL,
+     WARM_GLOW, WHITE),
+    ("LLM", "reads the" + NL + "long threads", BRIGHT_TEAL, DEEP_NAVY,
      DEEP_NAVY),
-    ("A PERSON", "approves", 0.52, GOLDEN_YELLOW, DEEP_NAVY, DEEP_NAVY),
+    ("A PERSON", "approves and" + NL + "owns the call", GOLDEN_YELLOW,
+     DEEP_NAVY, DEEP_NAVY),
 ]
 
 
 def draw_layered_workflow(ax, top, bottom):
-    by, bh, cy, ch = split_area(top, bottom)
-    gap = 0.02
+    """A left-to-right pipeline of four equal cards. Yellow is reserved for
+    the person; the takeaway band is navy so the two never compete."""
+    band_h = (top - bottom) * 0.17
+    cy = bottom + band_h + 0.04
+    ch = top - cy - 0.02
     n = len(LAYERS)
-    h = (ch - gap * (n - 1)) / n
-    for i, (name, what, w, fill, head_col, body_col) in enumerate(LAYERS):
-        y = cy + ch - (i + 1) * h - i * gap
-        x = 0.5 - w / 2
-        box(ax, x, y, w, h, fill)
-        ax.text(x + 0.03, y + h / 2, name, fontsize=28, fontweight="bold",
-                color=head_col, ha="left", va="center", zorder=4)
-        ax.text(x + w - 0.03, y + h / 2, what, fontsize=BODY_PT,
-                color=body_col, ha="right", va="center", zorder=4)
-    band(ax, "Not an “LLM workflow.” A controlled one.", by, bh,
-         size=30)
+    left, right = 0.03, 0.97
+    w = 0.200
+    gap = (right - left - n * w) / (n - 1)
+    for i, (name, what, fill, head_col, body_col) in enumerate(LAYERS):
+        x = left + i * (w + gap)
+        box(ax, x, cy, w, ch, fill)
+        ax.text(x + w / 2, cy + ch * 0.68, name, fontsize=28,
+                fontweight="bold", color=head_col, ha="center", va="center",
+                linespacing=1.15, zorder=4)
+        ax.text(x + w / 2, cy + ch * 0.30, what, fontsize=BODY_PT,
+                color=body_col, ha="center", va="center", linespacing=1.2,
+                zorder=4)
+        if i < n - 1:
+            ay = cy + ch / 2
+            arrow(ax, (x + w + 0.006, ay), (x + w + gap - 0.006, ay))
+    box(ax, 0.03, bottom, 0.94, band_h, DEEP_NAVY)
+    ax.text(0.5, bottom + band_h / 2, "Not an “LLM workflow.” A controlled one.",
+            fontsize=30, fontweight="bold", color=WARM_GLOW, ha="center",
+            va="center", zorder=4)
 
 
 def make_layered_workflow():
     fig, ax = framed_slide(
         "One Workflow, Several Methods",
-        "Accounts payable: each layer does what it is built for.", FOOTER)
+        "Accounts payable: each step does what it is built for.", FOOTER)
     draw_layered_workflow(ax, FRAME_CONTENT_TOP, FRAME_CONTENT_BOTTOM)
     save_slide(fig, str(OUT / "43_layered_workflow.png"))
 
@@ -309,25 +322,50 @@ def social_header(fig, title, subtitle, header_h=0.300, title_size=56):
 
 
 def make_social_square():
-    """Square hero: the paragraph vs. the decision."""
+    """Square hero: the paragraph vs. the decision, as twin cards.
+
+    Both cards share one layout (label, body text in the same size and font,
+    a count line at the bottom) so they read as a comparison. The contrast is
+    the amount of text, not the typography."""
     fig, ax = blank_axes((13, 13))
-    social_header(fig, "Does this decision\nneed an LLM?",
+    social_header(fig, "Does this decision" + NL + "need an LLM?",
                   "Sometimes the workflow only needs the label.")
-    social_box(ax, (0.06, 0.445), 0.88, 0.215, LIGHT_GRAY)
-    ax.text(0.10, 0.615, "THE PARAGRAPH", fontsize=28, fontweight="bold",
-            color=OCEAN_TEAL, ha="left", va="center", zorder=4)
-    ax.text(0.10, 0.515,
-            "“Based on my review of the correspondence,\n"
-            "it appears the delay is primarily related to…”",
-            fontsize=27, style="italic", color=DEEP_NAVY, ha="left",
-            va="center", linespacing=1.3, zorder=4)
-    social_box(ax, (0.06, 0.205), 0.88, 0.205, DEEP_NAVY)
-    ax.text(0.10, 0.365, "THE DECISION", fontsize=28, fontweight="bold",
-            color=WARM_GLOW, ha="left", va="center", zorder=4)
-    ax.text(0.10, 0.268, "Missing PO", fontsize=52, fontweight="bold",
-            color=WHITE, ha="left", va="center", zorder=4)
-    ax.text(0.90, 0.268, "91%", fontsize=60, fontweight="bold",
-            color=GOLDEN_YELLOW, ha="right", va="center", zorder=4)
+    card_y, card_h, card_w = 0.215, 0.445, 0.425
+    lx, rx = 0.06, 0.515
+    label_y = card_y + card_h - 0.045
+    body_y = card_y + card_h - 0.095
+    count_y = card_y + 0.045
+    body_pt, label_pt, count_pt = 27, 24, 24
+
+    # Left: the paragraph
+    social_box(ax, (lx, card_y), card_w, card_h, LIGHT_GRAY)
+    ax.text(lx + 0.03, label_y, "THE PARAGRAPH", fontsize=label_pt,
+            fontweight="bold", color=OCEAN_TEAL, ha="left", va="center",
+            zorder=4)
+    ax.text(lx + 0.03, body_y,
+            NL.join(["Based on my review of", "the correspondence, it",
+                     "appears the payment", "delay is primarily", "related to the absence",
+                     "of a valid purchase", "order. I recommend..."]),
+            fontsize=body_pt, color=DEEP_NAVY, ha="left", va="top",
+            linespacing=1.3, zorder=4)
+    ax.text(lx + 0.03, count_y, "25 words, and counting", fontsize=count_pt,
+            fontweight="bold", color=OCEAN_TEAL, ha="left", va="center",
+            zorder=4)
+
+    # Right: the decision (same structure, same body size)
+    social_box(ax, (rx, card_y), card_w, card_h, DEEP_NAVY)
+    ax.text(rx + 0.03, label_y, "THE DECISION", fontsize=label_pt,
+            fontweight="bold", color=WARM_GLOW, ha="left", va="center",
+            zorder=4)
+    ax.text(rx + 0.03, body_y, "Missing" + NL + "purchase order",
+            fontsize=body_pt, fontweight="bold", color=WHITE, ha="left",
+            va="top", linespacing=1.3, zorder=4)
+    ax.text(rx + 0.03, body_y - 0.125, "91%", fontsize=body_pt * 2,
+            fontweight="bold", color=WHITE, ha="left", va="top", zorder=4)
+    ax.text(rx + 0.03, count_y, "1 label to route", fontsize=count_pt,
+            fontweight="bold", color=WARM_GLOW, ha="left", va="center",
+            zorder=4)
+
     social_box(ax, (0.06, 0.085), 0.88, 0.090, GOLDEN_YELLOW)
     ax.text(0.5, 0.130, "A decision, not a conversation.", fontsize=36,
             fontweight="bold", color=DEEP_NAVY, ha="center", va="center",

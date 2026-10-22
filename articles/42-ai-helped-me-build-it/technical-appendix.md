@@ -1,6 +1,6 @@
 # AI Helped Me Build It: The Technical Appendix
 
-*Under the hood of Article 42: the demo script line by line, the fine print on "deterministic," the full decision tree, a real workflow step by step, and how scripts, skills, agents, and harness controls fit together*
+*The technical appendix for _AI Helped Me Build It. AI Does Not Have to Run It._: the demo script line by line, the fine print on "deterministic," the full decision tree, a real workflow step by step, and how scripts, skills, agents, and harness controls fit together*
 
 ---
 

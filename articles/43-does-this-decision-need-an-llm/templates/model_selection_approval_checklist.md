@@ -40,7 +40,7 @@ It complements the model-selection checklist in [Model Selection Is an Accountin
 ## 5. Errors and uncertainty
 
 - [ ] How will errors be measured? Pilot reference: [ ]
-- [ ] What does a wrong answer cost? Annoying / costly / control failure.
+- [ ] What does a wrong answer cost? Minor / costly / control failure.
 - [ ] What happens when confidence is low? (Attach the [Confidence Band Routing Policy](./confidence_band_routing_policy.md).)
 - [ ] If the model returns no rationale, what evidence will the reviewer and the auditor rely on instead? (See [From AI Answers to Audit Trails](../../32-from-ai-answers-to-audit-trails/README.md).)
 - [ ] Has cost been assessed as cost per acceptable decision, including review time and errors, not just model price? (See the [cost workbook](./cost_per_acceptable_decision.xlsx).)

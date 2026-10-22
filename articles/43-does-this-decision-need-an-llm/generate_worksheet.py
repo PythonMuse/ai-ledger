@@ -176,7 +176,7 @@ PILOT_INSTRUCTIONS = [
     "3. Use synthetic or approved data only. Nothing confidential goes into an unapproved tool.",
     "4. For each item: record the known outcome, the model's choice, and its probability (leave probability blank if the tool gave none).",
     "5. Correct and Band fill in automatically. Band cut-offs live on the 'Settings' tab. They start as placeholders: set them from your own results.",
-    "6. For every wrong answer, record how bad it would have been: annoying (wrong queue, a person catches it), costly (delay, rework), or control failure (cleared with no review).",
+    "6. For every wrong answer, record how bad it would have been: minor (wrong queue, a person catches it), costly (delay, rework), or control failure (cleared with no review).",
     "7. Ask, for every row: could a written rule, an LLM, or a person have done this better? Some items never needed a model.",
     "8. Do not let the model take action during the pilot. You are measuring, not automating.",
     "",
@@ -242,7 +242,7 @@ def pilot_table(ws, rows, blank_rows=0):
                             allow_blank=True)
         dv.add(f"{col}{FIRST}:{col}{last}")
         ws.add_data_validation(dv)
-    dv_sev = DataValidation(type="list", formula1='"annoying,costly,control failure"',
+    dv_sev = DataValidation(type="list", formula1='"minor,costly,control failure"',
                             allow_blank=True)
     dv_sev.add(f"I{FIRST}:I{last}")
     ws.add_data_validation(dv_sev)

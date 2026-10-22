@@ -1,6 +1,6 @@
 # If the Data Can't Leave: The Technical Appendix
 
-*Under the hood of Article 41: where the model can run, how to choose and test one, the companion test kit, and the controls you still need*
+*The technical appendix for _If the Data Can't Leave, Bring the Model In_: where the model can run, how to choose and test one, the companion test kit, and the controls you still need*
 
 ---
 
