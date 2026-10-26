@@ -429,6 +429,7 @@ That is the exercise.
 - [Metadata Is the Label Maker Your AI Workflow Needs](../31-metadata-is-the-label-maker/README.md) — Label your files before your routines run on them; this article shows you how
 - [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) — When the routine produces output, this article covers how to validate it is actually supported
 - [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) — The starter method for your first controlled workflow, before you graduate it into a scheduled routine
+- [Let AI Do the Research. You Set the Boundaries.](../44-ai-research-boundaries/README.md) — Before a routine checks external guidance, decide where it may look, what it may rely on, and what evidence it must bring back
 
 ---
 
