@@ -280,6 +280,88 @@ def make_layered_workflow_slide():
 
 
 # ---------------------------------------------------------------------------
+# 5. Escalation flow: one customer email, three possible outcomes
+# ---------------------------------------------------------------------------
+def flow_box(ax, x, y, w, h, fill, head, body, head_col, body_col,
+             tight=False):
+    box(ax, x, y, w, h, fill)
+    hy, by = (0.72, 0.28) if tight else (0.66, 0.30)
+    ax.text(x + w / 2, y + h * hy, head, fontsize=28, fontweight="bold",
+            color=head_col, ha="center", va="center", zorder=4)
+    ax.text(x + w / 2, y + h * by, body, fontsize=BODY_PT, color=body_col,
+            ha="center", va="center", zorder=4)
+
+
+def arrow_label(ax, x, y, text):
+    ax.text(x, y, text, fontsize=BODY_PT, fontweight="bold", color=OCEAN_TEAL,
+            ha="center", va="center", zorder=6,
+            bbox=dict(boxstyle="round,pad=0.15", facecolor=WHITE,
+                      edgecolor="none"))
+
+
+def draw_escalation_flow(ax, top, bottom):
+    """A 3 x 2 grid. Left column: the steps (rule, decision model, LLM).
+    Right column: where each step sends the email. Yellow is reserved for the
+    person; the takeaway band is navy."""
+    band_h = (top - bottom) * 0.12
+    cy = bottom + band_h + 0.035
+    ch = top - cy
+    gap = 0.105
+    h = (ch - 2 * gap) / 3
+    ys = [cy + ch - (i + 1) * h - i * gap for i in range(3)]   # top to bottom
+    lx, lw = 0.03, 0.36
+    rx, rw = 0.61, 0.36
+
+    steps = [
+        ("1. Does a rule fit?", "e.g. remittance advice", LIGHT_GRAY, DEEP_NAVY, DEEP_NAVY),
+        ("2. Decision model", "reason code + probability", OCEAN_TEAL, WARM_GLOW, WHITE),
+        ("3. LLM, if allowed", "summarizes the thread", BRIGHT_TEAL, DEEP_NAVY, DEEP_NAVY),
+    ]
+    outcomes = [
+        ("Rule routes it", "no model needed", DEEP_NAVY, WARM_GLOW, WHITE),
+        ("Route to the team", "high probability", MIDNIGHT_TEAL, WARM_GLOW, WHITE),
+        ("A person decides", "and owns the call", GOLDEN_YELLOW, DEEP_NAVY, DEEP_NAVY),
+    ]
+    across = ["yes", "clear", ""]
+    down = ["no", "unclear"]
+    l_right, r_left = lx + lw + 0.008, rx - 0.008
+    for i in range(3):
+        y = ys[i]
+        head, body, fill, hc, bc = steps[i]
+        flow_box(ax, lx, y, lw, h, fill, head, body, hc, bc, tight=True)
+        head, body, fill, hc, bc = outcomes[i]
+        flow_box(ax, rx, y, rw, h, fill, head, body, hc, bc, tight=True)
+        arrow(ax, (l_right, y + h / 2), (r_left, y + h / 2))
+        if across[i]:
+            arrow_label(ax, (l_right + r_left) / 2, y + h / 2, across[i])
+        if i < 2:
+            arrow(ax, (lx + lw / 2, y - 0.006), (lx + lw / 2, ys[i + 1] + h + 0.006))
+            ax.text(lx + lw / 2 + 0.02, (y + ys[i + 1] + h) / 2, down[i],
+                    fontsize=BODY_PT, fontweight="bold", color=OCEAN_TEAL,
+                    ha="left", va="center", zorder=6)
+
+    box(ax, 0.03, bottom, 0.94, band_h, DEEP_NAVY)
+    ax.text(0.5, bottom + band_h / 2,
+            "The model sorts. A person keeps the hard calls.", fontsize=28,
+            fontweight="bold", color=WARM_GLOW, ha="center", va="center",
+            zorder=4)
+
+
+def make_escalation_flow():
+    fig, ax = framed_slide(
+        "One Customer Email, Three Outcomes",
+        "Rules, then a decision model, then an LLM, then a person.", FOOTER)
+    draw_escalation_flow(ax, FRAME_CONTENT_TOP, FRAME_CONTENT_BOTTOM)
+    save_slide(fig, str(OUT / "43_escalation_flow.png"))
+
+
+def make_escalation_flow_slide():
+    fig, ax = blank_slide()
+    draw_escalation_flow(ax, SLIDE_TOP, SLIDE_BOTTOM)
+    save_slide(fig, str(SLIDES_OUT / "43_escalation_flow_slide.png"))
+
+
+# ---------------------------------------------------------------------------
 # Social cards (1080 x 1080): a separate format, not size-checked
 # ---------------------------------------------------------------------------
 def social_footer(fig, y, size=20):
@@ -430,14 +512,16 @@ if __name__ == "__main__":
     make_shape_of_answer()
     make_confidence_bands()
     make_layered_workflow()
+    make_escalation_flow()
     # Optional header-less slide variants.
     make_hero_slide()
     make_shape_of_answer_slide()
     make_confidence_bands_slide()
     make_layered_workflow_slide()
+    make_escalation_flow_slide()
     # Social cards.
     make_social_square()
     make_social_paragraphs()
     make_social_cost_per_decision()
-    print("Generated 4 article visuals, 4 slide variants, and 3 social cards "
+    print("Generated 5 article visuals, 5 slide variants, and 3 social cards "
           "for Article 43.")
