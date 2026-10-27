@@ -22,7 +22,7 @@ Many tools control the two separately, and the difference matters: a boundary on
 
 ## 1. The Research Boundary Block
 
-Paste this into the standing instructions your tool reads before every task: a `CLAUDE.md` file in Claude Code ([Your First CLAUDE.md](../17b-your-first-claude-md/README.md) explains what that is), a skill, a custom GPT's instructions, a Gemini Gem, or a Copilot agent's instructions. Fill in the bracketed parts and delete the lines that don't apply.
+Paste this into the standing instructions your tool reads before every task: a `CLAUDE.md` file in Claude Code ([Your First CLAUDE.md](../17b-your-first-claude-md/README.md) explains what that is), a skill ([Skills and Agents for Accoutants](../17-skills-and-agents-for-accountants/README.md) explains what those are), a custom GPT's instructions, or a Copilot agent's instructions. Fill in the bracketed parts and delete the lines that don't apply.
 
 ```markdown
 ## Research boundary
