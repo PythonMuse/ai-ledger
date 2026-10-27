@@ -96,7 +96,7 @@ A research project that may search, but may only open pages from approved domain
 Three details worth knowing:
 
 - **Domain rules apply to fetching, not searching.** WebSearch is allowed, asked, or denied as a whole. The domain list controls which pages Claude may open.
-- **`domain:sec.gov` does not cover `www.sec.gov`.** A subdomain needs its own `*.` rule, which is why the example lists both.
+- **`domain:sec.gov` does not cover `www.sec.gov`.** A subdomain needs its own `*.` rule (e.g., *.sec.gov), which is why the example lists both.
 - **Fetch rules are not a network firewall.** If the AI may also run shell commands, it could reach a website another way. Anthropic's documentation recommends pairing the rules with the sandbox's network allowlist when the restriction must hold. Ask your IT team.
 
 ### Anthropic's Claude API
