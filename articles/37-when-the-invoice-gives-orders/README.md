@@ -378,6 +378,6 @@ The guidance referenced in this article is publicly available and worth reading 
 
 ---
 
-*Related: [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/README.md) | [From Reports to Requests](../34-model-context-protocol-for-accounting/README.md) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md)*
+*Related: [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [When to Trust AI to Run Your Accounting Workflows](../12-audit-ready-ai-workflows/README.md) | [How to Use AI Without Sending the Wrong Data](../06-safe-ai-data-workflows/README.md) | [From Reports to Requests](../34-model-context-protocol-for-accounting/README.md) | [Don't Just Prompt AI. ONBOARD It.](../35-onboard-ai-workflows/README.md) | [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) | [Let AI Do the Research. You Set the Boundaries.](../44-ai-research-boundaries/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*

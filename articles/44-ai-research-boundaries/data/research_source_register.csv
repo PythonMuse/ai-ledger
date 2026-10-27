@@ -1,0 +1,16 @@
+Source,Tier,May support a conclusion?,Permitted use confirmed by,Notes
+SEC rules and staff guidance (sec.gov),Authoritative,Yes,IT (public website; terms reviewed),Record the publication date and the date retrieved
+IRS guidance (irs.gov),Authoritative,Yes,IT (public website; terms reviewed),Check whether the guidance has been modified or superseded
+FASB Accounting Standards Codification (asc.fasb.org),Authoritative,"Yes, when read and cited by a person",Legal (terms of use),Free to read online; automated retrieval not approved while terms are under review
+IFRS Accounting Standards (ifrs.org),Authoritative,"Yes, when read and cited by a person",Legal (terms of use),Confirm terms before any automated retrieval
+Signed customer and vendor contracts (internal contract repository),Authoritative,"Yes, for the contract's own terms",Contract owner,Check the contract for limits on external or AI processing first
+Company accounting policy manual (internal),Authoritative,"Yes, for company policy",Controller,Use the current approved version only
+Approved accounting firm publications (approved list maintained by technical accounting),Interpretation,"For explanation; not as sole support",Technical accounting,Cite the authoritative source the publication relies on
+Tax research platform (paid subscription),Interpretation,"For explanation; not as sole support",Procurement (license terms),License does not permit bulk download or automated copying; read by a person only
+Market data service (paid subscription),Off-limits,No,Procurement (license terms),License restricts automated access and reuse; request approval before any AI workflow uses it
+Customer portal content,Off-limits,No,Contract owner,Customer contract does not permit processing by external AI services
+News websites,Discovery,No,Not required (discovery only),May point to an issue; find the primary source before relying on it
+LinkedIn and other social media posts,Discovery,No,Not required (discovery only),May point to an issue; never cited as support
+Reddit and other discussion forums,Discovery,No,Not required (discovery only),May point to an issue; never cited as support
+Personal and vendor blogs,Discovery,No,Not required (discovery only),Check the date; older posts may describe superseded guidance
+AI-generated summaries and answers,Discovery,No,Not required (discovery only),Trace every claim back to its source before use
