@@ -63,7 +63,7 @@ Imagine hiring a very fast researcher and giving this instruction:
 
 Most accountants would provide more direction.
 
-Start with the authoritative guidance. Use these professional resources for interpretation. Show me what supports your conclusion. Come back if the sources disagree.
+Start with the authoritative guidance. Use these professional resources for interpretation. Show me what supports your conclusion. Come back if any sources disagree.
 
 AI needs the same kind of boundary, because **finding a source and relying on a source are different things**.
 
@@ -81,7 +81,9 @@ Google ranking is not an accounting research hierarchy.
 
 Neither is the order in which an AI system happens to find information.
 
-If a primary source governs the issue, the workflow should be told that. That might be a rule from the SEC (the U.S. Securities and Exchange Commission), guidance from the IRS (the U.S. Internal Revenue Service), a standard from the FASB (the Financial Accounting Standards Board, which sets U.S. GAAP) or the IASB (the International Accounting Standards Board, which sets IFRS Accounting Standards), or the contract itself. Professional publications can still be extremely useful for explanation and interpretation.
+If an authoritative source governs the issue, the workflow should be told that. That might be a rule from the SEC (the U.S. Securities and Exchange Commission), guidance from the IRS (the U.S. Internal Revenue Service), a standard from the FASB (the Financial Accounting Standards Board, which sets U.S. GAAP) or the IASB (the International Accounting Standards Board, which sets IFRS Accounting Standards), or the contract itself. Professional publications can still be extremely useful for explanation and interpretation.
+
+Two words in this article sound alike, so here is how we use them. **Authoritative** describes the source: it governs the answer, like the rules and standards above. **Approved** describes your decision: the sources your team has signed off on for this workflow, which may include interpretation sources such as a firm's guide. Authoritative does not automatically mean approved. A paid database can be the most authoritative source in the world and still not be approved for an AI agent to copy from.
 
 The accountant simply needs to separate two questions:
 
@@ -103,11 +105,11 @@ A web page is written by someone outside your control, and some pages carry hidd
 
 ## Not Every Research Task Needs the Same Boundary
 
-The answer will depend on the work.
+How do we decide where AI may look? The answer will depend on the work.
 
 If I ask AI to find examples of how companies are discussing AI governance, broad web research may be completely appropriate. I am exploring. I want ideas and examples.
 
-If I ask AI to support a technical accounting conclusion, I may want research limited to authoritative sources and selected professional guidance.
+If I ask AI to support a technical accounting conclusion, I may want research limited to authoritative sources and approved professional guidance.
 
 If I am evaluating a transaction against our accounting policy and a set of approved technical documents, I may not want open-web research at all.
 
@@ -115,7 +117,7 @@ If I am evaluating a transaction against our accounting policy and a set of appr
 
 The important idea is simple: **the research boundary should match the purpose and risk of the task.**
 
-A more important task does not always need a more powerful AI model. Sometimes it needs a smaller research boundary. That is the same instinct behind [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) and [Does This Decision Actually Need a Large Language Model?](../43-does-this-decision-need-an-llm/README.md): match the method to the work, not to the most impressive option on the menu.
+A more important task does not always need a more powerful AI model. Sometimes it needs a more precise research boundary. That is the same instinct behind [Model Selection Is an Accounting Control](../36-model-selection-is-a-control/README.md) and [Does This Decision Actually Need a Large Language Model?](../43-does-this-decision-need-an-llm/README.md): match the method to the work, not to the most impressive option on the menu.
 
 ---
 
@@ -129,7 +131,9 @@ Accountants regularly use technical accounting databases, tax research platforms
 
 A subscription login is not automatically an invitation for an AI agent to copy everything behind it.
 
-Even free sources come with terms. The FASB Accounting Standards Codification, the official source of U.S. GAAP, has been free to read online since 2023, under terms of use set by its owner, the Financial Accounting Foundation. Free to read is not the same as free to feed into any workflow you like. (While we were writing this article, our own automated fetch tool was politely turned away at the Codification's door. That is not a legal opinion, but it is a hint that the owner has thought about automated access.) Many websites also publish a robots.txt file, a public note telling automated crawlers which pages they are asked not to visit.
+Even free sources come with terms. The FASB Accounting Standards Codification, the official source of U.S. GAAP, has been free to read online since 2023, under terms of use set by its owner, the Financial Accounting Foundation. Free to read is not the same as free to feed into any workflow you like. (While we were writing this article, our own automated fetch tool was politely turned away at the Codification's door. That is not a legal opinion, but it is a hint that the owner has thought about automated access.) Many websites also publish a robots.txt file, a public note telling automated crawlers which pages they are asked not to visit. Encourage your agents to observe those boundaries, even when they are technically able to bypass them.
+
+Some sites go a step further. An HTTP 402 "Payment Required" response tells an automated visitor that access has a price, and services such as Cloudflare's pay per crawl (in closed beta as of this writing) let publishers charge AI crawlers. If your research co-pilot runs into one, that is a question for whoever owns the budget and the license, not something for the AI to settle on its own.
 
 <p align="center"><img src="./visuals/44_trusted_vs_permitted.png" alt="A two-by-two grid of trusted or untrusted against permitted or not permitted; a paid research database copied wholesale by an AI agent sits in the trusted but not permitted cell" width="430"></p>
 
@@ -165,11 +169,11 @@ Compare that with:
 
 > Research this.
 
-<p align="center"><img src="./visuals/44_research_this_vs_boundary.png" alt="Side by side: the two-word prompt Research this, next to a boundary prompt naming primary sources, interpretation sources, excluded sources, and required evidence. Caption: same AI, same question, very different research" width="430"></p>
+<p align="center"><img src="./visuals/44_research_this_vs_boundary.png" alt="Side by side: the two-word prompt Research this, next to a boundary prompt naming authoritative sources, interpretation sources, excluded sources, and required evidence. Caption: same AI, same question, very different research" width="430"></p>
 
 Same AI. Same accounting question. Very different research process.
 
-> **Take it with you:** A generalized version of that prompt, ready to paste into a `CLAUDE.md` file (the standing instructions Claude Code reads before every task), a skill, or your tool's standing instructions, is the [Research Boundary block](./technical-appendix.md#1-the-research-boundary-block) in the technical appendix.
+> **Take it with you:** A generalized version of the preferred prompt, ready to paste into a `CLAUDE.md` file (the standing instructions Claude Code reads before every task), a skill, or your tool's standing instructions, is the [Research Boundary block](./technical-appendix.md#1-the-research-boundary-block) in the technical appendix.
 
 ---
 
@@ -182,11 +186,11 @@ Instructions shape what the AI *tries* to do. Settings decide what it *can* do. 
 | Claude Code in Visual Studio Code (our setup) | You or your administrator, in a settings file | Allow, ask before, or deny web search and web page fetching, and limit fetching to named domains such as sec.gov |
 | Anthropic's Claude API (for teams building their own tools) | The developer, on each request, or an administrator for the whole organization | Give web search and web fetch a list of allowed domains or a list of blocked ones |
 | OpenAI's API | The developer, on each request | Give web search up to 100 allowed domains or up to 100 blocked ones |
-| Microsoft 365 Copilot (which Microsoft is renaming Microsoft Copilot) | The IT administrator, through the "Allow web search in Copilot" policy, plus each user's Web content toggle | Turn web search on or off for the whole organization or for specific groups |
+| Microsoft Copilot (formerly Microsoft 365 Copilot) | The IT administrator, through the "Allow web search in Copilot" policy, plus each user's Web content toggle | Turn web search on or off for the whole organization or for specific groups |
 
-> **Framework reminder:** We use the Claude extension directly inside Visual Studio Code, so Claude Code's settings are our dial. Your organization may standardize on ChatGPT, Gemini, or Microsoft 365 Copilot instead. The five questions do not change; only the location of the switch does. We teach the framework; the dials live in different places in every tool. Product names and settings will keep moving, so check your own tool's documentation before you rely on any row above.
+> **Framework reminder:** We use the Claude extension directly inside Visual Studio Code, so Claude Code's settings are our dial. Your organization may standardize on ChatGPT, Gemini, or Microsoft Copilot instead. The five questions do not change; only the location of the switch does. We teach the framework; the dials live in different places in every tool. Product names and settings will keep moving, so check your own tool's documentation before you rely on any row above.
 
-> **Go deeper: the settings themselves.** An example Claude Code settings file for a "no web" project and a "research with a boundary" project, the API parameters, and the Microsoft admin path are in [the technical appendix](./technical-appendix.md#2-setting-the-dials).
+> **Go deeper: the settings themselves.** An example Claude Code settings file for a "no web" project (for example, bank reconciliation) and a "research with a boundary" project, the API parameters, and the Microsoft admin path are in [the technical appendix](./technical-appendix.md#2-setting-the-dials).
 
 ---
 
@@ -194,11 +198,13 @@ Instructions shape what the AI *tries* to do. Settings decide what it *can* do. 
 
 If AI performs the research, the evidence should come back with the answer.
 
-The reviewer may need the source name, the document, the publication date, **the date it was retrieved**, and the link. Web pages change, and guidance gets withdrawn. A page that said one thing in March may say something else in October. Where the terms allow it, keep a saved copy of what the AI actually read. That is the same habit [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) builds: keep the support separate from the conclusion, and keep it.
+The reviewer may need the source name, the document, the publication date, **the date it was retrieved**, and the link. Web pages change, and guidance gets withdrawn. A page that said one thing in March may say something else in October. Where the terms allow it, keep a saved copy of what the AI actually read. That is the same habit [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) builds: keep the support alongside the conclusion, filed so a reviewer can find it.
 
 <p align="center"><img src="./visuals/44_evidence_package.png" alt="A mock evidence log with columns for conclusion, source, published date, retrieved date, link, and tier. Caption: don't make the reviewer play detective" width="430"></p>
 
-And click the link. AI can cite a real page that does not say what the AI claims it says. A citation proves the page exists; only reading it proves the page supports that specific sentence. Open each source behind a significant conclusion and confirm it says what the memo says it says.
+And read the source yourself. AI can cite a real page that does not say what the AI claims it says. A citation proves the page exists; only reading it proves the page supports that specific sentence. Open each source behind a significant conclusion and confirm it says what the memo says it says.
+
+One caution: a web page is also where prompt injection lives, so use the same care with a link your research co-pilot hands you that you would with any link from a stranger. If a source does not look like one you would dare visit, do not cite it.
 
 A beautifully formatted AI response can make strong and weak sources look surprisingly similar.
 
@@ -242,6 +248,7 @@ Every provider-specific statement in this article was checked against the provid
 - OpenAI: [Web search guide](https://developers.openai.com/api/docs/guides/tools-web-search)
 - Microsoft: [Data, privacy, and security for web search in Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/manage-public-web-access)
 - Financial Accounting Foundation: [free online access to the FASB Codification](https://dart.deloitte.com/USDART/home/news/all-news/2023/feb/faf-access) (as reported by Deloitte's DART research library, February 2023) and the [Codification website](https://asc.fasb.org/)
+- Cloudflare: [What is pay per crawl?](https://developers.cloudflare.com/ai-crawl-control/features/pay-per-crawl/what-is-pay-per-crawl/) (closed beta at the time of writing)
 - IETF: [RFC 9309, the Robots Exclusion Protocol](https://www.rfc-editor.org/rfc/rfc9309.html)
 
 ---

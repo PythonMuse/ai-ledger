@@ -22,7 +22,7 @@ Many tools control the two separately, and the difference matters: a boundary on
 
 ## 1. The Research Boundary Block
 
-Paste this into the standing instructions your tool reads before every task: a `CLAUDE.md` file in Claude Code ([Your First CLAUDE.md](../17b-your-first-claude-md/README.md) explains what that is), a skill ([Skills and Agents for Accoutants](../17-skills-and-agents-for-accountants/README.md) explains what those are), a custom GPT's instructions, or a Copilot agent's instructions. Fill in the bracketed parts and delete the lines that don't apply.
+Paste this into the standing instructions your tool reads before every task: a `CLAUDE.md` file in Claude Code ([Your First CLAUDE.md](../17b-your-first-claude-md/README.md) explains what that is), a skill ([Skills and Agents for Accountants](../17-skills-and-agents-for-accountants/README.md) explains what those are), a custom GPT's instructions, or a Copilot agent's instructions. Fill in the bracketed parts and delete the lines that don't apply.
 
 ```markdown
 ## Research boundary
@@ -96,8 +96,8 @@ A research project that may search, but may only open pages from approved domain
 Three details worth knowing:
 
 - **Domain rules apply to fetching, not searching.** WebSearch is allowed, asked, or denied as a whole. The domain list controls which pages Claude may open.
-- **`domain:sec.gov` does not cover `www.sec.gov`.** A subdomain needs its own `*.` rule (e.g., *.sec.gov), which is why the example lists both.
-- **Fetch rules are not a network firewall.** If the AI may also run shell commands, it could reach a website another way. Anthropic's documentation recommends pairing the rules with the sandbox's network allowlist when the restriction must hold. Ask your IT team.
+- **`domain:sec.gov` does not cover `www.sec.gov`.** A subdomain needs its own `*.` rule (`*.sec.gov`), which is why the example lists both.
+- **Fetch rules are not a network firewall.** They stop Claude from opening a page directly, not from reaching a site another way, such as a terminal command. If the restriction must truly hold, ask your IT team.
 
 ### Anthropic's Claude API
 
@@ -109,7 +109,7 @@ Two features help the evidence package: web search always returns citations, and
 
 The web search tool in OpenAI's Responses API accepts a `filters` setting with up to 100 `allowed_domains` or up to 100 `blocked_domains`; subdomains are included. OpenAI's documentation notes that domain filtering is not available for the search models in its older Chat Completions API. The response can also list every URL the model consulted, which is often more than the ones it cited, a useful extra column for the evidence log.
 
-### Microsoft 365 Copilot (which Microsoft is renaming Microsoft Copilot)
+### Microsoft Copilot (formerly Microsoft 365 Copilot)
 
 The administrator's control is the **Allow web search in Copilot** policy, set in the Cloud Policy service for Microsoft 365. It applies to Copilot and Copilot Chat, can target the whole organization or specific groups, and has three settings: enabled in both, disabled in both, or disabled in Copilot's Work mode while enabled in Web mode and Copilot Chat. If an administrator doesn't configure it, web search is available by default, unless the broader "optional connected experiences" policy has been turned off. Microsoft's U.S. government clouds (GCC and DoD) are the exception: there, web search starts off. When the administrator allows web search, each user can still turn it off with the **Web content** toggle.
 
@@ -130,6 +130,7 @@ Both files are synthetic. The company, contracts, and dates in them are fictiona
 ### In plain English
 
 - **Authoritative:** the source that governs the answer. A standard, a regulation, a signed contract, your own approved policy.
+- **Approved:** not a tier but a decision. A source your team has signed off on for this workflow. Authoritative sources are usually approved, but authoritative does not automatically mean approved (a paid database may be authoritative and still not approved for automated use), and approved can include Interpretation sources.
 - **Interpretation:** a source that helps you understand the authoritative one, such as a firm's guide. Useful, but never the only support.
 - **Discovery:** a source that tells you something is worth looking into. News, social media, forums, blogs.
 - **Off-limits:** a source the workflow must not access, usually because the terms, a license, or a contract doesn't permit that use, however good the content.
@@ -160,7 +161,7 @@ One row per significant conclusion in a research memo. The example follows a fic
 | Link | Where to find it again, or where the saved copy is kept |
 | Tier | From the source register |
 
-Notice the LinkedIn row: it is logged because it is how the team found the issue, and its tier says it supports nothing.
+Notice the LinkedIn row in [evidence_log_example.csv](./data/evidence_log_example.csv): it is logged because it is how the team found the issue, and its tier says it supports nothing.
 
 ---
 
@@ -168,13 +169,14 @@ Notice the LinkedIn row: it is logged because it is how the team found the issue
 
 A citation proves a page exists. It doesn't prove the page says what the memo says. For each significant conclusion:
 
-1. Open the link yourself, not the AI's summary of it.
-2. Find the passage. Ask the AI for a short quotation and its location, then confirm it is really there.
-3. Check that the passage supports the *specific* sentence, not just the topic.
-4. Check the date. Is this the current version, or has it been amended, superseded, or withdrawn?
-5. Record the retrieved date, and save a copy where the terms allow.
+1. Decide whether the link is safe to visit.
+2. Open the link yourself, not the AI's summary of it.
+3. Find the passage. Ask the AI for a short quotation and its location, then confirm it is really there.
+4. Check that the passage supports the *specific* sentence, not just the topic.
+5. Check the date. Is this the current version, or has it been amended, superseded, or withdrawn?
+6. Record the retrieved date, and save a copy where the terms allow.
 
-If a source fails step 2 or 3, treat the conclusion as unsupported until it is re-researched, and tell whoever owns the workflow. A co-pilot that cites pages it didn't read needs a narrower boundary, not more trust.
+If a source fails step 3 or 4, treat the conclusion as unsupported until it is re-researched, and tell whoever owns the workflow. A co-pilot that cites pages it didn't read needs a narrower boundary, not more trust.
 
 ---
 
@@ -192,6 +194,7 @@ Every link below was checked in October 2026. Settings, limits, and product name
 - U.S. Securities and Exchange Commission — [Staff Accounting Bulletin No. 122](https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122): the example in the evidence log
 - IFRS Foundation — [IAS 37 Provisions, Contingent Liabilities and Contingent Assets](https://www.ifrs.org/issued-standards/list-of-standards/ias-37-provisions-contingent-liabilities-and-contingent-assets/)
 - Deloitte DART — [FAF Grants Free Online Access to FASB Codification and GARS](https://dart.deloitte.com/USDART/home/news/all-news/2023/feb/faf-access) (February 27, 2023); the [Codification website](https://asc.fasb.org/) turned away some of our automated requests while we were checking it, so open it in a browser
+- Cloudflare — [What is pay per crawl?](https://developers.cloudflare.com/ai-crawl-control/features/pay-per-crawl/what-is-pay-per-crawl/): how an HTTP 402 response carries a price to AI crawlers; closed beta at the time of writing
 - IETF — [RFC 9309, Robots Exclusion Protocol](https://www.rfc-editor.org/rfc/rfc9309.html): robots.txt rules are a request to crawlers and "not a form of access authorization"
 
 ---
