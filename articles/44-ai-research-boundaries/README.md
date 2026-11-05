@@ -236,7 +236,7 @@ AI can be a very fast research co-pilot.
 
 We just should not send it into the world's largest library without telling it which shelves we trust.
 
-And once we have decided where AI may look and what it may rely on, a new question waits on the other side: **what happened to that information after it entered the workflow?** That is where data lineage begins, and it is a conversation for another day.
+And once we have decided where AI may look and what it may rely on, a new question waits on the other side: **what happened to that information after it entered the workflow?** That is where data lineage begins, and [When AI Leaves the Sandbox: Why Data Lineage Becomes an Accounting Problem](../45-data-lineage-ai/README.md) picks up the trail.
 
 ---
 
@@ -257,6 +257,6 @@ Every provider-specific statement in this article was checked against the provid
 
 ---
 
-*Related: [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/README.md) | [Does This Decision Actually Need a Large Language Model?](../43-does-this-decision-need-an-llm/README.md) | [Technical Appendix](./technical-appendix.md)*
+*Related: [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [From AI Answers to Audit Trails](../32-from-ai-answers-to-audit-trails/README.md) | [Your AI Workflow Was Approved. Did Anyone Read the Customer Contract?](../38-ai-workflow-customer-contract/README.md) | [Does This Decision Actually Need a Large Language Model?](../43-does-this-decision-need-an-llm/README.md) | [When AI Leaves the Sandbox: Why Data Lineage Becomes an Accounting Problem](../45-data-lineage-ai/README.md) | [Technical Appendix](./technical-appendix.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*
