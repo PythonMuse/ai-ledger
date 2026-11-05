@@ -11,6 +11,22 @@
 
 ---
 
+## Why Read This, and What You Will Take Away
+
+Data lineage sounds like a topic for the data engineers. This article is for accounting and finance professionals who suspect it is also theirs, and would like to know why before someone puts it on their agenda.
+
+The short version: when an AI agent pulls numbers from several systems, the accounting question is no longer only "is the math right?" It is also "which version of the numbers did it use, and can we show where they came from?" Answering that is the work accountants already do, aimed at a new place.
+
+You do not need a technical background. By the end, you will be able to:
+
+- **Explain data lineage in accounting terms** and see why you already practice it.
+- **Spot where it matters in your own work**, from a spreadsheet to a controlled workflow to a warehouse to an enterprise AI agent, and who owns it at each step.
+- **Recognize why AI pilots stall** when they move from one clean dataset to every system.
+- **Ask five practical questions** that make a workflow traceable, starting with one process instead of a company-wide governance project.
+- **Know where Finance fits** next to IT and data teams.
+
+---
+
 ## When Everyone Has the Right Numbers, but Nobody Agrees
 
 Imagine a CFO asking an AI agent a simple question: "Why did our gross margin decline last month, and which customers contributed most?"
