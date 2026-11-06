@@ -624,7 +624,7 @@ A poorly designed automated workflow can produce the wrong answer faster, more c
 
 That is still progress in presentation, but not necessarily in accounting.
 
-> **Related read:** The habits that turn a fluent AI answer into a reviewable one — tying output back to source, separating facts from assumptions, building an evidence trail — are covered in depth in [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md). Zero Trust thinking for granting an agent live system access is covered in [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md).
+> **Related read:** The habits that turn a fluent AI answer into a reviewable one — tying output back to source, separating facts from assumptions, building an evidence trail — are covered in depth in [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md). Zero Trust thinking for granting an agent live system access is covered in [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md). Why a working connection still does not tell the agent which source is authoritative, current, or complete is the subject of [When AI Leaves the Sandbox: Why Data Lineage Becomes an Accounting Problem](../45-data-lineage-ai/README.md).
 
 ## A New Accounting Team Structure
 
@@ -697,6 +697,6 @@ They will be those who understand the business question, the underlying data, th
 
 ---
 
-*Related: [When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting](../19-multi-agent-orchestration/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md)*
+*Related: [When One Agent Is Not Enough: Orchestrating AI Workflows in Accounting](../19-multi-agent-orchestration/README.md) | [AI in Accounting Isn't Just About Efficiency — It's About Control](../13-zero-trust-ai-accounting/README.md) | [From AI Answers to Audit Trails: How Accountants Can Validate AI Output](../32-from-ai-answers-to-audit-trails/README.md) | [AI Governance for Controllers](../07-ai-governance-for-controllers/README.md) | [When the Invoice Starts Giving Orders](../37-when-the-invoice-gives-orders/README.md) | [When AI Leaves the Sandbox: Why Data Lineage Becomes an Accounting Problem](../45-data-lineage-ai/README.md)*
 
 *© 2026 PythonMuse LLC. Content licensed under [CC BY-NC-SA 4.0](../../LICENSE); code licensed under [MIT](../../LICENSE-CODE).*
