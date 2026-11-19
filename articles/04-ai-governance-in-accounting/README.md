@@ -336,6 +336,8 @@ If you are not sure where to begin, PythonMuse recommends two simple steps. This
 
 It is not glamorous. Neither is a fixed asset register, and you would not run without one of those either.
 
+> **Templates to get you started.** The free [Accounting and Finance AI Governance repository](https://github.com/PythonMuse/accounting_and_finance-ai-governance) includes an [AI policy template](https://github.com/PythonMuse/accounting_and_finance-ai-governance/tree/main/docs/ai-policy.md) and an [approved use cases register](https://github.com/PythonMuse/accounting_and_finance-ai-governance/tree/main/docs/approved-use-cases.md). Adapt them to your organization's own risks and circumstances.
+
 ---
 
 ## Learning More About AI Governance
@@ -347,6 +349,8 @@ Several professional programs now focus specifically on AI oversight, including 
 These programs are valuable because they connect AI governance with internal control frameworks already used in financial reporting.
 
 > **Go deeper: the course list.** Course names, providers and links are in [the technical appendix](./technical-appendix.md#5-recommended-training). Availability changes, so check each provider's site.
+
+If you would rather learn by doing, the PythonMuse [Accounting and Finance AI Governance repository](https://github.com/PythonMuse/accounting_and_finance-ai-governance) puts these ideas into practical form. It includes policy and use case templates, risk assessments, control matrices, and review and sign-off guidance built for AI-assisted accounting workflows.
 
 ---
 
