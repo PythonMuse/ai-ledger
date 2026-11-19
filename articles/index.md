@@ -17,7 +17,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 01 | [Your AI Co-Pilot for Accounting](01-ai-copilot-for-accounting/README.md) | Margin analysis, vendor cost inflation, salesperson performance |
 | 02 | [Ways to Use Claude](02-ways-to-use-claude/README.md) | Claude.ai, API, Claude Code, interface comparison |
 | 03 | [Getting the Right Tools Installed](03-getting-the-right-tools-installed/README.md) | IT approvals, secure adoption, VS Code and Python setup |
-| 04 | [AI in Accounting Is Not the Wild West Anymore](04-ai-governance-in-accounting/README.md) | AI governance, COSO framework, PCAOB, audit-ready workflows |
+| 04 | [AI in Accounting Is Not the Wild West Anymore](04-ai-governance-in-accounting/README.md) | AI governance, COSO framework, PCAOB, AICPA guidance, audit-ready workflows ([technical appendix](04-ai-governance-in-accounting/technical-appendix.md)) |
 | 05 | [Reproducible Accounting](05-reproducible-accounting/README.md) | Accounting as code, audit evidence, version control |
 | 06 | [How to Use AI Without Sending the Wrong Data](06-safe-ai-data-workflows/README.md) | Data masking, local vs cloud processing, safe AI workflows |
 | 07 | [AI Governance for Controllers](07-ai-governance-for-controllers/README.md) | COSO framework, controller governance, use case inventory |

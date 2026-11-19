@@ -48,6 +48,7 @@ nav:
     - The Number Format Trap: 24-excel-number-trap/README.md
   - Governance & Controls:
     - AI in Accounting Is Not the Wild West: 04-ai-governance-in-accounting/README.md
+    - "04 Technical Appendix": 04-ai-governance-in-accounting/technical-appendix.md
     - AI Governance for Controllers: 07-ai-governance-for-controllers/README.md
     - Audit-Ready AI Workflows: 12-audit-ready-ai-workflows/README.md
     - Zero Trust for AI: 13-zero-trust-ai-accounting/README.md
