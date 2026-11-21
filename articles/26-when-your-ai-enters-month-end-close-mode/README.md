@@ -254,7 +254,7 @@ AI workflows should too.
 
 This is exactly what SKILL files are for. A SKILL file is a reusable instruction document your AI reads before starting work — not just a prompt, but a structured set of rules your workflow can depend on session after session.
 
-See an example from this series: **[Accounting Number Normalization Skill →](../../examples/skill-accounting-number-normalization/SKILL.md)**
+See an example from this series: **[Accounting Number Normalization Skill →](https://github.com/PythonMuse/ai-ledger/blob/main/examples/skill-accounting-number-normalization/SKILL.md)**
 
 Also available in the [PythonMuse Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit).
 

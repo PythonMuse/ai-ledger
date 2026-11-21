@@ -323,7 +323,7 @@ If scripts are new territory, these articles build the foundation:
 
 This article has a companion Skill you can use to review and document any Python script written for your accounting workflow:
 
-**[Script Review Skill →](../../examples/skill-script-review/SKILL.md)**
+**[Script Review Skill →](https://github.com/PythonMuse/ai-ledger/blob/main/examples/skill-script-review/SKILL.md)**
 
 Also available in the [PythonMuse Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit) on GitHub.
 
