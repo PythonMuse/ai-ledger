@@ -37,7 +37,7 @@ input → checks → confirmation → execution → output → review → escala
 | Visuals | `visuals/` (6 article visuals, 6 slide variants, 2 social cards, 2 demo screenshots) | Built and checked |
 
 ## Inspiration and attribution
-A conversation with Juan ("JJ"), who asked what happens after a workflow works and the team needs to use it. JJ approved being named. The roles idea comes from our own presentations on how the profession is evolving.
+A conversation with JJ, who asked what happens after a workflow works and the team needs to use it. The roles idea comes from our own observations on how the profession is evolving.
 
 ## Cross-links
 - Links to: From One-Time Analysis to Repeatable Workflows; When to Trust AI to Run Your Accounting Workflows; What the Heck Is a Script?; From AI Answers to Audit Trails; From Reports to Requests; Don't Just Prompt AI. ONBOARD It.; You Built an AI Workflow. What Happens If You Win the Lottery?; AI Helped Me Build It. AI Does Not Have to Run It.

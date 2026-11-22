@@ -11,9 +11,9 @@
 
 ---
 
-I was showing Juan, who told me I could call him JJ, how I work with artificial intelligence (AI) to build accounting workflows. We had just watched an accounts receivable (AR) aging review run cleanly. The totals tied, the exceptions were flagged, and the workpaper looked lovely. Then JJ asked the question that ruins every good demo: "Great. So how does the rest of your team use it?"
+I was showing Juan, who told me I could call him JJ, how I work with artificial intelligence (AI) to build accounting workflows. While JJ was excited, he asked the question that eventually comes up on any team: "Great. So how does the rest of your team use a workflow you build?"
 
-Fair point. I knew which folder to open, which script to run, and what to do when it complained. My AR specialist would know none of that, and shouldn't need three months of Python to find out.
+Fair point. I knew which folder to open, which script to run, and what to do with the result once the workflow generated it. An accountant on a team would not necessarily know any of that, and shouldn't need three months of training to learn it.
 
 This Lab is about that gap. By the end, you'll know how to give a workflow you built a front door your team can use, who should run it and who should review it, and how to test the handoff before you trust it. The takeaway: **as AI changes how accounting work gets done, we won't all need the same technical skills. We will all need to understand our responsibilities, how our workflows operate, and how to validate the results.**
 
@@ -33,7 +33,7 @@ These aren't necessarily new job titles, and in a small department one person ma
 
 ## Building It Is Only Half the Journey
 
-Picture it. You spent a few weekends with an AI co-pilot building an automated AR review. You described the accounting requirements. It helped you write the Python scripts. You tested the results, corrected mistakes, added validation steps, and finally reached the point where the process works reliably. Wonderful.
+Picture it. You spent a few days with an AI co-pilot building an automated AR aging review. You described the requirements. It helped you write the Python scripts and document the business context in Skills. You tested the results, corrected mistakes, added validation steps, and finally reached the point where the process works reliably. Wonderful.
 
 But you're the builder. You know the folder structure, which script to run, which date to change, and that the export has to be saved as a CSV (a plain comma-separated text file) or everything falls over. Your AR specialist doesn't.
 
@@ -47,9 +47,11 @@ Think about the systems we already use. An accounts payable specialist doesn't n
 
 One approach I've found useful is surprisingly simple. Once the workflow is built and tested, I ask the AI co-pilot to help create a small interface for the person who will operate it. Sometimes it's a guided terminal window that asks a few questions. Sometimes it's a small application window with fields, instructions, and a button.
 
-Here's the AR example end to end. On the second business day, the AR specialist exports the open-items report from the ERP and saves it in the approved folder with the standard name. Then they open an application called **AR Review**. They enter the as-of date, choose the file, type in the AR balance from the general ledger, and click **Check file**.
+Here's the AR example end to end. On the second business day of the month, the AR specialist exports the AR Aging report from the ERP and saves it in the approved folder with the predefined name convention. Then they open an application called **AR Review**. They enter the as-of date, choose the file, type in the ending AR balance from the general ledger, and click **Check file**.
 
-The window checks whether the file is in the right place, has the right columns, belongs to the right month, lists each invoice once, and has sensible amounts and dates. Anything red stops the process with a message saying what to fix or whom to call. Anything amber is listed for the operator to read. Only when nothing is red does **Run analysis** switch on. Behind that button, the same tested scripts do the work and save an Excel workpaper with the aging, the exceptions, the reconciliation, and a record of exactly which file and which rules produced it.
+The window checks whether the file is in the right place and with the right naming convention, has the right columns, belongs to the right month, lists each invoice once, and has sensible amounts and dates. Anything red stops the process with a message saying what to fix or whom to call. Anything amber is listed for the operator to read. Only when nothing is red does **Run analysis** switch on. Behind that button, the same tested scripts do the work and save an Excel workpaper with the aging, the exceptions, the reconciliation, and a record of exactly which file and which rules produced it.
+
+If you have ever used an Excel dashboard that runs on macros, you already know this pattern. The person who refreshes it each month rarely knows how the macro works. They know where to save the data, which cell to check, and which button to push. Somebody else wrote the macro, and the operator trusts it because the instructions are clear and the totals are checked afterward. This is the same idea, with two upgrades: the scripts behind the button are tested against known answers, and the window stops the run when the file is wrong instead of producing a confident-looking dashboard from the wrong data.
 
 <p align="center"><img src="./visuals/46_demo_desktop_check.png" alt="The AR Review desktop window from the companion demo, after Check file: eleven green PASS lines, two amber WARN lines for a missing due date and a credit balance, and the Run analysis button enabled" width="430"></p>
 
@@ -67,15 +69,15 @@ Pick the simplest front door that fits the operator, not the one the builder fin
 
 ## Different Roles, Shared Accountability
 
-The **designer** understands the accounting problem and defines what the workflow should accomplish and which controls it needs. The **builder** turns that into working, tested code, increasingly with help from AI. The **operator** prepares the inputs, runs the approved process, validates the results, and handles routine exceptions. The **reviewer** brings independent oversight and professional judgment, and signs off. The **maintainer** keeps the workflow reliable as systems, rules, and business conditions change.
+The **designer** understands the accounting problem and defines what the workflow should accomplish and which controls it needs. The **builder** turns that into working, tested scripts and skills, with help from AI. The **operator** prepares the inputs, runs the approved process, validates the results, and handles routine exceptions. The **reviewer** brings independent oversight and professional judgment, and signs off. The **maintainer** keeps the workflow reliable as systems, rules, and business conditions change.
 
 <p align="center"><img src="./visuals/46_five_roles.png" alt="Five role cards: Designer (logic and controls), Builder (code and tests), Operator (runs it, checks it), Reviewer (judges, signs off), Maintainer (changes, rollback). Caption: wear several hats, don't review your own run" width="430"></p>
 
 One person can hold several of these. The one combination to avoid is operator and reviewer of the same run. Nobody should mark their own homework, however good the homework is.
 
-An operator isn't someone who pushes a button. They're an accounting professional who understands the purpose of the workflow, notices when something is off, and knows what evidence supports the result. That knowledge may be worth more than knowing how to write the code underneath it.
+An operator isn't someone who just pushes a button. They're an accounting professional who understands the purpose of the workflow, notices when something is off, and knows what evidence supports the result. That knowledge may be worth more than knowing how to write the workflow scripts underneath it.
 
-So what does the operator actually check once the run finishes?
+So what does the operator actually check once the workflow run finishes?
 
 - **Tie the total to the control balance.** The aging total should equal the AR balance in the general ledger. If it doesn't, stop.
 - **Check the customer count.** Thirty customers when you usually have three hundred means the export was cut off, however tidy the totals look.
@@ -110,11 +112,13 @@ What happens when the ERP export changes and two columns get new names? A good f
 
 We sometimes make AI adoption more intimidating than it needs to be. Some accountants will want to be builders; I'm certainly enjoying that part. Others will prefer to operate reliable workflows, investigate exceptions, or review conclusions. There's room for all of them.
 
-So here's the challenge, for the builders. Take a workflow you rely on and hand it to a colleague who has never opened your code editor. Give them the instructions and a sample file, including one broken file you've prepared on purpose. Then sit on your hands and watch. Can they find the right input, run the process, understand the results, catch the broken file, and know whom to call, all without asking you to explain the code?
+So here's the challenge, for the builders. Take a workflow you rely on and hand it to a colleague who has never opened a [harness](../17-skills-and-agents-for-accountants/README.md#the-missing-piece-a-harness-for-ai), the workspace such as Visual Studio Code where the builder works with AI, files, and scripts. Give them the instructions, a good sample file, and a second file you've broken on purpose (say, one with a missing column or the wrong month). Then sit on your hands and watch. Can they find the right input, run the process, understand the results, catch the broken file, and know whom to call, all without asking you to explain the code?
 
-If not, don't assume they need more technical training. Perhaps your workflow needs a better front door. And if you're not a builder, remember that you don't have to become one to benefit from what AI makes possible. You do need to understand what the process is doing and how to validate the work.
+If not, don't assume they need more technical training. Perhaps your workflow needs a better front door. The best way to design one is to ask the people who will walk through it. Ask your colleague what they would want to see on that first screen: where to save the file, what to type in, what the button should say, and what a helpful error message looks like. You may be surprised how different the answers are from what the builder would have guessed.
 
-> **Go deeper: running a handoff test.** A short operator acceptance test, including what to watch for and the broken files worth preparing, is in [the technical appendix](./technical-appendix.md#12-test-the-handoff-not-just-the-code).
+And if you're not a builder, remember that you don't have to become one to benefit from what AI makes possible. You do need to understand what the process is doing and how to validate the work.
+
+> **Go deeper: running a handoff test.** A simple checklist for the test, including which broken files to prepare, is in [the technical appendix](./technical-appendix.md#12-test-the-handoff-not-just-the-code).
 
 When the companion demo is published, try both front doors yourself, and try breaking them. I'd also love to hear how your team handles this handoff today.
 
