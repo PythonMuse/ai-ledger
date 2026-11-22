@@ -254,7 +254,7 @@ def draw_operator_journey(ax, top, bottom):
 LAYERS = [
     ("Front door", "collects inputs", LIGHT_GRAY, DEEP_NAVY, OCEAN_TEAL),
     ("Checks", "stop or warn", TEAL_TINT, DEEP_NAVY, OCEAN_TEAL),
-    ("Engine", "tested code", DEEP_NAVY, WHITE, WARM_GLOW),
+    ("Calculation", "tested script", DEEP_NAVY, WHITE, WARM_GLOW),
     ("Workpaper", "with run info", TEAL_TINT, DEEP_NAVY, OCEAN_TEAL),
 ]
 

@@ -16,7 +16,7 @@ Mixed: builders (accountants who have built a workflow with an AI co-pilot), ope
 After this Lab, the reader can:
 1. Understand why separating the builder from the operator matters, and why the operator should not review their own run.
 2. Recognize what an operator must validate after a run (tie to the control balance, customer count, credits and missing due dates, a sample of unflagged items), and that a green check is not a sign-off.
-3. Optionally, run and adapt a tested AR aging demo with two front doors sharing one engine.
+3. Optionally, run and adapt a tested AR aging demo with two front doors sharing one calculation script.
 
 ## The one accounting task and the one concept it proves
 - **Task:** month-end accounts receivable aging and exception review.

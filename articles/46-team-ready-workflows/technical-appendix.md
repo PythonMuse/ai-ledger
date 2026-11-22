@@ -1,6 +1,6 @@
 # Team-Ready Workflows: The Technical Appendix
 
-*The technical appendix for _I Built the Workflow. Now How Does My Team Use It?_: the architecture, the three kinds of front door, the input contract, evidence and review, packaging, maintenance, and an operator acceptance test*
+*The technical appendix for _I Built the Workflow. Now How Does My Team Use It?_: the architecture, the three kinds of front door, the input contract, evidence and review, packaging, maintenance, and a handoff test*
 
 ---
 
@@ -11,7 +11,13 @@
 
 This page is for readers who want to build an operator-friendly front door for a workflow of their own, or review one someone else built. [The article](./README.md) stands on its own; nothing here changes its argument. Think of this as the workpapers behind the memo.
 
-> **Part of a PythonMuse Lab.** [The article](./README.md) is the *Understand* layer. This appendix is *Implement*. A companion demo is coming as the *Experiment*: a small, tested AR aging review with synthetic data, two front doors, and one engine. The sections below describe that demo; the screenshots and figures come from it.
+> **Part of a PythonMuse Lab.** [The article](./README.md) is the *Understand* layer. This appendix is *Implement*. A companion demo is coming as the *Experiment*: a small, tested AR aging review with synthetic data, two front doors, and one calculation script. The sections below describe that demo; the screenshots and figures come from it.
+
+> **A note on tools:** Even as a builder, you don't need to memorize anything on this page. It's here so you understand what a good handoff contains and can recognize one when you see it. When you build with an AI co-pilot, you don't have to pick the interface toolkit or design the architecture yourself. Describe the finished product in detail, and who will use it, and let the co-pilot propose how to get there. Be especially clear that the people running it won't have an AI harness (the workspace, such as Visual Studio Code, where a builder works with AI, files, and scripts) installed, and may not have a license for an AI model at all. For example:
+>
+> *"Build a simple front door for this tested AR aging workflow. The people running it are AR specialists who don't have Visual Studio Code or any AI tool installed and don't have a license for an AI model. They should pick the as-of date and the export file, see plain-English checks, and only be able to run when nothing is red. The output is an Excel workpaper with the aging, the exceptions, the reconciliation, and a record of which file and rules produced it. Don't change the calculation scripts. Before you build anything, explain your recommended approach and what IT would need to install."*
+>
+> Then use the sections below to review what it proposes. And once the front door works, ask your co-pilot for one more thing: a short email to IT listing the minimum software the operators' machines need to run it (for example, the Python version and the packages it relies on), where the files should live, and who needs access. You review it, correct anything that doesn't match your environment, and send it yourself. IT gets a clear request instead of a mystery, and you get a record of what was approved.
 
 A few terms used throughout:
 
@@ -36,13 +42,13 @@ A few terms used throughout:
 
 ## 2. The Architecture in One Picture
 
-<p align="center"><img src="./visuals/46_architecture.png" alt="Front door, checks, engine, and workpaper in a row. Below them, the operator feeds the front door, a rules file of buckets, thresholds, and tolerance feeds the checks and the engine, and the workpaper goes to a reviewer who signs off" width="430"></p>
+<p align="center"><img src="./visuals/46_architecture.png" alt="Front door, checks, calculation, and workpaper in a row. Below them, the operator feeds the front door, a rules file of buckets, thresholds, and tolerance feeds the checks and the calculation script, and the workpaper goes to a reviewer who signs off" width="430"></p>
 
-The flow is: **front door → checks → engine → workpaper → review**, with the accounting rules in a separate **rules file** that the checks and the engine read.
+The flow is: **front door → checks → calculation → workpaper → review**, with the accounting rules in a separate **rules file** that the checks and the calculation script read.
 
 - **Front door:** collects only approved inputs (as-of date, file, control balance, the operator's name). It contains no accounting logic.
 - **Checks (validation):** decide whether the file may be run at all.
-- **Engine:** performs the calculation. It knows nothing about windows or buttons.
+- **Calculation script:** performs the calculation. This is what the article calls "the tested scripts," and it is deterministic. It knows nothing about windows or buttons.
 - **Workpaper:** the output, with the evidence of what produced it.
 - **Review:** a person, independent of the operator.
 
@@ -85,12 +91,12 @@ The input contract is the list of conditions a file must meet before the workflo
 | No invoice is dated after the as-of date | Blocks | Usually the wrong period's export |
 | Every line has a due date | Warns; the line is listed and not aged | An undated invoice can't be aged, but the rest of the file can |
 | No line has a credit balance | Warns; the line is listed | Credits may be real (unapplied cash) or errors |
-| The file is identical to any earlier run for the same as-of date | Blocks if it differs | A changed file for a closed period needs an explanation, not a quiet re-run |
+| If this as-of date was already run, the file is the same one used then | Blocks if it differs | A changed file for a closed period needs an explanation, not a quiet re-run |
 | A control balance was entered | Warns if missing | Without it, the run can't reconcile |
 
 <p align="center"><img src="./visuals/46_demo_desktop_stop.png" alt="The demo's desktop window stopping on a file whose columns were renamed, with Run analysis greyed out" width="430"></p>
 
-The synthetic sample data seeds each of these on purpose: a duplicate invoice ID, a schema break, last month's file, a hand-edited amount, a missing due date, and a credit. You can read the [synthetic October input file](./data/AR_Open_Items_2026-10-31.csv) now; it opens or downloads from the link.
+The synthetic sample files include these problems on purpose: a duplicate invoice ID, a schema break, last month's file, a hand-edited amount, a missing due date, and a credit. You can read the [synthetic October input file](./data/AR_Open_Items_2026-10-31.csv) now; it opens or downloads from the link.
 
 ---
 
@@ -99,20 +105,48 @@ The synthetic sample data seeds each of these on purpose: a duplicate invoice ID
 The rules live in a small, plain-text configuration file in YAML (a human-readable settings format), not in the code and not in the interface. In the demo it holds the aging buckets (Current, 1-30, 31-60, 61-90, Over 90 days past due), the exception thresholds (more than 90 days past due; a customer balance above 25,000.00), the reconciliation tolerance (0.00), the file-name pattern, and the approved input folder. All values are illustrative only, not a recommendation.
 
 - **Who can change it:** the maintainer, after the rules owner (typically the controller) approves.
-- **How changes are recorded:** every change gets a new rules version. The version, plus a SHA-256 fingerprint of the file, prints on every workpaper. (A SHA-256 fingerprint is a 64-character code calculated from a file's exact contents; change one character and the code changes completely. It identifies a file without revealing what is in it.)
+- **How changes are recorded:** every change gets a new rules version number, and that version prints on every workpaper, so a reviewer can see exactly which rules produced the result.
 - **Operators never edit it.** If an operator is asked to change a threshold, that's an escalation, not a task.
 
 ---
 
-## 6. Calculation Engine
+## 6. The Calculation Script
 
-The engine ages each open item by **days past due** on the as-of date (as-of date minus due date), assigns it to a bucket, totals each bucket, each customer, and the file, lists exceptions using the thresholds in the rules file, and reconciles the aging total to the AR control balance.
+The calculation script does five things, in this order:
 
-Boundaries are where rules quietly go wrong, so the demo pins them down and tests each one: a line due *on* the as-of date is Current; exactly 30 days is 1-30 and 31 days is 31-60; exactly 90 days is 61-90 and is **not** an exception, while 91 days is. A customer at exactly 25,000.00 is not flagged; 25,000.01 is.
+1. **Ages each open item.** Days past due = the as-of date minus the due date.
+2. **Assigns each item to a bucket** (Current, 1-30, 31-60, 61-90, Over 90).
+3. **Totals** each bucket, each customer, and the whole file.
+4. **Lists exceptions** using the thresholds in the rules file.
+5. **Reconciles** the aging total to the AR control balance.
 
-For the October sample, the expected answers were calculated by hand, line by line, before any test was written: 15 lines, 7 customers, a total of 60,490.75 (Current 27,750.00; 1-30 days 14,000.00; 31-60 days 7,350.50; 61-90 days 6,575.25; Over 90 days 4,175.00; no due date 640.00), and six exceptions. The tests check the code against those numbers, not against whatever the code happened to produce.
+The script lists items for a person to review. It makes no collection, reserve, or write-off decisions.
 
-The engine lists items for a person. It makes no collection, reserve, or write-off decisions.
+**The exact cutoff days and amounts are where rules quietly go wrong,** so the demo tests each one on purpose:
+
+| Case | Result |
+|---|---|
+| Due *on* the as-of date (0 days past due) | Current |
+| Exactly 30 days past due | 1-30 bucket |
+| 31 days past due | 31-60 bucket |
+| Exactly 90 days past due | 61-90 bucket, **not** an exception |
+| 91 days past due | Over 90 bucket, an exception |
+| Customer balance of exactly 25,000.00 | Not flagged |
+| Customer balance of 25,000.01 | Flagged |
+
+**Known answers.** For the October sample file, the expected results were calculated by hand, line by line, *before* any test was written. The tests check the code against those numbers, not against whatever the code happened to produce.
+
+| Bucket | Expected total |
+|---|---|
+| Current | 27,750.00 |
+| 1-30 days | 14,000.00 |
+| 31-60 days | 7,350.50 |
+| 61-90 days | 6,575.25 |
+| Over 90 days | 4,175.00 |
+| No due date | 640.00 |
+| **File total** | **60,490.75** |
+
+The file has 15 lines, 7 customers, and 6 exceptions.
 
 ---
 
@@ -126,11 +160,20 @@ Each run writes an Excel workpaper with seven sheets:
 - **Validation:** every check and its result.
 - **Detail:** every line with its days past due and bucket, for spot-checking unflagged items.
 - **By Customer:** aging by customer.
-- **Run Info:** run ID, timestamp, as-of date, operator, input file name and SHA-256 fingerprint, rules version and fingerprint, code version, status, and blank sign-off fields.
+- **Run Info:** run ID, timestamp, as-of date, operator, input file name and fingerprint, rules version and fingerprint, code version, status, and blank sign-off fields. (A fingerprint is a short code calculated from a file's exact contents; change one character and the code changes. It proves which file was used without revealing what's in it.)
 
 **No silent overwrites.** Each run gets a new numbered file (`run01`, `run02`), and an existing workpaper is never replaced. Every completed run, including ones that don't reconcile, adds a line to an append-only run log, which serves as the output manifest. The log stores the input file's fingerprint, not the data itself.
 
 **Status is explicit.** A run ends as *checks passed, ready for review*; *reconciliation difference, stop and escalate*; or *no control total, reconcile before review*. A blocked file produces nothing at all.
+
+**Tip: write the Excel formatting rules down once, as a reusable skill.** When you design the workpaper, ask your co-pilot to help you create a [skill](../15-ai-and-excel-files/README.md#what-is-a-skill-for-excel) (a saved set of written instructions the co-pilot follows every time) that defines how every Excel output should look, so each workpaper from every workflow looks and behaves the same. Useful things to put in it:
+
+- **Headers:** font, fill color, bold, frozen header row, and column widths that fit the content.
+- **Amounts:** thousands separator, two decimals, no dollar sign, and a consistent way to show negatives. Decide once, and the whole team reads every workpaper the same way.
+- **Calculated cells as Excel formulas, not pasted values.** Totals, subtotals, differences, and anything else that is a calculation should be exported as a live formula, such as `=SUM(...)`. A column of pasted numbers looks the same but can't be traced; a reviewer can click a formula and see exactly which cells it adds up. I learned this the hard way: with pasted totals, the reviewer has to re-add every column by hand to prove it ties.
+- **Plain numbers and dates:** store amounts as numbers and dates as dates, never as text, so sorting, filtering, and formulas work.
+
+Keep one rule in mind: formulas help the reviewer see how a figure was built, but the control total still comes from outside the workpaper, so the reconciliation still ties to the general ledger and not just to itself.
 
 ---
 
@@ -144,7 +187,7 @@ The reviewer, who should be independent of the operator, looks at:
 4. **A sample of unflagged items.** The exceptions list only shows what the rules were told to find. Pick a few lines from different buckets on the Detail sheet and trace them to the source. In the demo, INV-10007 sits at exactly 90 days, one day short of the flag, and is a good test of whether anyone looks beyond the list.
 5. **The run information.** The right as-of date, the expected rules version, and a fingerprint that matches the approved export.
 
-Sign-off is recorded in the *Reviewed by*, *Review date*, and *Reviewer conclusion* fields on the Run Info sheet, or in your team's usual review record. The companion demo includes a one-page operator guide with the same checks from the operator's side, including when to stop and escalate.
+Sign-off is recorded in the *Reviewed by*, *Review date*, and *Reviewer conclusion* fields on the Run Info sheet, or in your team's usual review record. The companion demo will include a one-page operator guide with the same checks from the operator's side, including when to stop and escalate.
 
 A green check means the configured checks passed. It does not mean the accounting conclusions are correct.
 
@@ -172,7 +215,7 @@ A green check means the configured checks passed. It does not mean the accountin
 
 ## 11. Where AI Fits (and Where It Doesn't)
 
-An AI co-pilot helped design, build, and test every part of this: the validation rules, the engine, the workpaper, both front doors, the sample data, and the tests. It can keep helping with maintenance: explaining a failing test, drafting a rules change for review, or adding a new check when the export changes.
+An AI co-pilot helped design, build, and test every part of this: the validation rules, the calculation script, the workpaper, both front doors, the sample data, and the tests. It can keep helping with maintenance: explaining a failing test, drafting a rules change for review, or adding a new check when the export changes.
 
 At runtime, no model is needed. The aging is arithmetic and the checks are rules, so deterministic code is cheaper, faster, repeatable, and easier to review. If a future version did add a model at runtime (for example, to draft a summary of the exceptions for the reviewer), the design question would be the one from [AI Helped Me Build It. AI Does Not Have to Run It.](../42-ai-helped-me-build-it/README.md): what is the risk, what is the control, and where does a person check the output before anyone relies on it?
 
