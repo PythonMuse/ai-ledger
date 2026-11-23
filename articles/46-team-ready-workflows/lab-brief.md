@@ -33,7 +33,7 @@ input → checks → confirmation → execution → output → review → escala
 |---|---|---|
 | Understand | [README.md](./README.md) | Draft (in review) |
 | Implement | [technical-appendix.md](./technical-appendix.md) | Draft (in review) |
-| Experiment | `PythonMuse/pythonmuse-ar-operator-handoff-demo` | Tested locally; not yet published |
+| Experiment | [PythonMuse/pythonmuse-ar-operator-handoff-demo](https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo) | Tested (58 automated tests pass); published |
 | Visuals | `visuals/` (6 article visuals, 6 slide variants, 2 social cards, 2 demo screenshots) | Built and checked |
 
 ## Inspiration and attribution

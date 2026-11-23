@@ -17,7 +17,7 @@ Fair point. I knew which folder to open, which script to run, and what to do wit
 
 This Lab is about that gap. By the end, you'll know how to give a workflow you built a front door your team can use, who should run it and who should review it, and how to test the handoff before you trust it. The takeaway: **as AI changes how accounting work gets done, we won't all need the same technical skills. We will all need to understand our responsibilities, how our workflows operate, and how to validate the results.**
 
-> **This is a PythonMuse Lab.** Understand → Implement → Experiment. This article is the *Understand* layer and stands on its own. If you want to build it, [the technical appendix](./technical-appendix.md) is the *Implement* layer, and a companion demo is coming as the *Experiment*: a small, tested AR aging review with synthetic data that you can run yourself.
+> **This is a PythonMuse Lab.** Understand → Implement → Experiment. This article is the *Understand* layer and stands on its own. If you want to build it, [the technical appendix](./technical-appendix.md) is the *Implement* layer, and [the companion demo](https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo) is the *Experiment*: a small, tested AR aging review with synthetic data that you can run yourself.
 
 I'm trying something new with this one. Each Lab pairs a story you can read without touching code with a technical guide and, when the topic earns it, a working example. Read as far as your curiosity takes you.
 
@@ -120,7 +120,7 @@ And if you're not a builder, remember that you don't have to become one to benef
 
 > **Go deeper: running a handoff test.** A simple checklist for the test, including which broken files to prepare, is in [the technical appendix](./technical-appendix.md#12-test-the-handoff-not-just-the-code).
 
-When the companion demo is published, try both front doors yourself, and try breaking them. I'd also love to hear how your team handles this handoff today.
+Then try both front doors of [the companion demo](https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo) yourself, and try breaking them. I'd also love to hear how your team handles this handoff today.
 
 **The goal isn't to turn every accountant into a developer. It's to make the technology we build usable, reliable, and accountable in the hands of the people doing the accounting.**
 

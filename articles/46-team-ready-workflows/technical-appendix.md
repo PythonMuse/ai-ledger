@@ -11,7 +11,7 @@
 
 This page is for readers who want to build an operator-friendly front door for a workflow of their own, or review one someone else built. [The article](./README.md) stands on its own; nothing here changes its argument. Think of this as the workpapers behind the memo.
 
-> **Part of a PythonMuse Lab.** [The article](./README.md) is the *Understand* layer. This appendix is *Implement*. A companion demo is coming as the *Experiment*: a small, tested AR aging review with synthetic data, two front doors, and one calculation script. The sections below describe that demo; the screenshots and figures come from it.
+> **Part of a PythonMuse Lab.** [The article](./README.md) is the *Understand* layer. This appendix is *Implement*. [The companion demo](https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo) is the *Experiment*: a small, tested AR aging review with synthetic data, two front doors, and one calculation script. The sections below describe that demo; the screenshots and figures come from it.
 
 > **A note on tools:** Even as a builder, you don't need to memorize anything on this page. It's here so you understand what a good handoff contains and can recognize one when you see it. When you build with an AI co-pilot, you don't have to pick the interface toolkit or design the architecture yourself. Describe the finished product in detail, and who will use it, and let the co-pilot propose how to get there. Be especially clear that the people running it won't have an AI harness (the workspace, such as Visual Studio Code, where a builder works with AI, files, and scripts) installed, and may not have a license for an AI model at all. For example:
 >
@@ -34,7 +34,7 @@ A few terms used throughout:
 
 **Who:** builders handing a workflow to colleagues, IT partners asked to support one, and reviewers deciding whether to rely on its output.
 
-**What you need to follow along:** a working, tested script (or the companion demo once it is published), Python 3.10 or later, and permission from IT to install it where operators can reach it.
+**What you need to follow along:** a working, tested script (or [the companion demo](https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo)), Python 3.10 or later, and permission from IT to install it where operators can reach it.
 
 **Demo-only versus production:** the demo shows the *shape* of a controlled handoff with synthetic data on one machine. It does not supply access control, hosting, change management, backup, or software distribution. Those belong to your organization, and each section below says which ones it leaves to you.
 
@@ -187,7 +187,7 @@ The reviewer, who should be independent of the operator, looks at:
 4. **A sample of unflagged items.** The exceptions list only shows what the rules were told to find. Pick a few lines from different buckets on the Detail sheet and trace them to the source. In the demo, INV-10007 sits at exactly 90 days, one day short of the flag, and is a good test of whether anyone looks beyond the list.
 5. **The run information.** The right as-of date, the expected rules version, and a fingerprint that matches the approved export.
 
-Sign-off is recorded in the *Reviewed by*, *Review date*, and *Reviewer conclusion* fields on the Run Info sheet, or in your team's usual review record. The companion demo will include a one-page operator guide with the same checks from the operator's side, including when to stop and escalate.
+Sign-off is recorded in the *Reviewed by*, *Review date*, and *Reviewer conclusion* fields on the Run Info sheet, or in your team's usual review record. The companion demo includes a one-page [operator guide](https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo/blob/main/OPERATOR_GUIDE.md) with the same checks from the operator's side, including when to stop and escalate.
 
 A green check means the configured checks passed. It does not mean the accounting conclusions are correct.
 
@@ -237,7 +237,7 @@ A successful handoff needs both a tested process and an operator who knows how t
 
 ## 13. Running the Demo
 
-The companion demo is not yet published. Once it is, download or clone it, then run from inside it:
+The companion demo is in its own repository: [pythonmuse-ar-operator-handoff-demo](https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo). Download or clone it, then run from inside it:
 
 ```bash
 python -m venv .venv
