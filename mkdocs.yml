@@ -5,6 +5,10 @@ site_author: Svetlana Toohey
 
 docs_dir: articles
 
+# PythonMuse Lab briefs are working files for authors and reviewers, not site pages
+exclude_docs: |
+  **/lab-brief.md
+
 theme:
   name: material
   palette:
@@ -78,6 +82,8 @@ nav:
     - "Does This Decision Actually Need a Large Language Model?": 43-does-this-decision-need-an-llm/README.md
     - "Let AI Do the Research. You Set the Boundaries.": 44-ai-research-boundaries/README.md
     - "44 Technical Appendix": 44-ai-research-boundaries/technical-appendix.md
+    - "I Built the Workflow. Now How Does My Team Use It?": 46-team-ready-workflows/README.md
+    - "46 Technical Appendix": 46-team-ready-workflows/technical-appendix.md
   - Skills & Automation:
     - Skills and Agents for Accountants: 17-skills-and-agents-for-accountants/README.md
     - Your First CLAUDE.md: 17b-your-first-claude-md/README.md

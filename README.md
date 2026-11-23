@@ -62,6 +62,7 @@ Each article includes the full write-up, sample data, and the code to reproduce 
 | 42 | [AI Helped Me Build It. AI Does Not Have to Run It.](articles/42-ai-helped-me-build-it/) | Deterministic automation, build-time vs. run-time AI, rules vs. patterns vs. language vs. judgment, per-step decision tree, harness permissions, duplicate-payment test ([technical appendix](articles/42-ai-helped-me-build-it/technical-appendix.md)) |
 | 43 | [Does This Decision Actually Need a Large Language Model?](articles/43-does-this-decision-need-an-llm/) | Decision models, choice vs. score vs. probability, shape of the answer, confidence bands, cost per acceptable decision, minimum evidence, AR and AP routing |
 | 44 | [Let AI Do the Research. You Set the Boundaries.](articles/44-ai-research-boundaries/) | Web-enabled AI research, research boundaries, discovery vs. reliance, untrusted web content, trusted vs. permitted sources, web-access settings across tools, evidence with retrieved dates ([technical appendix](articles/44-ai-research-boundaries/technical-appendix.md)) |
+| 46 | [I Built the Workflow. Now How Does My Team Use It?](articles/46-team-ready-workflows/) | PythonMuse Lab, builder-to-operator handoff, designer/builder/operator/reviewer/maintainer roles, operator front doors (terminal, desktop, web), input contract, operator validation, green check is not a sign-off, operator acceptance test, AR aging demo ([technical appendix](articles/46-team-ready-workflows/technical-appendix.md)) |
 
 
 ---

@@ -45,6 +45,7 @@ We are not here to shame people for being behind on AI — we are here to help t
 ## Working conventions
 
 - New articles are drafted and committed on a per-article branch named `article/NN-slug` (branched from an up-to-date `main`), so the co-founder can review it. After review and collaboration, the branch is merged to `main`. Pushing the branch or merging to `main` requires explicit confirmation (per Operating boundaries above). This is separate from the external-contributor fork+PR flow described in `CONTRIBUTING.md`, which still applies to contributions from outside.
+- From Article 46 onward, every article is a **PythonMuse Lab** (Understand → Implement → Experiment): `README.md` is the article, `technical-appendix.md` is the optional technical guide, an optional companion repo `PythonMuse/pythonmuse-<topic>-demo` is the working demo, and `lab-brief.md` records scope and status (excluded from the website). Articles keep their NN numbers; there is no separate Lab numbering. See `.claude/skills/pythonmuse-lab/SKILL.md`.
 - New articles follow the numbered folder pattern above; update the article index table in root `README.md` when adding one.
 - Run `/publish-article` against a new or edited article before treating it as ready — it enforces the standard title/byline/date/related-links format.
 - Byline is `PythonMuse LLC` for all new articles (articles 01–15 use `Svetlana Toohey` — leave those as-is).

@@ -133,7 +133,7 @@ Translation:
 3. Finally — treat it like a number
 
 This logic is packaged as a reusable PythonMuse Skill:
-[`skill-accounting-number-normalization`](../../examples/skill-accounting-number-normalization/SKILL.md)
+[`skill-accounting-number-normalization`](https://github.com/PythonMuse/ai-ledger/blob/main/examples/skill-accounting-number-normalization/SKILL.md)
 
 You can also find it in the [PythonMuse Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit).
 
@@ -224,7 +224,7 @@ Because that's something we can fix.
 
 This article has a companion Skill you can drop into any project:
 
-**[Accounting Number Normalization →](../../examples/skill-accounting-number-normalization/SKILL.md)**
+**[Accounting Number Normalization →](https://github.com/PythonMuse/ai-ledger/blob/main/examples/skill-accounting-number-normalization/SKILL.md)**
 
 Also available in the [PythonMuse Workflow Kit](https://github.com/PythonMuse/pythonmuse-workflow-kit) on GitHub.
 
