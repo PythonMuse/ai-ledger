@@ -2711,7 +2711,7 @@
 <hr />
 <p>This page is for readers who want to build an operator-friendly front door for a workflow of their own, or review one someone else built. <a href="../">The article</a> stands on its own; nothing here changes its argument. Think of this as the workpapers behind the memo.</p>
 <blockquote>
-<p><strong>Part of a PythonMuse Lab.</strong> <a href="../">The article</a> is the <em>Understand</em> layer. This appendix is <em>Implement</em>. A companion demo is coming as the <em>Experiment</em>: a small, tested AR aging review with synthetic data, two front doors, and one calculation script. The sections below describe that demo; the screenshots and figures come from it.</p>
+<p><strong>Part of a PythonMuse Lab.</strong> <a href="../">The article</a> is the <em>Understand</em> layer. This appendix is <em>Implement</em>. <a href="https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo">The companion demo</a> is the <em>Experiment</em>: a small, tested AR aging review with synthetic data, two front doors, and one calculation script. The sections below describe that demo; the screenshots and figures come from it.</p>
 <p><strong>A note on tools:</strong> Even as a builder, you don't need to memorize anything on this page. It's here so you understand what a good handoff contains and can recognize one when you see it. When you build with an AI co-pilot, you don't have to pick the interface toolkit or design the architecture yourself. Describe the finished product in detail, and who will use it, and let the co-pilot propose how to get there. Be especially clear that the people running it won't have an AI harness (the workspace, such as Visual Studio Code, where a builder works with AI, files, and scripts) installed, and may not have a license for an AI model at all. For example:</p>
 <p><em>"Build a simple front door for this tested AR aging workflow. The people running it are AR specialists who don't have Visual Studio Code or any AI tool installed and don't have a license for an AI model. They should pick the as-of date and the export file, see plain-English checks, and only be able to run when nothing is red. The output is an Excel workpaper with the aging, the exceptions, the reconciliation, and a record of which file and rules produced it. Don't change the calculation scripts. Before you build anything, explain your recommended approach and what IT would need to install."</em></p>
 <p>Then use the sections below to review what it proposes. And once the front door works, ask your co-pilot for one more thing: a short email to IT listing the minimum software the operators' machines need to run it (for example, the Python version and the packages it relies on), where the files should live, and who needs access. You review it, correct anything that doesn't match your environment, and send it yourself. IT gets a clear request instead of a mystery, and you get a record of what was approved.</p>
@@ -2728,7 +2728,7 @@
 <hr />
 <h2 id="1-who-this-is-for-and-what-you-need">1. Who This Is For and What You Need</h2>
 <p><strong>Who:</strong> builders handing a workflow to colleagues, IT partners asked to support one, and reviewers deciding whether to rely on its output.</p>
-<p><strong>What you need to follow along:</strong> a working, tested script (or the companion demo once it is published), Python 3.10 or later, and permission from IT to install it where operators can reach it.</p>
+<p><strong>What you need to follow along:</strong> a working, tested script (or <a href="https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo">the companion demo</a>), Python 3.10 or later, and permission from IT to install it where operators can reach it.</p>
 <p><strong>Demo-only versus production:</strong> the demo shows the <em>shape</em> of a controlled handoff with synthetic data on one machine. It does not supply access control, hosting, change management, backup, or software distribution. Those belong to your organization, and each section below says which ones it leaves to you.</p>
 <hr />
 <h2 id="2-the-architecture-in-one-picture">2. The Architecture in One Picture</h2>
@@ -2979,7 +2979,7 @@
 <li><strong>A sample of unflagged items.</strong> The exceptions list only shows what the rules were told to find. Pick a few lines from different buckets on the Detail sheet and trace them to the source. In the demo, INV-10007 sits at exactly 90 days, one day short of the flag, and is a good test of whether anyone looks beyond the list.</li>
 <li><strong>The run information.</strong> The right as-of date, the expected rules version, and a fingerprint that matches the approved export.</li>
 </ol>
-<p>Sign-off is recorded in the <em>Reviewed by</em>, <em>Review date</em>, and <em>Reviewer conclusion</em> fields on the Run Info sheet, or in your team's usual review record. The companion demo will include a one-page operator guide with the same checks from the operator's side, including when to stop and escalate.</p>
+<p>Sign-off is recorded in the <em>Reviewed by</em>, <em>Review date</em>, and <em>Reviewer conclusion</em> fields on the Run Info sheet, or in your team's usual review record. The companion demo includes a one-page <a href="https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo/blob/main/OPERATOR_GUIDE.md">operator guide</a> with the same checks from the operator's side, including when to stop and escalate.</p>
 <p>A green check means the configured checks passed. It does not mean the accounting conclusions are correct.</p>
 <hr />
 <h2 id="9-execution-environment-and-packaging">9. Execution Environment and Packaging</h2>
@@ -3016,7 +3016,7 @@
 <p>A successful handoff needs both a tested process and an operator who knows how to use and validate it.</p>
 <hr />
 <h2 id="13-running-the-demo">13. Running the Demo</h2>
-<p>The companion demo is not yet published. Once it is, download or clone it, then run from inside it:</p>
+<p>The companion demo is in its own repository: <a href="https://github.com/PythonMuse/pythonmuse-ar-operator-handoff-demo">pythonmuse-ar-operator-handoff-demo</a>. Download or clone it, then run from inside it:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Windows:  .venv\Scripts\activate</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># macOS/Linux:  source .venv/bin/activate</span>
