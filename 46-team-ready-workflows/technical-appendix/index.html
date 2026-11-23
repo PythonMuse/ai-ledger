@@ -1,0 +1,3112 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical Python, AI, and automation for accounting and finance teams.">
+      
+      
+        <meta name="author" content="Svetlana Toohey">
+      
+      
+        <link rel="canonical" href="https://pythonmuse.com/46-team-ready-workflows/technical-appendix/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../17-skills-and-agents-for-accountants/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>46 Technical Appendix - PythonMuse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#team-ready-workflows-the-technical-appendix" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PythonMuse" class="md-header__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PythonMuse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              46 Technical Appendix
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-ai-will-not-replace-your-job/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-ai-copilot-for-accounting/" class="md-tabs__link">
+          
+  
+  
+  Working with AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-ai-governance-in-accounting/" class="md-tabs__link">
+          
+  
+  
+  Governance & Controls
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../05-reproducible-accounting/" class="md-tabs__link">
+          
+  
+  
+  Workflows & Safety
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../17-skills-and-agents-for-accountants/" class="md-tabs__link">
+          
+  
+  
+  Skills & Automation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PythonMuse" class="md-nav__button md-logo" aria-label="PythonMuse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PythonMuse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PythonMuse/ai-ledger" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ai-ledger
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-ai-will-not-replace-your-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Will Not Replace Your Job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00.5-where-to-start-with-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where to Start with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21-three-mindsets-of-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The 3 Mindsets of AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-ai-copilot-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your AI Co-Pilot for Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-ways-to-use-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ways to Use Claude
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-getting-the-right-tools-installed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting the Right Tools Installed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-why-claude-forgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Claude Forgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../26-when-your-ai-enters-month-end-close-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Your AI Enters Month-End Close Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-how-accountants-learn-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Accountants Learn AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-ai-team-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stop Using One AI Like It Is Excel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-ai-and-excel-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI and Excel Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16-pdf-token-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PDF Token Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../24-excel-number-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Number Format Trap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance & Controls
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Governance & Controls
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-ai-governance-in-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in Accounting Is Not the Wild West
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-ai-governance-in-accounting/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-ai-governance-for-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Governance for Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-audit-ready-ai-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit-Ready AI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-zero-trust-ai-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../36-model-selection-is-a-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Selection Is an Accounting Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../37-when-the-invoice-gives-orders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When the Invoice Starts Giving Orders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../38-ai-workflow-customer-contract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Did Anyone Read the Customer Contract?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../39-buy-platform-own-accounting-logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buy the Platform. Own the Accounting Logic.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-builder-to-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Happens If You Win the Lottery?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../41-bring-the-model-in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If the Data Can't Leave, Bring the Model In
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../41-bring-the-model-in/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    41 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-version-control-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20a-final-v2-xlsx-disaster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20a. The FINAL_v2.xlsx Disaster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20b-git-in-accounting-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20b. Git Explained Using Accounting Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20c-finance-repo-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20c. How Finance Teams Should Structure AI Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20d-github-vs-shared-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20d. GitHub vs. The Shared Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20e-pull-requests-are-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20e. Pull Requests Are Internal Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20f-reproducible-financial-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20f. Reproducible Financial Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Safety
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows & Safety
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-reproducible-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducible Accounting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-safe-ai-data-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safe AI Data Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-ai-use-cases-and-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Use Cases and Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-one-time-to-repeatable-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Time to Repeatable Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22-workings-layer-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Workings Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../23-schema-driven-sanitization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema-Driven Sanitization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../42-ai-helped-me-build-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Helped Me Build It. AI Does Not Have to Run It.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../42-ai-helped-me-build-it/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    42 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../43-does-this-decision-need-an-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Does This Decision Actually Need a Large Language Model?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../44-ai-research-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Let AI Do the Research. You Set the Boundaries.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../44-ai-research-boundaries/technical-appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    44 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I Built the Workflow. Now How Does My Team Use It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    46 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    46 Technical Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-who-this-is-for-and-what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Who This Is For and What You Need
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-architecture-in-one-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Architecture in One Picture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-choosing-the-operator-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Choosing the Operator Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-input-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Input Contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-rules-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Rules and Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-calculation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. The Calculation Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-output-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Output and Evidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-review-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Review Gates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-execution-environment-and-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Execution Environment and Packaging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-access-maintenance-and-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Access, Maintenance, and Rollback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-where-ai-fits-and-where-it-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Where AI Fits (and Where It Doesn't)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-test-the-handoff-not-just-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Test the Handoff, Not Just the Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-running-the-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Running the Demo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Automation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills & Automation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17-skills-and-agents-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills and Agents for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17b-your-first-claude-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18-ai-runs-before-you-log-in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI That Runs Before You Log In
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19-multi-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Orchestration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../34-model-context-protocol-for-accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Reports to Requests (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-what-the-heck-is-a-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What the Heck Is a Script?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-vscode-extensions-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VS Code Extensions for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../28-python-libraries-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30-ai-routines-for-accountants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Routines for Accountants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../31-metadata-is-the-label-maker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Is the Label Maker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../32-from-ai-answers-to-audit-trails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From AI Answers to Audit Trails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../33-copilot-only-approved-ai-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When Copilot Is the Only Approved AI Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../35-onboard-ai-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Don't Just Prompt AI. ONBOARD It.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-who-this-is-for-and-what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Who This Is For and What You Need
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-architecture-in-one-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Architecture in One Picture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-choosing-the-operator-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Choosing the Operator Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-input-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Input Contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-rules-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Rules and Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-calculation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. The Calculation Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-output-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Output and Evidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-review-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Review Gates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-execution-environment-and-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Execution Environment and Packaging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-access-maintenance-and-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Access, Maintenance, and Rollback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-where-ai-fits-and-where-it-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Where AI Fits (and Where It Doesn't)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-test-the-handoff-not-just-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Test the Handoff, Not Just the Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-running-the-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Running the Demo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="team-ready-workflows-the-technical-appendix">Team-Ready Workflows: The Technical Appendix</h1>
+<p><em>The technical appendix for <em>I Built the Workflow. Now How Does My Team Use It?</em>: the architecture, the three kinds of front door, the input contract, evidence and review, packaging, maintenance, and a handoff test</em></p>
+<hr />
+<p><strong>PythonMuse LLC</strong>
+<em>Published November 2026</em></p>
+<hr />
+<p>This page is for readers who want to build an operator-friendly front door for a workflow of their own, or review one someone else built. <a href="../">The article</a> stands on its own; nothing here changes its argument. Think of this as the workpapers behind the memo.</p>
+<blockquote>
+<p><strong>Part of a PythonMuse Lab.</strong> <a href="../">The article</a> is the <em>Understand</em> layer. This appendix is <em>Implement</em>. A companion demo is coming as the <em>Experiment</em>: a small, tested AR aging review with synthetic data, two front doors, and one calculation script. The sections below describe that demo; the screenshots and figures come from it.</p>
+<p><strong>A note on tools:</strong> Even as a builder, you don't need to memorize anything on this page. It's here so you understand what a good handoff contains and can recognize one when you see it. When you build with an AI co-pilot, you don't have to pick the interface toolkit or design the architecture yourself. Describe the finished product in detail, and who will use it, and let the co-pilot propose how to get there. Be especially clear that the people running it won't have an AI harness (the workspace, such as Visual Studio Code, where a builder works with AI, files, and scripts) installed, and may not have a license for an AI model at all. For example:</p>
+<p><em>"Build a simple front door for this tested AR aging workflow. The people running it are AR specialists who don't have Visual Studio Code or any AI tool installed and don't have a license for an AI model. They should pick the as-of date and the export file, see plain-English checks, and only be able to run when nothing is red. The output is an Excel workpaper with the aging, the exceptions, the reconciliation, and a record of which file and rules produced it. Don't change the calculation scripts. Before you build anything, explain your recommended approach and what IT would need to install."</em></p>
+<p>Then use the sections below to review what it proposes. And once the front door works, ask your co-pilot for one more thing: a short email to IT listing the minimum software the operators' machines need to run it (for example, the Python version and the packages it relies on), where the files should live, and who needs access. You review it, correct anything that doesn't match your environment, and send it yourself. IT gets a clear request instead of a mystery, and you get a record of what was approved.</p>
+</blockquote>
+<p>A few terms used throughout:</p>
+<ul>
+<li><strong>Builder:</strong> the person who wrote and tested the workflow, often with an AI co-pilot.</li>
+<li><strong>Operator:</strong> the person who runs it each period and checks the result.</li>
+<li><strong>Reviewer:</strong> the person, independent of the operator, who judges the accounting and signs off.</li>
+<li><strong>Maintainer:</strong> the person who changes the code or the rules, tests the change, and releases it.</li>
+<li><strong>Front door:</strong> the interface the operator uses (a guided terminal window, a desktop window, or a web page).</li>
+<li><strong>Deterministic:</strong> given the same input and rules, the code produces the same output every time. No AI model is involved in the run.</li>
+</ul>
+<hr />
+<h2 id="1-who-this-is-for-and-what-you-need">1. Who This Is For and What You Need</h2>
+<p><strong>Who:</strong> builders handing a workflow to colleagues, IT partners asked to support one, and reviewers deciding whether to rely on its output.</p>
+<p><strong>What you need to follow along:</strong> a working, tested script (or the companion demo once it is published), Python 3.10 or later, and permission from IT to install it where operators can reach it.</p>
+<p><strong>Demo-only versus production:</strong> the demo shows the <em>shape</em> of a controlled handoff with synthetic data on one machine. It does not supply access control, hosting, change management, backup, or software distribution. Those belong to your organization, and each section below says which ones it leaves to you.</p>
+<hr />
+<h2 id="2-the-architecture-in-one-picture">2. The Architecture in One Picture</h2>
+<p align="center"><img src="./visuals/46_architecture.png" alt="Front door, checks, calculation, and workpaper in a row. Below them, the operator feeds the front door, a rules file of buckets, thresholds, and tolerance feeds the checks and the calculation script, and the workpaper goes to a reviewer who signs off" width="430"></p>
+
+<p>The flow is: <strong>front door → checks → calculation → workpaper → review</strong>, with the accounting rules in a separate <strong>rules file</strong> that the checks and the calculation script read.</p>
+<ul>
+<li><strong>Front door:</strong> collects only approved inputs (as-of date, file, control balance, the operator's name). It contains no accounting logic.</li>
+<li><strong>Checks (validation):</strong> decide whether the file may be run at all.</li>
+<li><strong>Calculation script:</strong> performs the calculation. This is what the article calls "the tested scripts," and it is deterministic. It knows nothing about windows or buttons.</li>
+<li><strong>Workpaper:</strong> the output, with the evidence of what produced it.</li>
+<li><strong>Review:</strong> a person, independent of the operator.</li>
+</ul>
+<p>The point of the separation is that each part can change without breaking the others. When the controller changes the 90-day threshold, the maintainer edits one line in the rules file; nobody redesigns the window. When the team wants a desktop window instead of a terminal, nobody touches the calculation. In the demo, both front doors call the same two functions ("check" and "run"), and an automated test fails if either front door tries to reach the calculation directly, so the two can never disagree about the accounting.</p>
+<hr />
+<h2 id="3-choosing-the-operator-interface">3. Choosing the Operator Interface</h2>
+<p align="center"><img src="./visuals/46_three_front_doors.png" alt="Three kinds of front door: guided terminal, desktop window, internal web page, with what each is good for and what each needs" width="430"></p>
+
+<p>Choose for the <strong>operator</strong>, not the builder. An interface is not a control and not a security boundary: it makes the right path easy, but anyone with access to the folder can still open the files.</p>
+<table>
+<thead>
+<tr>
+<th>If the operator would be best served by...</th>
+<th>...it looks like this</th>
+<th>...and it needs this from IT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A <strong>guided terminal launcher</strong></td>
+<td>A text window that asks for the date, the file, and the control balance, shows the checks, and asks "Run? (y/n)"</td>
+<td>Python installed (or a packaged executable) on the operator's machine</td>
+</tr>
+<tr>
+<td>A <strong>small desktop window</strong></td>
+<td>Fields, a file picker, a Check button, a Run button that only switches on when nothing is red</td>
+<td>The same, plus the desktop toolkit; one install per machine</td>
+</tr>
+<tr>
+<td>An <strong>internal web page</strong></td>
+<td>A browser page on the company network</td>
+<td>A server, authentication, access control, monitoring, and someone who owns all of that</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tkinter for the desktop window.</strong> Tkinter is Python's interface to the Tk toolkit for building simple windows. The Python documentation describes it as an optional module; the python.org installer for macOS includes a native version of Tk, and the traditional Windows installer installs Tcl/Tk support by default. Some Linux distributions package it separately (on Debian it is <code>python3-tk</code>). Running <code>python -m tkinter</code> opens a small test window if it is installed. If it is missing, the Python documentation's advice is to check with whoever provided your copy of Python.</p>
+<p><strong>Packaging with PyInstaller.</strong> PyInstaller is an open-source tool that bundles a Python program and its dependencies into an application, so operators don't need to install Python. Its own documentation is clear that it is not a cross-compiler: to make a Windows app you run it on Windows, to make a macOS app you run it on a Mac, and so on. Code signing, and how your security software treats an unfamiliar executable, are conversations for IT before anything is distributed.</p>
+<p><strong>Streamlit for a web page.</strong> Streamlit is an open-source Python library for building browser-based apps. Its free Community Cloud hosting is a public service: an app deployed from a public GitHub repository is public by default, and one deployed from a private repository is private to the workspace's developers until someone makes it public. That makes it a fine place to share a demo with synthetic data and the wrong place for client or company financial data. An internal web front door needs internal hosting, authentication, and governance agreed with IT.</p>
+<hr />
+<h2 id="4-input-contract">4. Input Contract</h2>
+<p>The input contract is the list of conditions a file must meet before the workflow will touch it, like the checklist a reviewer runs on a client's trial balance before any analytics start. Every rule either <strong>blocks</strong> the run (stop; nothing happens until the file is fixed or replaced) or <strong>warns</strong> (the run may continue; the item is listed for the operator to read).</p>
+<table>
+<thead>
+<tr>
+<th>The demo checks that...</th>
+<th>If not, it...</th>
+<th>Because...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The file is in the approved input folder</td>
+<td>Blocks</td>
+<td>Files from someone's Downloads folder are not the approved source</td>
+</tr>
+<tr>
+<td>The file name matches the as-of date (<code>AR_Open_Items_2026-10-31.csv</code>)</td>
+<td>Blocks</td>
+<td>September's file picked for October is the most common honest mistake</td>
+</tr>
+<tr>
+<td>All required columns are present</td>
+<td>Blocks, and says "stop and escalate"</td>
+<td>A renamed column usually means the ERP export changed</td>
+</tr>
+<tr>
+<td>The file has data rows</td>
+<td>Blocks</td>
+<td>An empty export is not a clean month</td>
+</tr>
+<tr>
+<td>Every invoice ID is present and appears once</td>
+<td>Blocks</td>
+<td>Totals can't be trusted while an invoice is counted twice</td>
+</tr>
+<tr>
+<td>Amounts are plain numbers, dates are YYYY-MM-DD</td>
+<td>Blocks, listing each bad line</td>
+<td>Silent conversion is how 1,250.00 becomes 1.25</td>
+</tr>
+<tr>
+<td>No invoice is dated after the as-of date</td>
+<td>Blocks</td>
+<td>Usually the wrong period's export</td>
+</tr>
+<tr>
+<td>Every line has a due date</td>
+<td>Warns; the line is listed and not aged</td>
+<td>An undated invoice can't be aged, but the rest of the file can</td>
+</tr>
+<tr>
+<td>No line has a credit balance</td>
+<td>Warns; the line is listed</td>
+<td>Credits may be real (unapplied cash) or errors</td>
+</tr>
+<tr>
+<td>If this as-of date was already run, the file is the same one used then</td>
+<td>Blocks if it differs</td>
+<td>A changed file for a closed period needs an explanation, not a quiet re-run</td>
+</tr>
+<tr>
+<td>A control balance was entered</td>
+<td>Warns if missing</td>
+<td>Without it, the run can't reconcile</td>
+</tr>
+</tbody>
+</table>
+<p align="center"><img src="./visuals/46_demo_desktop_stop.png" alt="The demo's desktop window stopping on a file whose columns were renamed, with Run analysis greyed out" width="430"></p>
+
+<p>The synthetic sample files include these problems on purpose: a duplicate invoice ID, a schema break, last month's file, a hand-edited amount, a missing due date, and a credit. You can read the <a href="../data/AR_Open_Items_2026-10-31.csv">synthetic October input file</a> now; it opens or downloads from the link.</p>
+<hr />
+<h2 id="5-rules-and-configuration">5. Rules and Configuration</h2>
+<p>The rules live in a small, plain-text configuration file in YAML (a human-readable settings format), not in the code and not in the interface. In the demo it holds the aging buckets (Current, 1-30, 31-60, 61-90, Over 90 days past due), the exception thresholds (more than 90 days past due; a customer balance above 25,000.00), the reconciliation tolerance (0.00), the file-name pattern, and the approved input folder. All values are illustrative only, not a recommendation.</p>
+<ul>
+<li><strong>Who can change it:</strong> the maintainer, after the rules owner (typically the controller) approves.</li>
+<li><strong>How changes are recorded:</strong> every change gets a new rules version number, and that version prints on every workpaper, so a reviewer can see exactly which rules produced the result.</li>
+<li><strong>Operators never edit it.</strong> If an operator is asked to change a threshold, that's an escalation, not a task.</li>
+</ul>
+<hr />
+<h2 id="6-the-calculation-script">6. The Calculation Script</h2>
+<p>The calculation script does five things, in this order:</p>
+<ol>
+<li><strong>Ages each open item.</strong> Days past due = the as-of date minus the due date.</li>
+<li><strong>Assigns each item to a bucket</strong> (Current, 1-30, 31-60, 61-90, Over 90).</li>
+<li><strong>Totals</strong> each bucket, each customer, and the whole file.</li>
+<li><strong>Lists exceptions</strong> using the thresholds in the rules file.</li>
+<li><strong>Reconciles</strong> the aging total to the AR control balance.</li>
+</ol>
+<p>The script lists items for a person to review. It makes no collection, reserve, or write-off decisions.</p>
+<p><strong>The exact cutoff days and amounts are where rules quietly go wrong,</strong> so the demo tests each one on purpose:</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Due <em>on</em> the as-of date (0 days past due)</td>
+<td>Current</td>
+</tr>
+<tr>
+<td>Exactly 30 days past due</td>
+<td>1-30 bucket</td>
+</tr>
+<tr>
+<td>31 days past due</td>
+<td>31-60 bucket</td>
+</tr>
+<tr>
+<td>Exactly 90 days past due</td>
+<td>61-90 bucket, <strong>not</strong> an exception</td>
+</tr>
+<tr>
+<td>91 days past due</td>
+<td>Over 90 bucket, an exception</td>
+</tr>
+<tr>
+<td>Customer balance of exactly 25,000.00</td>
+<td>Not flagged</td>
+</tr>
+<tr>
+<td>Customer balance of 25,000.01</td>
+<td>Flagged</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Known answers.</strong> For the October sample file, the expected results were calculated by hand, line by line, <em>before</em> any test was written. The tests check the code against those numbers, not against whatever the code happened to produce.</p>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Expected total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current</td>
+<td>27,750.00</td>
+</tr>
+<tr>
+<td>1-30 days</td>
+<td>14,000.00</td>
+</tr>
+<tr>
+<td>31-60 days</td>
+<td>7,350.50</td>
+</tr>
+<tr>
+<td>61-90 days</td>
+<td>6,575.25</td>
+</tr>
+<tr>
+<td>Over 90 days</td>
+<td>4,175.00</td>
+</tr>
+<tr>
+<td>No due date</td>
+<td>640.00</td>
+</tr>
+<tr>
+<td><strong>File total</strong></td>
+<td><strong>60,490.75</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The file has 15 lines, 7 customers, and 6 exceptions.</p>
+<hr />
+<h2 id="7-output-and-evidence">7. Output and Evidence</h2>
+<p>Each run writes an Excel workpaper with seven sheets:</p>
+<ul>
+<li><strong>Summary:</strong> run status, bucket totals, counts, and the reminder that a green check is not a sign-off.</li>
+<li><strong>Exceptions:</strong> each item, with blank <em>Disposition</em> and <em>Reviewer notes</em> columns to complete.</li>
+<li><strong>Reconciliation:</strong> aging total, control balance, difference, tolerance, result.</li>
+<li><strong>Validation:</strong> every check and its result.</li>
+<li><strong>Detail:</strong> every line with its days past due and bucket, for spot-checking unflagged items.</li>
+<li><strong>By Customer:</strong> aging by customer.</li>
+<li><strong>Run Info:</strong> run ID, timestamp, as-of date, operator, input file name and fingerprint, rules version and fingerprint, code version, status, and blank sign-off fields. (A fingerprint is a short code calculated from a file's exact contents; change one character and the code changes. It proves which file was used without revealing what's in it.)</li>
+</ul>
+<p><strong>No silent overwrites.</strong> Each run gets a new numbered file (<code>run01</code>, <code>run02</code>), and an existing workpaper is never replaced. Every completed run, including ones that don't reconcile, adds a line to an append-only run log, which serves as the output manifest. The log stores the input file's fingerprint, not the data itself.</p>
+<p><strong>Status is explicit.</strong> A run ends as <em>checks passed, ready for review</em>; <em>reconciliation difference, stop and escalate</em>; or <em>no control total, reconcile before review</em>. A blocked file produces nothing at all.</p>
+<p><strong>Tip: write the Excel formatting rules down once, as a reusable skill.</strong> When you design the workpaper, ask your co-pilot to help you create a <a href="../../15-ai-and-excel-files/#what-is-a-skill-for-excel">skill</a> (a saved set of written instructions the co-pilot follows every time) that defines how every Excel output should look, so each workpaper from every workflow looks and behaves the same. Useful things to put in it:</p>
+<ul>
+<li><strong>Headers:</strong> font, fill color, bold, frozen header row, and column widths that fit the content.</li>
+<li><strong>Amounts:</strong> thousands separator, two decimals, no dollar sign, and a consistent way to show negatives. Decide once, and the whole team reads every workpaper the same way.</li>
+<li><strong>Calculated cells as Excel formulas, not pasted values.</strong> Totals, subtotals, differences, and anything else that is a calculation should be exported as a live formula, such as <code>=SUM(...)</code>. A column of pasted numbers looks the same but can't be traced; a reviewer can click a formula and see exactly which cells it adds up. I learned this the hard way: with pasted totals, the reviewer has to re-add every column by hand to prove it ties.</li>
+<li><strong>Plain numbers and dates:</strong> store amounts as numbers and dates as dates, never as text, so sorting, filtering, and formulas work.</li>
+</ul>
+<p>Keep one rule in mind: formulas help the reviewer see how a figure was built, but the control total still comes from outside the workpaper, so the reconciliation still ties to the general ledger and not just to itself.</p>
+<hr />
+<h2 id="8-review-gates">8. Review Gates</h2>
+<p>The reviewer, who should be independent of the operator, looks at:</p>
+<ol>
+<li><strong>The reconciliation.</strong> The aging total equals the general ledger AR balance, within the stated tolerance.</li>
+<li><strong>Completeness.</strong> The line and customer counts are plausible for the period.</li>
+<li><strong>Every exception and its disposition.</strong> Credits, missing due dates, items over the threshold, customers over the review limit.</li>
+<li><strong>A sample of unflagged items.</strong> The exceptions list only shows what the rules were told to find. Pick a few lines from different buckets on the Detail sheet and trace them to the source. In the demo, INV-10007 sits at exactly 90 days, one day short of the flag, and is a good test of whether anyone looks beyond the list.</li>
+<li><strong>The run information.</strong> The right as-of date, the expected rules version, and a fingerprint that matches the approved export.</li>
+</ol>
+<p>Sign-off is recorded in the <em>Reviewed by</em>, <em>Review date</em>, and <em>Reviewer conclusion</em> fields on the Run Info sheet, or in your team's usual review record. The companion demo will include a one-page operator guide with the same checks from the operator's side, including when to stop and escalate.</p>
+<p>A green check means the configured checks passed. It does not mean the accounting conclusions are correct.</p>
+<hr />
+<h2 id="9-execution-environment-and-packaging">9. Execution Environment and Packaging</h2>
+<ul>
+<li><strong>Pinned dependencies.</strong> The demo pins exact versions of its two libraries (openpyxl, which writes the Excel workpaper, and PyYAML, which reads the rules file), so the same code behaves the same way next year.</li>
+<li><strong>Approved paths.</strong> The code checks that the input is inside the approved folder, but real protection comes from folder permissions set by IT.</li>
+<li><strong>No arbitrary commands.</strong> The front doors run one approved workflow. They do not accept free-form commands.</li>
+<li><strong>No network and no AI calls at runtime.</strong> The workflow never sends accounting data anywhere. A workflow that doesn't need AI to run has no reason to send production data to a language model just because AI helped write the code.</li>
+<li><strong>Packaging.</strong> If operators shouldn't install Python, a packaged executable (see <a href="#3-choosing-the-operator-interface">Choosing the Operator Interface</a>) is built on each target operating system and distributed through IT's normal process.</li>
+</ul>
+<hr />
+<h2 id="10-access-maintenance-and-rollback">10. Access, Maintenance, and Rollback</h2>
+<ul>
+<li><strong>Owner:</strong> a named role owns the code, the tests, and the rules file.</li>
+<li><strong>Updates:</strong> a new version is tested (including the known-answer tests), tagged, and released; the code version prints on every workpaper.</li>
+<li><strong>Rollback:</strong> reinstall the previous tagged version. Because each workpaper records the code and rules versions, you can tell which runs used which release.</li>
+<li><strong>A run that fails mid-way</strong> writes nothing. A run that used the wrong file or rules is never edited after the fact: mark it superseded in the review record, fix the cause, and re-run.</li>
+<li><strong>Corrected exports:</strong> re-running a period that already has a run, with a corrected file, is a maintainer action that records the reason on the workpaper and in the run log. The demo's desktop window deliberately doesn't offer it; operators escalate, maintainers act.</li>
+</ul>
+<hr />
+<h2 id="11-where-ai-fits-and-where-it-doesnt">11. Where AI Fits (and Where It Doesn't)</h2>
+<p>An AI co-pilot helped design, build, and test every part of this: the validation rules, the calculation script, the workpaper, both front doors, the sample data, and the tests. It can keep helping with maintenance: explaining a failing test, drafting a rules change for review, or adding a new check when the export changes.</p>
+<p>At runtime, no model is needed. The aging is arithmetic and the checks are rules, so deterministic code is cheaper, faster, repeatable, and easier to review. If a future version did add a model at runtime (for example, to draft a summary of the exceptions for the reviewer), the design question would be the one from <a href="../../42-ai-helped-me-build-it/">AI Helped Me Build It. AI Does Not Have to Run It.</a>: what is the risk, what is the control, and where does a person check the output before anyone relies on it?</p>
+<hr />
+<h2 id="12-test-the-handoff-not-just-the-code">12. Test the Handoff, Not Just the Code</h2>
+<p>Automated tests establish whether the calculations match the expected answers. An <strong>operator acceptance test</strong> establishes something different: whether a trained colleague can actually use the workflow and validate the result. It builds on the Unavailable Tomorrow Test in <a href="../../40-builder-to-production/">You Built an AI Workflow. What Happens If You Win the Lottery?</a>, which asks whether someone else <em>could</em> run it; this one watches them do it.</p>
+<ol>
+<li><strong>Choose a tester</strong> who knows the accounting but has never seen the code.</li>
+<li><strong>Give them</strong> the front door, the one-page operator guide, the control balance, and a set of sample files: one good file and at least three broken ones (a renamed column, a duplicate invoice, last month's file).</li>
+<li><strong>Say nothing.</strong> Watch, and take notes on where they hesitate.</li>
+<li><strong>Check that they:</strong> select the right period; recognize each broken file and stop; complete a good run; find the workpaper; tie the total to the control balance; disposition each exception; spot-check unflagged items; and know whom to escalate to.</li>
+<li><strong>Fix the front door or the guide, not the tester.</strong> Every hesitation is a finding about the handoff.</li>
+</ol>
+<p>A successful handoff needs both a tested process and an operator who knows how to use and validate it.</p>
+<hr />
+<h2 id="13-running-the-demo">13. Running the Demo</h2>
+<p>The companion demo is not yet published. Once it is, download or clone it, then run from inside it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Windows:  .venv\Scripts\activate</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># macOS/Linux:  source .venv/bin/activate</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w">          </span><span class="c1"># the automated tests</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>python<span class="w"> </span>run_desktop.py<span class="w">     </span><span class="c1"># the desktop window</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>python<span class="w"> </span>run_terminal.py<span class="w">    </span><span class="c1"># the guided terminal launcher</span>
+</code></pre></div>
+<p>Use as-of date <code>2026-10-31</code>, the file <code>sample_data/AR_Open_Items_2026-10-31.csv</code>, and control balance <code>60490.75</code>. Expected result: <em>CHECKS PASSED - READY FOR REVIEW</em>, an aging total of 60,490.75 with a difference of 0.00, 15 lines, 7 customers, and 6 exceptions to review. Then try a file from <code>sample_data/bad_schema/</code>: the run stops, explains why, and writes nothing.</p>
+<hr />
+<h2 id="sources">Sources</h2>
+<p>Every link below was checked in November 2026. Product features and release stages change quickly, so re-check them before you rely on any of them.</p>
+<ul>
+<li>Python Software Foundation: <a href="https://docs.python.org/3/library/tkinter.html">tkinter, Python interface to Tcl/Tk</a>: an optional module; if missing, consult whoever distributed your Python; <code>python -m tkinter</code> as a test</li>
+<li>Python Software Foundation: <a href="https://docs.python.org/3/using/mac.html">Using Python on macOS</a>: "A macOS-native version of Tk is included with the installer"</li>
+<li>Python Software Foundation: <a href="https://docs.python.org/3/using/windows.html">Using Python on Windows</a>: the traditional installer's <code>Include_tcltk</code> option ("Install Tcl/Tk support and IDLE") defaults to on; that installer is deprecated from Python 3.14 in favor of the Python install manager</li>
+<li>Debian: <a href="https://packages.debian.org/stable/python3-tk">python3-tk package</a>: Tkinter packaged separately on a major Linux distribution</li>
+<li>PyInstaller: <a href="https://pyinstaller.org/en/stable/">PyInstaller manual</a>: "it is not a cross-compiler; to make a Windows app you run PyInstaller on Windows"; and <a href="https://pyinstaller.org/en/stable/usage.html">Using PyInstaller</a>: bundle separately on each platform; macOS signing options</li>
+<li>Streamlit: <a href="https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app">Share your app (Community Cloud)</a>: apps from public repositories are public by default; apps from private repositories are private to the workspace's developers</li>
+<li>Anthropic: <a href="https://code.claude.com/docs/en/vs-code">Use Claude Code in VS Code</a>: the extension installs from the Visual Studio Code Extensions view and works with a paid Claude plan or a Claude Console account</li>
+<li>OpenAI: <a href="https://learn.chatgpt.com/docs/codex/ide">Codex IDE extension</a>: the Codex extension for Visual Studio Code and compatible editors</li>
+<li>Microsoft: <a href="https://code.visualstudio.com/docs/copilot/overview">GitHub Copilot in VS Code</a> and <a href="https://code.visualstudio.com/docs/copilot/agents/overview">agents overview</a>: agents that find code, make changes, and run checks</li>
+<li>Google Cloud: <a href="https://docs.cloud.google.com/gemini/docs/codeassist/agent-mode">Gemini Code Assist agent mode</a>: available in VS Code and IntelliJ; labeled Preview</li>
+<li>Python Software Foundation: <a href="https://docs.python.org/3/library/hashlib.html">hashlib</a>: the SHA-256 fingerprint used for input and rules files</li>
+</ul>
+<hr />
+<p><em>Back to the article: <a href="../">I Built the Workflow. Now How Does My Team Use It?</a></em></p>
+<p><em>Related: <a href="../../40-builder-to-production/">You Built an AI Workflow. What Happens If You Win the Lottery?</a> | <a href="../../42-ai-helped-me-build-it/">AI Helped Me Build It. AI Does Not Have to Run It.</a> | <a href="../../32-from-ai-answers-to-audit-trails/">From AI Answers to Audit Trails</a> | <a href="../../12-audit-ready-ai-workflows/">When to Trust AI to Run Your Accounting Workflows</a></em></p>
+<p><em>© 2026 PythonMuse LLC. Content licensed under <a href="../../LICENSE">CC BY-NC-SA 4.0</a>; code licensed under <a href="../../LICENSE-CODE">MIT</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
