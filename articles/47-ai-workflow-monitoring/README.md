@@ -13,11 +13,15 @@
 
 Imagine your team has built an AI-assisted bank reconciliation. It imports the bank activity, compares it with the general ledger, flags what doesn't match, and prepares the reconciliation for review. It finishes, and a message appears: **"Completed successfully."**
 
-Lovely. But what does it mean? Did it process every transaction? Did it use the right matching rule? Did it hit an error and quietly retry? And if your auditor asked what happened during that run, what would you hand them? "Completed successfully" is the workflow's opinion of itself.
+Lovely. But what does it mean? Did it process every transaction? Did it use the right matching rule? Did it hit an error and quietly retry? And if your auditor asked what happened when it ran last Tuesday, what would you hand them? "Completed successfully" is the workflow's opinion of itself.
 
 This Lab is about getting from that opinion to evidence. By the end, you'll be able to explain logs, metrics, and traces in accounting terms, say why Git records the version but not the run, sort a workflow's evidence into three layers, and turn a pile of telemetry into an actual monitoring control. The takeaway: **a successful run is a claim, not evidence. Monitoring is how someone checks the claim.**
 
 > **This is a PythonMuse Lab.** Understand → Implement → Experiment. This article is the *Understand* layer and stands on its own. If you want to build it, [the technical appendix](./technical-appendix.md) is the *Implement* layer: a fictional bank reconciliation that writes its own activity log, run metrics, and an OpenTelemetry trace, plus five experiments to try. There's no separate companion demo this time; the code is small enough to run straight from the appendix.
+
+> **Three words, used carefully in this article.** A **use case** is the job you want done: "reconcile the operating bank account each month" (see [AI Use Cases and How to Structure Them](../10-ai-use-cases-and-structure/README.md)). A **workflow** is the repeatable process built to do that job: the defined steps, rules, and instructions, which can be versioned like any other procedure (see [From One-Time Analysis to Repeatable Workflows](../11-one-time-to-repeatable-workflows/README.md)). A **run** is one execution of that workflow: Tuesday's reconciliation, with Tuesday's files, producing Tuesday's results. In accounting terms: the use case is the objective, the workflow is the written procedure, and the run is this month's completed reconciliation. Approving a workflow once does not tell you how any individual run went, and that gap is what this article is about.
+
+> **New to Git?** We mention it early because it's half of the story. Git is the version-control tool that keeps a dated history of every change to your files, a bit like tracked changes for scripts and instructions. You don't need it to follow this article; a short explanation arrives later, and [Git Explained Using Accounting Terms](../20b-git-in-accounting-terms/README.md) is the friendly primer if you want it first.
 
 ---
 
@@ -35,9 +39,20 @@ Three technical words come up in any conversation about monitoring AI, and each 
 
 A **log** records an event: the workflow started at 9:00, imported 500 transactions, hit an error, retried, and finished at 9:03. Think of the activity history in your ERP.
 
-A **metric** measures something: 500 transactions processed, 18 exceptions, three retries. One run's metric is a number. A hundred runs' metrics are a trend, which is where accountants start paying attention, the same way we do with KPIs and exception rates.
+A **metric** measures something: 500 transactions processed, 18 exceptions, three retries. Divide the exceptions by the transactions and you get an exception rate, 18 out of 500, or 3.6%. One run's rate is just a number. A hundred runs' rates are a trend, and a trend is something you can set an expectation for. If the rate usually sits around 3% and jumps to 9% after someone changes a matching rule, that's the moment to look. It's the same way we already use KPIs and exception rates.
 
-A **trace** connects the steps inside one run: the agent opened a file, called a model, used a matching tool, got an error from that tool, and produced an output. It's the transaction walk-through, from source document to final disposition.
+A **trace** connects the steps inside one run, in order, with how long each took. It's the transaction walk-through, from source document to final conclusion. Here's what one made-up morning's bank reconciliation might look like as a trace:
+
+```text
+Run 7f3a: bank reconciliation                      total 3m 04s
+  1. Load bank file (500 transactions)             2 s
+  2. Load general ledger activity                  3 s
+  3. Call matching tool                            41 s   <- first attempt failed, retried
+  4. AI drafts explanations for 18 exceptions      2m 10s
+  5. Prepare review package                        8 s
+```
+
+This run would end with "Completed successfully." Only the trace shows that step 3 stumbled and step 4 took most of the time. If tomorrow's run takes 20 minutes, you know where to start looking. The same trace can also show *which* steps happened at all. If step 2 is missing, the reconciliation ran without the ledger, and that deserves a phone call.
 
 *Telemetry* is the umbrella term for all of it: the information a system sends out about how it's operating.
 
@@ -52,6 +67,8 @@ One point matters more than the vocabulary. **Recording activity isn't the same 
 ## "But Doesn't Git Already Give Us an Audit Trail?"
 
 If you build workflows in Visual Studio Code, you may already use Git, the version-control tool that records every change to your files. Git is great. It answers a different question: what changed in the files, such as a matching rule, the agent's instructions, or the Python script. It doesn't tell you what happened when the workflow ran.
+
+> **Not using Visual Studio Code?** The idea doesn't depend on it. Our own examples use the Claude extension inside Visual Studio Code, but that's one setup among many. Other AI co-pilots offer the same kind of help in Visual Studio Code: the OpenAI Codex extension, GitHub Copilot's agents (often the natural route in Microsoft-standardized organizations), and Gemini Code Assist's agent mode from Google. Several of these tools, Claude Code included, can also run directly from a terminal with no code editor at all, and you can use a different editor entirely. Git works the same way in every case. PythonMuse teaches a framework you can apply anywhere. Product names and features change quickly, so check your own tool's documentation.
 
 Say someone changes the bank reconciliation rule from "amounts within one dollar count as matched" to "exact match only." Git records that change neatly. Then the next run produces 45 unmatched items instead of the usual 12. Git won't notice. You need execution records to spot the jump, and then the Git history to explain it.
 
@@ -73,7 +90,7 @@ Technical observability tells you how the process executed. Accounting controls 
 
 > **Go deeper: native AI observability.** What the Claude Platform traces capture, how Claude Code's own telemetry works, and a safe way to try it locally with fictional data are in [the technical appendix](./technical-appendix.md#6-what-happens-when-an-ai-agent-is-involved).
 
-> **Framework reminder:** Our own examples use the Claude extension directly in Visual Studio Code, and in the appendix we turn on Claude Code's own OpenTelemetry output from the terminal. The other major ecosystems have equivalents. OpenAI's Agents SDK records traces of model calls, tool calls, and handoffs by default. Microsoft Foundry stores agent traces in Azure Monitor Application Insights, and Copilot Studio agents can send their telemetry there too. Google's Gemini Enterprise Agent Platform, the successor to Vertex AI, can export agent traces to Cloud Trace. PythonMuse teaches a framework you can use in any tool: whichever platform records the run, a person still decides what counts as an exception and reviews it. Product names and features change quickly, so check your own tool's documentation.
+> **Other platforms offer this too.** Claude is our example, but tracing isn't unique to it. OpenAI's Agents SDK records traces of model calls, tool calls, and handoffs by default. Microsoft Foundry stores agent traces in Azure Monitor Application Insights, and Copilot Studio agents can send their telemetry there too. Google's Gemini Enterprise Agent Platform, the successor to Vertex AI, can export agent traces to Cloud Trace. Whichever platform records the run, a person still decides what counts as an exception and reviews it. Features and names change quickly, so check your own platform's documentation.
 
 ---
 

@@ -287,7 +287,7 @@ By hand: six transactions, five within 1.00, one (TX003) outside it. Exception r
 
 ### Reading the activity log
 
-Open `logs/activity.jsonl`. JSONL means JSON Lines: one structured record per line, each readable on its own. From that run:
+Open `logs/activity.jsonl`. JSON (JavaScript Object Notation) is a plain-text way of writing a record as labeled fields, such as `"transaction_id": "TX003"`, so that people and programs can both read it. Think of a row in a spreadsheet where every value carries its own column heading. JSONL means JSON Lines: one such record per line, each readable on its own. From that run:
 
 ```json
 {"timestamp": "2026-11-23T17:40:09+00:00", "run_id": "c6a1167ae84647de9d5b92b35b11033c", "event": "workflow_started", "workflow": "bank_reconciliation", "expected_count": 6, "match_tolerance": "1.00", "version": "unverified"}
